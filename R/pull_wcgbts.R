@@ -1,6 +1,6 @@
 #' Wrapper function to pull all species catch and biological data from the NWFSC data wharehouse.
-#' 
-#' 
+#'
+#'
 #' @param dir Directory location to save the cleaned data frame
 #' @param species A list of species names created by the get_species_list function
 #' @param survey A character entry from one of the following options that
@@ -20,36 +20,40 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-pull_wcgbts <- function(dir = here::here("data-raw"), species, survey = 'NWFSC.Combo', load = FALSE, convert = TRUE, verbose = FALSE){
-  
-  if (load){
+pull_wcgbts <- function(
+  dir = here::here("data-raw"),
+  species,
+  survey = 'NWFSC.Combo',
+  load = FALSE,
+  convert = TRUE,
+  verbose = FALSE
+) {
+  if (load) {
     file <- list.files(dir)[grep("bio_pull all", list.files(dir))]
     load(file.path(dir, file))
     bio <- x
-    
+
     file <- list.files(dir)[grep("catch_pull all", list.files(dir))]
     load(file.path(dir, file))
     catch <- x
-    
   } else {
     catch <- nwfscSurvey::pull_catch(
-      survey = survey, 
-      dir = dir, 
+      survey = survey,
+      dir = dir,
       convert = convert,
-      verbose = verbose)
-    
+      verbose = verbose
+    )
+
     bio <- nwfscSurvey::pull_bio(
-      survey = survey, 
-      dir = dir, 
+      survey = survey,
+      dir = dir,
       convert = convert,
-      verbose = verbose)    
+      verbose = verbose
+    )
   }
-  
+
   data <- list()
   data$catch <- catch
   data$bio <- bio
   return(data)
-  
 }
-
-
