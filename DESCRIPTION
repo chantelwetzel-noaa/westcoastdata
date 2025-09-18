@@ -33,6 +33,7 @@ Depends:
     R (>= 4.0)
 Remotes:
     github::pfmc-assessments/nwfscSurvey,
+    github::nmfs-ost/nmfspalette,
     github::pfmc-assessment/pacfintools
 VignetteBuilder: 
     knitr
