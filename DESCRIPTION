@@ -1,6 +1,6 @@
-Package: westcoastdatasummary
+Package: westcoastdata
 Type: Package
-Title: Summarize West Coast Fishery DAta
+Title: Summarize West Coast Fishery Data to Support Stock Assessments
 Version: 1.0
 Authors@R:
     c(person(given = c("Chantel", "R."),
@@ -40,3 +40,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+URL: https://chantelwetzel-noaa.github.io/westcoastdata/
