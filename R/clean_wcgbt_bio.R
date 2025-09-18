@@ -1,86 +1,56 @@
 #' Clean NWFSC WCGBTS biological data
-#' 
+#'
 #' @param dir Directory location to save the cleaned data frame
 #' @param species A list of species names created by the get_species_list function
 #' @param data List of catch and bio data to clean up
-#' 
+#'
 #' @author Chantel Wetzel
 #' @export
 #'
-clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data){
-  
-  # Biological data
-  bio <- data$bio
-  bio$set_tow_id <- bio$Trawl_id
-
-  bio <- bio[bio$Common_name != "southern rock sole", ]
-  
-  find <- which(bio$Common_name %in% c("tree rockfish"))
-  bio[find, "Common_name"] <- "treefish"
-  
-  find <- which(bio$Common_name %in% c("rougheye rockfish", "blackspotted rockfish"))
-  bio[find, "Common_name"] <- "rougheye and blackspotted rockfish"
-  
-  find <- which(bio$Common_name %in% c("blue / deacon rockfish", "blue rockfish", "deacon rockfish"))
-  bio[find, "Common_name"] <- "blue and deacon rockfish"
-  
-  find <- which(bio$Common_name %in% c("vermilion rockfish", "Sunset rockfish"))
-  bio[find, "Common_name"] <- "vermilion and sunset rockfish"
-  
-  find <- which(bio$Common_name %in% c("gopher rockfish"))
-  bio[find, "Common_name"] <- "gopher and black and yellow rockfish"
-  
-  # filter down to only the species considered in the prioritization process
-  keep <- which(bio$Common_name %in% unique(species[,"use_name"]))
-  bio_sub <- bio[keep, ]
-  
-  # Split the yellowtail north and south of 40.167 while retaining the coastwide data
-  yt_south <- bio_sub[
-    which(bio_sub$Common_name == "yellowtail rockfish" &
-          bio_sub$Latitude_dd < 40.167), ]
-  yt_south$Common_name <- "yellowtail rockfish south"
-  yt_north <- bio_sub[
-    which(bio_sub$Common_name == "yellowtail rockfish" &
-            bio_sub$Latitude_dd >= 40.167), ]
-  yt_north$Common_name <- "yellowtail rockfish north"
-  
-  bio_sub <- rbind(bio_sub, yt_south, yt_north)
-  
-  bio_sub$Source <- "NWFSC WCGBT"
-  
-  bio_sub$State_area <- ifelse(
-    bio_sub$Latitude_dd > 46, "WA", ifelse(
-      bio_sub$Latitude_dd > 42 & bio_sub$Latitude_dd < 46, "OR", ifelse(
-        bio_sub$Latitude_dd < 42 & bio_sub$Latitude_dd < 40.167, "NCA", ifelse(
-          bio_sub$Latitude_dd < 40.167 & bio_sub$Latitude_dd > 34.47, "CCA", "SCA"
-        )
+clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data) {
+  bio <- data$bio |>
+    dplyr::mutate(
+      Source = "NWFSC WCGBTS",
+      State_area = dplyr::case_when(
+        Latitude_dd > 46.25 ~ "WA",
+        Latitude_dd > 42.0 & Latitude_dd <= 46.25 ~ "OR",
+        Latitude_dd > 40.167 & Latitude_dd <= 42.0 ~ "NCA",
+        Latitude_dd > 34.47 & Latitude_dd <= 40.167 ~ "CCA",
+        .default = "SCA"
+      ),
+      State = dplyr::case_when(
+        Latitude_dd > 46.25 ~ "WA",
+        Latitude_dd <= 42.0 ~ "CA",
+        .default = "OR"
+      ),
+      Fleet = NA,
+      Common_name = dplyr::case_when(
+        Common_name == "tree rockish" ~ "treefish",
+        Common_name %in% c("rougheye rockfish", "blackspotted rockfish") ~
+          "rougheye and blackspotted rockfish",
+        Common_name %in%
+          c("blue / deacon rockfish", "blue rockfish", "deacon rockfish") ~
+          "blue and deacon rockfish",
+        Common_name %in% c("vermilion rockfish", "Sunset rockfish") ~
+          "vermilion and sunset rockfish",
+        Common_name == "gopher rockfish" ~
+          "gopher and black and yellow rockfish",
+        Common_name == "yellowtail rockfish" & Latitude >= 40.167 ~
+          "yellowtail rockfish north",
+        Common_name == "yellowtail rockfish" & Latitude < 40.167 ~
+          "yellowtail rockfish south",
+        .default = Common_name
+      ),
+      Sex = nwfscSurvey::codify_sex(sex),
+      Lengthed = dplyr::case_when(!is.na(Length_cm) ~ 1, .default = 0),
+      Aged = dplyr::case_when(!is.na(Age_years) ~ 1, .default = 0),
+      Otolith = dplyr::case_when(
+        !is.na(Otosag_id) & is.na(Age_year) ~ 1,
+        .default = 0
       )
-    )
-  )
-  
-  bio_sub$State <- ifelse(
-    bio_sub$Latitude_dd > 46, "Washington", ifelse(
-      bio_sub$Latitude_dd > 42 & bio_sub$Latitude_dd < 46, "Oregon", "California"
-    )
-  )
-  
-  bio_sub$Weight_kg <- bio_sub$Weight
-  bio_sub <- bio_sub[!is.na(bio_sub$Length_cm), ]
-  bio_sub$Lengthed <- 1
-  
-  bio_sub$Sex[is.na(bio_sub$Sex)] <- "U"
-  
-  bio_sub$Otolith <- 0
-  bio_sub[which(!is.na(bio_sub$Otosag_id) & is.na(bio_sub$Age)), "Otolith"] <- 1
-  
-  bio_sub$Fleet <- NA
-  
-  bio_sub$Aged <- 0
-  bio_sub$Aged[!is.na(bio_sub$Age)] <- 1
-  
-  
-  save(bio_sub, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))	
-  
-  return(bio_sub)
-}
+    ) |>
+    dplyr::filter(Common_name %in% species[, "use_name"])
 
+  save(bio, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))
+  return(bio)
+}

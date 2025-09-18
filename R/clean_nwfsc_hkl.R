@@ -1,64 +1,51 @@
 #' Function to remove all unneeded species data and to format column names as needed for the NWFS HKL data.
-#' 
+#'
 #' @param dir Directory location to save the cleaned data frame
 #' @param species A list of species names created by the get_species_list function
 #' @param data Data frame of NWFSC HKL data
-#' 
+#'
 #' @author Chantel Wetzel
 #' @export
 #'
 #'
 clean_nwfsc_hkl <- function(
-    dir = here::here("data-processed"), 
-    data, 
-    species){
-  
-    #cols <- c("common_name", "year", "site_number", "set_id", "sex", "otolith_number", "age_years",
-    #          "length_cm", "weight_kg")
-    #
-    #data <- data[,cols]
-    
-    data$set_tow_id <- data$set_id
-    
-    data <- data[which(tolower(data$common_name) %in% species[,1]), ]
-    data$common_name <- tolower(data$common_name)
-    data$Common_name <- NA
-    for (a in 1:dim(species)[1]){
-      find <- grep(species[a, "name"], data[, "common_name"])
-      data[find, "Common_name"] <- species[a, "use_name"]
-    }
-    
-    data <- data[data$Common_name != "southern rock sole", ]
-    
-    # Deal with yellowtail rockfish south
-    yt_south <- data[data$Common_name == "yellowtail rockfish", ]
-    yt_south$Common_name <- "yellowtail rockfish south"
-    data <- rbind(data, yt_south)
-    
-    data$State <- "California"
-    
-    find <- which(data$otolith_num != "" & is.na(data$age_years))
-    data$Otolith <- 0
-    data$Otolith[find] <- 1
-    
-    data$Lengthed <- 1
-    data$Length_cm <- data$length_cm
-    data$Age <- data$age_years
-    data$Aged <- 0
-    data$Aged[!is.na(data$Age)] <- 1
-    find <- which(data$Common_name == "copper rockfish" & data$year != 2023)
-    data$Aged[find] <- 1
-    data$Otolith[find] <- 0
-    data$Weight_kg <- data$weight_kg
-    
-    data$Sex <- data$sex
-    data$Source <- "NWFSC HKL"
-    
-    data$Fleet <- NA
-    
-    data$Year <- data$year
-    
-    save(data, file = file.path(dir, "nwfsc_hkl_filtered.Rdata"))		
-    return(data)
-}
+  dir = here::here("data-processed"),
+  data,
+  species
+) {
+  cleaned <- data |>
+    dplyr::rename_with(tolower) |>
+    dplyr::mutate(
+      lower_name = tolower(common_name),
+      Common_name = dplyr::case_when(
+        lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south",
+        .default = lower_name
+      ),
+      State = "California",
+      Source = "NWFSC HKL",
+      Fleet = NA,
+      Lengthed = dplyr::case_when(!is.na(length_cm) ~ 1, .default = 0),
+      Aged = dplyr::case_when(!is.na(age_years) ~ 1, .default = 0),
+      Otolith = dplyr::case_when(
+        otolith_number != "" & is.na(age_years) ~ 1,
+        .default = 0
+      )
+    ) |>
+    dplyr::rename(
+      set_tow_id = set_id,
+      Year = year,
+      Length_cm = length_cm,
+      Age = age_years,
+      Weight_kg = weight_kg,
+      Sex = sex
+    ) |>
+    dplyr::filter(Common_name %in% species[, "name"])
 
+  for (a in 1:nrow(species)) {
+    find <- grep(species[a, "name"], cleaned[, "Common_name"])
+    cleaned[find, "Common_name"] <- species[a, "use_name"]
+  }
+
+  save(cleaned, file = file.path(dir, "nwfsc_hkl_filtered.Rdata"))
+  return(cleaned)
+}
