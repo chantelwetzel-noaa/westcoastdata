@@ -4,25 +4,14 @@
 #' @export
 #'
 get_species_list <- function() {
-  #default <- getOption('warn')
-  #options(warn = -1)
-
   species <- rbind(
     c("sablefish", "sablefish"),
     c("longnose skate", "longnose skate"),
-    c("gopher rockfish", "gopher and black and yellow rockfish"),
-    c("black and yellow rockfish", "gopher and black and yellow rockfish"),
-    c("black-and-yellow rockfish", "gopher and black and yellow rockfish"),
-    c(
-      "gopher/black and yellow rockfish",
-      "gopher and black and yellow rockfish"
-    ),
     c("cabezon", "cabezon"),
     c("cowcod", "cowcod"),
     c("black rockfish", "black rockfish"),
     c("Pacific cod", "Pacific cod"),
     c("pacific cod", "Pacific cod"),
-    c("brown rockfish", "brown rockfish"),
     c("copper rockfish", "copper rockfish"),
     c("petrale sole", "petrale sole"),
     c("Dover sole", "Dover sole"),
@@ -30,10 +19,7 @@ get_species_list <- function() {
     c("big skate", "big skate"),
     c("bank rockfish", "bank rockfish"),
     c("quillback rockfish", "quillback rockfish"),
-    c("treefish", "treefish"),
-    c("tree rockfish", "treefish"),
     c("shortraker rockfish", "shortraker rockfish"),
-    c("grass rockfish", "grass rockfish"),
     c("Pacific sanddab", "Pacific sanddab"),
     c("pacific sanddab", "Pacific sanddab"),
     c("yelloweye rockfish", "yelloweye rockfish"),
@@ -51,14 +37,10 @@ get_species_list <- function() {
     c("pacific spiny dogfish", "Pacific spiny dogfish"),
     c("spiny dogfish", "Pacific spiny dogfish"),
     c("dogfish shark", "Pacific spiny dogfish"),
-    c("sand sole", "sand sole"),
-    c("olive rockfish", "olive rockfish"),
     c("shortspine thornyhead", "shortspine thornyhead"),
-    c("kelp rockfish", "kelp rockfish"),
     c("starry rockfish", "starry rockfish"),
     c("rex sole", "rex sole"),
     c("flathead sole", "flathead sole"),
-    c("starry flounder", "starry flounder"),
     c("greenstriped rockfish", "greenstriped rockfish"),
     c("English sole", "English sole"),
     c("english sole", "English sole"),
@@ -69,15 +51,11 @@ get_species_list <- function() {
       "rougheye and blackspotted rockfish",
       "rougheye and blackspotted rockfish"
     ),
-    c("flag rockfish", "flag rockfish"),
     c("China rockfish", "China rockfish"),
     c("china rockfish", "China rockfish"),
     c("chilipepper", "chilipepper"),
     c("chilipepper rockfish", "chilipepper"),
     c("bocaccio", "bocaccio"),
-    #c("rock sole", "rock sole"),
-    #c("northern rock sole", "northern rock sole"),
-    #c("southern rock sole" ,  "southern rock sole"),
     c("California scorpionfish", "California scorpionfish"),
     c("california scorpionfish", "California scorpionfish"),
     c("longspine thornyhead", "longspine thornyhead"),
@@ -98,12 +76,8 @@ get_species_list <- function() {
     c("sunset rockfish", "vermilion and sunset rockfish"),
     c("vermilion/sunset rockfish", "vermilion and sunset rockfish"),
     c("vermilion and sunset rockfish", "vermilion and sunset rockfish"),
-    c("honeycomb rockfish", "honeycomb rockfish"),
-    c("curlfin sole", "curlfin sole"),
-    c("leopard shark", "leopard shark"),
     c("redstripe rockfish", "redstripe rockfish"),
     c("rosethorn rockfish", "rosethorn rockfish"),
-    c("rosy rockfish", "rosy rockfish"),
     c("silvergray rockfish", "silvergray rockfish"),
     c("yellowmouth rockfish", "yellowmouth rockfish"),
     c("stripetail rockfish", "stripetail rockfish")
