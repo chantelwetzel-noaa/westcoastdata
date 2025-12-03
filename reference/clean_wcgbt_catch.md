@@ -1,0 +1,27 @@
+# Clean NWFSC WCGBTS survey catch file
+
+Clean NWFSC WCGBTS survey catch file
+
+## Usage
+
+``` r
+clean_wcgbt_catch(dir = here::here("data-raw"), species, data)
+```
+
+## Arguments
+
+- dir:
+
+  Directory location to save the cleaned data frame
+
+- species:
+
+  A list of species names created by the get_species_list function
+
+- data:
+
+  List of catch and bio data to clean up
+
+## Author
+
+Chantel Wetzel
