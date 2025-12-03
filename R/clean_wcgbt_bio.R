@@ -8,7 +8,7 @@
 #' @export
 #'
 clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data) {
-  bio <- data$bio |>
+  bio <- data |>
     dplyr::mutate(
       Source = "NWFSC WCGBTS",
       State_area = dplyr::case_when(
@@ -35,17 +35,17 @@ clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data) {
           "vermilion and sunset rockfish",
         Common_name == "gopher rockfish" ~
           "gopher and black and yellow rockfish",
-        Common_name == "yellowtail rockfish" & Latitude >= 40.167 ~
+        Common_name == "yellowtail rockfish" & Latitude_dd >= 40.167 ~
           "yellowtail rockfish north",
-        Common_name == "yellowtail rockfish" & Latitude < 40.167 ~
+        Common_name == "yellowtail rockfish" & Latitude_dd < 40.167 ~
           "yellowtail rockfish south",
         .default = Common_name
       ),
-      Sex = nwfscSurvey::codify_sex(sex),
+      Sex = nwfscSurvey::codify_sex(Sex),
       Lengthed = dplyr::case_when(!is.na(Length_cm) ~ 1, .default = 0),
       Aged = dplyr::case_when(!is.na(Age_years) ~ 1, .default = 0),
       Otolith = dplyr::case_when(
-        !is.na(Otosag_id) & is.na(Age_year) ~ 1,
+        !is.na(Otosag_id) & is.na(Age_years) ~ 1,
         .default = 0
       )
     ) |>
