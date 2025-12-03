@@ -32,7 +32,6 @@ get_species_list <- function() {
     c("squarespot rockfish", "squarespot rockfish"),
     c("splitnose rockfish", "splitnose rockfish"),
     c("widow rockfish", "widow rockfish"),
-    c("speckled rockfish", "speckled rockfish"),
     c("Pacific spiny dogfish", "Pacific spiny dogfish"),
     c("pacific spiny dogfish", "Pacific spiny dogfish"),
     c("spiny dogfish", "Pacific spiny dogfish"),
