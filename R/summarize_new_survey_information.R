@@ -22,6 +22,24 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
 
   wcgbt_bio <- wcgbt |>
     dplyr::filter(Common_name %in% unique(species[, "use_name"]))
+  remove <- c(
+    which(wcgbt_bio$Common_name == "black rockfish" & wcgbt_bio$State == "CA"),
+    which(
+      wcgbt_bio$Common_name == "blue and deacon rockfish" &
+        wcgbt_bio$State == "CA"
+    ),
+    which(
+      wcgbt_bio$Common_name == "cabezon" & wcgbt_bio$State %in% c("CA", "OR")
+    ),
+    which(wcgbt_bio$Common_name == "China rockfish" & wcgbt_bio$State == "CA"),
+    which(wcgbt_bio$Common_name == "copper rockfish" & wcgbt_bio$State == "CA"),
+    which(
+      wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "CA"
+    ),
+    which(wcgbt_bio$Common_name == "kelp greenling" & wcgbt_bio$State == "CA")
+  )
+  wcgbt_bio <- wcgbt_bio[-remove, ]
+
   # Subset the data prior to the most recent assessment
   wcgbt_year <- stock_year[, c("species", "year")]
   wcgbt_year[is.na(wcgbt_year$year), "year"] <- 2003
@@ -84,6 +102,18 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
     "Common_name"
   ] <- "blue and deacon rockfish"
   hkl_bio <- hkl |>
+    dplyr::filter(
+      !Common_name %in%
+        c(
+          "black rockfish",
+          "copper rockfish",
+          "cabezon",
+          "china rockfish",
+          "kelp greenling",
+          "blue and deacon rockfish",
+          "quillback rockfish"
+        )
+    ) |>
     dplyr::mutate(
       years_since_assessment = NA
     ) |>
