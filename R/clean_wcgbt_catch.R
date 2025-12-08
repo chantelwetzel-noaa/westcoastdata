@@ -7,7 +7,7 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-clean_wcgbt_catch <- function(dir = here::here("data-raw"), species, data) {
+clean_wcgbt_catch <- function(dir = here::here("data-raw", "2026"), species, data) {
   catch <- data$catch |>
     dplyr::filter(Common_name %in% species[, "name"]) |>
     dplyr::filter(
@@ -60,7 +60,7 @@ clean_wcgbt_catch <- function(dir = here::here("data-raw"), species, data) {
 
   utils::write.csv(
     catch_areas,
-    here::here("data-processed", "wcgbt_catch_areas.csv"),
+    here::here("data-processed", "2026", "wcgbt_catch_areas.csv"),
     row.names = FALSE
   )
   save(catch, file = file.path(dir, "wcgbt_catch_filtered.Rdata"))

@@ -7,7 +7,7 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data) {
+clean_wcgbt_bio <- function(dir = here::here("data-raw", "2026"), species, data) {
   bio <- data |>
     dplyr::mutate(
       Source = "NWFSC WCGBTS",

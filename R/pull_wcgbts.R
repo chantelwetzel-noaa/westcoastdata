@@ -21,7 +21,7 @@
 #' @export
 #'
 pull_wcgbts <- function(
-  dir = here::here("data-raw"),
+  dir = here::here("data-raw", "2026"),
   species,
   survey = 'NWFSC.Combo',
   load = FALSE,
