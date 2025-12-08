@@ -8,7 +8,11 @@
 #' @export
 #'
 clean_wcgbt_bio <- function(dir = here::here("data-raw", "2026"), species, data) {
-  bio <- data |>
+  bio <- data$bio |>
+    dplyr::filter(Common_name %in% species[, "name"]) |>
+    dplyr::filter(
+      !Common_name %in% c("vermilion rockfish", "blue / deacon rockfish")
+    ) |>
     dplyr::mutate(
       Source = "NWFSC WCGBTS",
       State_area = dplyr::case_when(
