@@ -55,6 +55,6 @@ clean_wcgbt_bio <- function(dir = here::here("data-raw", "2026"), species, data)
     ) |>
     dplyr::filter(Common_name %in% species[, "use_name"])
 
-  save(bio, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))
+  save(bio, file = file.path("data-processed", "2026", "wcgbt_bio_filtered.Rdata"))
   return(bio)
 }

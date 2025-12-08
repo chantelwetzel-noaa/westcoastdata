@@ -63,6 +63,6 @@ clean_wcgbt_catch <- function(dir = here::here("data-raw", "2026"), species, dat
     here::here("data-processed", "2026", "wcgbt_catch_areas.csv"),
     row.names = FALSE
   )
-  save(catch, file = file.path(dir, "wcgbt_catch_filtered.Rdata"))
+  save(catch, file = file.path("data-processed", "2026", "wcgbt_catch_filtered.Rdata"))
   return(catch)
 }

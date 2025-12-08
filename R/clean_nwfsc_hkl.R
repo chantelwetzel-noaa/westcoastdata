@@ -9,7 +9,7 @@
 #'
 #'
 clean_nwfsc_hkl <- function(
-  dir = here::here("data-processed"),
+  dir = here::here("data-raw", "2026"),
   data,
   species
 ) {
@@ -46,6 +46,6 @@ clean_nwfsc_hkl <- function(
     cleaned[find, "Common_name"] <- species[a, "use_name"]
   }
 
-  save(cleaned, file = file.path(dir, "nwfsc_hkl_filtered.Rdata"))
+  save(cleaned, file = file.path("data-processed", "2026", "nwfsc_hkl_filtered.Rdata"))
   return(cleaned)
 }

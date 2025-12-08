@@ -52,6 +52,22 @@ list(
       dir = here::here("data-raw", "2026"),
       species = species,
       data = wcgbt_data
+    )    
+  ),
+    # NWFSC HKL Survey Data
+    tar_target(
+      nwfsc_hkl,
+      read.csv(
+        here::here("data-raw", "2026", "nwfsc_hkl_DWarehouse_version_09032025.csv")
+    )
+  ),
+  # Clean NWFSC HKL data
+  tar_target(
+    nwfsc_hkl_filtered,
+    clean_nwfsc_hkl(
+      dir = here::here("data-raw", "2026"),
+      species = species,
+      data = nwfsc_hkl
     )
   )
 )
