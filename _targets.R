@@ -26,7 +26,7 @@ list(
       here::here("data-raw", "2026", "pacfin_species_codes.csv")
     )
   ),
-  tar_target(stock_year, read.csv(here::here("data-raw", "2026", "stock_year.csv"))),
+  tar_target(stock_year, read.csv(here::here("data-raw", "2026", "assess_year_ssc_rec.csv"))),
   # Survey data
   # Pull the WCGBT survey data
   tar_target(
@@ -69,6 +69,16 @@ list(
       species = species,
       data = nwfsc_hkl
     )
+#  ),
+  # Summarize the amount of new data
+#  tar_target(
+#    new_info,
+#    summarize_survey_new_information(
+#      dir = here::here("data-processed"),
+#      stock_year = stock_year,
+#      wcgbt = wcgbt_filtered,
+#      hkl = nwfsc_hkl_filtered
+#    )
   )
 )
 
