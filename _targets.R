@@ -69,16 +69,16 @@ list(
       species = species,
       data = nwfsc_hkl
     )
-#  ),
+  ),
   # Summarize the amount of new data
-#  tar_target(
-#    new_info,
-#    summarize_survey_new_information(
-#      dir = here::here("data-processed"),
-#      stock_year = stock_year,
-#      wcgbt = wcgbt_filtered,
-#      hkl = nwfsc_hkl_filtered
-#    )
+  tar_target(
+    new_info,
+    summarize_survey_new_information(
+      dir = here::here("data-processed"),
+      stock_year = stock_year,
+      wcgbt = wcgbt_filtered,
+      hkl = nwfsc_hkl_filtered
+    )
   )
 )
 
