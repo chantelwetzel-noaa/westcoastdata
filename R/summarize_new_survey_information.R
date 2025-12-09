@@ -112,7 +112,7 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
           "kelp greenling",
           "blue and deacon rockfish",
           "quillback rockfish",
-          "yellowtail rockfish" #this wasn't listed in hkl_stock_year, so I removed it, what should it be instead?
+          "yellowtail rockfish" #this wasn't listed in hkl_stock_year but it is in hkl_bio, so I removed it, what should it be instead?
         )
     ) |>
     dplyr::mutate(
@@ -133,7 +133,7 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
       )
     }
     
-    print(a)
+#    print(a)
   }
   sub_data <- sub_data |>
     dplyr::rename(
