@@ -20,7 +20,7 @@ combine_all_data <- function(
     "Source", #yes, yes
     "Common_name", #yes, yes
     "Fleet", #yes, yes
-    #"set_tow_id", #no, yes
+    "set_tow_id", #no, yes
     "Lengthed", #yes, yes
     "Otolith", #yes, yes
     "Age", #no, yes
@@ -29,8 +29,8 @@ combine_all_data <- function(
     "Weight_kg", #yes, yes
     "Sex" #yes, yes
   )
-  wcgbt <- wcgbt %>%
-      dplyr::rename(Age = Age_years, set_tow_id = Trawl_id)
+  wcgbt <- wcgbt |>
+      dplyr::rename(set_tow_id = Trawl_id)
   data <- rbind(
     wcgbt[, cols_to_keep],
     nwfsc_hkl[, cols_to_keep]
