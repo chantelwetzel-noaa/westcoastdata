@@ -79,6 +79,15 @@ list(
       wcgbt = wcgbt_filtered,
       hkl = nwfsc_hkl_filtered
     )
+  ),
+  # Pull all the data together
+  tar_target(
+    combined_data,
+    combine_all_data(
+      dir = here::here("data-processed"),
+      wcgbt = wcgbt_filtered,
+      nwfsc_hkl = nwfsc_hkl_filtered
+    )
   )
 )
 
