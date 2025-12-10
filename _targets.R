@@ -88,6 +88,13 @@ list(
       wcgbt = wcgbt_filtered,
       nwfsc_hkl = nwfsc_hkl_filtered
     )
+  ),
+  #Plot the data
+  tar_target(
+    plots,
+    plot_data_by_year(
+      data = combined_data
+    )
   )
 )
 

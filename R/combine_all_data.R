@@ -31,6 +31,7 @@ combine_all_data <- function(
   )
   wcgbt <- wcgbt |>
       dplyr::rename(set_tow_id = Trawl_id)
+  nwfsc_hkl$State <- "CA"
   data <- rbind(
     wcgbt[, cols_to_keep],
     nwfsc_hkl[, cols_to_keep]
