@@ -30,7 +30,7 @@ config_data$family <- str_replace(config_data$family, "sdmTMB::", "")
 config_data$family <- str_replace(config_data$family, "\\(\\)", "")
 
 # Use nwfscSurvey to get the data
-haul <- nwfscSurvey::pull_haul(survey = "NWFSC.Combo")
+haul <- nwfscSurvey::pull_haul(survey = "NWFSC.Combo") # i don't think we need to do this
 
 #######################instead use our cleaned catch data
 
@@ -41,7 +41,7 @@ names(dat) <- tolower(names(dat))
 ############################will have to rename trawl_id if this is using our cleaned data
 
 #############################had to change this
-dat <- dplyr::left_join(dat, haul[,c("trawl_id","area_swept_ha_der")], copy = TRUE)
+dat <- dplyr::left_join(dat, haul[,c("trawl_id","area_swept_ha_der")], copy = TRUE) #area_swept_ha_der in "haul" is same as area_swept_ha" in "dat", so do we need to combine them?
 # convert date string to doy
 dat$yday <- lubridate::yday(dat$date)
 # filter out a few bad locations
@@ -61,6 +61,8 @@ dat$common_name[which(dat$common_name == "rougheye and blackspotted rockfish")] 
 # Assign batch numbers in a round-robin fashion
 config_data$batch <- rep(1:num_batches, length.out = nrow(config_data))
 # Filter out only focal batch
+
+#################breaking here because of assigning current batch from args above
 config_data <- dplyr::filter(config_data, batch == current_batch)
 # Plan for parallelization (adjust number of workers as needed)
 #plan(multisession, workers = parallel::detectCores() - 1)
