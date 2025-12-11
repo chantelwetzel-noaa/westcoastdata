@@ -21,7 +21,7 @@ clean_nwfsc_hkl <- function(
         lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south",
         .default = lower_name
       ),
-      State = "California",
+      State = "CA",
       Source = "NWFSC HKL",
       Fleet = NA,
       Lengthed = dplyr::case_when(!is.na(length_cm) ~ 1, .default = 0),
