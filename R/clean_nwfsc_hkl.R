@@ -18,7 +18,7 @@ clean_nwfsc_hkl <- function(
     dplyr::mutate(
       lower_name = tolower(common_name),
       Common_name = dplyr::case_when(
-        lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south",
+        lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south", #yellowtail rockfish is replaced by yellowtail rockfish south
         .default = lower_name
       ),
       State = "CA",
