@@ -639,9 +639,6 @@
 "big skate","WA","NWFSC WCGBTS",2022,25,268,0,43
 "big skate","WA","NWFSC WCGBTS",2023,35,184,0,55
 "big skate","WA","NWFSC WCGBTS",2024,24,71,0,40
-"black rockfish","CA","NWFSC WCGBTS",2004,1,1,0,1
-"black rockfish","CA","NWFSC WCGBTS",2010,1,1,0,1
-"black rockfish","CA","NWFSC WCGBTS",2019,1,1,0,1
 "black rockfish","OR","NWFSC WCGBTS",2009,2,2,0,2
 "black rockfish","OR","NWFSC WCGBTS",2015,1,1,0,1
 "black rockfish","OR","NWFSC WCGBTS",2017,2,3,0,3
@@ -696,32 +693,6 @@
 "blackgill rockfish","WA","NWFSC WCGBTS",2008,1,1,0,1
 "blackgill rockfish","WA","NWFSC WCGBTS",2016,1,5,0,5
 "blackgill rockfish","WA","NWFSC WCGBTS",2024,1,1,0,1
-"blue and deacon rockfish","CA","NWFSC HKL",2004,6,47,0,47
-"blue and deacon rockfish","CA","NWFSC HKL",2005,9,64,0,65
-"blue and deacon rockfish","CA","NWFSC HKL",2006,9,40,0,40
-"blue and deacon rockfish","CA","NWFSC HKL",2007,5,21,0,21
-"blue and deacon rockfish","CA","NWFSC HKL",2008,7,39,0,39
-"blue and deacon rockfish","CA","NWFSC HKL",2009,6,17,0,15
-"blue and deacon rockfish","CA","NWFSC HKL",2010,4,27,0,27
-"blue and deacon rockfish","CA","NWFSC HKL",2011,5,36,0,36
-"blue and deacon rockfish","CA","NWFSC HKL",2012,3,4,0,3
-"blue and deacon rockfish","CA","NWFSC HKL",2013,6,10,0,10
-"blue and deacon rockfish","CA","NWFSC HKL",2014,14,38,0,36
-"blue and deacon rockfish","CA","NWFSC HKL",2015,16,61,0,60
-"blue and deacon rockfish","CA","NWFSC HKL",2016,19,64,0,61
-"blue and deacon rockfish","CA","NWFSC HKL",2017,14,92,0,89
-"blue and deacon rockfish","CA","NWFSC HKL",2018,16,65,0,62
-"blue and deacon rockfish","CA","NWFSC HKL",2019,15,50,0,45
-"blue and deacon rockfish","CA","NWFSC HKL",2021,10,12,0,6
-"blue and deacon rockfish","CA","NWFSC HKL",2022,8,18,0,17
-"blue and deacon rockfish","CA","NWFSC HKL",2023,13,54,0,47
-"blue and deacon rockfish","CA","NWFSC HKL",2024,13,25,0,24
-"blue and deacon rockfish","CA","NWFSC WCGBTS",2003,2,19,0,0
-"blue and deacon rockfish","CA","NWFSC WCGBTS",2008,1,2,0,2
-"blue and deacon rockfish","CA","NWFSC WCGBTS",2013,3,3,0,3
-"blue and deacon rockfish","CA","NWFSC WCGBTS",2016,1,13,0,13
-"blue and deacon rockfish","CA","NWFSC WCGBTS",2019,1,12,0,9
-"blue and deacon rockfish","CA","NWFSC WCGBTS",2024,1,9,0,9
 "bocaccio","CA","NWFSC HKL",2004,59,780,0,724
 "bocaccio","CA","NWFSC HKL",2005,69,664,0,665
 "bocaccio","CA","NWFSC HKL",2006,73,730,0,733
@@ -796,11 +767,6 @@
 "bocaccio","WA","NWFSC WCGBTS",2022,4,81,0,54
 "bocaccio","WA","NWFSC WCGBTS",2023,7,22,0,22
 "bocaccio","WA","NWFSC WCGBTS",2024,12,59,0,39
-"cabezon","CA","NWFSC WCGBTS",2016,1,1,0,0
-"cabezon","CA","NWFSC WCGBTS",2018,1,1,0,1
-"cabezon","CA","NWFSC WCGBTS",2023,1,3,0,3
-"cabezon","CA","NWFSC WCGBTS",2024,1,1,0,1
-"cabezon","OR","NWFSC WCGBTS",2008,1,1,0,1
 "cabezon","WA","NWFSC WCGBTS",2017,1,1,0,1
 "canary rockfish","CA","NWFSC HKL",2004,12,32,32,0
 "canary rockfish","CA","NWFSC HKL",2005,6,40,40,0
@@ -953,47 +919,6 @@
 "chilipepper","WA","NWFSC WCGBTS",2012,1,2,2,0
 "chilipepper","WA","NWFSC WCGBTS",2018,3,11,11,0
 "chilipepper","WA","NWFSC WCGBTS",2023,1,4,4,0
-"copper rockfish","CA","NWFSC HKL",2004,11,33,33,0
-"copper rockfish","CA","NWFSC HKL",2005,14,70,68,1
-"copper rockfish","CA","NWFSC HKL",2006,12,58,58,0
-"copper rockfish","CA","NWFSC HKL",2007,18,77,75,1
-"copper rockfish","CA","NWFSC HKL",2008,22,67,67,0
-"copper rockfish","CA","NWFSC HKL",2009,21,104,101,0
-"copper rockfish","CA","NWFSC HKL",2010,14,24,23,0
-"copper rockfish","CA","NWFSC HKL",2011,23,56,53,0
-"copper rockfish","CA","NWFSC HKL",2012,22,63,57,5
-"copper rockfish","CA","NWFSC HKL",2013,29,46,46,0
-"copper rockfish","CA","NWFSC HKL",2014,29,53,48,0
-"copper rockfish","CA","NWFSC HKL",2015,38,99,96,2
-"copper rockfish","CA","NWFSC HKL",2016,39,109,108,0
-"copper rockfish","CA","NWFSC HKL",2017,31,75,69,0
-"copper rockfish","CA","NWFSC HKL",2018,30,108,104,1
-"copper rockfish","CA","NWFSC HKL",2019,32,65,63,0
-"copper rockfish","CA","NWFSC HKL",2021,24,34,31,0
-"copper rockfish","CA","NWFSC HKL",2022,27,61,59,0
-"copper rockfish","CA","NWFSC HKL",2023,27,84,0,81
-"copper rockfish","CA","NWFSC HKL",2024,23,36,0,36
-"copper rockfish","CA","NWFSC WCGBTS",2003,7,25,0,0
-"copper rockfish","CA","NWFSC WCGBTS",2004,5,71,71,0
-"copper rockfish","CA","NWFSC WCGBTS",2005,5,22,22,0
-"copper rockfish","CA","NWFSC WCGBTS",2006,3,10,10,0
-"copper rockfish","CA","NWFSC WCGBTS",2007,5,13,12,1
-"copper rockfish","CA","NWFSC WCGBTS",2008,11,44,43,1
-"copper rockfish","CA","NWFSC WCGBTS",2009,6,26,26,0
-"copper rockfish","CA","NWFSC WCGBTS",2010,9,16,16,0
-"copper rockfish","CA","NWFSC WCGBTS",2011,3,11,11,0
-"copper rockfish","CA","NWFSC WCGBTS",2012,19,241,103,0
-"copper rockfish","CA","NWFSC WCGBTS",2013,9,98,34,0
-"copper rockfish","CA","NWFSC WCGBTS",2014,8,40,33,0
-"copper rockfish","CA","NWFSC WCGBTS",2015,9,113,39,0
-"copper rockfish","CA","NWFSC WCGBTS",2016,9,96,77,0
-"copper rockfish","CA","NWFSC WCGBTS",2017,12,126,101,1
-"copper rockfish","CA","NWFSC WCGBTS",2018,11,62,53,0
-"copper rockfish","CA","NWFSC WCGBTS",2019,7,32,30,2
-"copper rockfish","CA","NWFSC WCGBTS",2021,17,92,92,0
-"copper rockfish","CA","NWFSC WCGBTS",2022,14,60,60,0
-"copper rockfish","CA","NWFSC WCGBTS",2023,9,131,0,84
-"copper rockfish","CA","NWFSC WCGBTS",2024,6,112,0,63
 "copper rockfish","OR","NWFSC WCGBTS",2010,1,2,2,0
 "copper rockfish","OR","NWFSC WCGBTS",2011,1,1,1,0
 "copper rockfish","OR","NWFSC WCGBTS",2022,1,1,1,0
@@ -1319,20 +1244,6 @@
 "greenstriped rockfish","WA","NWFSC WCGBTS",2022,14,204,0,61
 "greenstriped rockfish","WA","NWFSC WCGBTS",2023,27,390,0,125
 "greenstriped rockfish","WA","NWFSC WCGBTS",2024,33,462,0,138
-"kelp greenling","CA","NWFSC WCGBTS",2003,2,4,0,0
-"kelp greenling","CA","NWFSC WCGBTS",2005,1,8,0,8
-"kelp greenling","CA","NWFSC WCGBTS",2007,1,2,0,2
-"kelp greenling","CA","NWFSC WCGBTS",2009,2,2,0,2
-"kelp greenling","CA","NWFSC WCGBTS",2011,1,1,0,1
-"kelp greenling","CA","NWFSC WCGBTS",2012,3,3,0,3
-"kelp greenling","CA","NWFSC WCGBTS",2013,3,3,0,3
-"kelp greenling","CA","NWFSC WCGBTS",2014,2,7,0,6
-"kelp greenling","CA","NWFSC WCGBTS",2015,2,10,0,10
-"kelp greenling","CA","NWFSC WCGBTS",2016,1,3,0,3
-"kelp greenling","CA","NWFSC WCGBTS",2017,2,4,0,4
-"kelp greenling","CA","NWFSC WCGBTS",2021,1,3,0,3
-"kelp greenling","CA","NWFSC WCGBTS",2022,1,1,0,1
-"kelp greenling","CA","NWFSC WCGBTS",2024,1,1,0,1
 "kelp greenling","OR","NWFSC WCGBTS",2003,5,47,0,0
 "kelp greenling","OR","NWFSC WCGBTS",2004,10,89,0,0
 "kelp greenling","OR","NWFSC WCGBTS",2005,7,33,0,33
@@ -1649,11 +1560,6 @@
 "petrale sole","WA","NWFSC WCGBTS",2022,34,463,96,0
 "petrale sole","WA","NWFSC WCGBTS",2023,65,1010,0,203
 "petrale sole","WA","NWFSC WCGBTS",2024,60,728,0,159
-"quillback rockfish","CA","NWFSC WCGBTS",2007,1,19,15,0
-"quillback rockfish","CA","NWFSC WCGBTS",2013,1,1,0,0
-"quillback rockfish","CA","NWFSC WCGBTS",2014,2,4,4,0
-"quillback rockfish","CA","NWFSC WCGBTS",2017,2,2,2,0
-"quillback rockfish","CA","NWFSC WCGBTS",2024,1,13,13,0
 "quillback rockfish","OR","NWFSC WCGBTS",2003,1,2,0,0
 "quillback rockfish","OR","NWFSC WCGBTS",2006,1,2,2,0
 "quillback rockfish","OR","NWFSC WCGBTS",2007,1,1,1,0
@@ -2662,26 +2568,6 @@
 "yellowmouth rockfish","WA","NWFSC WCGBTS",2016,1,2,0,2
 "yellowmouth rockfish","WA","NWFSC WCGBTS",2018,1,1,0,1
 "yellowmouth rockfish","WA","NWFSC WCGBTS",2022,3,10,0,10
-"yellowtail rockfish","CA","NWFSC HKL",2004,14,126,124,0
-"yellowtail rockfish","CA","NWFSC HKL",2005,14,122,0,122
-"yellowtail rockfish","CA","NWFSC HKL",2006,6,88,0,88
-"yellowtail rockfish","CA","NWFSC HKL",2007,18,119,0,119
-"yellowtail rockfish","CA","NWFSC HKL",2008,15,139,0,139
-"yellowtail rockfish","CA","NWFSC HKL",2009,16,80,0,80
-"yellowtail rockfish","CA","NWFSC HKL",2010,12,60,0,0
-"yellowtail rockfish","CA","NWFSC HKL",2011,13,126,0,1
-"yellowtail rockfish","CA","NWFSC HKL",2012,11,106,0,106
-"yellowtail rockfish","CA","NWFSC HKL",2013,13,96,0,95
-"yellowtail rockfish","CA","NWFSC HKL",2014,17,110,0,110
-"yellowtail rockfish","CA","NWFSC HKL",2015,13,78,0,78
-"yellowtail rockfish","CA","NWFSC HKL",2016,14,89,0,87
-"yellowtail rockfish","CA","NWFSC HKL",2017,12,46,0,40
-"yellowtail rockfish","CA","NWFSC HKL",2018,12,77,0,66
-"yellowtail rockfish","CA","NWFSC HKL",2019,13,69,0,61
-"yellowtail rockfish","CA","NWFSC HKL",2021,11,92,0,90
-"yellowtail rockfish","CA","NWFSC HKL",2022,18,92,0,91
-"yellowtail rockfish","CA","NWFSC HKL",2023,12,130,0,130
-"yellowtail rockfish","CA","NWFSC HKL",2024,12,62,0,61
 "yellowtail rockfish north","CA","NWFSC WCGBTS",2003,1,50,15,0
 "yellowtail rockfish north","CA","NWFSC WCGBTS",2005,1,105,15,0
 "yellowtail rockfish north","CA","NWFSC WCGBTS",2006,2,7,7,0

@@ -54,7 +54,29 @@ clean_wcgbt_bio <- function(dir = here::here("data-raw", "2026"), species, data)
       )
     ) |>
     dplyr::filter(Common_name %in% species[, "use_name"])
-
+  
+  wcgbt_bio <- bio
+  
+  remove <- c(
+    which(wcgbt_bio$Common_name == "black rockfish" & wcgbt_bio$State == "CA"),
+    which(
+      wcgbt_bio$Common_name == "blue and deacon rockfish" &
+        wcgbt_bio$State == "CA"
+    ),
+    which(
+      wcgbt_bio$Common_name == "cabezon" & wcgbt_bio$State %in% c("CA", "OR")
+    ),
+    which(wcgbt_bio$Common_name == "China rockfish" & wcgbt_bio$State == "CA"),
+    which(wcgbt_bio$Common_name == "copper rockfish" & wcgbt_bio$State == "CA"),
+    which(
+      wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "CA"
+    ),
+    which(wcgbt_bio$Common_name == "kelp greenling" & wcgbt_bio$State == "CA")
+  )
+  wcgbt_bio <- wcgbt_bio[-remove, ]
+  
+  bio <- wcgbt_bio
+  
   save(bio, file = file.path("data-processed", "2026", "wcgbt_bio_filtered.Rdata"))
   return(bio)
 }

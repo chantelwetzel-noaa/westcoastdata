@@ -42,7 +42,30 @@ clean_wcgbt_catch <- function(dir = here::here("data-raw", "2026"), species, dat
       ),
       positive_tow = dplyr::case_when(total_catch_wt_kg > 0 ~ 1, .default = 0)
     )
-
+  
+  
+  wcgbt_catch <- catch
+  
+  remove <- c(
+    which(wcgbt_catch$Common_name == "black rockfish" & wcgbt_catch$State == "CA"),
+    which(
+      wcgbt_catch$Common_name == "blue and deacon rockfish" &
+        wcgbt_catch$State == "CA"
+    ),
+    which(
+      wcgbt_catch$Common_name == "cabezon" & wcgbt_catch$State %in% c("CA", "OR")
+    ),
+    which(wcgbt_catch$Common_name == "China rockfish" & wcgbt_catch$State == "CA"),
+    which(wcgbt_catch$Common_name == "copper rockfish" & wcgbt_catch$State == "CA"),
+    which(
+      wcgbt_catch$Common_name == "quillback rockfish" & wcgbt_catch$State == "CA"
+    ),
+    which(wcgbt_catch$Common_name == "kelp greenling" & wcgbt_catch$State == "CA")
+  )
+  wcgbt_catch <- wcgbt_catch[-remove, ]
+  
+  catch <- wcgbt_catch
+  
   catch_areas <-
     catch |>
     dplyr::filter(positive_tow == 1) |>

@@ -46,6 +46,21 @@ clean_nwfsc_hkl <- function(
     cleaned[find, "Common_name"] <- species[a, "use_name"]
   }
 
+  cleaned <- cleaned |>
+    dplyr::filter(
+      !Common_name %in%
+        c(
+          "black rockfish",
+          "copper rockfish",
+          "cabezon",
+          "china rockfish",
+          "kelp greenling",
+          "blue and deacon rockfish",
+          "quillback rockfish",
+          "yellowtail rockfish" #this wasn't listed in hkl_stock_year but it is in hkl_bio, so I removed it, what should it be instead?
+        )
+    )
+  
   save(cleaned, file = file.path("data-processed", "2026", "nwfsc_hkl_filtered.Rdata"))
   return(cleaned)
 }
