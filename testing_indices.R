@@ -31,10 +31,17 @@ config_data$family <- str_replace(config_data$family, "\\(\\)", "")
 
 # Use nwfscSurvey to get the data
 haul <- nwfscSurvey::pull_haul(survey = "NWFSC.Combo")
+
+#######################instead use our cleaned catch data
+
 dat <- nwfscSurvey::pull_catch(survey = "NWFSC.Combo",
                                common_name = config_data$species)
 names(dat) <- tolower(names(dat))
-dat <- dplyr::left_join(dat, haul[,c("trawl_id","area_swept_ha_der")])
+
+############################will have to rename trawl_id if this is using our cleaned data
+
+#############################had to change this
+dat <- dplyr::left_join(dat, haul[,c("trawl_id","area_swept_ha_der")], copy = TRUE)
 # convert date string to doy
 dat$yday <- lubridate::yday(dat$date)
 # filter out a few bad locations
@@ -73,7 +80,7 @@ process_species <- function(i) {
                        depth_m <= config_data$min_depth[i],
                        depth_m > config_data$max_depth[i]) |>
     dplyr::rename(catch_weight = total_catch_wt_kg)
-  
+  print(i)
   # make a mesh based on settings in config
   mesh <- sdmTMB::make_mesh(sub, xy_cols = c("X","Y"),
                             n_knots = config_data$knots[i])
@@ -232,4 +239,5 @@ process_species <- function(i) {
 #future_lapply(1:nrow(config_data), process_species, future.seed = TRUE)
 for(spp in 1:nrow(config_data)) {
   process_species(spp)
+  print(spp)
 }
