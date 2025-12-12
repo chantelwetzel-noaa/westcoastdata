@@ -25,6 +25,9 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
   cbp2 <- c('#CCBB44', '#4477AA', '#66CCEE', '#EE6677', '#228833', '#AA3377')
 
   cbp3 <- c('#332288', '#88CCEE', '#44AA99', '#117733', '#DDCC77', '#CC6677')
+  
+  #for just surveys
+  cbp4 <- c('#AA3377', '#66CCEE')
 
   for (sp in unique(data$Common_name)) {
     lims <- data |>
@@ -47,7 +50,8 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
         aes(y = total_lengths),
         position = "stack",
         stat = "identity",
-        color = "#000000"
+        color = "#000000",
+        show.legend = TRUE
       ) +
       ggplot2::xlab("Year") +
       ggplot2::ylab("# of Lengths") +
@@ -65,7 +69,7 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
       ) +
       #ggplot2::scale_fill_viridis_d(drop = FALSE)
       #ggplot2::scale_fill_brewer(palette = "Set2", drop = FALSE)
-      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
+      ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
     #ggplot2::scale_fill_manual(values = PNWColors::pnw_palette("Bay", n = 6), drop = FALSE)
 
     lims <- data |>
@@ -88,7 +92,8 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
         aes(y = total_ages),
         position = "stack",
         stat = "identity",
-        color = "#000000"
+        color = "#000000",
+        show.legend = TRUE
       ) +
       xlab("Year") +
       ylab("# of Ages") +
@@ -102,7 +107,7 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
         strip.background = element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       facet_wrap("State", ncol = 3) +
-      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
+      ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
     #scale_fill_viridis_d(drop = FALSE)
 
     otoliths <- ggplot2::ggplot(
@@ -116,7 +121,8 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
         aes(y = total_otoliths),
         position = "stack",
         stat = "identity",
-        color = "#000000"
+        color = "#000000",
+        show.legend = TRUE
       ) +
       xlab("Year") +
       ylab("# of Age Structures") +
@@ -130,7 +136,7 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
         strip.background = element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
-      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
+      ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
     #ggplot2::scale_fill_viridis_d(drop = FALSE)
 
     cowplot::plot_grid(lengths, ages, otoliths, ncol = 1, nrow = 3)
