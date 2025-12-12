@@ -74,7 +74,7 @@ list(
   tar_target(
     new_info,
     summarize_survey_new_information(
-      dir = here::here("data-processed"),
+      dir = here::here("data-processed", "2026"),
       stock_year = stock_year,
       wcgbt = wcgbt_filtered,
       hkl = nwfsc_hkl_filtered
@@ -84,7 +84,7 @@ list(
   tar_target(
     combined_data,
     combine_all_data(
-      dir = here::here("data-processed"),
+      dir = here::here("data-processed", "2026"),
       wcgbt = wcgbt_filtered,
       nwfsc_hkl = nwfsc_hkl_filtered
     )

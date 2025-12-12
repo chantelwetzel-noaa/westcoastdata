@@ -9,7 +9,7 @@
 #' @export
 #'
 combine_all_data <- function(
-  dir = here::here("data-processed"),
+  dir = dir,
   wcgbt,
   nwfsc_hkl
 ) {

@@ -1,7 +1,7 @@
 #' Plot all the data
 #'
 #'
-#' @param dir Directory location to save the compbined data frame
+#' @param dir Directory location to save the combined data frame
 #' @param data add definition
 #' @param year add definition
 #'
