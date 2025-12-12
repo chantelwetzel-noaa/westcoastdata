@@ -95,6 +95,13 @@ list(
     plot_data_by_year(
       data = combined_data
     )
+  ),
+  #indices
+  tar_target(
+    coastwide_indices,
+    pull_indices(
+      dir = "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output"
+    )
   )
 )
 
