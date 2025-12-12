@@ -1,16 +1,4 @@
 "Common_name","State","Source","Year","set_tows","total_lengths","total_ages","total_otoliths"
-"California scorpionfish","CA","NWFSC HKL",2005,1,1,0,0
-"California scorpionfish","CA","NWFSC HKL",2006,2,1,0,1
-"California scorpionfish","CA","NWFSC HKL",2007,1,1,0,0
-"California scorpionfish","CA","NWFSC HKL",2010,1,1,0,0
-"California scorpionfish","CA","NWFSC HKL",2014,2,2,0,0
-"California scorpionfish","CA","NWFSC HKL",2015,5,7,0,0
-"California scorpionfish","CA","NWFSC HKL",2017,2,3,0,0
-"California scorpionfish","CA","NWFSC HKL",2018,2,4,0,3
-"California scorpionfish","CA","NWFSC HKL",2021,3,4,0,2
-"California scorpionfish","CA","NWFSC HKL",2022,5,8,0,8
-"California scorpionfish","CA","NWFSC HKL",2023,3,8,0,8
-"California scorpionfish","CA","NWFSC HKL",2024,1,1,0,1
 "California scorpionfish","CA","NWFSC WCGBTS",2003,7,74,0,0
 "California scorpionfish","CA","NWFSC WCGBTS",2004,12,156,0,0
 "California scorpionfish","CA","NWFSC WCGBTS",2005,10,226,103,0
@@ -323,12 +311,6 @@
 "Pacific sanddab","WA","NWFSC WCGBTS",2022,23,244,0,46
 "Pacific sanddab","WA","NWFSC WCGBTS",2023,34,343,0,67
 "Pacific sanddab","WA","NWFSC WCGBTS",2024,31,316,0,62
-"Pacific spiny dogfish","CA","NWFSC HKL",2005,2,2,0,0
-"Pacific spiny dogfish","CA","NWFSC HKL",2006,1,1,0,0
-"Pacific spiny dogfish","CA","NWFSC HKL",2012,1,1,0,0
-"Pacific spiny dogfish","CA","NWFSC HKL",2017,1,1,0,0
-"Pacific spiny dogfish","CA","NWFSC HKL",2021,1,1,0,0
-"Pacific spiny dogfish","CA","NWFSC HKL",2023,1,1,0,0
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",2003,82,1069,0,315
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",2004,79,1279,0,240
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",2005,128,2171,0,473
@@ -693,6 +675,27 @@
 "blackgill rockfish","WA","NWFSC WCGBTS",2008,1,1,0,1
 "blackgill rockfish","WA","NWFSC WCGBTS",2016,1,5,0,5
 "blackgill rockfish","WA","NWFSC WCGBTS",2024,1,1,0,1
+"blackspotted rockfish","CA","NWFSC HKL",2022,1,1,0,1
+"blue rockfish","CA","NWFSC HKL",2004,6,47,0,47
+"blue rockfish","CA","NWFSC HKL",2005,9,64,0,65
+"blue rockfish","CA","NWFSC HKL",2006,9,40,0,40
+"blue rockfish","CA","NWFSC HKL",2007,5,21,0,21
+"blue rockfish","CA","NWFSC HKL",2008,7,39,0,39
+"blue rockfish","CA","NWFSC HKL",2009,6,17,0,15
+"blue rockfish","CA","NWFSC HKL",2010,4,27,0,27
+"blue rockfish","CA","NWFSC HKL",2011,5,36,0,36
+"blue rockfish","CA","NWFSC HKL",2012,3,4,0,3
+"blue rockfish","CA","NWFSC HKL",2013,6,10,0,10
+"blue rockfish","CA","NWFSC HKL",2014,14,38,0,36
+"blue rockfish","CA","NWFSC HKL",2015,16,61,0,60
+"blue rockfish","CA","NWFSC HKL",2016,19,64,0,61
+"blue rockfish","CA","NWFSC HKL",2017,14,92,0,89
+"blue rockfish","CA","NWFSC HKL",2018,16,65,0,62
+"blue rockfish","CA","NWFSC HKL",2019,15,50,0,45
+"blue rockfish","CA","NWFSC HKL",2021,10,12,0,6
+"blue rockfish","CA","NWFSC HKL",2022,8,18,0,17
+"blue rockfish","CA","NWFSC HKL",2023,13,54,0,47
+"blue rockfish","CA","NWFSC HKL",2024,13,25,0,24
 "bocaccio","CA","NWFSC HKL",2004,59,780,0,724
 "bocaccio","CA","NWFSC HKL",2005,69,664,0,665
 "bocaccio","CA","NWFSC HKL",2006,73,730,0,733
@@ -768,6 +771,18 @@
 "bocaccio","WA","NWFSC WCGBTS",2023,7,22,0,22
 "bocaccio","WA","NWFSC WCGBTS",2024,12,59,0,39
 "cabezon","WA","NWFSC WCGBTS",2017,1,1,0,1
+"california scorpionfish","CA","NWFSC HKL",2005,1,1,0,0
+"california scorpionfish","CA","NWFSC HKL",2006,2,1,0,1
+"california scorpionfish","CA","NWFSC HKL",2007,1,1,0,0
+"california scorpionfish","CA","NWFSC HKL",2010,1,1,0,0
+"california scorpionfish","CA","NWFSC HKL",2014,2,2,0,0
+"california scorpionfish","CA","NWFSC HKL",2015,5,7,0,0
+"california scorpionfish","CA","NWFSC HKL",2017,2,3,0,0
+"california scorpionfish","CA","NWFSC HKL",2018,2,4,0,3
+"california scorpionfish","CA","NWFSC HKL",2021,3,4,0,2
+"california scorpionfish","CA","NWFSC HKL",2022,5,8,0,8
+"california scorpionfish","CA","NWFSC HKL",2023,3,8,0,8
+"california scorpionfish","CA","NWFSC HKL",2024,1,1,0,1
 "canary rockfish","CA","NWFSC HKL",2004,12,32,32,0
 "canary rockfish","CA","NWFSC HKL",2005,6,40,40,0
 "canary rockfish","CA","NWFSC HKL",2006,7,25,25,0
@@ -851,7 +866,7 @@
 "canary rockfish","WA","NWFSC WCGBTS",2022,12,311,213,0
 "canary rockfish","WA","NWFSC WCGBTS",2023,23,381,0,244
 "canary rockfish","WA","NWFSC WCGBTS",2024,28,233,0,106
-"chilipepper","CA","NWFSC HKL",2004,13,67,0,67
+"chilipepper","CA","NWFSC HKL",2004,12,66,0,66
 "chilipepper","CA","NWFSC HKL",2005,14,74,0,74
 "chilipepper","CA","NWFSC HKL",2006,12,44,0,44
 "chilipepper","CA","NWFSC HKL",2007,14,83,0,80
@@ -1836,7 +1851,6 @@
 "rosethorn rockfish","WA","NWFSC WCGBTS",2022,9,201,0,104
 "rosethorn rockfish","WA","NWFSC WCGBTS",2023,15,335,0,186
 "rosethorn rockfish","WA","NWFSC WCGBTS",2024,20,336,0,189
-"rougheye and blackspotted rockfish","CA","NWFSC HKL",2022,1,1,0,1
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",2004,1,1,1,0
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",2006,2,2,2,0
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",2009,1,1,1,0
@@ -2143,6 +2157,12 @@
 "silvergray rockfish","WA","NWFSC WCGBTS",2022,4,48,0,48
 "silvergray rockfish","WA","NWFSC WCGBTS",2023,5,24,0,24
 "silvergray rockfish","WA","NWFSC WCGBTS",2024,4,38,0,38
+"spiny dogfish","CA","NWFSC HKL",2005,2,2,0,0
+"spiny dogfish","CA","NWFSC HKL",2006,1,1,0,0
+"spiny dogfish","CA","NWFSC HKL",2012,1,1,0,0
+"spiny dogfish","CA","NWFSC HKL",2017,1,1,0,0
+"spiny dogfish","CA","NWFSC HKL",2021,1,1,0,0
+"spiny dogfish","CA","NWFSC HKL",2023,1,1,0,0
 "splitnose rockfish","CA","NWFSC WCGBTS",2003,71,4109,267,313
 "splitnose rockfish","CA","NWFSC WCGBTS",2004,53,3409,241,2
 "splitnose rockfish","CA","NWFSC WCGBTS",2005,77,2816,302,34
@@ -2287,6 +2307,7 @@
 "starry rockfish","CA","NWFSC WCGBTS",2022,3,5,0,5
 "starry rockfish","CA","NWFSC WCGBTS",2023,1,2,0,2
 "starry rockfish","CA","NWFSC WCGBTS",2024,4,12,0,11
+"stripetail rockfish","CA","NWFSC HKL",2004,1,1,0,1
 "stripetail rockfish","CA","NWFSC HKL",2005,1,1,0,1
 "stripetail rockfish","CA","NWFSC HKL",2011,1,1,0,1
 "stripetail rockfish","CA","NWFSC HKL",2024,1,1,0,1
@@ -2353,26 +2374,6 @@
 "stripetail rockfish","WA","NWFSC WCGBTS",2022,4,78,0,12
 "stripetail rockfish","WA","NWFSC WCGBTS",2023,8,52,0,18
 "stripetail rockfish","WA","NWFSC WCGBTS",2024,10,134,0,25
-"vermilion and sunset rockfish","CA","NWFSC HKL",2004,53,1358,1205,38
-"vermilion and sunset rockfish","CA","NWFSC HKL",2005,72,1680,1104,526
-"vermilion and sunset rockfish","CA","NWFSC HKL",2006,65,1157,1109,48
-"vermilion and sunset rockfish","CA","NWFSC HKL",2007,71,1814,1116,694
-"vermilion and sunset rockfish","CA","NWFSC HKL",2008,78,1714,1182,530
-"vermilion and sunset rockfish","CA","NWFSC HKL",2009,74,2131,1224,905
-"vermilion and sunset rockfish","CA","NWFSC HKL",2010,79,2302,1262,1032
-"vermilion and sunset rockfish","CA","NWFSC HKL",2011,73,2655,1167,1468
-"vermilion and sunset rockfish","CA","NWFSC HKL",2012,91,2366,1194,1168
-"vermilion and sunset rockfish","CA","NWFSC HKL",2013,93,2458,1702,752
-"vermilion and sunset rockfish","CA","NWFSC HKL",2014,114,1708,539,1159
-"vermilion and sunset rockfish","CA","NWFSC HKL",2015,146,1911,561,1343
-"vermilion and sunset rockfish","CA","NWFSC HKL",2016,142,1904,539,1324
-"vermilion and sunset rockfish","CA","NWFSC HKL",2017,157,2649,515,512
-"vermilion and sunset rockfish","CA","NWFSC HKL",2018,158,2648,535,538
-"vermilion and sunset rockfish","CA","NWFSC HKL",2019,148,2264,506,444
-"vermilion and sunset rockfish","CA","NWFSC HKL",2021,150,2314,0,933
-"vermilion and sunset rockfish","CA","NWFSC HKL",2022,160,2363,0,946
-"vermilion and sunset rockfish","CA","NWFSC HKL",2023,159,2333,0,901
-"vermilion and sunset rockfish","CA","NWFSC HKL",2024,157,2346,0,928
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2010,15,106,106,0
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2011,3,27,27,0
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2012,15,471,310,0
@@ -2389,6 +2390,26 @@
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2024,16,78,0,78
 "vermilion and sunset rockfish","OR","NWFSC WCGBTS",2011,1,1,1,0
 "vermilion and sunset rockfish","OR","NWFSC WCGBTS",2014,1,1,1,0
+"vermilion rockfish","CA","NWFSC HKL",2004,53,1358,1205,38
+"vermilion rockfish","CA","NWFSC HKL",2005,72,1680,1104,526
+"vermilion rockfish","CA","NWFSC HKL",2006,65,1157,1109,48
+"vermilion rockfish","CA","NWFSC HKL",2007,71,1814,1116,694
+"vermilion rockfish","CA","NWFSC HKL",2008,78,1714,1182,530
+"vermilion rockfish","CA","NWFSC HKL",2009,74,2131,1224,905
+"vermilion rockfish","CA","NWFSC HKL",2010,79,2302,1262,1032
+"vermilion rockfish","CA","NWFSC HKL",2011,73,2655,1167,1468
+"vermilion rockfish","CA","NWFSC HKL",2012,91,2366,1194,1168
+"vermilion rockfish","CA","NWFSC HKL",2013,93,2458,1702,752
+"vermilion rockfish","CA","NWFSC HKL",2014,114,1708,539,1159
+"vermilion rockfish","CA","NWFSC HKL",2015,146,1911,561,1343
+"vermilion rockfish","CA","NWFSC HKL",2016,142,1904,539,1324
+"vermilion rockfish","CA","NWFSC HKL",2017,157,2649,515,512
+"vermilion rockfish","CA","NWFSC HKL",2018,158,2648,535,538
+"vermilion rockfish","CA","NWFSC HKL",2019,148,2264,506,444
+"vermilion rockfish","CA","NWFSC HKL",2021,150,2314,0,933
+"vermilion rockfish","CA","NWFSC HKL",2022,160,2363,0,946
+"vermilion rockfish","CA","NWFSC HKL",2023,159,2333,0,901
+"vermilion rockfish","CA","NWFSC HKL",2024,157,2346,0,928
 "widow rockfish","CA","NWFSC HKL",2004,13,56,0,55
 "widow rockfish","CA","NWFSC HKL",2005,14,75,0,74
 "widow rockfish","CA","NWFSC HKL",2006,15,68,0,68
@@ -2628,6 +2649,26 @@
 "yellowtail rockfish north","WA","NWFSC WCGBTS",2022,14,269,153,0
 "yellowtail rockfish north","WA","NWFSC WCGBTS",2023,35,587,382,5
 "yellowtail rockfish north","WA","NWFSC WCGBTS",2024,27,554,326,0
+"yellowtail rockfish south","CA","NWFSC HKL",2004,14,126,124,0
+"yellowtail rockfish south","CA","NWFSC HKL",2005,14,122,0,122
+"yellowtail rockfish south","CA","NWFSC HKL",2006,6,88,0,88
+"yellowtail rockfish south","CA","NWFSC HKL",2007,18,119,0,119
+"yellowtail rockfish south","CA","NWFSC HKL",2008,15,139,0,139
+"yellowtail rockfish south","CA","NWFSC HKL",2009,16,80,0,80
+"yellowtail rockfish south","CA","NWFSC HKL",2010,12,60,0,0
+"yellowtail rockfish south","CA","NWFSC HKL",2011,13,126,0,1
+"yellowtail rockfish south","CA","NWFSC HKL",2012,11,106,0,106
+"yellowtail rockfish south","CA","NWFSC HKL",2013,13,96,0,95
+"yellowtail rockfish south","CA","NWFSC HKL",2014,17,110,0,110
+"yellowtail rockfish south","CA","NWFSC HKL",2015,13,78,0,78
+"yellowtail rockfish south","CA","NWFSC HKL",2016,14,89,0,87
+"yellowtail rockfish south","CA","NWFSC HKL",2017,12,46,0,40
+"yellowtail rockfish south","CA","NWFSC HKL",2018,12,77,0,66
+"yellowtail rockfish south","CA","NWFSC HKL",2019,13,69,0,61
+"yellowtail rockfish south","CA","NWFSC HKL",2021,11,92,0,90
+"yellowtail rockfish south","CA","NWFSC HKL",2022,18,92,0,91
+"yellowtail rockfish south","CA","NWFSC HKL",2023,12,130,0,130
+"yellowtail rockfish south","CA","NWFSC HKL",2024,12,62,0,61
 "yellowtail rockfish south","CA","NWFSC WCGBTS",2003,3,112,17,0
 "yellowtail rockfish south","CA","NWFSC WCGBTS",2004,5,102,46,1
 "yellowtail rockfish south","CA","NWFSC WCGBTS",2005,4,172,33,0

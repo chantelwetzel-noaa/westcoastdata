@@ -67,7 +67,7 @@ list(
   ),
     tar_target(
       nwfsc_hkl,
-      readr::read_csv(stock_year_file)
+      readr::read_csv(nwfsc_hkl_file)
   ),
   # Clean NWFSC HKL data
   tar_target(

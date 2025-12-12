@@ -1,5 +1,4 @@
 "Common_name","State","Source","set_tows","total_lengths","total_ages","total_otoliths","n_years","ave_set_tows","ave_lengths","ave_ages","ave_otoliths"
-"California scorpionfish","CA","NWFSC HKL",28,41,0,23,12,2,3,0,1
 "California scorpionfish","CA","NWFSC WCGBTS",265,4203,911,1044,21,12,200,43,49
 "Dover sole","CA","NWFSC WCGBTS",5769,86127,8700,5775,21,274,4101,414,275
 "Dover sole","OR","NWFSC WCGBTS",3743,69163,5836,4155,21,178,3293,277,197
@@ -16,7 +15,6 @@
 "Pacific sanddab","CA","NWFSC WCGBTS",2473,53720,4714,3943,21,117,2558,224,187
 "Pacific sanddab","OR","NWFSC WCGBTS",1336,27649,2374,2175,21,63,1316,113,103
 "Pacific sanddab","WA","NWFSC WCGBTS",555,10581,874,903,21,26,503,41,43
-"Pacific spiny dogfish","CA","NWFSC HKL",7,7,0,0,6,1,1,0,0
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",1701,17911,285,4744,21,81,852,13,225
 "Pacific spiny dogfish","OR","NWFSC WCGBTS",829,4384,128,1879,21,39,208,6,89
 "Pacific spiny dogfish","WA","NWFSC WCGBTS",881,11562,178,2877,21,41,550,8,137
@@ -39,16 +37,19 @@
 "blackgill rockfish","CA","NWFSC WCGBTS",681,10484,1937,5586,21,32,499,92,266
 "blackgill rockfish","OR","NWFSC WCGBTS",55,286,11,254,20,2,14,0,12
 "blackgill rockfish","WA","NWFSC WCGBTS",3,7,0,7,3,1,2,0,2
+"blackspotted rockfish","CA","NWFSC HKL",1,1,0,1,1,1,1,0,1
+"blue rockfish","CA","NWFSC HKL",198,784,0,750,20,9,39,0,37
 "bocaccio","CA","NWFSC HKL",2353,21333,0,13842,20,117,1066,0,692
 "bocaccio","CA","NWFSC WCGBTS",936,10436,2759,3969,21,44,496,131,189
 "bocaccio","OR","NWFSC WCGBTS",58,294,20,180,15,3,19,1,12
 "bocaccio","WA","NWFSC WCGBTS",85,477,74,333,18,4,26,4,18
 "cabezon","WA","NWFSC WCGBTS",1,1,0,1,1,1,1,0,1
+"california scorpionfish","CA","NWFSC HKL",28,41,0,23,12,2,3,0,1
 "canary rockfish","CA","NWFSC HKL",149,553,511,38,20,7,27,25,1
 "canary rockfish","CA","NWFSC WCGBTS",292,3397,1854,190,21,13,161,88,9
 "canary rockfish","OR","NWFSC WCGBTS",455,4893,3178,138,21,21,233,151,6
 "canary rockfish","WA","NWFSC WCGBTS",369,6382,3430,377,21,17,303,163,17
-"chilipepper","CA","NWFSC HKL",519,2881,249,2449,20,25,144,12,122
+"chilipepper","CA","NWFSC HKL",518,2880,249,2448,20,25,144,12,122
 "chilipepper","CA","NWFSC WCGBTS",1749,33744,12386,728,21,83,1606,589,34
 "chilipepper","OR","NWFSC WCGBTS",180,2182,904,57,21,8,103,43,2
 "chilipepper","WA","NWFSC WCGBTS",9,27,27,0,6,1,4,4,0
@@ -102,7 +103,6 @@
 "rosethorn rockfish","CA","NWFSC WCGBTS",225,3060,0,1528,21,10,145,0,72
 "rosethorn rockfish","OR","NWFSC WCGBTS",508,10290,0,4214,21,24,490,0,200
 "rosethorn rockfish","WA","NWFSC WCGBTS",279,6822,0,2827,21,13,324,0,134
-"rougheye and blackspotted rockfish","CA","NWFSC HKL",1,1,0,1,1,1,1,0,1
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",13,15,14,0,8,1,1,1,0
 "rougheye and blackspotted rockfish","OR","NWFSC WCGBTS",353,1104,919,13,21,16,52,43,0
 "rougheye and blackspotted rockfish","WA","NWFSC WCGBTS",226,1182,1029,3,21,10,56,49,0
@@ -123,6 +123,7 @@
 "silvergray rockfish","CA","NWFSC WCGBTS",3,15,0,15,3,1,5,0,5
 "silvergray rockfish","OR","NWFSC WCGBTS",62,481,0,393,19,3,25,0,20
 "silvergray rockfish","WA","NWFSC WCGBTS",69,425,0,398,20,3,21,0,19
+"spiny dogfish","CA","NWFSC HKL",7,7,0,0,6,1,1,0,0
 "splitnose rockfish","CA","NWFSC WCGBTS",1551,33681,1573,6123,21,73,1603,74,291
 "splitnose rockfish","OR","NWFSC WCGBTS",928,17858,1044,3584,21,44,850,49,170
 "splitnose rockfish","WA","NWFSC WCGBTS",213,3145,294,654,21,10,149,14,31
@@ -131,13 +132,13 @@
 "squarespot rockfish","OR","NWFSC WCGBTS",2,4,1,1,2,1,2,0,0
 "starry rockfish","CA","NWFSC HKL",1089,3692,0,3566,20,54,184,0,178
 "starry rockfish","CA","NWFSC WCGBTS",47,98,0,91,18,2,5,0,5
-"stripetail rockfish","CA","NWFSC HKL",3,3,0,3,3,1,1,0,1
+"stripetail rockfish","CA","NWFSC HKL",4,4,0,4,4,1,1,0,1
 "stripetail rockfish","CA","NWFSC WCGBTS",2148,42456,0,8619,21,102,2021,0,410
 "stripetail rockfish","OR","NWFSC WCGBTS",614,8886,0,2262,21,29,423,0,107
 "stripetail rockfish","WA","NWFSC WCGBTS",173,1492,0,508,21,8,71,0,24
-"vermilion and sunset rockfish","CA","NWFSC HKL",2240,42075,15460,16189,20,112,2103,773,809
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",197,2837,1450,676,14,14,202,103,48
 "vermilion and sunset rockfish","OR","NWFSC WCGBTS",2,2,2,0,2,1,1,1,0
+"vermilion rockfish","CA","NWFSC HKL",2240,42075,15460,16189,20,112,2103,773,809
 "widow rockfish","CA","NWFSC HKL",300,899,0,877,20,15,44,0,43
 "widow rockfish","CA","NWFSC WCGBTS",210,1985,1363,9,21,10,94,64,0
 "widow rockfish","OR","NWFSC WCGBTS",253,2161,1417,10,21,12,102,67,0
@@ -152,4 +153,5 @@
 "yellowtail rockfish north","CA","NWFSC WCGBTS",37,792,292,27,18,2,44,16,1
 "yellowtail rockfish north","OR","NWFSC WCGBTS",324,3912,1947,404,21,15,186,92,19
 "yellowtail rockfish north","WA","NWFSC WCGBTS",540,12624,5633,877,21,25,601,268,41
+"yellowtail rockfish south","CA","NWFSC HKL",266,1907,124,1564,20,13,95,6,78
 "yellowtail rockfish south","CA","NWFSC WCGBTS",68,1072,534,21,19,3,56,28,1
