@@ -9,7 +9,7 @@
 #'
 #'
 clean_nwfsc_hkl <- function(
-  dir = here::here("data-raw", "2026"),
+  dir = dir,
   data,
   species
 ) {

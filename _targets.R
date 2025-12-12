@@ -19,14 +19,19 @@ targets::tar_source(here::here("R")) #functions are sourced from the "R" folder
 list(
   # Load in raw data and species lists
   tar_target(year, 2000),
-  tar_target(species, get_species_list()),
   tar_target(
-    spid_key,
-    read.csv(
-      here::here("data-raw", "2026", "pacfin_species_codes.csv")
-    )
+    species, 
+    get_species_list()
   ),
-  tar_target(stock_year, read.csv(here::here("data-raw", "2026", "assess_year_ssc_rec.csv"))),
+  tar_target(
+    stock_year_file,
+    command = "data-raw/2026/assess_year_ssc_rec.csv",
+    format = "file"
+  ),
+  tar_target(
+    stock_year, 
+    readr::read_csv(stock_year_file)
+  ), 
   # Survey data
   # Pull the WCGBT survey data
   tar_target(
@@ -41,7 +46,7 @@ list(
   tar_target(
     wcgbt_catch,
     clean_wcgbt_catch(
-      dir = here::here("data-raw", "2026"),
+      dir = here::here("data-processed", "2026"),
       species = species,
       data = wcgbt_data
     )
@@ -49,23 +54,26 @@ list(
   tar_target(
     wcgbt_filtered,
     clean_wcgbt_bio(
-      dir = here::here("data-raw", "2026"),
+      dir = here::here("data-processed", "2026"),
       species = species,
       data = wcgbt_data
     )    
   ),
     # NWFSC HKL Survey Data
+  tar_target(
+    nwfsc_hkl_file,
+    command = "data-raw/2026/nwfsc_hkl_DWarehouse_version_09032025.csv",
+    format = "file"
+  ),
     tar_target(
       nwfsc_hkl,
-      read.csv(
-        here::here("data-raw", "2026", "nwfsc_hkl_DWarehouse_version_09032025.csv")
-    )
+      readr::read_csv(stock_year_file)
   ),
   # Clean NWFSC HKL data
   tar_target(
     nwfsc_hkl_filtered,
     clean_nwfsc_hkl(
-      dir = here::here("data-raw", "2026"),
+      dir = here::here("data-processed", "2026"),
       species = species,
       data = nwfsc_hkl
     )

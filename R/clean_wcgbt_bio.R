@@ -7,7 +7,7 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-clean_wcgbt_bio <- function(dir = here::here("data-raw", "2026"), species, data) {
+clean_wcgbt_bio <- function(dir = dir, species, data) {
   bio <- data$bio |>
     dplyr::filter(Common_name %in% species[, "name"]) |>
     dplyr::filter(
@@ -77,6 +77,6 @@ clean_wcgbt_bio <- function(dir = here::here("data-raw", "2026"), species, data)
   
   bio <- wcgbt_bio
   
-  save(bio, file = file.path("data-processed", "2026", "wcgbt_bio_filtered.Rdata"))
+  save(bio, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))
   return(bio)
 }
