@@ -40,6 +40,9 @@ clean_nwfsc_hkl <- function(
       Sex = sex
     ) |>
     dplyr::filter(Common_name %in% species[, "name"])
+  
+  
+  #NOTE: yellowtail rockfish south is only in column Common_name, not lower_name or common_name
 
   for (a in 1:nrow(species)) {
     find <- grep(species[a, "name"], cleaned[, "Common_name"])
@@ -56,8 +59,7 @@ clean_nwfsc_hkl <- function(
           "china rockfish",
           "kelp greenling",
           "blue and deacon rockfish",
-          "quillback rockfish",
-          "yellowtail rockfish" #this wasn't listed in hkl_stock_year but it is in hkl_bio, so I removed it, what should it be instead?
+          "quillback rockfish"
         )
     )
   
