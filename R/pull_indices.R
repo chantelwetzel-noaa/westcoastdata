@@ -7,7 +7,8 @@ pull_indices <- function(dir){
   )
   
   updated_indices_use <- updated_indices[!grepl("^biomass", basename(updated_indices), ignore.case = TRUE)]
-  
+ 
+  #this isn't recognizing when the values in these files in this folder change 
   filter_coastwide <- function(file) {
     readr::read_csv(file, show_col_types = FALSE) %>%
       dplyr::filter(index == "Coastwide")
