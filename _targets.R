@@ -110,6 +110,15 @@ list(
     pull_indices(
       dir = "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output"
     )
+  ),
+  tar_target(
+    coastwide_indices_output_file,
+    command = "data-processed/2026/coastwide_indices.csv",
+    format = "file"
+  ),
+  tar_target(
+    coastwide_indices_output,
+    readr::read_csv(coastwide_indices_output_file)
   )
 )
 
