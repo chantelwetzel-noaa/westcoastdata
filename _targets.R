@@ -123,12 +123,6 @@ list(
       ),
     format = "file"
   ),
-#  tar_target(
-#    coastwide_indices,
-#    pull_indices(
-#      dir = "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output"
-#    )
-#  ),
   tar_target(
     coastwide_indices,
     pull_indices(
