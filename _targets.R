@@ -8,6 +8,7 @@ tar_option_set(
     "dplyr",
     "ggplot2",
     "cowplot",
+    "stringr",
     "nwfscSurvey",
     "pacfintools" # This is the keep-age-structure branch
   )
@@ -142,6 +143,12 @@ list(
   tar_target(
     coastwide_indices_output,
     readr::read_csv(coastwide_indices_output_file)
+  ),
+  tar_target(
+    plot_coastwide_indices,
+    plot_indices(
+      data = coastwide_indices_output
+    )
   )
 )
 

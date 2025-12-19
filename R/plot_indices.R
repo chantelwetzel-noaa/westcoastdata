@@ -25,7 +25,7 @@ plot_indices <- function(data,
       ggplot2::expand_limits(y = 0)
     
     file_name <- paste0(
-      str_replace_all(tolower(this_species), "[^a-z0-9]+", "_"),
+      stringr::str_replace_all(tolower(this_species), "[^a-z0-9]+", "_"),
       "_index.png"
     )
     
