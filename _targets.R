@@ -8,6 +8,7 @@ tar_option_set(
     "dplyr",
     "ggplot2",
     "cowplot",
+    "stringr",
     "nwfscSurvey",
     "pacfintools" # This is the keep-age-structure branch
   )
@@ -106,11 +107,28 @@ list(
   ),
   #indices
   tar_target(
+    auto_indexwc_output,
+    list.files(
+      "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output",
+      pattern = "\\.csv$",
+      full.names = TRUE
+    ),
+    format = "file"
+  ),
+  tar_target(
+    copy_auto_indexwc_output,
+    copy_auto_indexwc(
+      files = auto_indexwc_output,
+      copy_dir = here::here("data-processed", "2026", "indices")
+      ),
+    format = "file"
+  ),
+  tar_target(
     coastwide_indices,
     pull_indices(
-      dir = "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output"
+      dir = here::here("data-processed", "2026", "indices")
     )
-  ),
+  ),  
   tar_target(
     coastwide_indices_output_file,
     command = "data-processed/2026/coastwide_indices.csv",
@@ -119,6 +137,12 @@ list(
   tar_target(
     coastwide_indices_output,
     readr::read_csv(coastwide_indices_output_file)
+  ),
+  tar_target(
+    plot_coastwide_indices,
+    plot_indices(
+      data = coastwide_indices_output
+    )
   )
 )
 
