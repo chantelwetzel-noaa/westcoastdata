@@ -1,5 +1,5 @@
-plot_indices <- function(data, 
-                         save_dir = here::here("plots"), 
+plot_wcgbts_indices <- function(data, 
+                         save_dir = here::here("plots", "wcgbts_indices"), 
                          width = 10,
                          height = 7,
                          dpi = 300,
@@ -38,7 +38,4 @@ plot_indices <- function(data,
       pointsize = pointsize
     )
   })
-
-return(p)
-  
 }

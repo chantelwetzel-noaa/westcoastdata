@@ -100,7 +100,7 @@ list(
   ),
   #Plot the data
   tar_target(
-    plots,
+    state_comparison_plots,
     plot_data_by_year(
       data = combined_data
     )
@@ -140,13 +140,12 @@ list(
   ),
   tar_target(
     plot_coastwide_indices,
-    plot_indices(
+    plot_wcgbts_indices(
       data = coastwide_indices_output
     )
   )
 # NWFSC HKL NWFSC indices
-
-
+#see sandbox/run_hkl_indices.R
   
 )
 

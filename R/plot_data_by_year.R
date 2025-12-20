@@ -8,7 +8,7 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-plot_data_by_year <- function(dir = here::here("plots"), data) {
+plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), data) {
   year_range <- min(data$Year):max(data$Year)
   data$Source <- as.factor(data$Source)
 
@@ -141,7 +141,10 @@ plot_data_by_year <- function(dir = here::here("plots"), data) {
 
     cowplot::plot_grid(lengths, ages, otoliths, ncol = 1, nrow = 3)
     ggsave(
-      file.path(dir, paste0(sp, "_state_compositions.png")),
+      file.path(dir, 
+                paste0(
+                  stringr::str_replace_all(tolower(sp), "[^a-z0-9]+", "_"),
+                "_state_compositions.png")),
       height = 12,
       width = 12,
       dpi = 100
