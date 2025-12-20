@@ -101,6 +101,7 @@ for (a in 1:length(all)) {
 species <- get_hkl_species()
 hkl_data <- read.csv(here::here(
   "data-raw",
+  "2026",
   "nwfsc_hkl_DWarehouse_version_09032025.csv"
 ))
 
@@ -111,7 +112,7 @@ for (sp in unique(species)) {
   )
 
   run_hkl_index(
-    dir = here::here("plots-index"),
+    dir = here::here("plots", "hkl_indices"),
     data = species_data
   )
 }

@@ -105,7 +105,7 @@ list(
       data = combined_data
     )
   ),
-  #indices
+  # WCGBTS indices
   tar_target(
     auto_indexwc_output,
     list.files(
@@ -144,9 +144,12 @@ list(
       data = coastwide_indices_output
     )
   )
+# NWFSC HKL NWFSC indices
+
+
+  
 )
 
-# NWFSC HKL NWFSC WCGBT
 
 # targets::tar_make()
 # targets::tar_glimpse()
