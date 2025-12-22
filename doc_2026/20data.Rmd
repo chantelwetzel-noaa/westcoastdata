@@ -1,0 +1,50 @@
+# Preliminary Species Idenfitified for Assessment in 2025 
+
+At the March 2024 Pacific Fishery Management Council meeting, a preliminary list of groundfish species to consider for assessment in 2025 was identified ([March Decision Document](https://www.pcouncil.org/march-2024-decision-summary-document/)). The available data collected from the recreational and commercial fisheries by state, select scientific surveys, and additional age structure collection for these species are provided to inform final selection of species to assess in 2025.
+
+```{r loop-2025-species, results="asis", dpi = 36}
+
+species_for_2025 <- c(
+  "chilipepper",
+  "English sole",
+  "petrale sole",
+  "quillback rockfish",
+  "rougheye and blackspotted rockfish",
+  "sablefish",
+  "widow rockfish",
+  "yelloweye rockfish",
+  "yellowtail rockfish south",
+  "yellowtail rockfish north"
+)
+
+data |>
+  filter(Common_name %in% species_for_2025) |>
+  arrange(Common_name, .locale = "en") |>
+	group_by(Common_name) |>
+	distinct(Common_name) |>
+	pull(Common_name) |>
+	as.character() |>
+	walk(multiplot)
+ 
+```
+
+
+# Other Groundfish Species
+
+
+```{r loop-output, results="asis", dpi = 36}
+
+data |>
+  filter(!Common_name %in% c(species_for_2025, "yellowtail rockfish")) |>
+  arrange(Common_name, .locale = "en") |>
+	group_by(Common_name) |>
+	distinct(Common_name) |>
+	pull(Common_name) |>
+	as.character() |>
+	walk(multiplot_brief)
+ 
+```
+
+
+
+

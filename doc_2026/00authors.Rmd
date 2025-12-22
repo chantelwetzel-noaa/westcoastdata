@@ -1,0 +1,18 @@
+---
+author:
+  - name: Chantel R. Wetzel
+    code: 1
+    first: C
+    middle: R
+    family: Wetzel
+author_list: Wetzel, C.R.
+affiliation:
+  - code: 1
+    address: Northwest Fisheries Science Center, U.S. Department of Commerce, National
+      Oceanic and Atmospheric Administration, National Marine Fisheries Service, 2725
+      Montlake Boulevard East, Seattle, Washington 98112
+address:
+  - ^1^Northwest Fisheries Science Center, U.S. Department of Commerce, National Oceanic
+    and Atmospheric Administration, National Marine Fisheries Service, 2725 Montlake
+    Boulevard East, Seattle, Washington 98112
+---

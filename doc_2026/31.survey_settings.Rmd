@@ -1,0 +1,26 @@
+# Index Estimation for the NWFSC WCGBT Survey {#wcgbt-index-settings}
+
+
+```{r survey, results="asis"}
+
+survey <- read.csv('C:/Users/Chantel.Wetzel/Documents/GitHub/indexwc/data-raw/configuration.csv')
+survey_mat <- survey[c(-2, -10, -11, -12), c("species", "family", "formula", "min_depth", "max_depth", "min_latitude", 
+                             "max_latitude", "spatiotemporal1", "spatiotemporal2")]
+survey_mat[, "family"] <- gsub("sdmTMB::", "", survey_mat[, "family"])
+col_names <- gsub("_", " ", colnames(survey_mat))
+ind <- order(survey_mat$species)
+
+sa4ss::table_format(
+  x = survey_mat[ind, ], 
+  caption = "Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.",
+  label = 'survey-settings',
+  col_names = col_names,
+  landscape = TRUE,
+  font_size = 7,
+  custom_width = TRUE,
+	col_to_adjust = 1:ncol(survey),
+  width = c('0.1 cm', rep('2.5 cm', 2), rep('4 cm', 1), rep('1 cm', nrow(survey_mat) - 4)),
+  align = 'l')
+
+
+```
