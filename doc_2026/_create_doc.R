@@ -2,7 +2,7 @@
 library(sa4ss)
 
 # Always: Specify the directory for the document
-setwd(here::here(), "doc_2026")
+setwd(file.path(here::here(), "doc_2026"))
 
 # Render Call:
 if(file.exists("_main.Rmd")){

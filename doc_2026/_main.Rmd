@@ -1,0 +1,341 @@
+---
+geometry: margin=1in
+month: "`r format(Sys.Date(), '%B')`"
+year: "`r format(Sys.Date(), '%Y')`"
+preamble: |
+output:
+  sa4ss::techreport_pdf:
+    default
+  bookdown::pdf_document2:
+    keep_tex: true
+lang: en
+papersize: letter
+---
+
+```{r opts, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev = 'png')
+knitr::knit_hooks$set(plot = function(x,options) {
+      base = knitr::opts_knit$get('base.url')
+      if (is.null(base)) base = ''
+      alt = ifelse (is.null(options$alt),"",options$alt)
+      cap = ifelse (is.null(options$caption),"",options$caption)
+      if (alt != ""){
+        sprintf('![%s](%s%s "%s")', cap, base, x, alt)
+      } else {
+        sprintf('![%s](%s%s)', cap, base, x)
+        }
+  })
+
+load("00opts.Rdata")
+source("multiplot.R")
+source("multiplot_brief.R")
+
+# Need to make dynamic based on data file
+startyr <- 2000
+endyr <- 2023
+assess_year <- endyr + 2
+
+library(tidyverse)
+library(table.glue)
+library(glue)
+library(nwfscSurvey)
+#library(gt)
+#library(gtsummary)
+
+outer_dir <- "C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary"
+
+source(file.path(outer_dir, "R", "get_species_data.R"))
+source(file.path(outer_dir, "R", "get_source.R"))
+source(file.path(outer_dir, "R", "get_hkl_species.R"))
+source(file.path(getwd(), "maturity_text_by_species.R"))
+source(file.path(getwd(), "ongoing_research.R"))
+
+
+hkl_species <- get_hkl_species()
+wcgbt_species <- nwfscSurvey::GetSpp.fn(species = nwfscSurvey::GetSppDefault.fn())
+wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
+wcgbt_species <- wcgbt_species$common
+
+load('C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/data-processed/data_total_by_year.Rdata')
+data <- data_total_by_year
+species_data <- get_species_data()
+data <- dplyr::left_join(data, species_data, by = "Common_name")
+
+load('C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/data-raw/wcgbt_bio_filtered.Rdata')
+wcgbt_bio <- bio_sub
+age_species <- bio_sub |>
+	  dplyr::filter(!is.na(Age)) |>
+	  dplyr::group_by(Common_name) |>
+	  dplyr::summarize(
+	    age_10 = quantile(Age, 0.10, na.rm = TRUE),
+	    age_20 = quantile(Age, 0.20, na.rm = TRUE),
+	    n10 = sum(Age <= age_10),
+	    n20 = sum(Age <= age_20)
+	  ) #|>
+	  #dplyr::filter(age_20 <= 5) |>
+	  #dplyr::filter(n20 >= 500 )
+
+tmp <- age_species |> 
+  dplyr::arrange(Common_name, .locale = "en") |>
+  dplyr::reframe(
+    Common_name = Common_name
+  )
+
+young_fish <- knitr::combine_words(tmp$Common_name)
+rec_text <- read.csv("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/doc/model_rec_estimates.csv")
+
+
+n_species <- length(unique(data$Common_name))
+
+firstup <- function(x) {
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
+
+
+pagebreak <- function() {
+  if(knitr::is_latex_output())
+    return("\\newpage")
+  else
+    return('<div style="page-break-before: always;" />')
+}
+
+assess_data <- read.csv("C:/Users/Chantel.Wetzel/Documents/GitHub/assessment_prioritization/data-raw/stock_year.csv")
+
+```
+
+
+<!--chapter:end:00a.Rmd-->
+
+---
+author:
+  - name: Chantel R. Wetzel
+    code: 1
+    first: C
+    middle: R
+    family: Wetzel
+author_list: Wetzel, C.R.
+affiliation:
+  - code: 1
+    address: Northwest Fisheries Science Center, U.S. Department of Commerce, National
+      Oceanic and Atmospheric Administration, National Marine Fisheries Service, 2725
+      Montlake Boulevard East, Seattle, Washington 98112
+address:
+  - ^1^Northwest Fisheries Science Center, U.S. Department of Commerce, National Oceanic
+    and Atmospheric Administration, National Marine Fisheries Service, 2725 Montlake
+    Boulevard East, Seattle, Washington 98112
+---
+
+<!--chapter:end:00authors.Rmd-->
+
+---
+bibliography:
+  - sa4ss.bib
+---
+
+<!--chapter:end:00bibliography.Rmd-->
+
+---
+title: Summary of available data to support U.S. West Coast groundfish stock assessments
+---
+
+<!--chapter:end:00title.Rmd-->
+
+\pagebreak
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\renewcommand{\thetable}{\roman{table}}
+\renewcommand{\thefigure}{\roman{figure}}
+
+
+\setlength\parskip{0.5em plus 0.1em minus 0.2em}
+
+<!--chapter:end:01a.Rmd-->
+
+
+
+<!--chapter:end:01executive.Rmd-->
+
+\pagebreak
+\setlength{\parskip}{5mm plus1mm minus1mm}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+<!--chapter:end:10a.Rmd-->
+
+# Introduction 
+
+This document provides a detailed summary of commonly used data sources that may be used to support assessments in `r assess_year`. A detailed summary of data available by year and across sources can allow the Pacific Fishery Management Council (Council) and advisory bodies to understand the coverage of data across time and the potential viability of a new assessment or assessment type. The following additions and changes have been done relative the the version of this report provided at the March 2024 Council meeting:
+
+* Relative indices of abundance for species observed by the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl (WCGBT) survey have been added.
+
+* Relative indices of abundance for species observed by the NWFSC Hook-and-Line (HKL) survey have been added. Summaries of data collected between 2004-2023 are now included.
+
+* Relative juvenile indices of abundance for selected species that are well observed at small sizes by the NWFSC WCGBT survey have been added. The species included are arrowtooth flounder, darkblotched rockfish, Dover sole, English sole, longspine thornyhead, Pacific sanddab, petrale sole, sablefish, shortspine thornyhead, and splitnose rockfish.
+
+* Survey length data composition plots were included only for species identified for potential assessment in 2025 at the March Council meeting. These figures were provided in March for all species and can be found online in [Agenda Item F.3, Supplemental Attachment 4, March 2024](https://www.pcouncil.org/documents/2024/02/agenda-item-f-3-supplemental-attachment-4-summary-of-available-data-to-support-u-s-west-coast-groundfish-stock-assessments.pdf/).
+
+* A preliminary relative index of abudance from the International Pacific Halibut Commission (IPHC) survey is included for yelloweye rockfish based on sample stations off the Washington coast. The preliminary index was estimated by staff at Washington Department of Fish and Wildlife (WDFW). A future assessment of yelloweye rockfish may further refine how these data are modeled potentially resulting in slight changes in the year-to-year estimates. A plot of the designed-based (raw catch-per-unit-effort) estimates is included for comparison. 
+
+* A three-panel figure visualizing California quillback rockfish age and length from read age structures by the Cooperative Ageing Program (CAP) lab to date (4/11/2024), the distribution of lengths from read and unread age structures by data source at the CAP ageing lab, and the distribution of ages from read age structures.
+
+## Biological Samples
+
+Data from Pacific Fisheries Information Network (PacFIN), Recreational Fisheries Information Network (RecFIN), Southwest Fisheries Science Center (SWFSC) Commercial Passenger Fishing Vessel (CPFV) cooperative collections, California Collaborative Research Program (CCFRP) survey, the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBT), and NWFSC Hook-and-Line (HKL) surveys are summarized. 
+
+Commercial data summaries were downloaded from PacFIN on December 13, 2023. The number of length samples, aged fish, and unread age structures (e.g., otoliths, fin rays, or spines) samples by species, state, and year were summarized. Age structure records were provided directly from the WDFW for `r startyr`-`r endyr` and Pacific States Marine Fisheries Council (PSMFC) commercial collection in California for 2011-`r endyr`. Oregon Department of Fish and Wildlife (ODFW) confirmed that age structure records in PacFIN were correct and recommended using these data directly. Data available between `r startyr`-`r endyr` are summarized here.
+
+Recreational data summaries were downloaded from RecFIN on December 13, 2023. The number of length samples, aged fish, and unread age structures were summarized by species and state between `r startyr`-`r endyr`. Available age and age structure counts for Oregon and Washington were downloaded from RecFIN on January 30, 2024. 
+
+Data collected by the NWFSC WCGBT survey between 2003-`r endyr` and the NWFSC HKL survey from 2004-`r endyr` are summarized by species. Similar to the summaries provided for the commercial and recreational fisheries; lengths, aged fish, and unread age structures collected are available by year. Additionally, the number of tows (NWFSC WCGBT survey) or sites (NWFSC HKL survey) that observed each species by year are also provided. CCFRP length samples by year and species are summarized here as well. No additional CCFRP data are included in this report. A separate report detailing CCFRP data is available in the March Briefing Book under [Agenda Item F.3, Attachment 3, March 2024](https://www.pcouncil.org/documents/2024/02/agenda-item-f-3-attach-3-california-collaborative-fisheries-research-program-data-availability-for-stock-assessments.pdf/). 
+
+## California Ad-hoc Age-Structure Collections
+
+California Department of Fish and Wildlife (CDFW) provided age structure sample numbers collected via various methods from commercial and recreational fisheries. These samples were collected outside the standard sampling protocol for either California Recreational Fisheries Survey (CRFS) or the Pacific States Marine Fisheries Commission (PSMFC) commercial sampling program. These collections were labeled as "CDFW Ad-hoc" collections for each species. Details on the collection methodology for the recreational and commercial samples are below. 
+
+There are no age or age structure sample data in RecFIN that have been collected from California recreational fisheries. Recent age structure collections from 2017-`r endyr` were provided directly by CDFW. The recreational age structure collections provided by CDFW were collected by various methods: 1) from angler surrendered fish for copper rockfish, quillback rockfish, and yelloweye rockfish that were kept in excess of recreational bag limits or were prohibited to be retained, 2) cowcod under CDFW's Exempted Fishing Permit encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled species from private/rental and party/charter recreational vessels. Any future assessment, will need to investigate the California recreational age structures for representativeness to determine whether they could be linked to a recreational fleet within a model.
+
+Age structures collected from 12 groundfish species in 2019 by CDFW from purposive sampling (i.e., non-random) from commercially landed fish. This commercial pilot project involved obtaining randomly selected fish from participating fish businesses, either at the time of landing, or in the case of multiple landings utilizing the same gear type, after the landing had occurred. These ages would not be associated with a commercial fleet in an assessment due to their non-random collections.
+
+Age structures collected from carcasses of groundfish species between 2017-2019 by CDFW recreational fisheries. These collections may be considered by future assessments but would likely only be used as marginal ages (i.e., would not inform growth) given the uncertainty around the true fish length (e.g., length prior to filleting).
+
+## Survey Length Compositions
+
+The length data collected by the NWFSC WCGBT survey were expanded using a generalized area-based stratification. The composition data were expanded using a design-based approach with strata based on state latitudes with two depth strata: 55 - 183 m and 183 - 549 m, with an exception for four specie. The four species have considerable biomass at depths greater than 549 m: sablefish, Dover sole, longspine thornyhead, and shortspine thornyhead. Thus an additional depth strata that covered deeper waters, 549 - 1,280 m, for each state area was added. The expanded length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data.  Species where the range between the maximum and minimum lengths observed by the survey were less than 60 cm, 2 cm data bins were used, while for species where the range was 60 cm or greater the data bins were set at 4 cm. All length observations were treated as unsexed fish in this exercise for simplicity and for ease of observing potential trends in length observations across time. The generalized stratification and bin structure selected here provides a simple summary of the data that can be useful for decision making, but will likely differ from a species-specific approach that would be selected in a future assessment. Additionally, the NWFSC WCGBT survey selectivity for each species will impact the lengths observed and has not been explicitly accounted for in this analysis.
+
+The length data collected by the NWFSC HKL survey were summarized to reflect the proportion of observations by species, length bin, and year. The length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data, in the same manner as for the NWFSC WCGBT survey. Similar to the NWFSC WCGBT survey, the selectivity of the NWFSC HKL survey for each species will impact the lengths observed and has not been explicitly accounted for in this analysis.
+
+The length data plots for the CCFRP survey are not provided here. For detailed information about CCFRP survey data please see the separate [CCFRP report](https://www.pcouncil.org/documents/2024/02/agenda-item-f-3-attach-3-california-collaborative-fisheries-research-program-data-availability-for-stock-assessments.pdf/).
+
+## Survey Relative Indices of Abundance
+
+Indices of abundance were estimated from the NWFSC WCGBT survey using a spatiotemporal model (smdTMB) for species well-observed by the survey. The indices were estimated using a generalized set-up across species using either a gamma or log-normal distribution, with the dispersion parameter held constant across years with 200-500 knots used to create the mesh. The model structure for each species is provided in Section \ref{wcgbt-index-settings}. Future species-specific indices of abundance created with sdmTMB would likely select a more tailored approach for model settings (e.g., knots, distributions) which could result in slight changes in year-by-year values for the indices of abundance. The indices of abundance presented here should only be considered illustrative of potential trends in abundance across time. 
+
+Indices of abundance were estimated from the NWFSC HKL survey for well-observed species using a negative-binomial model that accounted for year, site, and drop number. Additional covariates that would typically be explored when developing species-specific indices for use in stock assessments were not explored in this analysis for simplicity. The selection of how to model these data for a particular species may vary from the approach applied here. For example, the recent vermilion and sunset rockfish assessment modeled the data as two indices (i.e., one for areas outside of the Cowcod Conservation Areas [CCA] and one for sites inside the CCAs). In contrast, the recent assessment of copper rockfish estimated a single index with observations by areas weighted (nearshore sites, northern Channel Islands, Southern Channel Islands). 
+
+## Maturity Data Collections
+
+Maturity samples for a wide range of West Coast groundfish species have been collected across a range of sources: NWFSC WCGBT survey, NWFSC HKL survey, Pacific hake survey, at-sea sampling of the Pacific hake fishery, and port sampling by ODFW and WDFW. Samples have been collected between 2009 - 2022. The following summary does not include collection from the 2023 NWFSC WCGBT and HKL surveys. Summaries of the maturity collections is provided for each species. This data summary only includes collections led by the NWFSC but other collections could be available at the SWFSC, CDFW, ODFW, WDFW, or other research groups. Future data summaries will look to integrate these additional collections in subsequent versions of this document.     
+
+## Additional Data
+
+Data may be available for consideration in future assessments that are currently not included in this report. A summary of potential additional data that could be available are described below:
+
+* Totals for data collected in 2023 in PacFIN and RecFIN are incomplete for all states.
+
+* Data collected in 2023 by the CCFRP are not yet available. Additionally, in recent years CCFRP has been collecting age structures from a small number of fish from the reference area (i.e., areas open to fishing). The numbers of age structures and aged fish from this survey were not available for this report. There is a separate document is provided that summarizes data collected by the CCFRP for select species that details the number of samples by location, area type (marine protected area or reference area), and plots of available length compositions. 
+
+* Historical data collections from various research projects exist at the SWFSC that have not been cataloged and entered into any database. Species-specific searches may yield additional samples within these collections.
+
+While this document only summarizes data from 2000-2023, there are additional data available from earlier years that could be incorporated into future assessments.
+
+* ODFW and WDFW have substantial collections from periods prior to the years summarized in this report from their commercial and recreational sampling programs.
+
+* CDFW is undergoing a review of historical age structures collections (i.e., referred to as refugia samples) for samples from the 1980s and earlier. If sufficient documentation exists for these historical samples they could be potentially included in future assessments. Since this work is ongoing it is unclear how many samples may be available across species.  
+
+Finally, summarizing commercial and recreational data from each state accurately continues to be challenging due to differences by state in what information is transmitted to PacFIN and RecFIN (e.g., California commercial age structure collections). Receiving and understanding the available commercial and recreational data requires emailing various representative in each state who thankfully have been accommodating in answering questions and providing additional data summaries. However, given the challenges around acquiring and collating, data summaries may not be comprehensive or have unintentional errors. Any issues identified will be addressed in future versions.
+
+\newpage
+
+
+
+<!--chapter:end:11introduction.Rmd-->
+
+# Preliminary Species Idenfitified for Assessment in 2025 
+
+At the March 2024 Pacific Fishery Management Council meeting, a preliminary list of groundfish species to consider for assessment in 2025 was identified ([March Decision Document](https://www.pcouncil.org/march-2024-decision-summary-document/)). The available data collected from the recreational and commercial fisheries by state, select scientific surveys, and additional age structure collection for these species are provided to inform final selection of species to assess in 2025.
+
+```{r loop-2025-species, results="asis", dpi = 36}
+
+species_for_2025 <- c(
+  "chilipepper",
+  "English sole",
+  "petrale sole",
+  "quillback rockfish",
+  "rougheye and blackspotted rockfish",
+  "sablefish",
+  "widow rockfish",
+  "yelloweye rockfish",
+  "yellowtail rockfish south",
+  "yellowtail rockfish north"
+)
+
+data |>
+  filter(Common_name %in% species_for_2025) |>
+  arrange(Common_name, .locale = "en") |>
+	group_by(Common_name) |>
+	distinct(Common_name) |>
+	pull(Common_name) |>
+	as.character() |>
+	walk(multiplot)
+ 
+```
+
+
+# Other Groundfish Species
+
+
+```{r loop-output, results="asis", dpi = 36}
+
+data |>
+  filter(!Common_name %in% c(species_for_2025, "yellowtail rockfish")) |>
+  arrange(Common_name, .locale = "en") |>
+	group_by(Common_name) |>
+	distinct(Common_name) |>
+	pull(Common_name) |>
+	as.character() |>
+	walk(multiplot_brief)
+ 
+```
+
+
+
+
+
+<!--chapter:end:20data.Rmd-->
+
+# Index Estimation for the NWFSC WCGBT Survey {#wcgbt-index-settings}
+
+
+```{r survey, results="asis"}
+
+survey <- read.csv('C:/Users/Chantel.Wetzel/Documents/GitHub/indexwc/data-raw/configuration.csv')
+survey_mat <- survey[c(-2, -10, -11, -12), c("species", "family", "formula", "min_depth", "max_depth", "min_latitude", 
+                             "max_latitude", "spatiotemporal1", "spatiotemporal2")]
+survey_mat[, "family"] <- gsub("sdmTMB::", "", survey_mat[, "family"])
+col_names <- gsub("_", " ", colnames(survey_mat))
+ind <- order(survey_mat$species)
+
+sa4ss::table_format(
+  x = survey_mat[ind, ], 
+  caption = "Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.",
+  label = 'survey-settings',
+  col_names = col_names,
+  landscape = TRUE,
+  font_size = 7,
+  custom_width = TRUE,
+	col_to_adjust = 1:ncol(survey),
+  width = c('0.1 cm', rep('2.5 cm', 2), rep('4 cm', 1), rep('1 cm', nrow(survey_mat) - 4)),
+  align = 'l')
+
+
+```
+
+<!--chapter:end:31.survey_settings.Rmd-->
+
+\newpage
+
+# Acknowledgement {-}
+
+I would like to thank Theresa Tsou (WDFW), Kristen Hinton (WDFW), Alison Whitman (ODFW), Brenda Erwin (PSMFC), and Andre Klein (CDFW) for providing data that were essential in producing data summaries. I am appreciative of Jason Edwards (PSMFC) being responsive to questions regarding recreational data. I appreciate Melissa Head providing maturity sample collections. Finally, I would like to thank the NWFSC Fisheries Resource Analysis and Monitoring survey team and their dedication to collecting high quality data that are essential to the assessment of West Coast groundfish stocks.
+
+<!--chapter:end:40acknowledgments.Rmd-->
+
+
+<!--chapter:end:49bibliography.Rmd-->
+

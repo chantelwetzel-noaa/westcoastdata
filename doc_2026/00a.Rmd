@@ -26,13 +26,13 @@ knitr::knit_hooks$set(plot = function(x,options) {
         }
   })
 
-load("00opts.Rdata")
-source("multiplot.R")
-source("multiplot_brief.R")
+#load("00opts.Rdata")
+#source("multiplot.R")
+#source("multiplot_brief.R")
 
 # Need to make dynamic based on data file
 startyr <- 2000
-endyr <- 2023
+endyr <- 2025
 assess_year <- endyr + 2
 
 library(tidyverse)
@@ -42,28 +42,31 @@ library(nwfscSurvey)
 #library(gt)
 #library(gtsummary)
 
-outer_dir <- "C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary"
+outer_dir <- here::here()
 
 source(file.path(outer_dir, "R", "get_species_data.R"))
 source(file.path(outer_dir, "R", "get_source.R"))
 source(file.path(outer_dir, "R", "get_hkl_species.R"))
-source(file.path(getwd(), "maturity_text_by_species.R"))
-source(file.path(getwd(), "ongoing_research.R"))
+#source(file.path(getwd(), "maturity_text_by_species.R"))
+#source(file.path(getwd(), "ongoing_research.R"))
 
 
 hkl_species <- get_hkl_species()
-wcgbt_species <- nwfscSurvey::GetSpp.fn(species = nwfscSurvey::GetSppDefault.fn())
-wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
-wcgbt_species <- wcgbt_species$common
+#MAKE WCGBTS_SPECIES FUNCTION
 
-load('C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/data-processed/data_total_by_year.Rdata')
+#wcgbt_species <- nwfscSurvey::GetSpp.fn(species = nwfscSurvey::GetSppDefault.fn())
+#wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
+#wcgbt_species <- wcgbt_species$common
+
+load(file.path(here::here(), "data-processed", "2026", "data_total_by_year.Rdata"))
 data <- data_total_by_year
-species_data <- get_species_data()
-data <- dplyr::left_join(data, species_data, by = "Common_name")
+#species_data <- get_species_data()
+#data <- dplyr::left_join(data, species_data, by = "Common_name")
 
-load('C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/data-raw/wcgbt_bio_filtered.Rdata')
-wcgbt_bio <- bio_sub
-age_species <- bio_sub |>
+load(file.path(here::here(), "data-processed", "2026", "wcgbt_bio_filtered.Rdata"))
+wcgbt_bio <- bio
+#why does this have yellowtail, yellowtail north, and yellowtail south?
+age_species <- bio |>
 	  dplyr::filter(!is.na(Age)) |>
 	  dplyr::group_by(Common_name) |>
 	  dplyr::summarize(
@@ -75,14 +78,14 @@ age_species <- bio_sub |>
 	  #dplyr::filter(age_20 <= 5) |>
 	  #dplyr::filter(n20 >= 500 )
 
-tmp <- age_species |> 
-  dplyr::arrange(Common_name, .locale = "en") |>
-  dplyr::reframe(
-    Common_name = Common_name
-  )
+#tmp <- age_species |> 
+#  dplyr::arrange(Common_name, .locale = "en") |>
+#  dplyr::reframe(
+#    Common_name = Common_name
+#  )
 
-young_fish <- knitr::combine_words(tmp$Common_name)
-rec_text <- read.csv("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/doc/model_rec_estimates.csv")
+#young_fish <- knitr::combine_words(tmp$Common_name)
+#rec_text <- read.csv("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/doc/model_rec_estimates.csv")
 
 
 n_species <- length(unique(data$Common_name))
@@ -100,7 +103,7 @@ pagebreak <- function() {
     return('<div style="page-break-before: always;" />')
 }
 
-assess_data <- read.csv("C:/Users/Chantel.Wetzel/Documents/GitHub/assessment_prioritization/data-raw/stock_year.csv")
+assess_data <- read.csv(file.path(here::here(), "data-raw", "2026", "assess_year_ssc_rec.csv"))
 
 ```
 
