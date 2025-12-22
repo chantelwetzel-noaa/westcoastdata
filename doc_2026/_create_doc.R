@@ -2,7 +2,7 @@
 library(sa4ss)
 
 # Always: Specify the directory for the document
-setwd("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/doc")
+setwd(here::here(), "doc_2026")
 
 # Render Call:
 if(file.exists("_main.Rmd")){
