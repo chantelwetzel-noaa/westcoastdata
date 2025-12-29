@@ -54,6 +54,7 @@ source(file.path(outer_dir, "R", "get_hkl_species.R"))
 hkl_species <- get_hkl_species()
 #MAKE WCGBTS_SPECIES FUNCTION
 
+nwfscSurvey::get_species_info(species = nwfscSurvey::GetSppDefault.fn())
 #wcgbt_species <- nwfscSurvey::GetSpp.fn(species = nwfscSurvey::GetSppDefault.fn())
 #wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
 #wcgbt_species <- wcgbt_species$common
