@@ -52,11 +52,12 @@ source(file.path(outer_dir, "R", "get_hkl_species.R"))
 
 
 hkl_species <- get_hkl_species()
-#MAKE WCGBTS_SPECIES FUNCTION
+#these are currently uppercase
 
-#wcgbt_species <- nwfscSurvey::GetSpp.fn(species = nwfscSurvey::GetSppDefault.fn())
-#wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
-#wcgbt_species <- wcgbt_species$common
+wcgbt_species <- nwfscSurvey::get_species_info(species = nwfscSurvey::GetSppDefault.fn())
+wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
+wcgbt_species <- wcgbt_species$common
+#these are currently lowercase
 
 load(file.path(here::here(), "data-processed", "2026", "data_total_by_year.Rdata"))
 data <- data_total_by_year
@@ -65,7 +66,6 @@ data <- data_total_by_year
 
 load(file.path(here::here(), "data-processed", "2026", "wcgbt_bio_filtered.Rdata"))
 wcgbt_bio <- bio
-#why does this have yellowtail, yellowtail north, and yellowtail south?
 age_species <- bio |>
 	  dplyr::filter(!is.na(Age)) |>
 	  dplyr::group_by(Common_name) |>
