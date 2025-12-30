@@ -27,7 +27,7 @@ multiplot <- function(species_name){
  	}
 
  	glue::glue("Across available data, {species_name} ",
- 		"have been observed and sampled by ") |> cat()	
+ 		"have been observed and sampled by ") |> cat()	#probably just remove all options here and hard code "surveys"
 
 	if(data_to_show == "all"){
 		glue::glue("both commercial and recreational fisheries and the NWFSC WCGBT and HKL surveys. ") |> cat()

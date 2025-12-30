@@ -209,8 +209,6 @@ Data may be available for consideration in future assessments that are currently
 
 \newpage
 
-
-
 <!--chapter:end:11introduction.Rmd-->
 
 # Preliminary Species Idenfitified for Assessment in 2027 
@@ -260,8 +258,6 @@ data |>
 	walk(multiplot_brief)
  
 ```
-
-
 
 
 
