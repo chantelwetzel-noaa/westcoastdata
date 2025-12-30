@@ -1,10 +1,11 @@
-# Preliminary Species Idenfitified for Assessment in 2025 
+# Preliminary Species Idenfitified for Assessment in 2027 
 
-At the March 2024 Pacific Fishery Management Council meeting, a preliminary list of groundfish species to consider for assessment in 2025 was identified ([March Decision Document](https://www.pcouncil.org/march-2024-decision-summary-document/)). The available data collected from the recreational and commercial fisheries by state, select scientific surveys, and additional age structure collection for these species are provided to inform final selection of species to assess in 2025.
+The available data collected from select scientific surveys are provided to inform final selection of species to assess in 2027.
 
-```{r loop-2025-species, results="asis", dpi = 36}
+```{r loop-2027-species, results="asis", dpi = 36}
 
-species_for_2025 <- c(
+#this will be updated for 2027 species
+species_for_2027 <- c(
   "chilipepper",
   "English sole",
   "petrale sole",
@@ -18,7 +19,7 @@ species_for_2025 <- c(
 )
 
 data |>
-  filter(Common_name %in% species_for_2025) |>
+  filter(Common_name %in% species_for_2027) |>
   arrange(Common_name, .locale = "en") |>
 	group_by(Common_name) |>
 	distinct(Common_name) |>
@@ -35,7 +36,7 @@ data |>
 ```{r loop-output, results="asis", dpi = 36}
 
 data |>
-  filter(!Common_name %in% c(species_for_2025, "yellowtail rockfish")) |>
+  filter(!Common_name %in% c(species_for_2027)) |>
   arrange(Common_name, .locale = "en") |>
 	group_by(Common_name) |>
 	distinct(Common_name) |>
@@ -44,7 +45,5 @@ data |>
 	walk(multiplot_brief)
  
 ```
-
-
 
 
