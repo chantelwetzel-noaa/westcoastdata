@@ -6,17 +6,8 @@ The available data collected from select scientific surveys are provided to info
 
 #this will be updated for 2027 species
 species_for_2027 <- c(
-  "chilipepper",
-  "English sole",
-  "petrale sole",
-  "quillback rockfish",
-  "rougheye and blackspotted rockfish",
-  "sablefish",
-  "widow rockfish",
-  "yelloweye rockfish",
-  "yellowtail rockfish south",
-  "yellowtail rockfish north"
-)
+  "chilipepper"
+  )
 
 data |>
   filter(Common_name %in% species_for_2027) |>

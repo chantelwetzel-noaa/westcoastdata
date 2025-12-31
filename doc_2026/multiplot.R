@@ -12,7 +12,7 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
 	data_to_show <- unique(sub_data$sources_to_use)
 
 	assess <- assess_data |> 
-	  dplyr::filter(species == species_name)
+	  dplyr::filter(Species == species_name)
 	
 	ass_yr <- ifelse(is.na(assess$year) & assess$type == "data-limited", 2010, assess$year)
 
