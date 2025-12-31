@@ -29,7 +29,7 @@ knitr::knit_hooks$set(plot = function(x,options) {
 #what is this and what is it doing?
 load("00opts.Rdata")
 source("multiplot.R")
-#source("multiplot_brief.R")
+source("multiplot_brief.R")
 
 # Need to make dynamic based on data file
 startyr <- 2000

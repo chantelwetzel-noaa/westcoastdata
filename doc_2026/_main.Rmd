@@ -29,7 +29,7 @@ knitr::knit_hooks$set(plot = function(x,options) {
 #what is this and what is it doing?
 load("00opts.Rdata")
 source("multiplot.R")
-#source("multiplot_brief.R")
+source("multiplot_brief.R")
 
 # Need to make dynamic based on data file
 startyr <- 2000
@@ -58,8 +58,9 @@ hkl_species <- get_hkl_species()
 wcgbt_species <- nwfscSurvey::get_species_info(species = nwfscSurvey::GetSppDefault.fn())
 wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
 wcgbt_species[which(wcgbt_species$common == "yellowtail rockfish"), "common"] <- "yellowtail rockfish north"
-#add yellowtail rockfish south
 wcgbt_species <- wcgbt_species$common
+#add yellowtail rockfish south
+wcgbt_species <- c(wcgbt_species, "yellowtail rockfish south")
 #these are currently lowercase
 
 load(file.path(here::here(), "data-processed", "2026", "data_total_by_year.Rdata"))
@@ -245,8 +246,13 @@ data |>
 
 ```{r loop-output, results="asis", dpi = 36}
 
+test <- c(
+  "petrale sole"
+  )
+
 data |>
-  filter(!Common_name %in% c(species_for_2027)) |>
+  filter(Common_name %in% c(test)) |>
+#  filter(!Common_name %in% c(species_for_2027)) |>
   arrange(Common_name, .locale = "en") |>
 	group_by(Common_name) |>
 	distinct(Common_name) |>

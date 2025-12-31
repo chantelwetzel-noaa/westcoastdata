@@ -26,8 +26,13 @@ data |>
 
 ```{r loop-output, results="asis", dpi = 36}
 
+test <- c(
+  "petrale sole"
+  )
+
 data |>
-  filter(!Common_name %in% c(species_for_2027)) |>
+  filter(Common_name %in% c(test)) |>
+#  filter(!Common_name %in% c(species_for_2027)) |>
   arrange(Common_name, .locale = "en") |>
 	group_by(Common_name) |>
 	distinct(Common_name) |>
