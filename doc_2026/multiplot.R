@@ -1,5 +1,5 @@
 
-multiplot <- function(species_name){
+multiplot <- function(species_name){ #for the plots, need to add code that adds a space instead of _, great
   
   section_name <- firstup(species_name)
 	
@@ -137,7 +137,7 @@ multiplot <- function(species_name){
  	
  	# This should be the data figures by state
  	add_figure(
- 	   filein = file.path('C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots', paste0(species_name, "_state_compositions.png")), 
+ 	   filein = file.path(here::here("plots", "state_comparisons"), paste0(species_name, "_state_compositions.png")), 
  	   caption = glue::glue("Total number of available lengths, read ages, and unread age structures by data source by year for {species_name}.  Note the y-axis is unique for the number of lengths plot row compared to 
  	                      the number of age and age structure plot rows."),
  	   label = paste0('sample-table-', species_name),
@@ -145,30 +145,6 @@ multiplot <- function(species_name){
  	   height = 100)
  	 
  	cat("\n\n\\pagebreak\n")
- 	
- 	
- 	if(species_name == "quillback rockfish"){ 
- 	  glue::glue("A summary of California quillback rockfish age structuresthat have been sent to the CAP ageing lab in Newport, Oregon.
- 	             as of April 11, 2024 is provide below. Approximately 50 percent of the age structures have been read with finalized ages with 
- 	             the remaining samples currently being read and finalized. Any additional samples that arrive at the ageing lab this year 
- 	             will be prioritized for age reading. The number of samples from small California quillback rockfish 
- 	             (e.g., less than 24 cm) has increased but remains limited, increasing from 5 at the end of 2021 
- 	             to 24 with the majority of the new samples being from fish between 22-23.9 cm. The lack of
- 	             samples from young sizes may create challanges in estimating all growth parameters, potentially requiring some
- 	             growth parameters to be fixed in a future assessment.") |> cat()
- 	  add_figure(
- 	    filein = "C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots/quillback rockfish_length_age.png", 
- 	    caption = glue::glue("Age-length for aged California quillback rockfish by data source, the distribution
- 	                         of lengths from read and unread age structures by data source at the CAP ageing lab as 
- 	                         of 4/11/2024, and the distribution of ages from read age structures. The NMFS age structures
- 	                         have been collected by targeted collections. The SWFSC boxes-trays samples are from 
- 	                         historical collections from either recreational or commerical fisheries."),
- 	    label = "quillback-age-length",
- 	    width = 90,
- 	    height = 90)
- 	  
- 	  cat("\n\n\\pagebreak\n") 	  
- 	}
  	
  	if(file.exists(here::here("plots-index", paste0(species_name, "_wcgbt_index_coastwide.png")))){ 
  	  add_figure(

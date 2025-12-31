@@ -56,13 +56,17 @@ hkl_species <- get_hkl_species()
 
 wcgbt_species <- nwfscSurvey::get_species_info(species = nwfscSurvey::GetSppDefault.fn())
 wcgbt_species[which(wcgbt_species$common == "rougheye rockfish"), "common"] <- "rougheye and blackspotted rockfish"
+wcgbt_species[which(wcgbt_species$common == "yellowtail rockfish"), "common"] <- "yellowtail rockfish north"
+#add yellowtail rockfish south
 wcgbt_species <- wcgbt_species$common
 #these are currently lowercase
 
 load(file.path(here::here(), "data-processed", "2026", "data_total_by_year.Rdata"))
 data <- data_total_by_year
-#species_data <- get_species_data()
-#data <- dplyr::left_join(data, species_data, by = "Common_name")
+#check blue vs blue and deacon
+#check vermilion and sunset vs vermilion
+species_data <- get_species_data()
+data <- dplyr::left_join(data, species_data, by = "Common_name")
 
 load(file.path(here::here(), "data-processed", "2026", "wcgbt_bio_filtered.Rdata"))
 wcgbt_bio <- bio
@@ -104,6 +108,7 @@ pagebreak <- function() {
 }
 
 assess_data <- read.csv(file.path(here::here(), "data-raw", "2026", "assess_year_ssc_rec.csv"))
+#was this updated elsewhere? says yellowtail... or do I need to change this in the raw data?
 
 ```
 
