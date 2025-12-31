@@ -48,7 +48,7 @@ outer_dir <- here::here()
 source(file.path(outer_dir, "R", "get_species_data.R"))
 source(file.path(outer_dir, "R", "get_source.R"))
 source(file.path(outer_dir, "R", "get_hkl_species.R"))
-#source(file.path(getwd(), "maturity_text_by_species.R"))
+source(file.path(getwd(), "maturity_text_by_species.R"))
 #source(file.path(getwd(), "ongoing_research.R"))
 
 

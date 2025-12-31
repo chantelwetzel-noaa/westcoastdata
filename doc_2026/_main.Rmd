@@ -48,7 +48,7 @@ outer_dir <- here::here()
 source(file.path(outer_dir, "R", "get_species_data.R"))
 source(file.path(outer_dir, "R", "get_source.R"))
 source(file.path(outer_dir, "R", "get_hkl_species.R"))
-#source(file.path(getwd(), "maturity_text_by_species.R"))
+source(file.path(getwd(), "maturity_text_by_species.R"))
 #source(file.path(getwd(), "ongoing_research.R"))
 
 
@@ -272,14 +272,15 @@ data |>
 ```{r survey, results="asis"}
 
 #survey <- read.csv('C:/Users/Chantel.Wetzel/Documents/GitHub/indexwc/data-raw/configuration.csv')
+survey <- read.csv(file.path(here::here("data-raw", "2026", "configuration_20251231.csv")))
 
-raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/main/data/configuration.rda"
-temp_file <- tempfile(fileext = ".rda")
-download.file(raw_url, temp_file, mode = "wb")
-load(temp_file, envir = .GlobalEnv)
-survey <- configuration
-unlink(temp_file)
-
+#if we can use this, it would be better in case there are updates to the configuration file
+#raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/main/data/configuration.rda"
+#temp_file <- tempfile(fileext = ".rda")
+#download.file(raw_url, temp_file, mode = "wb")
+#load(temp_file, envir = .GlobalEnv)
+#survey <- configuration
+#unlink(temp_file)
 
 #survey_mat <- survey[c(-2, -10, -11, -12), c("species", "family", "formula", "min_depth", "max_depth", "min_latitude","max_latitude", "spatiotemporal1", "spatiotemporal2")]
 #this removed certain species, which ones should we remove for 2026
