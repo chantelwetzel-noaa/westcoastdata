@@ -236,21 +236,5 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
  	  cat("\n\n\\pagebreak\n")
  	}
  	
- 	if(species_name == "yelloweye rockfish"){
- 	  add_figure(
- 	    filein = "C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots-index/yellowye rockfish_IPHC_index.png", 
- 	    caption = glue::glue("Preliminary relative index of abundance for the International Pacific Halibut Commission (IPHC) survey
- 	                         for yellowye rockfish from stations off the Washington coast. The indices are compared when 
- 	                         estimated using a hurdle model with a lognormal error distribution, a spatial generalized additive model with a 
- 	                         tweedie error distribution, or the raw catch-per-unit-effort (CPUE)."),
- 	    label = paste0('iphc-', species_name),
- 	    width = 100,
- 	    height = 100)
- 	  
- 	  cat("\n\n\\pagebreak\n")
- 	  
- 	}
- 	
-  
   cat("  \n  \n")
 }
