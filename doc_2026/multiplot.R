@@ -1,5 +1,5 @@
 
-multiplot <- function(species_name){ #for the plots, need to add code that adds a space instead of _, great
+multiplot <- function(species_name){ 
   
   section_name <- firstup(species_name)
 	
@@ -98,9 +98,6 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
  	
  	glue::glue(" \n \n") |> cat()
  	glue::glue(" \n \n") |> cat()	
- 	cat("\n")
- 	cat("\n")
- 	
  	
  	#total <- sub_data |>
  	#  dplyr::group_by(State, Source) |>
@@ -135,9 +132,10 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
  	                  align = 'r')
  	print(t)
  	
+ 	species_name_fig <- gsub(" ", "_", species_name)
  	# This should be the data figures by state
  	add_figure(
- 	   filein = file.path(here::here("plots", "state_comparisons"), paste0(species_name, "_state_compositions.png")), 
+ 	   filein = file.path(here::here("plots", "state_comparisons"), paste0(species_name_fig, "_state_compositions.png")), 
  	   caption = glue::glue("Total number of available lengths, read ages, and unread age structures by data source by year for {species_name}.  Note the y-axis is unique for the number of lengths plot row compared to 
  	                      the number of age and age structure plot rows."),
  	   label = paste0('sample-table-', species_name),
@@ -146,9 +144,9 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
  	 
  	cat("\n\n\\pagebreak\n")
  	
- 	if(file.exists(here::here("plots-index", paste0(species_name, "_wcgbt_index_coastwide.png")))){ 
+ 	if(file.exists(here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png")))){ 
  	  add_figure(
- 	    filein = file.path("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots-index", paste0(species_name, "_wcgbt_index_coastwide.png")), 
+ 	    filein = file.path(here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))), 
  	    caption = glue::glue("Estimated relative index of abundance from the NWFSC West Coast Groundfish Bottom Trawl 
  	                         survey for {species_name}. {wcgbt_samples}"),
  	    label = paste0('wcgbt-index-', species_name),
@@ -158,78 +156,14 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
  	  cat("\n\n\\pagebreak\n") 	  
  	}
 
-	if(file.exists(here::here("plots", paste0(species_name, "_length_frequency_sex_0.png")))){ 
-
-		add_figure(
-			filein = file.path("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots", paste0(species_name, "_length_frequency_sex_0.png")), 
-			caption = glue::glue("Length (cm) compostion data from the NWFSC West Coast Groundfish Bottom Trawl survey for {species_name}. 
-			Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) 
-			proportion observed by length bin."),
-			label = paste0('wcgbt-lengths-', species_name),
-			width = 100,
-			height = 100)
-
-		cat("\n\n\\pagebreak\n")
-	}
  	
- 	file <- paste0("One-pane-", species_name, "-index.png")
- 	if(file.exists(file.path("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots", file))){
- 	  
- 	  print_text <- rec_text[rec_text$Common_name == species_name, "text"]
- 	  age <- as.numeric(age_species[age_species$Common_name == species_name, "age_20"])
- 	  age_text <- ifelse(age == 0, "", " or younger")
+ 	if(file.exists(here::here("plots", "hkl_indices", paste0(species_name, "_negbinom index.png")))){
  	  
  	  add_figure(
- 	    filein = file.path("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots", file), 
- 	    caption = glue::glue("Juvenile index of abundance estiamted from the NWFSC West Coast Groundfish 
- 	                         Bottom Trawl survey for {species_name}. {print_text}"),
- 	    label = paste0('wcgbt-young-lengths-', species_name),
- 	    width = 100,
- 	    height = 100)
- 	  
- 	  if(!species_name %in% c("shortspine thornyhead", "longspine thornyhead")){
- 	  
- 	    age_length <- aggregate(Length_cm ~ Age, 
- 	                            wcgbt_bio[which(wcgbt_bio$Common_name == species_name & wcgbt_bio$Age <= age), ], 
- 	                            function(x) quantile(x, 0.50, na.rm = TRUE))
- 	    
- 	  
- 	    caption <- glue::glue("The median length (cm) associated with fish age {age}{age_text} for {species_name} based on aged fish from the NWFSC West Coast Groundfish Bottom Trawl survey.")
- 	    t <- table_format(x = age_length, 
- 	                      col_names = c("Age", "Length (cm)"),
- 	                      caption = caption,
- 	                      labe = paste0("age-length-", species_name),
- 	                      align = 'r')
- 	    print(t)
- 	  }
- 	  
- 	  cat("\n\n\\pagebreak\n")
- 	  
- 	}
- 	
- 	
- 	if(file.exists(here::here("plots-index", paste0(species_name, "_negbinom index.png")))){
- 	  
- 	  add_figure(
- 	    filein = file.path("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots-index", paste0(species_name, "_negbinom index.png")),
- 	    caption = glue::glue("Index of abundance from the NWFSC Hook and Line survey from 2004-2023 (excluding 2020) 
+ 	    filein = file.path(here::here("plots", "hkl_indices", paste0(species_name, "_negbinom index.png"))),
+ 	    caption = glue::glue("Index of abundance from the NWFSC Hook and Line survey from 2004-2025 (excluding 2020) 
  	                         for {species_name}. {nwfsc_hkl_samples}"),
  	    label = paste0('index-hkl-', species_name),
- 	    width = 100,
- 	    height = 100)
- 	  
- 	  cat("\n\n\\pagebreak\n")
- 	}
- 	
- 	
- 	if(file.exists(here::here("plots", paste0(species_name, "_nwfsc_hkl_length_frequency_sex_0.png")))){ 
- 	  
- 	  add_figure(
- 	    filein = file.path("C:/Users/Chantel.Wetzel/Documents/GitHub/data_summary/plots", paste0(species_name, "_nwfsc_hkl_length_frequency_sex_0.png")), 
- 	    caption = glue::glue("Length (cm) compostion data from the NWFSC Hook and Line survey for {species_name}. 
-			Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) 
-			proportion observed by length bin."),
- 	    label = paste0('hkl-lengths-', species_name),
  	    width = 100,
  	    height = 100)
  	  
