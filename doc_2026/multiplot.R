@@ -85,21 +85,21 @@ multiplot <- function(species_name){ #for the plots, need to add code that adds 
  	cat("\n")
  	
  	
-# 	if(species_name %in% maturity_text$species){
+ 	if(species_name %in% maturity_text$species){
 
-# 	  collected_n <- maturity_text[maturity_text$species == species_name, "collected"]
-# 	  read_n <- maturity_text[maturity_text$species == species_name, "read"]
-# 	  add_text <- maturity_text[maturity_text$species == species_name, "text_to_add"]
+ 	  collected_n <- maturity_text[maturity_text$species == species_name, "collected"]
+ 	  read_n <- maturity_text[maturity_text$species == species_name, "read"]
+ 	  add_text <- maturity_text[maturity_text$species == species_name, "text_to_add"]
  	  
-# 	  glue::glue("Coastwide a total of {collected_n} maturity samples have been collected and {read_n}
-# 	             read by researchers at the NWFSC. {add_text}") |> cat()   
-# 	}
+ 	  glue::glue("Coastwide a total of {collected_n} maturity samples have been collected and {read_n}
+ 	             read by researchers at the NWFSC. {add_text}") |> cat()   
+ 	}
 # 	research_list(species_name = species_name) 
  	
-# 	glue::glue(" \n \n") |> cat()
-# 	glue::glue(" \n \n") |> cat()	
-# 	cat("\n")
-# 	cat("\n")
+ 	glue::glue(" \n \n") |> cat()
+ 	glue::glue(" \n \n") |> cat()	
+ 	cat("\n")
+ 	cat("\n")
  	
  	
  	#total <- sub_data |>
