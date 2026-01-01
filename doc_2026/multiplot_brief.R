@@ -44,11 +44,11 @@ multiplot_brief <- function(species_name){
   tows_per_year <- sets_per_year <- 0
   if("NWFSC WCGBT" %in% sub_data$Source){
     tows_per_year <- round(
-      sum(sub_data[sub_data$Source == "NWFSC WCGBT", "set_tows"]) / length(c(2003:2019, 2021:2025)), 0)
+      sum(sub_data[sub_data$Source == "NWFSC WCGBT", "set_tows"]) / length(c(2003:2019, 2021:2024)), 0)
   }
   if("NWFSC HKL" %in% sub_data$Source){
     sets_per_year <- round(
-      sum(sub_data[sub_data$Source == "NWFSC HKL", "set_tows"]) / length(c(2004:2019, 2021:2025)), 0)
+      sum(sub_data[sub_data$Source == "NWFSC HKL", "set_tows"]) / length(c(2004:2019, 2021:2024)), 0)
   }
   average_sets <- data.frame(
     Source = c("NWFSC WCGBT", "NWFSC HKL"),
@@ -133,7 +133,7 @@ multiplot_brief <- function(species_name){
     add_figure(
       filein = file.path(here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))), 
       caption = glue::glue("Estimated relative index of abundance from the NWFSC West Coast Groundfish Bottom Trawl 
- 	                         survey for {species_name}. {wcgbt_samples}"),
+ 	                         survey for {species_name}."),
       label = paste0('wcgbt-index-', species_name),
       width = 100,
       height = 100)
@@ -146,8 +146,8 @@ multiplot_brief <- function(species_name){
     
     add_figure(
       filein = file.path(here::here("plots", "hkl_indices", paste0(species_name, "_negbinom index.png"))),
-      caption = glue::glue("Index of abundance from the NWFSC Hook and Line survey from 2004-2025 (excluding 2020) 
- 	                         for {species_name}. {nwfsc_hkl_samples}"),
+      caption = glue::glue("Index of abundance from the NWFSC Hook and Line survey from 2004-2024 (excluding 2020) 
+ 	                         for {species_name}."),
       label = paste0('index-hkl-', species_name),
       width = 100,
       height = 100)
