@@ -13,12 +13,19 @@ clean_nwfsc_hkl <- function(
   data,
   species
 ) {
-  cleaned <- data |>
+  formatted <- data |>
     dplyr::rename_with(tolower) |>
     dplyr::mutate(
       lower_name = tolower(common_name),
       Common_name = dplyr::case_when(
-        lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south", #yellowtail rockfish is replaced by yellowtail rockfish south
+        lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south",
+        lower_name == "blackspotted rockfish" ~
+          "rougheye and blackspotted rockfish",
+        lower_name == "blue rockfish" ~ "blue and deacon rockfish",
+        lower_name == "spiny dogfish" ~ "Pacific spiny dogfish",
+        lower_name == "vermilion rockfish" ~ "vermilion and sunset rockfish",
+        lower_name == "california scorpionfish" ~ "California scorpionfish",
+        lower_name == "lingcod" ~ "lingcod south",
         .default = lower_name
       ),
       State = "CA",
@@ -40,16 +47,10 @@ clean_nwfsc_hkl <- function(
       Sex = sex
     ) |>
     dplyr::filter(Common_name %in% species[, "name"])
-  
-  
+
   #NOTE: yellowtail rockfish south is only in column Common_name, not lower_name or common_name
 
-  for (a in 1:nrow(species)) {
-    find <- grep(species[a, "name"], cleaned[, "Common_name"])
-    cleaned[find, "Common_name"] <- species[a, "use_name"]
-  }
-
-  cleaned <- cleaned |>
+  cleaned <- formatted |>
     dplyr::filter(
       !Common_name %in%
         c(
@@ -62,7 +63,10 @@ clean_nwfsc_hkl <- function(
           "quillback rockfish"
         )
     )
-  
-  save(cleaned, file = file.path("data-processed", "2026", "nwfsc_hkl_filtered.Rdata"))
+
+  save(
+    cleaned,
+    file = file.path("data-processed", "2026", "nwfsc_hkl_filtered.Rdata")
+  )
   return(cleaned)
 }

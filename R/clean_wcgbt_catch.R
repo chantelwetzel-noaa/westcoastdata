@@ -10,9 +10,6 @@
 clean_wcgbt_catch <- function(dir = dir, species, data) {
   catch <- data$catch |>
     dplyr::filter(Common_name %in% species[, "name"]) |>
-    dplyr::filter(
-      !Common_name %in% c("vermilion rockfish", "blue / deacon rockfish")
-    ) |>
     dplyr::mutate(
       Source = "NWFSC WCGBTS",
       State_area = dplyr::case_when(
@@ -28,46 +25,41 @@ clean_wcgbt_catch <- function(dir = dir, species, data) {
         .default = "OR"
       ),
       Fleet = NA,
-      Common_name = dplyr::case_when(
-        Common_name %in% c("blue rockfish", "deacon rockfish") ~
-          "blue and deacon rockfish",
-        Common_name == "tree rockish" ~ "treefish",
-        Common_name == "gopher rockfish" ~
-          "gopher and black and yellow rockfish",
-        Common_name == "yellowtail rockfish" & Latitude_dd >= 40.167 ~
-          "yellowtail rockfish north",
-        Common_name == "yellowtail rockfish" & Latitude_dd < 40.167 ~
-          "yellowtail rockfish south",
-        .default = Common_name
-      ),
-      positive_tow = dplyr::case_when(total_catch_wt_kg > 0 ~ 1, .default = 0)
+      positive_tow = dplyr::case_when(total_catch_wt_kg > 0 ~ 1, .default = 0),
+      set_tow_id = Trawl_id
     )
-  
-  
-  wcgbt_catch <- catch
-  
+
+  wcgbt_catch <- rename_wcgbt_species(data = catch)
+
   remove <- c(
-    which(wcgbt_catch$Common_name == "black rockfish" & wcgbt_catch$State == "CA"),
+    which(
+      wcgbt_catch$Common_name == "black rockfish" & wcgbt_catch$State == "CA"
+    ),
     which(
       wcgbt_catch$Common_name == "blue and deacon rockfish" &
         wcgbt_catch$State == "CA"
     ),
     which(
-      wcgbt_catch$Common_name == "cabezon" & wcgbt_catch$State %in% c("CA", "OR")
+      wcgbt_catch$Common_name == "cabezon" &
+        wcgbt_catch$State %in% c("CA", "OR")
     ),
-    which(wcgbt_catch$Common_name == "China rockfish" & wcgbt_catch$State == "CA"),
-    which(wcgbt_catch$Common_name == "copper rockfish" & wcgbt_catch$State == "CA"),
     which(
-      wcgbt_catch$Common_name == "quillback rockfish" & wcgbt_catch$State == "CA"
+      wcgbt_catch$Common_name == "China rockfish" & wcgbt_catch$State == "CA"
     ),
-    which(wcgbt_catch$Common_name == "kelp greenling" & wcgbt_catch$State == "CA")
+    which(
+      wcgbt_catch$Common_name == "copper rockfish" & wcgbt_catch$State == "CA"
+    ),
+    which(
+      wcgbt_catch$Common_name == "quillback rockfish" &
+        wcgbt_catch$State == "CA"
+    ),
+    which(
+      wcgbt_catch$Common_name == "kelp greenling" & wcgbt_catch$State == "CA"
+    )
   )
   wcgbt_catch <- wcgbt_catch[-remove, ]
-  
-  catch <- wcgbt_catch
-  
-  catch_areas <-
-    catch |>
+
+  catch_areas <- wcgbt_catch |>
     dplyr::filter(positive_tow == 1) |>
     dplyr::group_by(Common_name) |>
     dplyr::summarise(
@@ -86,6 +78,6 @@ clean_wcgbt_catch <- function(dir = dir, species, data) {
     here::here(dir, "wcgbt_catch_areas.csv"),
     row.names = FALSE
   )
-  save(catch, file = file.path(dir, "wcgbt_catch_filtered.Rdata"))
-  return(catch)
+  save(wcgbt_catch, file = file.path(dir, "wcgbt_catch_filtered.Rdata"))
+  return(wcgbt_catch)
 }
