@@ -1,5 +1,18 @@
 library(targets)
 
+# Create targets for all objects
+# targets::tar_make(script = "_targets.R")
+# Load existing targets
+# targets::tar_load_everything()
+
+# View network plots
+# targets::tar_visnetwork(targets_only = TRUE)
+# targets::tar_glimpse()
+
+# Use the following commands to remove one or all files when getting errors
+# targets::tar_delete("rank")
+# targets::tar_destroy("all")
+
 # Set target-specific options such as packages:
 # tar_option_set(packages = "utils")
 tar_option_set(
@@ -21,7 +34,7 @@ list(
   # Load in raw data and species lists
   tar_target(year, 2000),
   tar_target(
-    species, 
+    species,
     get_species_list()
   ),
   tar_target(
@@ -30,13 +43,13 @@ list(
     format = "file"
   ),
   tar_target(
-    stock_year, 
+    stock_year,
     readr::read_csv(stock_year_file)
-  ), 
+  ),
   # Survey data
   # Pull the WCGBT survey data
   tar_target(
-    wcgbt_data,
+    wcgbt_raw_data,
     pull_wcgbts(
       dir = here::here("data-raw", "2026"),
       load = TRUE,
@@ -45,30 +58,30 @@ list(
   ),
   # Clean NWFSC WCGBT data
   tar_target(
-    wcgbt_catch,
+    wcgbt_catch_filtered,
     clean_wcgbt_catch(
       dir = here::here("data-processed", "2026"),
       species = species,
-      data = wcgbt_data
+      data = wcgbt_raw_data
     )
   ),
   tar_target(
-    wcgbt_filtered,
+    wcgbt_bio_filtered,
     clean_wcgbt_bio(
       dir = here::here("data-processed", "2026"),
       species = species,
-      data = wcgbt_data
-    )    
+      data = wcgbt_raw_data
+    )
   ),
-    # NWFSC HKL Survey Data
+  # NWFSC HKL Survey Data
   tar_target(
     nwfsc_hkl_file,
     command = "data-raw/2026/nwfsc_hkl_DWarehouse_version_09032025.csv",
     format = "file"
   ),
-    tar_target(
-      nwfsc_hkl,
-      readr::read_csv(nwfsc_hkl_file)
+  tar_target(
+    nwfsc_hkl,
+    readr::read_csv(nwfsc_hkl_file)
   ),
   # Clean NWFSC HKL data
   tar_target(
@@ -85,7 +98,7 @@ list(
     summarize_survey_new_information(
       dir = here::here("data-processed", "2026"),
       stock_year = stock_year,
-      wcgbt = wcgbt_filtered,
+      wcgbt = wcgbt_bio_filtered,
       hkl = nwfsc_hkl_filtered
     )
   ),
@@ -94,61 +107,59 @@ list(
     combined_data,
     combine_all_data(
       dir = here::here("data-processed", "2026"),
-      wcgbt = wcgbt_filtered,
+      wcgbt = wcgbt_bio_filtered,
       nwfsc_hkl = nwfsc_hkl_filtered
     )
-  ),
+  ) #,
   #Plot the data
-  tar_target(
-    state_comparison_plots,
-    plot_data_by_year(
-      data = combined_data
-    )
-  ),
+  #tar_target(
+  #  state_comparison_plots,
+  #  plot_data_by_year(
+  #    data = combined_data
+  #  )
+  #),
   # WCGBTS indices
-  tar_target(
-    auto_indexwc_output,
-    list.files(
-      "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output",
-      pattern = "\\.csv$",
-      full.names = TRUE
-    ),
-    format = "file"
-  ),
-  tar_target(
-    copy_auto_indexwc_output,
-    copy_auto_indexwc(
-      files = auto_indexwc_output,
-      copy_dir = here::here("data-processed", "2026", "indices")
-      ),
-    format = "file"
-  ),
-  tar_target(
-    coastwide_indices,
-    pull_indices(
-      dir = here::here("data-processed", "2026", "indices")
-    )
-  ),  
-  tar_target(
-    coastwide_indices_output_file,
-    command = "data-processed/2026/coastwide_indices.csv",
-    format = "file"
-  ),
-  tar_target(
-    coastwide_indices_output,
-    readr::read_csv(coastwide_indices_output_file)
-  ),
-  tar_target(
-    plot_coastwide_indices,
-    plot_wcgbts_indices(
-      data = coastwide_indices_output
-    )
-  )
-# NWFSC HKL NWFSC indices
-#see sandbox/run_hkl_indices.R
-  
+  #tar_target(
+  #  auto_indexwc_output,
+  #  list.files(
+  #    "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output",
+  #    pattern = "\\.csv$",
+  #    full.names = TRUE
+  #  ),
+  #  format = "file"
+  #),
+  #tar_target(
+  #  copy_auto_indexwc_output,
+  #  copy_auto_indexwc(
+  #    files = auto_indexwc_output,
+  #    copy_dir = here::here("data-processed", "2026", "indices")
+  #    ),
+  #  format = "file"
+  #),
+  #tar_target(
+  #  coastwide_indices,
+  #  pull_indices(
+  #    dir = here::here("data-processed", "2026", "indices")
+  #  )
+  #),
+  #tar_target(
+  #  coastwide_indices_output_file,
+  #  command = "data-processed/2026/coastwide_indices.csv",
+  #  format = "file"
+  #),
+  #tar_target(
+  #  coastwide_indices_output,
+  #  readr::read_csv(coastwide_indices_output_file)
+  #),
+  #tar_target(
+  #  plot_coastwide_indices,
+  #  plot_wcgbts_indices(
+  #    data = coastwide_indices_output
+  #  )
+  #)
+  # NWFSC HKL NWFSC indices
+  #see sandbox/run_hkl_indices.R
 )
-
 
 # targets::tar_make()
 # targets::tar_glimpse()
