@@ -13,7 +13,7 @@ combine_all_data <- function(
   wcgbt,
   nwfsc_hkl
 ) {
-    #Combine data sets into a single data frame
+  #Combine data sets into a single data frame
   cols_to_keep <- c(
     "Year", #yes, yes
     "State", #yes, yes
@@ -29,8 +29,6 @@ combine_all_data <- function(
     "Weight_kg", #yes, yes
     "Sex" #yes, yes
   )
-  wcgbt <- wcgbt |>
-      dplyr::rename(set_tow_id = Trawl_id)
 
   data <- rbind(
     wcgbt[, cols_to_keep],
@@ -43,8 +41,7 @@ combine_all_data <- function(
   #data[is.na(data)] <- 0
 
   group_vars = c("Common_name", "State", "Source")
-  data_total <-
-    data |>
+  data_total <- data |>
     dplyr::group_by_at(group_vars) |>
     dplyr::summarise(
       set_tows = dplyr::n_distinct(set_tow_id),
@@ -58,20 +55,19 @@ combine_all_data <- function(
       ave_lengths = floor(sum(Lengthed) / dplyr::n_distinct(Year)),
       ave_ages = floor(sum(Aged) / dplyr::n_distinct(Year)),
       ave_otoliths = floor(sum(Otolith) / dplyr::n_distinct(Year))
-    )
-  data_total <- as.data.frame(data_total)
+    ) |>
+    as.data.frame()
 
   group_vars <- c("Common_name", "State", "Source", "Year")
-  data_total_by_year <-
-    data |>
+  data_total_by_year <- data |>
     dplyr::group_by_at(group_vars) |>
     dplyr::summarise(
       set_tows = dplyr::n_distinct(set_tow_id),
       total_lengths = sum(Lengthed),
       total_ages = sum(Aged),
       total_otoliths = sum(Otolith)
-    )
-  data_total_by_year <- as.data.frame(data_total_by_year)
+    ) |>
+    as.data.frame()
 
   write.csv(data_total, file.path(dir, "data_summaries.csv"), row.names = FALSE)
   write.csv(
