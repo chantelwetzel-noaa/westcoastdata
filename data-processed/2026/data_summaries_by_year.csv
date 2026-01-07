@@ -1,4 +1,16 @@
 "Common_name","State","Source","Year","set_tows","total_lengths","total_ages","total_otoliths"
+"California scorpionfish","CA","NWFSC HKL",2005,1,1,0,0
+"California scorpionfish","CA","NWFSC HKL",2006,2,1,0,1
+"California scorpionfish","CA","NWFSC HKL",2007,1,1,0,0
+"California scorpionfish","CA","NWFSC HKL",2010,1,1,0,0
+"California scorpionfish","CA","NWFSC HKL",2014,2,2,0,0
+"California scorpionfish","CA","NWFSC HKL",2015,5,7,0,0
+"California scorpionfish","CA","NWFSC HKL",2017,2,3,0,0
+"California scorpionfish","CA","NWFSC HKL",2018,2,4,0,3
+"California scorpionfish","CA","NWFSC HKL",2021,3,4,0,2
+"California scorpionfish","CA","NWFSC HKL",2022,5,8,0,8
+"California scorpionfish","CA","NWFSC HKL",2023,3,8,0,8
+"California scorpionfish","CA","NWFSC HKL",2024,1,1,0,1
 "California scorpionfish","CA","NWFSC WCGBTS",2003,7,74,0,0
 "California scorpionfish","CA","NWFSC WCGBTS",2004,12,156,0,0
 "California scorpionfish","CA","NWFSC WCGBTS",2005,10,226,103,0
@@ -311,6 +323,12 @@
 "Pacific sanddab","WA","NWFSC WCGBTS",2022,23,244,0,46
 "Pacific sanddab","WA","NWFSC WCGBTS",2023,34,343,0,67
 "Pacific sanddab","WA","NWFSC WCGBTS",2024,31,316,0,62
+"Pacific spiny dogfish","CA","NWFSC HKL",2005,2,2,0,0
+"Pacific spiny dogfish","CA","NWFSC HKL",2006,1,1,0,0
+"Pacific spiny dogfish","CA","NWFSC HKL",2012,1,1,0,0
+"Pacific spiny dogfish","CA","NWFSC HKL",2017,1,1,0,0
+"Pacific spiny dogfish","CA","NWFSC HKL",2021,1,1,0,0
+"Pacific spiny dogfish","CA","NWFSC HKL",2023,1,1,0,0
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",2003,82,1069,0,315
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",2004,79,1279,0,240
 "Pacific spiny dogfish","CA","NWFSC WCGBTS",2005,128,2171,0,473
@@ -675,27 +693,6 @@
 "blackgill rockfish","WA","NWFSC WCGBTS",2008,1,1,0,1
 "blackgill rockfish","WA","NWFSC WCGBTS",2016,1,5,0,5
 "blackgill rockfish","WA","NWFSC WCGBTS",2024,1,1,0,1
-"blackspotted rockfish","CA","NWFSC HKL",2022,1,1,0,1
-"blue rockfish","CA","NWFSC HKL",2004,6,47,0,47
-"blue rockfish","CA","NWFSC HKL",2005,9,64,0,65
-"blue rockfish","CA","NWFSC HKL",2006,9,40,0,40
-"blue rockfish","CA","NWFSC HKL",2007,5,21,0,21
-"blue rockfish","CA","NWFSC HKL",2008,7,39,0,39
-"blue rockfish","CA","NWFSC HKL",2009,6,17,0,15
-"blue rockfish","CA","NWFSC HKL",2010,4,27,0,27
-"blue rockfish","CA","NWFSC HKL",2011,5,36,0,36
-"blue rockfish","CA","NWFSC HKL",2012,3,4,0,3
-"blue rockfish","CA","NWFSC HKL",2013,6,10,0,10
-"blue rockfish","CA","NWFSC HKL",2014,14,38,0,36
-"blue rockfish","CA","NWFSC HKL",2015,16,61,0,60
-"blue rockfish","CA","NWFSC HKL",2016,19,64,0,61
-"blue rockfish","CA","NWFSC HKL",2017,14,92,0,89
-"blue rockfish","CA","NWFSC HKL",2018,16,65,0,62
-"blue rockfish","CA","NWFSC HKL",2019,15,50,0,45
-"blue rockfish","CA","NWFSC HKL",2021,10,12,0,6
-"blue rockfish","CA","NWFSC HKL",2022,8,18,0,17
-"blue rockfish","CA","NWFSC HKL",2023,13,54,0,47
-"blue rockfish","CA","NWFSC HKL",2024,13,25,0,24
 "bocaccio","CA","NWFSC HKL",2004,59,780,0,724
 "bocaccio","CA","NWFSC HKL",2005,69,664,0,665
 "bocaccio","CA","NWFSC HKL",2006,73,730,0,733
@@ -771,18 +768,6 @@
 "bocaccio","WA","NWFSC WCGBTS",2023,7,22,0,22
 "bocaccio","WA","NWFSC WCGBTS",2024,12,59,0,39
 "cabezon","WA","NWFSC WCGBTS",2017,1,1,0,1
-"california scorpionfish","CA","NWFSC HKL",2005,1,1,0,0
-"california scorpionfish","CA","NWFSC HKL",2006,2,1,0,1
-"california scorpionfish","CA","NWFSC HKL",2007,1,1,0,0
-"california scorpionfish","CA","NWFSC HKL",2010,1,1,0,0
-"california scorpionfish","CA","NWFSC HKL",2014,2,2,0,0
-"california scorpionfish","CA","NWFSC HKL",2015,5,7,0,0
-"california scorpionfish","CA","NWFSC HKL",2017,2,3,0,0
-"california scorpionfish","CA","NWFSC HKL",2018,2,4,0,3
-"california scorpionfish","CA","NWFSC HKL",2021,3,4,0,2
-"california scorpionfish","CA","NWFSC HKL",2022,5,8,0,8
-"california scorpionfish","CA","NWFSC HKL",2023,3,8,0,8
-"california scorpionfish","CA","NWFSC HKL",2024,1,1,0,1
 "canary rockfish","CA","NWFSC HKL",2004,12,32,32,0
 "canary rockfish","CA","NWFSC HKL",2005,6,40,40,0
 "canary rockfish","CA","NWFSC HKL",2006,7,25,25,0
@@ -866,7 +851,7 @@
 "canary rockfish","WA","NWFSC WCGBTS",2022,12,311,213,0
 "canary rockfish","WA","NWFSC WCGBTS",2023,23,381,0,244
 "canary rockfish","WA","NWFSC WCGBTS",2024,28,233,0,106
-"chilipepper","CA","NWFSC HKL",2004,12,66,0,66
+"chilipepper","CA","NWFSC HKL",2004,13,67,0,67
 "chilipepper","CA","NWFSC HKL",2005,14,74,0,74
 "chilipepper","CA","NWFSC HKL",2006,12,44,0,44
 "chilipepper","CA","NWFSC HKL",2007,14,83,0,80
@@ -1300,89 +1285,90 @@
 "kelp greenling","WA","NWFSC WCGBTS",2022,3,5,0,5
 "kelp greenling","WA","NWFSC WCGBTS",2023,2,10,0,10
 "kelp greenling","WA","NWFSC WCGBTS",2024,4,13,0,13
-"lingcod","CA","NWFSC HKL",2004,19,32,0,0
-"lingcod","CA","NWFSC HKL",2005,19,39,0,0
-"lingcod","CA","NWFSC HKL",2006,13,14,0,0
-"lingcod","CA","NWFSC HKL",2007,19,26,0,0
-"lingcod","CA","NWFSC HKL",2008,9,12,0,0
-"lingcod","CA","NWFSC HKL",2009,11,19,0,0
-"lingcod","CA","NWFSC HKL",2010,5,15,0,0
-"lingcod","CA","NWFSC HKL",2011,27,31,0,0
-"lingcod","CA","NWFSC HKL",2012,36,66,0,0
-"lingcod","CA","NWFSC HKL",2013,36,94,0,2
-"lingcod","CA","NWFSC HKL",2014,41,88,0,0
-"lingcod","CA","NWFSC HKL",2015,52,83,0,0
-"lingcod","CA","NWFSC HKL",2016,48,105,4,15
-"lingcod","CA","NWFSC HKL",2017,47,79,73,1
-"lingcod","CA","NWFSC HKL",2018,42,79,74,0
-"lingcod","CA","NWFSC HKL",2019,30,44,34,0
-"lingcod","CA","NWFSC HKL",2021,19,23,0,0
-"lingcod","CA","NWFSC HKL",2022,28,33,0,3
-"lingcod","CA","NWFSC HKL",2023,16,19,0,4
-"lingcod","CA","NWFSC HKL",2024,14,22,0,0
-"lingcod","CA","NWFSC WCGBTS",2003,94,649,449,10
-"lingcod","CA","NWFSC WCGBTS",2004,82,800,408,14
-"lingcod","CA","NWFSC WCGBTS",2005,99,587,396,18
-"lingcod","CA","NWFSC WCGBTS",2006,52,337,212,6
-"lingcod","CA","NWFSC WCGBTS",2007,53,196,157,1
-"lingcod","CA","NWFSC WCGBTS",2008,79,625,410,15
-"lingcod","CA","NWFSC WCGBTS",2009,117,670,290,278
-"lingcod","CA","NWFSC WCGBTS",2010,107,852,253,254
-"lingcod","CA","NWFSC WCGBTS",2011,127,710,245,230
-"lingcod","CA","NWFSC WCGBTS",2012,127,1241,210,237
-"lingcod","CA","NWFSC WCGBTS",2013,89,770,155,158
-"lingcod","CA","NWFSC WCGBTS",2014,134,1693,292,226
-"lingcod","CA","NWFSC WCGBTS",2015,128,1074,230,185
-"lingcod","CA","NWFSC WCGBTS",2016,108,894,202,181
-"lingcod","CA","NWFSC WCGBTS",2017,119,809,286,115
-"lingcod","CA","NWFSC WCGBTS",2018,121,853,312,86
-"lingcod","CA","NWFSC WCGBTS",2019,50,205,143,27
-"lingcod","CA","NWFSC WCGBTS",2021,103,422,0,293
-"lingcod","CA","NWFSC WCGBTS",2022,79,290,0,255
-"lingcod","CA","NWFSC WCGBTS",2023,76,354,0,215
-"lingcod","CA","NWFSC WCGBTS",2024,80,413,0,284
-"lingcod","OR","NWFSC WCGBTS",2003,48,350,208,2
-"lingcod","OR","NWFSC WCGBTS",2004,59,453,310,8
-"lingcod","OR","NWFSC WCGBTS",2005,72,411,345,6
-"lingcod","OR","NWFSC WCGBTS",2006,81,474,319,7
-"lingcod","OR","NWFSC WCGBTS",2007,75,253,194,41
-"lingcod","OR","NWFSC WCGBTS",2008,71,348,264,3
-"lingcod","OR","NWFSC WCGBTS",2009,66,272,117,119
-"lingcod","OR","NWFSC WCGBTS",2010,76,440,128,137
-"lingcod","OR","NWFSC WCGBTS",2011,83,655,162,187
-"lingcod","OR","NWFSC WCGBTS",2012,80,541,131,112
-"lingcod","OR","NWFSC WCGBTS",2013,67,362,128,80
-"lingcod","OR","NWFSC WCGBTS",2014,86,625,113,161
-"lingcod","OR","NWFSC WCGBTS",2015,67,413,110,81
-"lingcod","OR","NWFSC WCGBTS",2016,89,714,128,129
-"lingcod","OR","NWFSC WCGBTS",2017,95,554,0,268
-"lingcod","OR","NWFSC WCGBTS",2018,75,475,62,151
-"lingcod","OR","NWFSC WCGBTS",2019,47,203,63,114
-"lingcod","OR","NWFSC WCGBTS",2021,82,649,0,272
-"lingcod","OR","NWFSC WCGBTS",2022,75,452,0,212
-"lingcod","OR","NWFSC WCGBTS",2023,64,348,0,153
-"lingcod","OR","NWFSC WCGBTS",2024,90,527,0,281
-"lingcod","WA","NWFSC WCGBTS",2003,42,319,206,5
-"lingcod","WA","NWFSC WCGBTS",2004,29,114,109,3
-"lingcod","WA","NWFSC WCGBTS",2005,26,100,99,1
-"lingcod","WA","NWFSC WCGBTS",2006,37,164,151,1
-"lingcod","WA","NWFSC WCGBTS",2007,41,196,132,27
-"lingcod","WA","NWFSC WCGBTS",2008,41,190,167,1
-"lingcod","WA","NWFSC WCGBTS",2009,37,160,73,85
-"lingcod","WA","NWFSC WCGBTS",2010,51,628,133,119
-"lingcod","WA","NWFSC WCGBTS",2011,56,488,112,109
-"lingcod","WA","NWFSC WCGBTS",2012,41,398,65,66
-"lingcod","WA","NWFSC WCGBTS",2013,32,190,80,21
-"lingcod","WA","NWFSC WCGBTS",2014,42,567,70,49
-"lingcod","WA","NWFSC WCGBTS",2015,49,344,95,55
-"lingcod","WA","NWFSC WCGBTS",2016,33,145,36,49
-"lingcod","WA","NWFSC WCGBTS",2017,35,246,0,90
-"lingcod","WA","NWFSC WCGBTS",2018,29,227,26,82
-"lingcod","WA","NWFSC WCGBTS",2019,27,144,28,68
-"lingcod","WA","NWFSC WCGBTS",2021,40,404,0,136
-"lingcod","WA","NWFSC WCGBTS",2022,28,323,0,90
-"lingcod","WA","NWFSC WCGBTS",2023,48,556,0,139
-"lingcod","WA","NWFSC WCGBTS",2024,49,781,0,149
+"lingcod north","CA","NWFSC WCGBTS",2003,21,213,154,1
+"lingcod north","CA","NWFSC WCGBTS",2004,11,60,40,2
+"lingcod north","CA","NWFSC WCGBTS",2005,23,259,135,3
+"lingcod north","CA","NWFSC WCGBTS",2006,8,144,51,3
+"lingcod north","CA","NWFSC WCGBTS",2007,14,108,72,1
+"lingcod north","CA","NWFSC WCGBTS",2008,7,15,15,0
+"lingcod north","CA","NWFSC WCGBTS",2009,22,143,45,42
+"lingcod north","CA","NWFSC WCGBTS",2010,18,53,28,25
+"lingcod north","CA","NWFSC WCGBTS",2011,22,82,34,31
+"lingcod north","CA","NWFSC WCGBTS",2012,22,114,29,41
+"lingcod north","CA","NWFSC WCGBTS",2013,18,131,43,25
+"lingcod north","CA","NWFSC WCGBTS",2014,22,247,38,40
+"lingcod north","CA","NWFSC WCGBTS",2015,22,188,37,34
+"lingcod north","CA","NWFSC WCGBTS",2016,20,144,40,26
+"lingcod north","CA","NWFSC WCGBTS",2017,26,170,0,85
+"lingcod north","CA","NWFSC WCGBTS",2018,20,94,17,48
+"lingcod north","CA","NWFSC WCGBTS",2019,5,9,2,7
+"lingcod north","CA","NWFSC WCGBTS",2021,16,57,0,49
+"lingcod north","CA","NWFSC WCGBTS",2022,14,43,0,32
+"lingcod north","CA","NWFSC WCGBTS",2023,18,99,0,42
+"lingcod north","CA","NWFSC WCGBTS",2024,21,150,0,60
+"lingcod north","OR","NWFSC WCGBTS",2003,48,350,208,2
+"lingcod north","OR","NWFSC WCGBTS",2004,59,453,310,8
+"lingcod north","OR","NWFSC WCGBTS",2005,72,411,345,6
+"lingcod north","OR","NWFSC WCGBTS",2006,81,474,319,7
+"lingcod north","OR","NWFSC WCGBTS",2007,75,253,194,41
+"lingcod north","OR","NWFSC WCGBTS",2008,71,348,264,3
+"lingcod north","OR","NWFSC WCGBTS",2009,66,272,117,119
+"lingcod north","OR","NWFSC WCGBTS",2010,76,440,128,137
+"lingcod north","OR","NWFSC WCGBTS",2011,83,655,162,187
+"lingcod north","OR","NWFSC WCGBTS",2012,80,541,131,112
+"lingcod north","OR","NWFSC WCGBTS",2013,67,362,128,80
+"lingcod north","OR","NWFSC WCGBTS",2014,86,625,113,161
+"lingcod north","OR","NWFSC WCGBTS",2015,67,413,110,81
+"lingcod north","OR","NWFSC WCGBTS",2016,89,714,128,129
+"lingcod north","OR","NWFSC WCGBTS",2017,95,554,0,268
+"lingcod north","OR","NWFSC WCGBTS",2018,75,475,62,151
+"lingcod north","OR","NWFSC WCGBTS",2019,47,203,63,114
+"lingcod north","OR","NWFSC WCGBTS",2021,82,649,0,272
+"lingcod north","OR","NWFSC WCGBTS",2022,75,452,0,212
+"lingcod north","OR","NWFSC WCGBTS",2023,64,348,0,153
+"lingcod north","OR","NWFSC WCGBTS",2024,90,527,0,281
+"lingcod north","WA","NWFSC WCGBTS",2003,42,319,206,5
+"lingcod north","WA","NWFSC WCGBTS",2004,29,114,109,3
+"lingcod north","WA","NWFSC WCGBTS",2005,26,100,99,1
+"lingcod north","WA","NWFSC WCGBTS",2006,37,164,151,1
+"lingcod north","WA","NWFSC WCGBTS",2007,41,196,132,27
+"lingcod north","WA","NWFSC WCGBTS",2008,41,190,167,1
+"lingcod north","WA","NWFSC WCGBTS",2009,37,160,73,85
+"lingcod north","WA","NWFSC WCGBTS",2010,51,628,133,119
+"lingcod north","WA","NWFSC WCGBTS",2011,56,488,112,109
+"lingcod north","WA","NWFSC WCGBTS",2012,41,398,65,66
+"lingcod north","WA","NWFSC WCGBTS",2013,32,190,80,21
+"lingcod north","WA","NWFSC WCGBTS",2014,42,567,70,49
+"lingcod north","WA","NWFSC WCGBTS",2015,49,344,95,55
+"lingcod north","WA","NWFSC WCGBTS",2016,33,145,36,49
+"lingcod north","WA","NWFSC WCGBTS",2017,35,246,0,90
+"lingcod north","WA","NWFSC WCGBTS",2018,29,227,26,82
+"lingcod north","WA","NWFSC WCGBTS",2019,27,144,28,68
+"lingcod north","WA","NWFSC WCGBTS",2021,40,404,0,136
+"lingcod north","WA","NWFSC WCGBTS",2022,28,323,0,90
+"lingcod north","WA","NWFSC WCGBTS",2023,48,556,0,139
+"lingcod north","WA","NWFSC WCGBTS",2024,49,781,0,149
+"lingcod south","CA","NWFSC WCGBTS",2003,73,436,295,9
+"lingcod south","CA","NWFSC WCGBTS",2004,71,740,368,12
+"lingcod south","CA","NWFSC WCGBTS",2005,76,328,261,15
+"lingcod south","CA","NWFSC WCGBTS",2006,44,193,161,3
+"lingcod south","CA","NWFSC WCGBTS",2007,39,88,85,0
+"lingcod south","CA","NWFSC WCGBTS",2008,72,610,395,15
+"lingcod south","CA","NWFSC WCGBTS",2009,95,527,245,236
+"lingcod south","CA","NWFSC WCGBTS",2010,89,799,225,229
+"lingcod south","CA","NWFSC WCGBTS",2011,105,628,211,199
+"lingcod south","CA","NWFSC WCGBTS",2012,105,1127,181,196
+"lingcod south","CA","NWFSC WCGBTS",2013,71,639,112,133
+"lingcod south","CA","NWFSC WCGBTS",2014,112,1446,254,186
+"lingcod south","CA","NWFSC WCGBTS",2015,106,886,193,151
+"lingcod south","CA","NWFSC WCGBTS",2016,88,750,162,155
+"lingcod south","CA","NWFSC WCGBTS",2017,93,639,286,30
+"lingcod south","CA","NWFSC WCGBTS",2018,101,759,295,38
+"lingcod south","CA","NWFSC WCGBTS",2019,45,196,141,20
+"lingcod south","CA","NWFSC WCGBTS",2021,87,365,0,244
+"lingcod south","CA","NWFSC WCGBTS",2022,65,247,0,223
+"lingcod south","CA","NWFSC WCGBTS",2023,58,255,0,173
+"lingcod south","CA","NWFSC WCGBTS",2024,59,263,0,224
 "longnose skate","CA","NWFSC WCGBTS",2003,142,1435,0,0
 "longnose skate","CA","NWFSC WCGBTS",2004,137,1623,0,0
 "longnose skate","CA","NWFSC WCGBTS",2005,196,2130,0,0
@@ -1851,6 +1837,7 @@
 "rosethorn rockfish","WA","NWFSC WCGBTS",2022,9,201,0,104
 "rosethorn rockfish","WA","NWFSC WCGBTS",2023,15,335,0,186
 "rosethorn rockfish","WA","NWFSC WCGBTS",2024,20,336,0,189
+"rougheye and blackspotted rockfish","CA","NWFSC HKL",2022,1,1,0,1
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",2004,1,1,1,0
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",2006,2,2,2,0
 "rougheye and blackspotted rockfish","CA","NWFSC WCGBTS",2009,1,1,1,0
@@ -2157,12 +2144,6 @@
 "silvergray rockfish","WA","NWFSC WCGBTS",2022,4,48,0,48
 "silvergray rockfish","WA","NWFSC WCGBTS",2023,5,24,0,24
 "silvergray rockfish","WA","NWFSC WCGBTS",2024,4,38,0,38
-"spiny dogfish","CA","NWFSC HKL",2005,2,2,0,0
-"spiny dogfish","CA","NWFSC HKL",2006,1,1,0,0
-"spiny dogfish","CA","NWFSC HKL",2012,1,1,0,0
-"spiny dogfish","CA","NWFSC HKL",2017,1,1,0,0
-"spiny dogfish","CA","NWFSC HKL",2021,1,1,0,0
-"spiny dogfish","CA","NWFSC HKL",2023,1,1,0,0
 "splitnose rockfish","CA","NWFSC WCGBTS",2003,71,4109,267,313
 "splitnose rockfish","CA","NWFSC WCGBTS",2004,53,3409,241,2
 "splitnose rockfish","CA","NWFSC WCGBTS",2005,77,2816,302,34
@@ -2307,7 +2288,6 @@
 "starry rockfish","CA","NWFSC WCGBTS",2022,3,5,0,5
 "starry rockfish","CA","NWFSC WCGBTS",2023,1,2,0,2
 "starry rockfish","CA","NWFSC WCGBTS",2024,4,12,0,11
-"stripetail rockfish","CA","NWFSC HKL",2004,1,1,0,1
 "stripetail rockfish","CA","NWFSC HKL",2005,1,1,0,1
 "stripetail rockfish","CA","NWFSC HKL",2011,1,1,0,1
 "stripetail rockfish","CA","NWFSC HKL",2024,1,1,0,1
@@ -2374,7 +2354,34 @@
 "stripetail rockfish","WA","NWFSC WCGBTS",2022,4,78,0,12
 "stripetail rockfish","WA","NWFSC WCGBTS",2023,8,52,0,18
 "stripetail rockfish","WA","NWFSC WCGBTS",2024,10,134,0,25
-"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2010,15,106,106,0
+"vermilion and sunset rockfish","CA","NWFSC HKL",2004,53,1358,1205,38
+"vermilion and sunset rockfish","CA","NWFSC HKL",2005,72,1680,1104,526
+"vermilion and sunset rockfish","CA","NWFSC HKL",2006,65,1157,1109,48
+"vermilion and sunset rockfish","CA","NWFSC HKL",2007,71,1814,1116,694
+"vermilion and sunset rockfish","CA","NWFSC HKL",2008,78,1714,1182,530
+"vermilion and sunset rockfish","CA","NWFSC HKL",2009,74,2131,1224,905
+"vermilion and sunset rockfish","CA","NWFSC HKL",2010,79,2302,1262,1032
+"vermilion and sunset rockfish","CA","NWFSC HKL",2011,73,2655,1167,1468
+"vermilion and sunset rockfish","CA","NWFSC HKL",2012,91,2366,1194,1168
+"vermilion and sunset rockfish","CA","NWFSC HKL",2013,93,2458,1702,752
+"vermilion and sunset rockfish","CA","NWFSC HKL",2014,114,1708,539,1159
+"vermilion and sunset rockfish","CA","NWFSC HKL",2015,146,1911,561,1343
+"vermilion and sunset rockfish","CA","NWFSC HKL",2016,142,1904,539,1324
+"vermilion and sunset rockfish","CA","NWFSC HKL",2017,157,2649,515,512
+"vermilion and sunset rockfish","CA","NWFSC HKL",2018,158,2648,535,538
+"vermilion and sunset rockfish","CA","NWFSC HKL",2019,148,2264,506,444
+"vermilion and sunset rockfish","CA","NWFSC HKL",2021,150,2314,0,933
+"vermilion and sunset rockfish","CA","NWFSC HKL",2022,160,2363,0,946
+"vermilion and sunset rockfish","CA","NWFSC HKL",2023,159,2333,0,901
+"vermilion and sunset rockfish","CA","NWFSC HKL",2024,157,2346,0,928
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2003,6,62,0,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2004,3,9,8,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2005,6,49,28,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2006,5,27,27,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2007,8,120,56,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2008,12,74,65,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2009,12,213,119,0
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2010,16,107,106,1
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2011,3,27,27,0
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2012,15,471,310,0
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2013,10,395,225,0
@@ -2386,30 +2393,10 @@
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2019,7,172,133,0
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2021,20,283,0,204
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2022,19,234,0,190
-"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2023,18,249,0,203
+"vermilion and sunset rockfish","CA","NWFSC WCGBTS",2023,19,289,0,243
 "vermilion and sunset rockfish","CA","NWFSC WCGBTS",2024,16,78,0,78
 "vermilion and sunset rockfish","OR","NWFSC WCGBTS",2011,1,1,1,0
 "vermilion and sunset rockfish","OR","NWFSC WCGBTS",2014,1,1,1,0
-"vermilion rockfish","CA","NWFSC HKL",2004,53,1358,1205,38
-"vermilion rockfish","CA","NWFSC HKL",2005,72,1680,1104,526
-"vermilion rockfish","CA","NWFSC HKL",2006,65,1157,1109,48
-"vermilion rockfish","CA","NWFSC HKL",2007,71,1814,1116,694
-"vermilion rockfish","CA","NWFSC HKL",2008,78,1714,1182,530
-"vermilion rockfish","CA","NWFSC HKL",2009,74,2131,1224,905
-"vermilion rockfish","CA","NWFSC HKL",2010,79,2302,1262,1032
-"vermilion rockfish","CA","NWFSC HKL",2011,73,2655,1167,1468
-"vermilion rockfish","CA","NWFSC HKL",2012,91,2366,1194,1168
-"vermilion rockfish","CA","NWFSC HKL",2013,93,2458,1702,752
-"vermilion rockfish","CA","NWFSC HKL",2014,114,1708,539,1159
-"vermilion rockfish","CA","NWFSC HKL",2015,146,1911,561,1343
-"vermilion rockfish","CA","NWFSC HKL",2016,142,1904,539,1324
-"vermilion rockfish","CA","NWFSC HKL",2017,157,2649,515,512
-"vermilion rockfish","CA","NWFSC HKL",2018,158,2648,535,538
-"vermilion rockfish","CA","NWFSC HKL",2019,148,2264,506,444
-"vermilion rockfish","CA","NWFSC HKL",2021,150,2314,0,933
-"vermilion rockfish","CA","NWFSC HKL",2022,160,2363,0,946
-"vermilion rockfish","CA","NWFSC HKL",2023,159,2333,0,901
-"vermilion rockfish","CA","NWFSC HKL",2024,157,2346,0,928
 "widow rockfish","CA","NWFSC HKL",2004,13,56,0,55
 "widow rockfish","CA","NWFSC HKL",2005,14,75,0,74
 "widow rockfish","CA","NWFSC HKL",2006,15,68,0,68
