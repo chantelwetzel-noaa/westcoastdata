@@ -4,7 +4,7 @@
 \alias{clean_wcgbt_catch}
 \title{Clean NWFSC WCGBTS survey catch file}
 \usage{
-clean_wcgbt_catch(dir = here::here("data-raw"), species, data)
+clean_wcgbt_catch(dir = dir, species, data)
 }
 \arguments{
 \item{dir}{Directory location to save the cleaned data frame}

@@ -4,48 +4,14 @@
 \alias{combine_all_data}
 \title{Combine all data into a data frame}
 \usage{
-combine_all_data(
-  dir = here::here("data-processed"),
-  wcgbt,
-  nwfsc_hkl,
-  pacfin,
-  recfin_lengths,
-  recfin_ages,
-  ca_rec_oto = NULL,
-  ca_com_oto = NULL,
-  wa_com_oto = NULL,
-  ca_rec_carcass_oto = NULL,
-  ca_com_pilot_oto = NULL,
-  coop_rec = NULL,
-  ccfrp = NULL
-)
+combine_all_data(dir = dir, wcgbt, nwfsc_hkl)
 }
 \arguments{
-\item{dir}{Directory location to save the compbiend data frame}
+\item{dir}{Directory location to save the combined data frame}
 
 \item{wcgbt}{add definition}
 
 \item{nwfsc_hkl}{add definition}
-
-\item{pacfin}{add definition}
-
-\item{recfin_lengths}{add definition}
-
-\item{ca_rec_oto}{add definition}
-
-\item{ca_com_oto}{add definition}
-
-\item{wa_com_oto}{add definition}
-
-\item{ca_rec_carcass_oto}{add definition}
-
-\item{coop_rec}{add definition}
-
-\item{ccfrp}{add definition}
-
-\item{recfin_age}{add definition}
-
-\item{ca_rec_pilot_oto}{add definition}
 }
 \description{
 Combine all data into a data frame
