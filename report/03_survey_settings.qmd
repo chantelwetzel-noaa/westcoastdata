@@ -1,0 +1,34 @@
+# Index Estimation for the NWFSC WCGBT Survey {#wcgbt-index-settings}
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
+survey <- read.csv(raw_url)
+# Need to update the used column so there is one record from each species/wcgbts retained!
+survey_mat <- survey |>
+  dplyr::filter(source == "NWFSC.Combo", used == TRUE) |>
+  dplyr::select(-fxn, -source, -min_depth, -max_depth, -min_year, -max_year, -anisotropy, -knots, -share_range, -used) |>
+  dplyr::mutate(
+    min_latitude = round(min_latitude, 1),
+    max_latitude = round(max_latitude, 1)
+  )
+survey_mat[, "family"] <- gsub("sdmTMB::", "", survey_mat[, "family"])
+col_names <- gsub("_", " ", colnames(survey_mat))
+ind <- order(survey_mat$species)
+
+sa4ss::table_format(
+  x = survey_mat[ind, ], 
+  caption = "Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.",
+  label = 'survey-settings',
+  col_names = col_names,
+  landscape = TRUE,
+  font_size = 7,
+  custom_width = TRUE,
+	col_to_adjust = 1:ncol(survey),
+  width = c('0.1 cm', rep('2.5 cm', 2), rep('4 cm', 1), rep('1 cm', nrow(survey_mat) - 4)),
+  align = 'l')
+
+```

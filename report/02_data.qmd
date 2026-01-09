@@ -1,0 +1,44 @@
+
+
+# Groundfish species observed by surveys conducted by the NWFSC
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  section_title = "Data for Item 1",
+  data_filter_value = "item_1"
+)
+```
+
+{{< include species_report.qmd >}} 
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  section_title = "Data for Item 1",
+  data_filter_value = "item_1"
+)
+```
+
+{{< include species_report.qmd >}} 
+
+# Other section
+
+```{r}
+#| label: walk-loop
+#| warning: false
+#| echo: false
+
+data |>
+  filter(Common_name %in% c("petrale sole", "sablefish")) |>
+  arrange(Common_name, .locale = "en") |>
+	group_by(Common_name) |>
+	distinct(Common_name) |>
+	pull(Common_name) |>
+	as.character() |>
+	walk(multiplot)
+ 
+```
+
+
