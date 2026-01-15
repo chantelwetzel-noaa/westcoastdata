@@ -1,5 +1,5 @@
 pull_indices <- function(dir){
-  
+
   updated_indices <- list.files(
     dir,
     pattern = "\\.csv$",
