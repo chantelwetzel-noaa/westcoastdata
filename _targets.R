@@ -135,28 +135,28 @@ list(
       copy_dir = here::here("data-processed", "2026", "indices")
       ),
     format = "file"
-  )#,
-  #tar_target(
-  #  coastwide_indices,
-  #  pull_indices(
-  #    dir = here::here("data-processed", "2026", "indices")
-  #  )
-  #),
-  #tar_target(
-  #  coastwide_indices_output_file,
-  #  command = "data-processed/2026/coastwide_indices.csv",
-  #  format = "file"
-  #),
-  #tar_target(
-  #  coastwide_indices_output,
-  #  readr::read_csv(coastwide_indices_output_file)
-  #),
-  #tar_target(
-  #  plot_coastwide_indices,
-  #  plot_wcgbts_indices(
-  #    data = coastwide_indices_output
-  #  )
-  #)
+  ),
+  tar_target(
+    coastwide_indices,
+    pull_indices(
+      dir = here::here("data-processed", "2026", "indices")
+    )
+  ),
+  tar_target(
+    coastwide_indices_output_file,
+    command = "data-processed/2026/coastwide_indices.csv",
+    format = "file"
+  ),
+  tar_target(
+    coastwide_indices_output,
+    readr::read_csv(coastwide_indices_output_file)
+  ),
+  tar_target(
+    plot_coastwide_indices,
+    plot_wcgbts_indices(
+      data = coastwide_indices_output
+    )
+  )
   # NWFSC HKL NWFSC indices
   #see sandbox/run_hkl_indices.R
 )
