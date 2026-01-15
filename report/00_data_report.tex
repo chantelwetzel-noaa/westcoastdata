@@ -1,28 +1,25 @@
 % Options for packages loaded elsewhere
-% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  english,
 ]{article}
-\usepackage{xcolor}
+
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
+  \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
+\ifPDFTeX\else  
+    % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -40,6 +37,9 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -65,7 +65,8 @@
 \makeatother
 
 
-\usepackage{longtable,booktabs,array}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -77,44 +78,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\newsavebox\pandoc@box
-\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
-  \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
-  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
-  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
-  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
-  \else\usebox{\pandoc@box}%
-  \fi%
-}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
+\makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
-
-
-\ifLuaTeX
-\usepackage[bidi=basic]{babel}
-\else
-\usepackage[bidi=default]{babel}
-\fi
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\ifLuaTeX
-  \usepackage[english]{selnolig} % disable illegal ligatures
-\fi
-
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
- 
-
 
 \usepackage{hyphenat}
 \usepackage{graphicx}
@@ -220,12 +194,26 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
+\urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Summary of available Northwest Fishery Science Center survey data to support assessments of U.S. West Coast groundfish stocks},
-  pdfauthor={Chantel R. Wetzel; Claire Rosemond},
+  pdfauthor={Chantel R. Wetzel; R. Claire Rosemond},
   pdflang={en},
   colorlinks=true,
   linkcolor={blue},
@@ -237,8 +225,9 @@
 
 \title{Summary of available Northwest Fishery Science Center survey data
 to support assessments of U.S. West Coast groundfish stocks}
-\author{Chantel R. Wetzel \and Claire Rosemond}
+\author{Chantel R. Wetzel \and R. Claire Rosemond}
 \date{2026-01-15}
+
 \begin{document}
   \begin{titlepage}
   % This is a combination of Pandoc templating and LaTeX
@@ -282,7 +271,7 @@ to support assessments of U.S. West Coast groundfish stocks}
    {\large{Chantel R. Wetzel}}{\textsuperscript{1}}%
   %
   %
-  { and \large{Claire Rosemond}}%
+  { and \large{R. Claire Rosemond}}%
   {\textsuperscript{2}}%
   %
 
@@ -345,7 +334,7 @@ to support assessments of U.S. West Coast groundfish stocks}
 
 Please cite this publication as:
 
-Wetzel, C.R., and C. Rosemond. 2026. Summary of available Northwest
+Wetzel, C.R., and R.C. Rosemond. 2026. Summary of available Northwest
 Fishery Science Center survey data to support assessments of U.S. West
 Coast groundfish stocks. Pacific Fisheries Management Council, Portland,
 Oregon.
@@ -500,7 +489,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-3}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for arrowtooth flounder.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -525,7 +514,7 @@ WA & NWFSC WCGBTS & 19,722 & 1,281 & 3,896\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/arrowtooth_flounder_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/arrowtooth_flounder_state_compositions.png}
 
 }
 
@@ -552,7 +541,7 @@ has an average of 80 positive tows per year. Across the coast a total of
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-8}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for aurora rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -577,7 +566,7 @@ WA & NWFSC WCGBTS & 384 & 37 & 258\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/aurora_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/aurora_rockfish_state_compositions.png}
 
 }
 
@@ -603,7 +592,7 @@ maturity samples have been collected with 85 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-13}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for bank rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -629,7 +618,7 @@ WA & NWFSC WCGBTS & 4 & 0 & 4\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/bank_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/bank_rockfish_state_compositions.png}
 
 }
 
@@ -654,7 +643,7 @@ maturity samples have been collected with 180 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-18}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for big skate.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -679,7 +668,7 @@ WA & NWFSC WCGBTS & 1,987 & 261 & 235\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/big_skate_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/big_skate_state_compositions.png}
 
 }
 
@@ -705,7 +694,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-24}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for blackgill rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -731,7 +720,7 @@ WA & NWFSC WCGBTS & 7 & 0 & 7\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/blackgill_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/blackgill_rockfish_state_compositions.png}
 
 }
 
@@ -758,7 +747,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-29}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for bocaccio.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -784,7 +773,7 @@ WA & NWFSC WCGBTS & 477 & 74 & 333\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/bocaccio_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/bocaccio_state_compositions.png}
 
 }
 
@@ -810,7 +799,7 @@ collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-35}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for California scorpionfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -834,7 +823,7 @@ CA & NWFSC WCGBTS & 4,203 & 911 & 1,044\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/california_scorpionfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/california_scorpionfish_state_compositions.png}
 
 }
 
@@ -863,7 +852,7 @@ rockfish species.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-40}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for canary rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -889,7 +878,7 @@ WA & NWFSC WCGBTS & 6,382 & 3,430 & 377\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/canary_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/canary_rockfish_state_compositions.png}
 
 }
 
@@ -916,7 +905,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-45}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for chilipepper.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -942,7 +931,7 @@ WA & NWFSC WCGBTS & 27 & 27 & 0\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/chilipepper_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/chilipepper_state_compositions.png}
 
 }
 
@@ -968,7 +957,7 @@ read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-51}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for darkblotched rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -993,7 +982,7 @@ WA & NWFSC WCGBTS & 8,474 & 2,523 & 789\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/darkblotched_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/darkblotched_rockfish_state_compositions.png}
 
 }
 
@@ -1018,7 +1007,7 @@ maturity samples have been collected with 635 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-56}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for Dover sole.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1043,7 +1032,7 @@ WA & NWFSC WCGBTS & 32,188 & 2,581 & 1,982\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/dover_sole_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/dover_sole_state_compositions.png}
 
 }
 
@@ -1069,7 +1058,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-61}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for English sole.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1094,7 +1083,7 @@ WA & NWFSC WCGBTS & 13,520 & 141 & 2,882\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/english_sole_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/english_sole_state_compositions.png}
 
 }
 
@@ -1119,7 +1108,7 @@ have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-66}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for flathead sole.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1144,7 +1133,7 @@ WA & NWFSC WCGBTS & 7,168 & 0 & 1,639\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/flathead_sole_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/flathead_sole_state_compositions.png}
 
 }
 
@@ -1171,7 +1160,7 @@ collected with 175 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-71}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for greenspotted rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1197,7 +1186,7 @@ WA & NWFSC WCGBTS & 40 & 0 & 37\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/greenspotted_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/greenspotted_rockfish_state_compositions.png}
 
 }
 
@@ -1224,7 +1213,7 @@ collected with 73 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-76}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for greenstriped rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1250,7 +1239,7 @@ WA & NWFSC WCGBTS & 10,355 & 709 & 1,918\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/greenstriped_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/greenstriped_rockfish_state_compositions.png}
 
 }
 
@@ -1277,7 +1266,7 @@ on the catch per unit effort for kelp greenling.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-81}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for kelp greenling.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1301,7 +1290,7 @@ WA & NWFSC WCGBTS & 214 & 0 & 194\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/kelp_greenling_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/kelp_greenling_state_compositions.png}
 
 }
 
@@ -1328,7 +1317,7 @@ hypoxia on the catch per unit effort for lingcod north.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-86}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for lingcod north.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1353,7 +1342,7 @@ WA & NWFSC WCGBTS & 6,684 & 1,582 & 1,345\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/lingcod_north_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/lingcod_north_state_compositions.png}
 
 }
 
@@ -1378,7 +1367,7 @@ has an average of 75 positive tows per year. Across the coast a total of
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-91}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for lingcod south.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1401,7 +1390,7 @@ CA & NWFSC WCGBTS & 11,921 & 3,870 & 2,491\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/lingcod_south_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/lingcod_south_state_compositions.png}
 
 }
 
@@ -1426,7 +1415,7 @@ of 508 maturity samples have been collected with 508 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-96}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for longnose skate.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1451,7 +1440,7 @@ WA & NWFSC WCGBTS & 8,858 & 84 & 347\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/longnose_skate_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/longnose_skate_state_compositions.png}
 
 }
 
@@ -1477,7 +1466,7 @@ read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-101}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for longspine thornyhead.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1502,7 +1491,7 @@ WA & NWFSC WCGBTS & 14,270 & 0 & 1,777\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/longspine_thornyhead_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/longspine_thornyhead_state_compositions.png}
 
 }
 
@@ -1527,7 +1516,7 @@ have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-106}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for Pacific cod.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1552,7 +1541,7 @@ WA & NWFSC WCGBTS & 3,747 & 0 & 1,342\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_cod_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/pacific_cod_state_compositions.png}
 
 }
 
@@ -1578,7 +1567,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-111}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for Pacific ocean perch.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1603,7 +1592,7 @@ WA & NWFSC WCGBTS & 8,009 & 2,743 & 1,955\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_ocean_perch_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/pacific_ocean_perch_state_compositions.png}
 
 }
 
@@ -1628,7 +1617,7 @@ maturity samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-116}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for Pacific sanddab.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1653,7 +1642,7 @@ WA & NWFSC WCGBTS & 10,581 & 874 & 903\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_sanddab_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/pacific_sanddab_state_compositions.png}
 
 }
 
@@ -1681,7 +1670,7 @@ population trends across regions.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-121}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for Pacific spiny dogfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1707,7 +1696,7 @@ WA & NWFSC WCGBTS & 11,562 & 178 & 2,877\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_spiny_dogfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/pacific_spiny_dogfish_state_compositions.png}
 
 }
 
@@ -1732,7 +1721,7 @@ of 728 maturity samples have been collected with 598 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-126}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for petrale sole.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1758,7 +1747,7 @@ WA & NWFSC WCGBTS & 15,349 & 2,676 & 2,089\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/petrale_sole_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/petrale_sole_state_compositions.png}
 
 }
 
@@ -1785,7 +1774,7 @@ rockfish.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-131}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for quillback rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1809,7 +1798,7 @@ WA & NWFSC WCGBTS & 105 & 75 & 9\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/quillback_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/quillback_rockfish_state_compositions.png}
 
 }
 
@@ -1834,7 +1823,7 @@ maturity samples have been collected with 125 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-136}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for redbanded rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1859,7 +1848,7 @@ WA & NWFSC WCGBTS & 1,091 & 0 & 1,018\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/redbanded_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/redbanded_rockfish_state_compositions.png}
 
 }
 
@@ -1884,7 +1873,7 @@ maturity samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-141}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for redstripe rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1909,7 +1898,7 @@ WA & NWFSC WCGBTS & 3,276 & 0 & 1,646\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/redstripe_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/redstripe_rockfish_state_compositions.png}
 
 }
 
@@ -1934,7 +1923,7 @@ maturity samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-146}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for rex sole.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -1959,7 +1948,7 @@ WA & NWFSC WCGBTS & 25,156 & 140 & 1,917\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/rex_sole_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/rex_sole_state_compositions.png}
 
 }
 
@@ -1984,7 +1973,7 @@ maturity samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-151}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for rosethorn rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2010,7 +1999,7 @@ WA & NWFSC WCGBTS & 6,822 & 0 & 2,827\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/rosethorn_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/rosethorn_rockfish_state_compositions.png}
 
 }
 
@@ -2037,7 +2026,7 @@ collected with 549 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-156}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for rougheye and blackspotted rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2063,7 +2052,7 @@ WA & NWFSC WCGBTS & 1,182 & 1,029 & 3\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/rougheye_and_blackspotted_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/rougheye_and_blackspotted_rockfish_state_compositions.png}
 
 }
 
@@ -2088,7 +2077,7 @@ maturity samples have been collected with 1157 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-161}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for sablefish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2113,7 +2102,7 @@ WA & NWFSC WCGBTS & 13,340 & 3,931 & 1,537\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/sablefish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/sablefish_state_compositions.png}
 
 }
 
@@ -2139,7 +2128,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-166}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for sharpchin rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2165,7 +2154,7 @@ WA & NWFSC WCGBTS & 6,869 & 0 & 3,072\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/sharpchin_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/sharpchin_rockfish_state_compositions.png}
 
 }
 
@@ -2191,7 +2180,7 @@ read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-172}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for shortspine thornyhead.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2216,7 +2205,7 @@ WA & NWFSC WCGBTS & 12,585 & 0 & 2,724\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/shortspine_thornyhead_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/shortspine_thornyhead_state_compositions.png}
 
 }
 
@@ -2241,7 +2230,7 @@ maturity samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-177}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for silvergray rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2267,7 +2256,7 @@ WA & NWFSC WCGBTS & 425 & 0 & 398\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/silvergray_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/silvergray_rockfish_state_compositions.png}
 
 }
 
@@ -2293,7 +2282,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-182}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for splitnose rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2318,7 +2307,7 @@ WA & NWFSC WCGBTS & 3,145 & 294 & 654\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/splitnose_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/splitnose_rockfish_state_compositions.png}
 
 }
 
@@ -2345,7 +2334,7 @@ read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-187}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for squarespot rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2370,7 +2359,7 @@ OR & NWFSC WCGBTS & 4 & 1 & 1\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/squarespot_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/squarespot_rockfish_state_compositions.png}
 
 }
 
@@ -2395,7 +2384,7 @@ samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-192}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for starry rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2419,7 +2408,7 @@ CA & NWFSC WCGBTS & 98 & 0 & 91\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/starry_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/starry_rockfish_state_compositions.png}
 
 }
 
@@ -2444,7 +2433,7 @@ maturity samples have been collected with 67 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-197}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for stripetail rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2470,7 +2459,7 @@ WA & NWFSC WCGBTS & 1,492 & 0 & 508\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/stripetail_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/stripetail_rockfish_state_compositions.png}
 
 }
 
@@ -2498,7 +2487,7 @@ samples have been collected with 1405 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-202}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for vermilion and sunset rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2523,7 +2512,7 @@ OR & NWFSC WCGBTS & 2 & 2 & 0\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/vermilion_and_sunset_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/vermilion_and_sunset_rockfish_state_compositions.png}
 
 }
 
@@ -2550,7 +2539,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-207}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for widow rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2576,7 +2565,7 @@ WA & NWFSC WCGBTS & 921 & 520 & 4\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/widow_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/widow_rockfish_state_compositions.png}
 
 }
 
@@ -2603,7 +2592,7 @@ read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-212}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for yelloweye rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2629,7 +2618,7 @@ WA & NWFSC WCGBTS & 416 & 410 & 6\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yelloweye_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/yelloweye_rockfish_state_compositions.png}
 
 }
 
@@ -2653,7 +2642,7 @@ maturity samples have been collected with 0 read maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-217}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for yellowmouth rockfish.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2678,7 +2667,7 @@ WA & NWFSC WCGBTS & 52 & 0 & 52\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yellowmouth_rockfish_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/yellowmouth_rockfish_state_compositions.png}
 
 }
 
@@ -2706,7 +2695,7 @@ rockfish species.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-222}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for yellowtail rockfish north.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2731,7 +2720,7 @@ WA & NWFSC WCGBTS & 12,624 & 5,633 & 877\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yellowtail_rockfish_north_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/yellowtail_rockfish_north_state_compositions.png}
 
 }
 
@@ -2757,7 +2746,7 @@ maturities.
 \begingroup\fontsize{10}{12}\selectfont
 
 \begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-227}Total number of available lengths, read ages, and unread age structures by data source and
+\caption{Total number of available lengths, read ages, and unread age structures by data source and
 state between for yellowtail rockfish south.}\\
 \toprule
 State & Source & Lengths & Ages & Age Structures\\
@@ -2781,7 +2770,7 @@ CA & NWFSC WCGBTS & 1,072 & 534 & 21\\*
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yellowtail_rockfish_south_state_compositions.png}}
+{\centering \includegraphics[width=4in,height=\textheight]{../plots/state_comparisons/yellowtail_rockfish_south_state_compositions.png}
 
 }
 
@@ -2802,7 +2791,7 @@ Survey}\label{wcgbt-index-settings}
 \begin{landscape}\begingroup\fontsize{7}{9}\selectfont
 
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.1 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{4 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{0.1 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{4 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{0.1 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{2.5 cm}}
-\caption{\label{tab:survey-settings}Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.}\\
+\caption{Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.}\\
 \toprule
 species & family & formula & min latitude & max latitude & spatiotemporal1 & spatiotemporal2\\
 \midrule
