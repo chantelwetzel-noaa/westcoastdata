@@ -122,20 +122,20 @@ list(
   tar_target(
     auto_indexwc_output,
     list.files(
-      path.expand("~/GitHub/auto-indexwc/output", full.names = TRUE),
+      "~/GitHub/auto-indexwc/output",
       pattern = "\\.csv$",
       full.names = TRUE
     ),
     format = "file"
-  ) #,
-  #tar_target(
-  #  copy_auto_indexwc_output,
-  #  copy_auto_indexwc(
-  #    files = auto_indexwc_output,
-  #    copy_dir = here::here("data-processed", "2026", "indices")
-  #    ),
-  #  format = "file"
-  #),
+  ),
+  tar_target(
+    copy_auto_indexwc_output,
+    copy_auto_indexwc(
+      files = auto_indexwc_output,
+      copy_dir = here::here("data-processed", "2026", "indices")
+      ),
+    format = "file"
+  )#,
   #tar_target(
   #  coastwide_indices,
   #  pull_indices(
