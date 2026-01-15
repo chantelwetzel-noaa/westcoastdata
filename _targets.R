@@ -23,7 +23,8 @@ tar_option_set(
     "cowplot",
     "stringr",
     "nwfscSurvey",
-    "pacfintools" # This is the keep-age-structure branch
+    "pacfintools", # This is the keep-age-structure branch
+    "readr"
   )
 )
 
