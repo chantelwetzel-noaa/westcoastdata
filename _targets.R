@@ -110,24 +110,24 @@ list(
       wcgbt = wcgbt_bio_filtered,
       nwfsc_hkl = nwfsc_hkl_filtered
     )
-  ) #,
+  ),
   #Plot the data
-  #tar_target(
-  #  state_comparison_plots,
-  #  plot_data_by_year(
-  #    data = combined_data
-  #  )
-  #),
+  tar_target(
+    state_comparison_plots,
+    plot_data_by_year(
+      data = combined_data
+    )
+  ),
   # WCGBTS indices
-  #tar_target(
-  #  auto_indexwc_output,
-  #  list.files(
-  #    "C:/Users/Claire.Rosemond/Documents/GitHub/auto-indexwc/output",
-  #    pattern = "\\.csv$",
-  #    full.names = TRUE
-  #  ),
-  #  format = "file"
-  #),
+  tar_target(
+    auto_indexwc_output,
+    list.files(
+      path.expand("~/GitHub/auto-indexwc/output", full.names = TRUE),
+      pattern = "\\.csv$",
+      full.names = TRUE
+    ),
+    format = "file"
+  ) #,
   #tar_target(
   #  copy_auto_indexwc_output,
   #  copy_auto_indexwc(
