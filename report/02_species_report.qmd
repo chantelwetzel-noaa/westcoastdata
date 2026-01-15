@@ -133,6 +133,7 @@ total <- sub_data |>
 #| warning: false
 #tbl-cap: "Total number of available lengths, read ages, and unread age structures by data source and state"
 
+# This code does not do anything right now
 t <- sub_data |>
     dplyr::group_by(State, Source) |>
     dplyr::summarise(
@@ -163,9 +164,10 @@ t <- sub_data |>
 #| fig-cap: "Total number of available lengths, read ages, and unread age structures by data source by year.  Note the y-axis is unique for the number of lengths plot row compared to the number of age and age structure plot rows."
 
 species_name_fig <- gsub(" ", "_", species_name)
-knitr::include_graphics(
-  here::here("plots", "state_comparisons", paste0(species_name_fig, "_state_compositions.png"))
-)
+plot_name <- here::here("plots", "state_comparisons", paste0(species_name_fig, "_state_compositions.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
 
 ```
 
