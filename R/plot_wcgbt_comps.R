@@ -9,14 +9,14 @@
 #' @export
 #'
 plot_wcgbt_comps <- function(
-  dir = here::here("plots", "wcgbts_plots"),
-  wcgbt_catch,
-  wcgbt_bio,
+  dir = here::here("plots", "wcgbts_comps"),
+  wcgbt_catch_filtered,
+  wcgbt_bio_filtered,
   verbose = TRUE
 ) {
   nwfscSurvey::check_dir(dir = dir)
   # Check frequency of observations
-  obs_rate <- wcgbt_catch |>
+  obs_rate <- wcgbt_catch_filtered |>
     dplyr::group_by(Common_name) |>
     dplyr::summarise(
       n = sum(positive_tow)
@@ -24,24 +24,24 @@ plot_wcgbt_comps <- function(
     dplyr::filter(n > 300) |>
     dplyr::ungroup()
   # Determine the species to process and plot
-  bio_filterred <- wcgbt_bio |>
+  bio_filterred <- wcgbt_bio_filtered |>
     dplyr::filter(Common_name %in% obs_rate$Common_name)
   species_to_plot <- unique(bio_filterred[, "Common_name"])
   # Check that each species is in the catch data
-  catch_species <- unique(wcgbt_catch[, "Common_name"])
+  catch_species <- unique(wcgbt_catch_filtered[, "Common_name"])
   missing <- species_to_plot[!species_to_plot %in% catch_species]
   if (length(missing) > 0) {
     cli::cli_inform(glue::glue(
       "The following species are in the biological data but not in 
                     the catch data: {missing}"
     ))
-    wcgbt_catch <- wcgbt_catch |>
-      dplyr::filter(Common_name != missing)
+    #wcgbt_catch_filtered <- wcgbt_catch_filtered |>
+    #  dplyr::filter(Common_name != missing)
   }
 
   # Create dataframe with information about the youngest ages the survey
   # observes by species and the number of observations
-  age_species <- wcgbt_bio |>
+  age_species <- wcgbt_bio_filtered |>
     dplyr::filter(!is.na(Age)) |>
     dplyr::group_by(Common_name) |>
     dplyr::summarize(
@@ -55,11 +55,11 @@ plot_wcgbt_comps <- function(
 
   test <- species_to_plot[which(species_to_plot != "big skate")]
   for (sp in test) {
-    catch <- wcgbt_catch[wcgbt_catch$Common_name == sp, ]
+    catch <- wcgbt_catch_filtered[wcgbt_catch_filtered$Common_name == sp, ]
     if (length(unique(catch[, "Trawl_id"])) != dim(catch)[1]) {
       catch <- nwfscSurvey::combine_tows(data = catch)
     }
-    bio <- wcgbt_bio[wcgbt_bio$Common_name == sp, ]
+    bio <- wcgbt_bio_filtered[wcgbt_bio_filtered$Common_name == sp, ]
 
     if (sp %in% c("yellowtail rockfish north", "yellowtail rockfish south")) {
       catch$Common_name <- "yellowtail rockfish"

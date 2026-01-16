@@ -171,4 +171,35 @@ if(file.exists(plot_name)) {
 
 ```
 
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: "Estimated relative index of abundance from the NWFSC West Coast Groundfish Bottom Trawl survey."
+#| out-width: "80%"
+
+species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: "Estimated relative index of abundance from the NWFSC Hook and Line survey."
+#| out-width: "80%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "hkl_indices", paste0(species_name, "_negbinom", " index.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
 {{< pagebreak >}} 
