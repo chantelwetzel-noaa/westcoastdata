@@ -6,10 +6,19 @@
 #| warning: false
 
 raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
-survey <- read.csv(raw_url)
+configuration <- read.csv(raw_url)
+
+survey <- dplyr::filter(configuration, source == "NWFSC.Combo")
+sp_2025 <- c("canary rockfish", "chilipepper", "rougheye rockfish", "sablefish", "widow rockfish", "yelloweye rockfish", "yellowtail rockfish")
+survey_2025 <- dplyr::filter(survey, species %in% sp_2025 & used == TRUE)
+survey_other <- dplyr::filter(survey, !species %in% sp_2025)
+survey <- rbind(survey_2025, survey_other) |>
+  dplyr::arrange(tolower(species))
+
+
 # Need to update the used column so there is one record from each species/wcgbts retained!
 survey_mat <- survey |>
-  dplyr::filter(source == "NWFSC.Combo", used == TRUE) |>
+#  dplyr::filter(source == "NWFSC.Combo", used == TRUE) |>
   dplyr::select(-fxn, -source, -min_depth, -max_depth, -min_year, -max_year, -anisotropy, -knots, -share_range, -used) |>
   dplyr::mutate(
     min_latitude = round(min_latitude, 1),
@@ -28,7 +37,8 @@ sa4ss::table_format(
   font_size = 7,
   custom_width = TRUE,
 	col_to_adjust = 1:ncol(survey),
-  width = c('0.1 cm', rep('2.5 cm', 2), rep('4 cm', 1), rep('1 cm', nrow(survey_mat) - 4)),
+  #width = c('0.1 cm', rep('2.5 cm', 2), rep('4 cm', 1), rep('1 cm', nrow(survey_mat) - 4)),
+  width = c('3 cm', '2 cm', '4 cm', '2 cm', '2 cm', '2 cm', '2 cm'),
   align = 'l')
 
 ```

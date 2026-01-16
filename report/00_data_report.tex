@@ -365,8 +365,6 @@ Management Council (Council) and advisory bodies to understand the
 coverage of data across time and the potential viability of a new
 assessment or assessment type.
 
-HIGHLIGHT CHANGES TO THIS YEAR'S REPORT
-
 \subsection{Biological Samples}\label{biological-samples}
 
 Data from the Northwest Fisheries Science Center (NWFSC) West Coast
@@ -461,15 +459,7 @@ collections in subsequent versions of this document.
 \subsection{Additional Data}\label{additional-data}
 
 Data may be available for consideration in future assessments that are
-currently not included in this report. A summary of potential additional
-data that could be available are described below:
-
-\begin{itemize}
-\item
-  PacFIN and RecFIN.
-\item
-  Emphasize again that this is only survey data.
-\end{itemize}
+currently not included in this report.
 
 \newpage{}
 
@@ -657,8 +647,8 @@ structure plot rows.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -845,8 +835,8 @@ Groundfish Bottom Trawl survey.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -1014,8 +1004,8 @@ structure plot rows.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -1313,8 +1303,8 @@ structure plot rows.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -1377,8 +1367,8 @@ structure plot rows.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -2574,8 +2564,8 @@ structure plot rows.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -2634,8 +2624,8 @@ structure plot rows.}
 
 }
 
-\caption{Estimated relative index of abundance for \{Common\_name\} from
-the NWFSC Hook and Line survey.}
+\caption{Estimated relative index of abundance from the NWFSC Hook and
+Line survey.}
 
 \end{figure}%
 
@@ -3043,7 +3033,7 @@ Survey}\label{wcgbt-index-settings}
 
 \begin{landscape}\begingroup\fontsize{7}{9}\selectfont
 
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.1 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{4 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{0.1 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{4 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{1 cm}>{\raggedright\arraybackslash}p{0.1 cm}>{\raggedright\arraybackslash}p{2.5 cm}>{\raggedright\arraybackslash}p{2.5 cm}}
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{3 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{4 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{3 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{4 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{3 cm}>{\raggedright\arraybackslash}p{2 cm}>{\raggedright\arraybackslash}p{4 cm}}
 \caption{Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.}\\
 \toprule
 species & family & formula & min latitude & max latitude & spatiotemporal1 & spatiotemporal2\\
@@ -3058,10 +3048,37 @@ species & family & formula & min latitude & max latitude & spatiotemporal1 & spa
 \endfoot
 \bottomrule
 \endlastfoot
+arrowtooth flounder & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 34.0 & 49.0 & iid & iid\\
+aurora rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & off & iid\\
+big skate & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+blackgill rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear & 35.0 & 49.0 & off & off\\
+bocaccio & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
 canary rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & off\\
 chilipepper & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled + depth\_scaled + depth\_scaled\_squared & 31.9 & 46.2 & iid & off\\
+curlfin sole & tweedie() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+darkblotched rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 33.5 & 49.0 & off & iid\\
+Dover sole & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+English sole & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+flathead sole & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 41.0 & 49.0 & iid & iid\\
+greenspotted rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear & 31.9 & 49.0 & iid & iid\\
+greenstriped rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear & 31.9 & 49.0 & iid & iid\\
+lingcod & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 40.2 & 49.0 & iid & iid\\
+longnose skate & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+longspine thornyhead & tweedie() & catch\_weight \textasciitilde{} 0 + fyear & 31.9 & 49.0 & iid & iid\\
+Pacific cod & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 39.0 & 49.0 & iid & iid\\
+Pacific ocean perch & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 35.0 & 49.0 & iid & iid\\
+Pacific sanddab & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+Pacific spiny dogfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+petrale sole & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+redbanded rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear & 33.5 & 49.0 & off & iid\\
+rex sole & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+rosethorn rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & off\\
 rougheye rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 42.0 & 49.0 & off & off\\
 sablefish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & iid\\
+sharpchin rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 33.0 & 49.0 & iid & off\\
+shortspine thornyhead & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled + depth\_scaled + depth\_scaled\_squared & 31.9 & 49.0 & iid & iid\\
+splitnose rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 31.9 & 49.0 & iid & off\\
+stripetail rockfish & delta\_gamma() & catch\_weight \textasciitilde{} 0 + fyear & 31.9 & 49.0 & off & iid\\
 widow rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 33.5 & 49.0 & iid & off\\
 yelloweye rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear + pass\_scaled & 42.0 & 49.0 & off & off\\
 yellowtail rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + fyear*split\_mendocino + pass\_scaled & 33.5 & 49.0 & iid & off\\*

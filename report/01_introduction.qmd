@@ -2,8 +2,6 @@
 
 This document provides a detailed summary of commonly used data sources that may be used to support assessments in `r assess_year`. A detailed summary of data available by year and across sources can allow the Pacific Fishery Management Council (Council) and advisory bodies to understand the coverage of data across time and the potential viability of a new assessment or assessment type. 
 
-HIGHLIGHT CHANGES TO THIS YEAR'S REPORT
-
 ## Biological Samples
 
 Data from the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBT) and NWFSC Hook-and-Line (HKL) surveys are summarized. 
@@ -28,9 +26,4 @@ Maturity samples for a wide range of West Coast groundfish species have been col
 
 ## Additional Data
 
-Data may be available for consideration in future assessments that are currently not included in this report. A summary of potential additional data that could be available are described below:
-
-* PacFIN and RecFIN. 
-
-* Emphasize again that this is only survey data.
-
+Data may be available for consideration in future assessments that are currently not included in this report.
