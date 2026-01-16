@@ -264,6 +264,15 @@ params <- list(
 ```{r, echo = FALSE}
 # Define parameters for the first section
 params <- list(
+  Common_name = "cowcod"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
   Common_name = "darkblotched rockfish"
 )
 ```
