@@ -2,8 +2,8 @@
 #'
 #'
 #' @param dir add definition
-#' @param wcgbt_catch The filtered and cleaned data returned from [clean_wcgbt_catch()]
-#' @param wcgbt_bio The filtered and cleaned data returned from [clean_wcgbt_bio()]
+#' @param wcgbt_catch_filtered The filtered and cleaned data returned from [clean_wcgbt_catch()]
+#' @param wcgbt_bio_filtered The filtered and cleaned data returned from [clean_wcgbt_bio()]
 #'
 #' @author Chantel Wetzel
 #' @export
