@@ -121,4 +121,4 @@ for (sp in unique(species)) {
   )
 }
 
-#for now, I am just going to manually change the names of the figures
+#for now, I am just going to manually change the names of the figures. change yellowtail back, did not produce a graph as yellowtail south
