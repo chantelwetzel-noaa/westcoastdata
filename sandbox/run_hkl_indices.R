@@ -121,4 +121,22 @@ for (sp in unique(species)) {
   )
 }
 
-#for now, I am just going to manually change the names of the figures. change yellowtail back, did not produce a graph as yellowtail south
+#I can probably change the names of the files here for lingcod, vermilion, and yellowtail
+files <- list.files(here::here("plots", "hkl_indices"), full.names = TRUE)
+
+newfilenames <- tibble(files) |>
+  dplyr::mutate(
+    speciesname = basename(files),
+    newspeciesname = dplyr::case_when(
+      stringr::str_detect(speciesname, "^lingcod") ~
+      stringr::str_replace(speciesname, "^lingcod", "lingcod south"),
+      stringr::str_detect(speciesname, "^vermilion") ~
+      stringr::str_replace(speciesname, "^vermilion rockfish", "vermilion and sunset rockfish"),
+      stringr::str_detect(speciesname, "^yellowtail") ~
+      stringr::str_replace(speciesname, "^yellowtail rockfish", "yellowtail rockfish south"),
+      TRUE ~ speciesname
+    ),
+    newfilepath = file.path(here::here("plots", "hkl_indices"), newspeciesname)
+  )
+
+with(newfilenames, file.rename(files, newfilepath))
