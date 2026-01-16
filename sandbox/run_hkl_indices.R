@@ -105,23 +105,6 @@ hkl_data <- read.csv(here::here(
   "2026",
   "nwfsc_hkl_DWarehouse_version_09032025.csv"
 ))
-#in data, change lingcod to lingcod south, vermilion to vermilion and sunset rockfish, and yellowtail to yellowtail rockfish south
-hkl_data <- hkl_data |>
-dplyr::rename_with(tolower) |>
-  dplyr::mutate(
-    lower_name = tolower(common_name),
-    Common_name = dplyr::case_when(
-      lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south",
-      lower_name == "blackspotted rockfish" ~
-        "rougheye and blackspotted rockfish",
-      lower_name == "blue rockfish" ~ "blue and deacon rockfish",
-      lower_name == "spiny dogfish" ~ "Pacific spiny dogfish",
-      lower_name == "vermilion rockfish" ~ "vermilion and sunset rockfish",
-      lower_name == "california scorpionfish" ~ "California scorpionfish",
-      lower_name == "lingcod" ~ "lingcod south",
-      .default = lower_name
-    )
-  )
 
 for (sp in unique(species)) {
   species_data <- format_hkl_data(
@@ -129,6 +112,28 @@ for (sp in unique(species)) {
     data = hkl_data
   )
 
+  
+  
+  species_data <- species_data |>
+    dplyr::rename_with(tolower) |>
+    dplyr::mutate(
+      lower_name = tolower(common_name),
+      Common_name = dplyr::case_when(
+        lower_name == "yellowtail rockfish" ~ "yellowtail rockfish south",
+        lower_name == "blackspotted rockfish" ~
+          "rougheye and blackspotted rockfish",
+        lower_name == "blue rockfish" ~ "blue and deacon rockfish",
+        lower_name == "spiny dogfish" ~ "Pacific spiny dogfish",
+        lower_name == "vermilion rockfish" ~ "vermilion and sunset rockfish",
+        lower_name == "california scorpionfish" ~ "California scorpionfish",
+        lower_name == "lingcod" ~ "lingcod south",
+        .default = lower_name
+      )
+    )
+  
+  
+  
+  
   run_hkl_index(
     dir = here::here("plots", "hkl_indices"),
     data = species_data
