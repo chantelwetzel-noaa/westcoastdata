@@ -14,7 +14,7 @@ plot_wcgbt_comps <- function(
   wcgbt_bio_filtered,
   verbose = TRUE
 ) {
-  nwfscSurvey::check_dir(dir = dir)
+  #nwfscSurvey::check_dir(dir = dir)
   # Check frequency of observations
   obs_rate <- wcgbt_catch_filtered |>
     dplyr::group_by(Common_name) |>
@@ -35,8 +35,8 @@ plot_wcgbt_comps <- function(
       "The following species are in the biological data but not in 
                     the catch data: {missing}"
     ))
-    #wcgbt_catch_filtered <- wcgbt_catch_filtered |>
-    #  dplyr::filter(Common_name != missing)
+    wcgbt_catch_filtered <- wcgbt_catch_filtered |>
+      dplyr::filter(Common_name != missing)
   }
 
   # Create dataframe with information about the youngest ages the survey

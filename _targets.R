@@ -157,13 +157,13 @@ list(
     plot_wcgbts_indices(
       data = coastwide_indices_output
     )
-  ),
+  )#,
   # NWFSC HKL NWFSC indices
   #see sandbox/run_hkl_indices.R
-  tar_target(
-    plot_wcgbt_comps,
-    plot_wcgbt_comps()
-  )
+#  tar_target(
+#    plot_wcgbt_comps,
+#    plot_wcgbt_comps()
+#  )
 )
 
 # targets::tar_make()
