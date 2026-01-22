@@ -164,8 +164,8 @@ list(
     plot_wcgbt_comps,
     plot_wcgbt_comps(
       dir = here::here("plots", "wcgbts_comps"),
-      wcgbts_catch = wcgbts_catch_filtered,
-      wcgbts_bio = wcgbts_bio_filtered,
+      wcgbt_catch = wcgbt_catch_filtered,
+      wcgbt_bio = wcgbt_bio_filtered,
       verbose = TRUE
     )
   )
