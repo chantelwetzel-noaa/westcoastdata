@@ -2,21 +2,20 @@
 #'
 #'
 #' @param dir add definition
-#' @param wcgbt_catch_filtered The filtered and cleaned data returned from [clean_wcgbt_catch()]
-#' @param wcgbt_bio_filtered The filtered and cleaned data returned from [clean_wcgbt_bio()]
-#'
+#' @param wcgbt_catch The filtered and cleaned data returned from [clean_wcgbt_catch()]
+#' @param wcgbt_bio The filtered and cleaned data returned from [clean_wcgbt_bio()]#'
 #' @author Chantel Wetzel
 #' @export
 #'
 plot_wcgbt_comps <- function(
-  dir = here::here("plots", "wcgbts_comps"),
-  wcgbt_catch_filtered,
-  wcgbt_bio_filtered,
-  verbose = TRUE
+    dir = here::here("plots", "wcgbts_plots"),
+    wcgbt_catch,
+    wcgbt_bio,
+    verbose = TRUE
 ) {
-  #nwfscSurvey::check_dir(dir = dir)
+  nwfscSurvey::check_dir(dir = dir)
   # Check frequency of observations
-  obs_rate <- wcgbt_catch_filtered |>
+  obs_rate <- wcgbt_catch |>
     dplyr::group_by(Common_name) |>
     dplyr::summarise(
       n = sum(positive_tow)
@@ -24,24 +23,24 @@ plot_wcgbt_comps <- function(
     dplyr::filter(n > 300) |>
     dplyr::ungroup()
   # Determine the species to process and plot
-  bio_filterred <- wcgbt_bio_filtered |>
+  bio_filterred <- wcgbt_bio |>
     dplyr::filter(Common_name %in% obs_rate$Common_name)
   species_to_plot <- unique(bio_filterred[, "Common_name"])
   # Check that each species is in the catch data
-  catch_species <- unique(wcgbt_catch_filtered[, "Common_name"])
+  catch_species <- unique(wcgbt_catch[, "Common_name"])
   missing <- species_to_plot[!species_to_plot %in% catch_species]
   if (length(missing) > 0) {
     cli::cli_inform(glue::glue(
       "The following species are in the biological data but not in 
                     the catch data: {missing}"
     ))
-    wcgbt_catch_filtered <- wcgbt_catch_filtered |>
+    wcgbt_catch <- wcgbt_catch |>
       dplyr::filter(Common_name != missing)
   }
-
+  
   # Create dataframe with information about the youngest ages the survey
   # observes by species and the number of observations
-  age_species <- wcgbt_bio_filtered |>
+  age_species <- wcgbt_bio |>
     dplyr::filter(!is.na(Age)) |>
     dplyr::group_by(Common_name) |>
     dplyr::summarize(
@@ -52,15 +51,15 @@ plot_wcgbt_comps <- function(
     ) |>
     dplyr::filter(age_20 <= 5) |>
     dplyr::filter(n20 >= 500)
-
+  
   test <- species_to_plot[which(species_to_plot != "big skate")]
   for (sp in test) {
-    catch <- wcgbt_catch_filtered[wcgbt_catch_filtered$Common_name == sp, ]
+    catch <- wcgbt_catch[wcgbt_catch$Common_name == sp, ]
     if (length(unique(catch[, "Trawl_id"])) != dim(catch)[1]) {
       catch <- nwfscSurvey::combine_tows(data = catch)
     }
-    bio <- wcgbt_bio_filtered[wcgbt_bio_filtered$Common_name == sp, ]
-
+    bio <- wcgbt_bio[wcgbt_bio$Common_name == sp, ]
+    
     if (sp %in% c("yellowtail rockfish north", "yellowtail rockfish south")) {
       catch$Common_name <- "yellowtail rockfish"
       bio$Common_name <- "yellowtail rockfish"
@@ -84,16 +83,16 @@ plot_wcgbt_comps <- function(
       lats.south = c(46.0, 42.0, 32.0, 46.0, 42.0, 32.0),
       lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
     )
-
+    
     if (
       sp %in%
-        c(
-          "Dover sole",
-          "longspine thornyhead",
-          "shortspine thornyhead",
-          "sablefish",
-          "longnose skate"
-        )
+      c(
+        "Dover sole",
+        "longspine thornyhead",
+        "shortspine thornyhead",
+        "sablefish",
+        "longnose skate"
+      )
     ) {
       strata <- nwfscSurvey::CreateStrataDF.fn(
         names = c(
@@ -113,15 +112,15 @@ plot_wcgbt_comps <- function(
         lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
       )
     }
-
+    
     if (
       sp %in%
-        c(
-          "splitnose rockfish",
-          "darkblotched rockfish",
-          "aurora rockfish",
-          "rex sole"
-        )
+      c(
+        "splitnose rockfish",
+        "darkblotched rockfish",
+        "aurora rockfish",
+        "rex sole"
+      )
     ) {
       strata <- nwfscSurvey::CreateStrataDF.fn(
         names = c(
@@ -141,7 +140,7 @@ plot_wcgbt_comps <- function(
         lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
       )
     }
-
+    
     ## Calculate the observations by length and age
     if (length(bio$Length_cm) > 0) {
       ind <- !is.na(bio$Length_cm)
@@ -154,8 +153,8 @@ plot_wcgbt_comps <- function(
       bin_size <- ifelse(max_len - min_len > 60, 4, 2)
       len_bins <- seq(min_len, max_len - 2 * bin_size, bin_size)
       bio$Sex = "U"
-
-      # Calculate and plot the length-frequencies based on the default strata
+      
+      # Calculate and plot the length-frequencies based on the default strata     
       lfs <- nwfscSurvey::get_expanded_comps(
         bio_data = bio,
         catch_data = catch,
@@ -166,7 +165,7 @@ plot_wcgbt_comps <- function(
         two_sex_comps = FALSE,
         input_n_method = "tows"
       )
-
+      
       nwfscSurvey::plot_comps(
         dir = dir,
         add_0_ylim = FALSE,
@@ -174,29 +173,29 @@ plot_wcgbt_comps <- function(
         data = lfs,
         plot = 1
       )
-
+      
       if (sp %in% age_species$Common_name) {
         age <- as.numeric(age_species[age_species$Common_name == sp, "age_20"])
         max_age_len <- quantile(bio[which(bio$Age == age), "Length_cm"], 0.75)
-
+        
         find <- ifelse(
           max_age_len %in% len_bins,
           which(len_bins == max_age_len),
           max(which(len_bins < max_age_len)) + 1
         )
-
+        
         cols_to_keep <-
-          c(
+          c(   
             1:which(colnames(lfs$unsexed) == paste0("u", len_bins[find])),
             which(colnames(lfs$unsexed) == paste0("u", len_bins[1])):which(
               colnames(lfs$unsexed) == paste0("u", len_bins[find])
             )
           )
-
+        
         nwfscSurvey::plot_comps(
           dir = dir,
           add_0_ylim = FALSE,
-          add_save_name = paste0(sp, "_young_fish_age_", age),
+          add_save_name = paste0(sp, "_young_fish_age_", age),       
           data = lfs$unsexed[, cols_to_keep],
           plot = 2
         )
@@ -204,3 +203,5 @@ plot_wcgbt_comps <- function(
     } # lengths loop
   } # species loop
 }
+
+  
