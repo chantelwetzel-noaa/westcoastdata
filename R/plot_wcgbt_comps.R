@@ -8,7 +8,7 @@
 #' @export
 #'
 plot_wcgbt_comps <- function(
-    dir = here::here("plots", "wcgbts_plots"),
+    dir = here::here("plots", "wcgbts_comps"),
     wcgbt_catch,
     wcgbt_bio,
     verbose = TRUE
