@@ -202,4 +202,34 @@ if(file.exists(plot_name)) {
 ```
 
 
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: "Length (cm) compostion data from the NWFSC West Coast Groundfish Bottom Trawl survey. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin."
+#| out-width: "80%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "wcgbts_comps", "plots", paste0(species_name, "_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: "Length (cm) frequency distribution of young fish by year from the NWFSC West Coast Groundfish Bottom Trawl survey."
+#| out-width: "80%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- list.files(here::here("plots", "wcgbts_comps", "plots"), pattern = paste0(species_name, ".*length_r4ss_frequency_sex_0\\.png$"), full.names = TRUE)
+if(length(plot_name)>0) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
 {{< pagebreak >}} 
