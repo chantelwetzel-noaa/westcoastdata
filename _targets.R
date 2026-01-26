@@ -168,7 +168,14 @@ list(
       wcgbt_bio = wcgbt_bio_filtered,
       verbose = TRUE
     )
-  )
+  ),
+  tar_target(
+    plot_hkl_comps,
+    plot_hkl_comps(
+      dir = here::here("plots", "hkl_comps"),
+      data = nwfsc_hkl_filtered
+    )
+  )  
 )
 
 # targets::tar_make()
