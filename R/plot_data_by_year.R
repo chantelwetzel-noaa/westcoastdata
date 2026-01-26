@@ -98,7 +98,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       xlab("Year") +
       ylab("# of Ages") +
       ggplot2::theme_bw() +
-      ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
+      #ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::theme(
         axis.text = element_text(size = 14),
         axis.title = element_text(size = 14),
@@ -127,7 +127,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       xlab("Year") +
       ylab("# of Age Structures") +
       ggplot2::theme_bw() +
-      ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
+      #ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::theme(
         axis.text = element_text(size = 14),
         axis.title = element_text(size = 14),
