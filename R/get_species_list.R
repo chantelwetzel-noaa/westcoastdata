@@ -24,6 +24,8 @@ get_species_list <- function() {
     c("pacific sanddab", "Pacific sanddab"),
     c("yelloweye rockfish", "yelloweye rockfish"),
     c("lingcod", "lingcod"),
+    c("lingcod north", "lingcod north"),
+    c("lingcod south", "lingcod south"),
     c("redbanded rockfish", "redbanded rockfish"),
     c("canary rockfish", "canary rockfish"),
     c("yellowtail rockfish", "yellowtail rockfish"),

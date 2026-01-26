@@ -113,7 +113,7 @@ total <- sub_data |>
 
   caption <- glue::glue(
     'Total number of available lengths, read ages, and unread age structures by data source and
- 	state between for {species_name}.'
+ 	state for {species_name}.'
   )
   sa4ss::table_format(
     x = total,
@@ -176,7 +176,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 #| fig-cap: "Estimated relative index of abundance from the NWFSC West Coast Groundfish Bottom Trawl survey."
-#| out-width: "80%"
+#| out-width: "95%"
 
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))
@@ -191,7 +191,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 #| fig-cap: "Estimated relative index of abundance from the NWFSC Hook and Line survey."
-#| out-width: "80%"
+#| out-width: "95%"
 
 #species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "hkl_indices", paste0(species_name, "_negbinom", " index.png"))
@@ -206,7 +206,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 #| fig-cap: "Length (cm) compostion data from the NWFSC West Coast Groundfish Bottom Trawl survey. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin."
-#| out-width: "80%"
+#| out-width: "95%"
 
 #species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "wcgbts_comps", "plots", paste0(species_name, "_length_frequency_sex_0.png"))
@@ -215,21 +215,5 @@ if(file.exists(plot_name)) {
 }
 
 ```
-
-
-```{r}
-#| echo: false
-#| warning: false
-#| fig-cap: "Length (cm) frequency distribution of young fish by year from the NWFSC West Coast Groundfish Bottom Trawl survey."
-#| out-width: "80%"
-
-#species_name_fig <- gsub(" ", "_", species_name)
-plot_name <- list.files(here::here("plots", "wcgbts_comps", "plots"), pattern = paste0(species_name, ".*length_r4ss_frequency_sex_0\\.png$"), full.names = TRUE)
-if(length(plot_name)>0) {
-  knitr::include_graphics(plot_name)
-}
-
-```
-
 
 {{< pagebreak >}} 
