@@ -29,7 +29,7 @@ plot_hkl_comps <- function(
   if (!"project" %in% colnames(filtered_data)) {
     filtered_data$project <- "NWFSC_HKL"
   }
-  for (sp in species_to_plot) {
+  for (sp in species_to_plot[species_to_plot != "squarespot rockfish"]) {
     tmp <- filtered_data[which(filtered_data$Common_name == sp), ]
     ind <- !is.na(tmp$Length_cm)
     min_len <- ifelse(
@@ -40,6 +40,12 @@ plot_hkl_comps <- function(
     max_len <- max(tmp$Length_cm[ind])
     bin_size <- 2 #ifelse(max_len - min_len > 60, 4, 2)
     len_bins <- seq(min_len, max_len - 2 * bin_size, bin_size)
+    if (sp == "yellowtail rockfish south") {
+      tmp$Common_name <- "yellowtail rockfish"
+    }
+    if (sp == "lingcod south") {
+      tmp$Common_name <- "lingcod"
+    }
 
     lfs <- nwfscSurvey::get_raw_comps(
       data = tmp,
@@ -53,7 +59,7 @@ plot_hkl_comps <- function(
 
     lfs <- as.data.frame(lfs$unsexed)
 
-    plot_comps(
+    nwfscSurvey::plot_comps(
       dir = dir,
       add_0_ylim = FALSE,
       add_save_name = paste0(sp, "_nwfsc_hkl"),
@@ -61,4 +67,5 @@ plot_hkl_comps <- function(
       plot = 1
     )
   }
+  return(NULL)
 }
