@@ -55,7 +55,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       ) +
       ggplot2::xlab("Year") +
       ggplot2::ylab("# of Lengths") +
-      ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
+      #ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::facet_wrap("State", ncol = 3) +
       ggplot2::theme_bw() +
       ggplot2::ggtitle(unique(sp)) +

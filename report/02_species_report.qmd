@@ -68,12 +68,12 @@ params:
   sample_text <- ""
   for (ss in average_sets$Source) {
     number <- average_sets[average_sets$Source == ss, "sets"]
-    if (number > 3) {
+#    if (number > 3) {
       samples <- glue::glue(
         "The {ss} survey has an average of {number} positive tows per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
-    }
+#    }
   }
   # Get maturity
   mat <- maturity |>
