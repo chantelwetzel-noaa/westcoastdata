@@ -161,7 +161,7 @@ list(
   # NWFSC HKL NWFSC indices
   #see sandbox/run_hkl_indices.R
   tar_target(
-    plot_wcgbt_comps,
+    wcgbt_comps_plots,
     plot_wcgbt_comps(
       dir = here::here("plots", "wcgbts_comps"),
       wcgbt_catch = wcgbt_catch_filtered,
@@ -170,7 +170,7 @@ list(
     )
   ),
   tar_target(
-    plot_hkl_comps,
+    hkl_comps_plots,
     plot_hkl_comps(
       dir = here::here("plots", "hkl_comps"),
       data = nwfsc_hkl_filtered
