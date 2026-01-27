@@ -75,6 +75,12 @@ params:
       sample_text <- glue::glue("{sample_text} {samples}")
 #    }
   }
+
+age_validation_text <- ""  
+if (species_name %in% c("longspine thornyhead", "shortspine thornyhead")) { 
+  age_validation_text <- glue::glue("{age_validation_text} No validated (accurate and precise) aging methology currently exists for {species_name}. ")
+}
+
   # Get maturity
   mat <- maturity |>
     dplyr::filter(Species == species_name)
@@ -90,7 +96,7 @@ params:
   
   research_text <- research_list(species_name = species_name)
   
-  total_text <- glue::glue("{assess_text} {survey_text} {sample_text} {mat_text} {research_text}")
+  total_text <- glue::glue("{assess_text} {survey_text} {sample_text} {age_validation_text} {mat_text} {research_text}")
 
 ```
 
