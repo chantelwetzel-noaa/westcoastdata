@@ -9,7 +9,8 @@ pull_indices <- function(dir){
   updated_indices_use <- updated_indices[!grepl("^biomass", basename(updated_indices), ignore.case = TRUE)]
  
   filter_coastwide <- function(file) {
-    readr::read_csv(file, show_col_types = FALSE) %>%
+    file <- readr::read_csv(file, show_col_types = FALSE)
+    file <- file %>%
       dplyr::filter(index == "Coastwide")
   }
   

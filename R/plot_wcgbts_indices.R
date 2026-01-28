@@ -28,7 +28,17 @@ plot_wcgbts_indices <- function(data,
       stringr::str_replace_all(tolower(this_species), "[^a-z0-9]+", "_"),
       "_index.png"
     )
+ 
+    new_file_name <- case_when(
+          stringr::str_detect(file_name, "^lingcod") ~
+            stringr::str_replace(file_name, "^lingcod", "lingcod north"),
+          stringr::str_detect(file_name, "^yellowtail") ~
+            stringr::str_replace(file_name, "^yellowtail rockfish", "yellowtail rockfish north"),
+          TRUE ~ file_name
+        )  
     
+    file_name <- new_file_name
+
     ggplot2::ggsave(
       filename = file.path(save_dir, file_name),
       plot = p,

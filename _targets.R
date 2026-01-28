@@ -1,4 +1,5 @@
 library(targets)
+library(tarchetypes)
 
 # Create targets for all objects
 # targets::tar_make(script = "_targets.R")
@@ -120,7 +121,7 @@ list(
     )
   ),
   # WCGBTS indices
-  tar_target(
+  tarchetypes::tar_files(
     auto_indexwc_output,
     list.files(
       "~/GitHub/auto-indexwc/output",
@@ -137,7 +138,7 @@ list(
       ),
     format = "file"
   ),
-  tar_target(
+    tar_target(
     coastwide_indices,
     pull_indices(
       dir = here::here("data-processed", "2026", "indices")

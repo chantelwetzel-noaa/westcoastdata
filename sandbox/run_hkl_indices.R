@@ -121,7 +121,7 @@ for (sp in unique(species)) {
   )
 }
 
-#I can probably change the names of the files here for lingcod, vermilion, and yellowtail
+#change the names of the files here for lingcod, vermilion, and yellowtail
 files <- list.files(here::here("plots", "hkl_indices"), full.names = TRUE)
 
 newfilenames <- tibble(files) |>
