@@ -32,6 +32,8 @@ plot_wcgbts_indices <- function(data,
     new_file_name <- case_when(
           stringr::str_detect(file_name, "^lingcod") ~
             stringr::str_replace(file_name, "^lingcod", "lingcod_north"),
+          stringr::str_detect(file_name, "^rougheye") ~
+            stringr::str_replace(file_name, "^rougheye_rockfish", "rougheye_and_blackspotted_rockfish"),          
           stringr::str_detect(file_name, "^yellowtail") ~
             stringr::str_replace(file_name, "^yellowtail_rockfish", "yellowtail_rockfish_north"),
           TRUE ~ file_name
