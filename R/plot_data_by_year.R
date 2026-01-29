@@ -34,9 +34,13 @@ plot_data_by_year <- function(
       dplyr::filter(
         Common_name == sp
       ) |>
+      dplyr::group_by(Year) |>
+      dplyr::summarise(
+        n_length = sum(total_lengths)
+      ) |>
       dplyr::summarise(
         min = 0,
-        max = plyr::round_any(max(total_lengths), 10, f = ceiling)
+        max = plyr::round_any(max(n_length), 10, f = ceiling)
       )
 
     lengths <- ggplot2::ggplot(
@@ -73,9 +77,14 @@ plot_data_by_year <- function(
       dplyr::filter(
         Common_name == sp
       ) |>
+      dplyr::group_by(Year) |>
+      dplyr::summarise(
+        n_ages = sum(total_ages),
+        n_otoliths = sum(total_otoliths)
+      ) |>
       dplyr::summarise(
         min = 0,
-        max = plyr::round_any(max(total_ages, total_otoliths), 10, f = ceiling)
+        max = plyr::round_any(max(n_ages, n_otoliths), 10, f = ceiling)
       )
 
     ages <- ggplot2::ggplot(
