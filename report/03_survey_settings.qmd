@@ -42,3 +42,35 @@ sa4ss::table_format(
   align = 'l')
 
 ```
+
+
+# Index Estimation for the NWFSC Hook and Line Survey {#hkl-index-settings}
+
+Relative indices of abundance by species were estimated using `sdmTMB` with a negative-binomial error structure with covariates for year, site, and drop.
+
+```{r}
+#| echo: true
+#| eval: false
+
+data <- nwfsc_hkl_data |>
+    dplyr::group_by(year, site_number, drop) |>
+    dplyr::summarize(
+      n = sum(number_caught),
+      effort = length(unique(angler)) * length(unique(hook))
+    ) |>
+    dplyr::mutate(
+      year = as.factor(year),
+      site = as.factor(site_number),
+      drop = as.factor(drop)
+    )
+
+fit <- sdmTMB(
+    n ~ 0 + year + site_number + drop,
+    data = data,
+    offset = log(data$effort),
+    time = "year",
+    spatial = "off",
+    spatiotemporal = "off",
+    family = nbinom2(link = "log")
+  )
+```
