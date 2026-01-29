@@ -34,10 +34,11 @@ plot_data_by_year <- function(
       dplyr::filter(
         Common_name == sp
       ) |>
-      dplyr::group_by(Year) |>
+      dplyr::group_by(Year, State) |>
       dplyr::summarise(
         n_length = sum(total_lengths)
       ) |>
+      dplyr::ungroup() |>
       dplyr::summarise(
         min = 0,
         max = plyr::round_any(max(n_length), 10, f = ceiling)
@@ -77,11 +78,12 @@ plot_data_by_year <- function(
       dplyr::filter(
         Common_name == sp
       ) |>
-      dplyr::group_by(Year) |>
+      dplyr::group_by(Year, State) |>
       dplyr::summarise(
         n_ages = sum(total_ages),
         n_otoliths = sum(total_otoliths)
       ) |>
+      dplyr::ungroup() |>
       dplyr::summarise(
         min = 0,
         max = plyr::round_any(max(n_ages, n_otoliths), 10, f = ceiling)
