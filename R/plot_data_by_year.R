@@ -8,24 +8,24 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), data) {
+plot_data_by_year <- function(
+  dir = here::here("plots", "state_comparisons"),
+  data
+) {
   year_range <- min(data$Year):max(data$Year)
   data$Source <- as.factor(data$Source)
 
   cbp1 <- c(
-    "#56B4E9",
-    "#0072B2",
-    "#009E73",
-    "#F0E442",
-    "#E69F00",
-    "#D55E00",
+    '#56B4E9',
+    '#0072B2',
+    '#009E73',
+    '#F0E442',
+    '#E69F00',
+    '#D55E00',
     '#AA3377'
   )
-
   cbp2 <- c('#CCBB44', '#4477AA', '#66CCEE', '#EE6677', '#228833', '#AA3377')
-
   cbp3 <- c('#332288', '#88CCEE', '#44AA99', '#117733', '#DDCC77', '#CC6677')
-  
   #for just surveys
   cbp4 <- c('#AA3377', '#66CCEE')
 
@@ -55,7 +55,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       ) +
       ggplot2::xlab("Year") +
       ggplot2::ylab("# of Lengths") +
-      #ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
+      ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::facet_wrap("State", ncol = 3) +
       ggplot2::theme_bw() +
       ggplot2::ggtitle(unique(sp)) +
@@ -67,10 +67,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
         legend.text = element_text(size = 14),
         strip.background = element_rect(colour = "black", fill = "#FFFFFF")
       ) +
-      #ggplot2::scale_fill_viridis_d(drop = FALSE)
-      #ggplot2::scale_fill_brewer(palette = "Set2", drop = FALSE)
       ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
-    #ggplot2::scale_fill_manual(values = PNWColors::pnw_palette("Bay", n = 6), drop = FALSE)
 
     lims <- data |>
       dplyr::filter(
@@ -98,7 +95,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       xlab("Year") +
       ylab("# of Ages") +
       ggplot2::theme_bw() +
-      #ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
+      ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::theme(
         axis.text = element_text(size = 14),
         axis.title = element_text(size = 14),
@@ -108,7 +105,6 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       ) +
       facet_wrap("State", ncol = 3) +
       ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
-    #scale_fill_viridis_d(drop = FALSE)
 
     otoliths <- ggplot2::ggplot(
       data |>
@@ -127,7 +123,7 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       xlab("Year") +
       ylab("# of Age Structures") +
       ggplot2::theme_bw() +
-      #ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
+      ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::theme(
         axis.text = element_text(size = 14),
         axis.title = element_text(size = 14),
@@ -137,17 +133,20 @@ plot_data_by_year <- function(dir = here::here("plots", "state_comparisons"), da
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
       ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
-    #ggplot2::scale_fill_viridis_d(drop = FALSE)
 
     cowplot::plot_grid(lengths, ages, otoliths, ncol = 1, nrow = 3)
     ggsave(
-      file.path(dir, 
-                paste0(
-                  stringr::str_replace_all(tolower(sp), "[^a-z0-9]+", "_"),
-                "_state_compositions.png")),
+      file.path(
+        dir,
+        paste0(
+          stringr::str_replace_all(tolower(sp), "[^a-z0-9]+", "_"),
+          "_state_compositions.png"
+        )
+      ),
       height = 12,
       width = 12,
       dpi = 100
     )
   }
+  return(NULL)
 }
