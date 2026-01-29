@@ -167,7 +167,16 @@ t <- sub_data |>
 ```{r}
 #| echo: false
 #| warning: false
-#| fig-cap: "Total number of available lengths, read ages, and unread age structures by data source by year.  Note the y-axis is unique for the number of lengths plot row compared to the number of age and age structure plot rows."
+
+fig_state_comparison <- glue::glue("Total number of available lengths, read ages, and unread age structures by data source by year for {species_name}. Note the y-axis is unique for the number of lengths plot row compared to the number of age and age structure plot rows.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_state_comparison
 
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "state_comparisons", paste0(species_name_fig, "_state_compositions.png"))
@@ -181,7 +190,16 @@ if(file.exists(plot_name)) {
 ```{r}
 #| echo: false
 #| warning: false
-#| fig-cap: "Estimated relative index of abundance from the NWFSC West Coast Groundfish Bottom Trawl survey."
+
+fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC West Coast Groundfish Bottom Trawl survey.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_index
 #| out-width: "95%"
 
 species_name_fig <- gsub(" ", "_", species_name)
@@ -196,7 +214,16 @@ if(file.exists(plot_name)) {
 ```{r}
 #| echo: false
 #| warning: false
-#| fig-cap: "Estimated relative index of abundance from the NWFSC Hook and Line survey."
+
+fig_cap_hkl_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC Hook and Line survey.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_hkl_index
 #| out-width: "95%"
 
 #species_name_fig <- gsub(" ", "_", species_name)
@@ -211,7 +238,16 @@ if(file.exists(plot_name)) {
 ```{r}
 #| echo: false
 #| warning: false
-#| fig-cap: "Length (cm) compostion data from the NWFSC West Coast Groundfish Bottom Trawl survey. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin."
+
+fig_cap_wcgbts_comp <- glue::glue("Length (cm) compostion data from the NWFSC West Coast Groundfish Bottom Trawl survey for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_comp
 #| out-width: "95%"
 
 #species_name_fig <- gsub(" ", "_", species_name)
@@ -226,7 +262,16 @@ if(file.exists(plot_name)) {
 ```{r}
 #| echo: false
 #| warning: false
-#| fig-cap: "Length (cm) compostion data from the NWFSC Hook and Line survey. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin."
+
+fig_cap_hkl_comp <- glue::glue("Length (cm) compostion data from the NWFSC Hook and Line survey for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_hkl_comp
 #| out-width: "95%"
 
 #species_name_fig <- gsub(" ", "_", species_name)
