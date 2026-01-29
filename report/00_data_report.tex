@@ -64,6 +64,46 @@
 \fi
 \makeatother
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -238,7 +278,7 @@
 \title{Summary of available Northwest Fishery Science Center survey data
 to support assessments of U.S. West Coast groundfish stocks}
 \author{Chantel R. Wetzel \and R. Claire Rosemond}
-\date{2026-01-28}
+\date{2026-01-29}
 \begin{document}
   \begin{titlepage}
   % This is a combination of Pandoc templating and LaTeX
@@ -349,6 +389,16 @@ Wetzel, C.R., and R.C. Rosemond. 2026. Summary of available Northwest
 Fishery Science Center survey data to support assessments of U.S. West
 Coast groundfish stocks. Pacific Fisheries Management Council, Portland,
 Oregon.
+
+\newpage{}
+
+\section*{Disclaimer}\label{disclaimer}
+
+These materials do not constitute a formal publication and are for
+information only. They are in a pre-review, pre-decisional state and
+should not be formally cited or reproduced. They are to be considered
+provisional and do not represent any determination or policy of NOAA or
+the Department of Commerce.
 
 \newpage{}
 
@@ -515,7 +565,7 @@ WA & NWFSC WCGBTS & 19,722 & 1,281 & 3,896\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/arrowtooth_flounder_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/arrowtooth_flounder_state_compositions.png}}
 
 }
 
@@ -534,19 +584,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/arrowtooth flounder_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -591,7 +628,7 @@ WA & NWFSC WCGBTS & 384 & 37 & 258\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/aurora_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/aurora_rockfish_state_compositions.png}}
 
 }
 
@@ -610,19 +647,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/aurora rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -667,7 +691,7 @@ WA & NWFSC WCGBTS & 4 & 0 & 4\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/bank_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/bank_rockfish_state_compositions.png}}
 
 }
 
@@ -675,17 +699,6 @@ WA & NWFSC WCGBTS & 4 & 0 & 4\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/bank rockfish_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
 
 \end{figure}%
 
@@ -740,7 +753,7 @@ WA & NWFSC WCGBTS & 1,987 & 261 & 235\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/big_skate_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/big_skate_state_compositions.png}}
 
 }
 
@@ -804,7 +817,7 @@ WA & NWFSC WCGBTS & 7 & 0 & 7\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/blackgill_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/blackgill_rockfish_state_compositions.png}}
 
 }
 
@@ -812,30 +825,6 @@ WA & NWFSC WCGBTS & 7 & 0 & 7\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/blackgill_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/blackgill rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -881,7 +870,7 @@ WA & NWFSC WCGBTS & 477 & 74 & 333\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/bocaccio_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/bocaccio_state_compositions.png}}
 
 }
 
@@ -900,30 +889,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/bocaccio_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/bocaccio_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -979,7 +944,7 @@ CA & NWFSC WCGBTS & 4,203 & 911 & 1,044\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/california_scorpionfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/california_scorpionfish_state_compositions.png}}
 
 }
 
@@ -1034,7 +999,7 @@ WA & NWFSC WCGBTS & 6,382 & 3,430 & 377\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/canary_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/canary_rockfish_state_compositions.png}}
 
 }
 
@@ -1042,30 +1007,6 @@ WA & NWFSC WCGBTS & 6,382 & 3,430 & 377\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/canary_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/canary rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1123,7 +1064,7 @@ WA & NWFSC WCGBTS & 27 & 27 & 0\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/chilipepper_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/chilipepper_state_compositions.png}}
 
 }
 
@@ -1142,30 +1083,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/chilipepper_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/chilipepper_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1222,7 +1139,7 @@ WA & NWFSC WCGBTS & 2 & 0 & 2\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/cowcod_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/cowcod_state_compositions.png}}
 
 }
 
@@ -1230,30 +1147,6 @@ WA & NWFSC WCGBTS & 2 & 0 & 2\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/cowcod_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/cowcod_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1309,7 +1202,7 @@ WA & NWFSC WCGBTS & 8,474 & 2,523 & 789\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/darkblotched_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/darkblotched_rockfish_state_compositions.png}}
 
 }
 
@@ -1328,19 +1221,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/darkblotched rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1383,7 +1263,7 @@ WA & NWFSC WCGBTS & 32,188 & 2,581 & 1,982\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/dover_sole_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/dover_sole_state_compositions.png}}
 
 }
 
@@ -1402,19 +1282,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/Dover sole_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1458,7 +1325,7 @@ WA & NWFSC WCGBTS & 13,520 & 141 & 2,882\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/english_sole_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/english_sole_state_compositions.png}}
 
 }
 
@@ -1477,19 +1344,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/English sole_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1532,7 +1386,7 @@ WA & NWFSC WCGBTS & 7,168 & 0 & 1,639\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/flathead_sole_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/flathead_sole_state_compositions.png}}
 
 }
 
@@ -1540,30 +1394,6 @@ WA & NWFSC WCGBTS & 7,168 & 0 & 1,639\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/flathead_sole_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/flathead sole_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1609,7 +1439,7 @@ WA & NWFSC WCGBTS & 40 & 0 & 37\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/greenspotted_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/greenspotted_rockfish_state_compositions.png}}
 
 }
 
@@ -1617,30 +1447,6 @@ WA & NWFSC WCGBTS & 40 & 0 & 37\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/greenspotted rockfish_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/greenspotted rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1698,7 +1504,7 @@ WA & NWFSC WCGBTS & 10,355 & 709 & 1,918\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/greenstriped_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/greenstriped_rockfish_state_compositions.png}}
 
 }
 
@@ -1706,30 +1512,6 @@ WA & NWFSC WCGBTS & 10,355 & 709 & 1,918\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/greenstriped rockfish_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/greenstriped rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1785,7 +1567,7 @@ WA & NWFSC WCGBTS & 214 & 0 & 194\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/kelp_greenling_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/kelp_greenling_state_compositions.png}}
 
 }
 
@@ -1837,7 +1619,7 @@ WA & NWFSC WCGBTS & 6,684 & 1,582 & 1,345\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/lingcod_north_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/lingcod_north_state_compositions.png}}
 
 }
 
@@ -1845,30 +1627,6 @@ WA & NWFSC WCGBTS & 6,684 & 1,582 & 1,345\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/lingcod_north_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/lingcod north_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -1911,7 +1669,7 @@ CA & NWFSC WCGBTS & 11,921 & 3,870 & 2,491\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/lingcod_south_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/lingcod_south_state_compositions.png}}
 
 }
 
@@ -1919,42 +1677,6 @@ CA & NWFSC WCGBTS & 11,921 & 3,870 & 2,491\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/lingcod south_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/lingcod south_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/lingcod south_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line
-survey. Size of the circles within a year indicate higher (larger
-circles) and lower (smaller circles) proportion observed by length bin.}
 
 \end{figure}%
 
@@ -1997,7 +1719,7 @@ WA & NWFSC WCGBTS & 8,858 & 84 & 347\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/longnose_skate_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/longnose_skate_state_compositions.png}}
 
 }
 
@@ -2016,19 +1738,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/longnose skate_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2073,7 +1782,7 @@ WA & NWFSC WCGBTS & 14,270 & 0 & 1,777\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/longspine_thornyhead_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/longspine_thornyhead_state_compositions.png}}
 
 }
 
@@ -2081,30 +1790,6 @@ WA & NWFSC WCGBTS & 14,270 & 0 & 1,777\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/longspine_thornyhead_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/longspine thornyhead_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2147,7 +1832,7 @@ WA & NWFSC WCGBTS & 3,747 & 0 & 1,342\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/pacific_cod_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_cod_state_compositions.png}}
 
 }
 
@@ -2166,19 +1851,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/Pacific cod_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2222,7 +1894,7 @@ WA & NWFSC WCGBTS & 8,009 & 2,743 & 1,955\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/pacific_ocean_perch_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_ocean_perch_state_compositions.png}}
 
 }
 
@@ -2230,30 +1902,6 @@ WA & NWFSC WCGBTS & 8,009 & 2,743 & 1,955\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/pacific_ocean_perch_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/Pacific ocean perch_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2296,7 +1944,7 @@ WA & NWFSC WCGBTS & 10,581 & 874 & 903\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/pacific_sanddab_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_sanddab_state_compositions.png}}
 
 }
 
@@ -2304,30 +1952,6 @@ WA & NWFSC WCGBTS & 10,581 & 874 & 903\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/pacific_sanddab_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/Pacific sanddab_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2375,7 +1999,7 @@ WA & NWFSC WCGBTS & 11,562 & 178 & 2,877\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/pacific_spiny_dogfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/pacific_spiny_dogfish_state_compositions.png}}
 
 }
 
@@ -2394,19 +2018,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/Pacific spiny dogfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2451,7 +2062,7 @@ WA & NWFSC WCGBTS & 15,349 & 2,676 & 2,089\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/petrale_sole_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/petrale_sole_state_compositions.png}}
 
 }
 
@@ -2470,19 +2081,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/petrale sole_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2527,7 +2125,7 @@ WA & NWFSC WCGBTS & 105 & 75 & 9\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/quillback_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/quillback_rockfish_state_compositions.png}}
 
 }
 
@@ -2577,7 +2175,7 @@ WA & NWFSC WCGBTS & 1,091 & 0 & 1,018\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/redbanded_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/redbanded_rockfish_state_compositions.png}}
 
 }
 
@@ -2596,19 +2194,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/redbanded rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2651,7 +2236,7 @@ WA & NWFSC WCGBTS & 3,276 & 0 & 1,646\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/redstripe_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/redstripe_rockfish_state_compositions.png}}
 
 }
 
@@ -2701,7 +2286,7 @@ WA & NWFSC WCGBTS & 25,156 & 140 & 1,917\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/rex_sole_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/rex_sole_state_compositions.png}}
 
 }
 
@@ -2709,19 +2294,6 @@ WA & NWFSC WCGBTS & 25,156 & 140 & 1,917\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/rex sole_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2766,7 +2338,7 @@ WA & NWFSC WCGBTS & 6,822 & 0 & 2,827\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/rosethorn_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/rosethorn_rockfish_state_compositions.png}}
 
 }
 
@@ -2774,30 +2346,6 @@ WA & NWFSC WCGBTS & 6,822 & 0 & 2,827\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/rosethorn_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/rosethorn rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2844,7 +2392,7 @@ WA & NWFSC WCGBTS & 1,182 & 1,029 & 3\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/rougheye_and_blackspotted_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/rougheye_and_blackspotted_rockfish_state_compositions.png}}
 
 }
 
@@ -2852,30 +2400,6 @@ WA & NWFSC WCGBTS & 1,182 & 1,029 & 3\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/rougheye_and_blackspotted_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/rougheye and blackspotted rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2918,7 +2442,7 @@ WA & NWFSC WCGBTS & 13,340 & 3,931 & 1,537\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/sablefish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/sablefish_state_compositions.png}}
 
 }
 
@@ -2937,19 +2461,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/sablefish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -2994,7 +2505,7 @@ WA & NWFSC WCGBTS & 6,869 & 0 & 3,072\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/sharpchin_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/sharpchin_rockfish_state_compositions.png}}
 
 }
 
@@ -3002,30 +2513,6 @@ WA & NWFSC WCGBTS & 6,869 & 0 & 3,072\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/sharpchin_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/sharpchin rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3070,7 +2557,7 @@ WA & NWFSC WCGBTS & 12,585 & 0 & 2,724\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/shortspine_thornyhead_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/shortspine_thornyhead_state_compositions.png}}
 
 }
 
@@ -3078,19 +2565,6 @@ WA & NWFSC WCGBTS & 12,585 & 0 & 2,724\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/shortspine thornyhead_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3135,7 +2609,7 @@ WA & NWFSC WCGBTS & 425 & 0 & 398\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/silvergray_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/silvergray_rockfish_state_compositions.png}}
 
 }
 
@@ -3186,7 +2660,7 @@ WA & NWFSC WCGBTS & 3,145 & 294 & 654\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/splitnose_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/splitnose_rockfish_state_compositions.png}}
 
 }
 
@@ -3194,19 +2668,6 @@ WA & NWFSC WCGBTS & 3,145 & 294 & 654\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/splitnose rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3251,7 +2712,7 @@ OR & NWFSC WCGBTS & 4 & 1 & 1\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/squarespot_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/squarespot_rockfish_state_compositions.png}}
 
 }
 
@@ -3259,17 +2720,6 @@ OR & NWFSC WCGBTS & 4 & 1 & 1\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/squarespot rockfish_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
 
 \end{figure}%
 
@@ -3312,7 +2762,7 @@ CA & NWFSC WCGBTS & 98 & 0 & 91\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/starry_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/starry_rockfish_state_compositions.png}}
 
 }
 
@@ -3320,17 +2770,6 @@ CA & NWFSC WCGBTS & 98 & 0 & 91\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/starry rockfish_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
 
 \end{figure}%
 
@@ -3387,7 +2826,7 @@ WA & NWFSC WCGBTS & 1,492 & 0 & 508\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/stripetail_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/stripetail_rockfish_state_compositions.png}}
 
 }
 
@@ -3406,19 +2845,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/stripetail rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3464,7 +2890,7 @@ OR & NWFSC WCGBTS & 2 & 2 & 0\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/vermilion_and_sunset_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/vermilion_and_sunset_rockfish_state_compositions.png}}
 
 }
 
@@ -3472,17 +2898,6 @@ OR & NWFSC WCGBTS & 2 & 2 & 0\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/vermilion and sunset rockfish_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
 
 \end{figure}%
 
@@ -3540,7 +2955,7 @@ WA & NWFSC WCGBTS & 921 & 520 & 4\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/widow_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/widow_rockfish_state_compositions.png}}
 
 }
 
@@ -3559,19 +2974,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/widow rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3629,7 +3031,7 @@ WA & NWFSC WCGBTS & 416 & 410 & 6\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/yelloweye_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yelloweye_rockfish_state_compositions.png}}
 
 }
 
@@ -3648,19 +3050,6 @@ structure plot rows.}
 
 \caption{Estimated relative index of abundance from the NWFSC West Coast
 Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/yelloweye rockfish_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3703,7 +3092,7 @@ WA & NWFSC WCGBTS & 52 & 0 & 52\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/yellowmouth_rockfish_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yellowmouth_rockfish_state_compositions.png}}
 
 }
 
@@ -3756,7 +3145,7 @@ WA & NWFSC WCGBTS & 12,624 & 5,633 & 877\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/yellowtail_rockfish_north_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yellowtail_rockfish_north_state_compositions.png}}
 
 }
 
@@ -3764,30 +3153,6 @@ WA & NWFSC WCGBTS & 12,624 & 5,633 & 877\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/yellowtail_rockfish_north_index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC West Coast
-Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/yellowtail rockfish north_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC West Coast
-Groundfish Bottom Trawl survey. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -3831,7 +3196,7 @@ CA & NWFSC WCGBTS & 1,072 & 534 & 21\\*
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4in,height=\textheight,keepaspectratio]{../plots/state_comparisons/yellowtail_rockfish_south_state_compositions.png}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{../plots/state_comparisons/yellowtail_rockfish_south_state_compositions.png}}
 
 }
 
@@ -3839,17 +3204,6 @@ CA & NWFSC WCGBTS & 1,072 & 534 & 21\\*
 structures by data source by year. Note the y-axis is unique for the
 number of lengths plot row compared to the number of age and age
 structure plot rows.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/yellowtail rockfish south_negbinom index.png}
-
-}
-
-\caption{Estimated relative index of abundance from the NWFSC Hook and
-Line survey.}
 
 \end{figure}%
 
@@ -3927,6 +3281,39 @@ yellowtail rockfish & delta\_lognormal() & catch\_weight \textasciitilde{} 0 + f
 \endgroup{}
 \end{landscape}
 \endgroup{}
+
+\section{Index Estimation for the NWFSC Hook and Line
+Survey}\label{hkl-index-settings}
+
+Relative indices of abundance by species were estimated using
+\texttt{sdmTMB} with a negative-binomial error structure with covariates
+for year, site, and drop.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ nwfsc\_hkl\_data }\SpecialCharTok{|\textgreater{}}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(year, site\_number, drop) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}
+      \AttributeTok{n =} \FunctionTok{sum}\NormalTok{(number\_caught),}
+      \AttributeTok{effort =} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(angler)) }\SpecialCharTok{*} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(hook))}
+\NormalTok{    ) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}
+      \AttributeTok{year =} \FunctionTok{as.factor}\NormalTok{(year),}
+      \AttributeTok{site =} \FunctionTok{as.factor}\NormalTok{(site\_number),}
+      \AttributeTok{drop =} \FunctionTok{as.factor}\NormalTok{(drop)}
+\NormalTok{    )}
+
+\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{sdmTMB}\NormalTok{(}
+\NormalTok{    n }\SpecialCharTok{\textasciitilde{}} \DecValTok{0} \SpecialCharTok{+}\NormalTok{ year }\SpecialCharTok{+}\NormalTok{ site\_number }\SpecialCharTok{+}\NormalTok{ drop,}
+    \AttributeTok{data =}\NormalTok{ data,}
+    \AttributeTok{offset =} \FunctionTok{log}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{effort),}
+    \AttributeTok{time =} \StringTok{"year"}\NormalTok{,}
+    \AttributeTok{spatial =} \StringTok{"off"}\NormalTok{,}
+    \AttributeTok{spatiotemporal =} \StringTok{"off"}\NormalTok{,}
+    \AttributeTok{family =} \FunctionTok{nbinom2}\NormalTok{(}\AttributeTok{link =} \StringTok{"log"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
 
 \newpage
 
