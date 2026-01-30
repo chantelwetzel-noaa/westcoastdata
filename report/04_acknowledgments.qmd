@@ -2,4 +2,4 @@
 
 # Acknowledgement
 
-We would like to thank the NWFSC Fisheries Resource Analysis and Monitoring survey team and their dedication to collecting high quality data that are essential to the assessment of West Coast groundfish stocks.
+We would like to thank the NWFSC Fisheries Resource Analysis and Monitoring survey team and their dedication to collecting high quality data that are essential to the assessment of West Coast groundfish stocks. Thank you to Eric Ward who was instrumental in estimating indices for the large number of species in this report and his dedication for improving workflows and automation.
