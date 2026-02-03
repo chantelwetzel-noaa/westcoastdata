@@ -18,4 +18,4 @@ _main.md
 *.log
 docs
 
-additional_indices/**/*.png
+data-processed/2026/additional_indices/**/*.png
