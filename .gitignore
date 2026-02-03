@@ -17,3 +17,5 @@ _main.md
 *.upa
 *.log
 docs
+
+additional_indices/**/*.png
