@@ -26,7 +26,12 @@ rex_sole$common_name <- "rex sole"
 config_rex_sole <- configuration %>%
   dplyr::filter(species == "rex sole")
 
-splitnose_rockfish
+splitnose_rockfish <- read.csv(here::here("data-processed", "2026", "additional_indices", "splitnose_rockfish", "wcgbts", "delta_lognormal", "fit_3", "indices", "est_by_area.csv"))
+splitnose_rockfish$common_name <- "splitnose rockfish"
+config_splitnose_rockfish <- configuration %>%
+  dplyr::filter(species == "splitnose rockfish")
+config_splitnose_rockfish$family <- "sdmTMB::delta_lognormal()"
+config_splitnose_rockfish$spatiotemporal2 <- "iid"
 
 longspine_thornyhead
 
@@ -36,5 +41,5 @@ all_additonal_indices <- rbind(lingcod_south, greenspotted_rockfish, greenstripe
   dplyr::filter(area == "Coastwide" & year != 2025) #will have to update this for year filter if we include 2025
 #write csv
 
-all_config_additional_indices <- rbind(config_lingcod_south) #only ones that have changed or need to be added
+all_config_additional_indices <- rbind(config_lingcod_south, config_splitnose_rockfish) #only ones that have changed or need to be added
 #write csv
