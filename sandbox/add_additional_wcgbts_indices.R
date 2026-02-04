@@ -3,8 +3,6 @@ library(dplyr)
 raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
 configuration <- read.csv(raw_url)
 
-longspine_thornyhead
-
 lingcod_south <- read.csv(here::here("data-processed", "2026", "additional_indices", "lingcod", "wcgbts", "delta_gamma", "fit_1", "indices", "est_by_area.csv"))
 lingcod_south$common_name <- "lingcod south"
 config_lingcod_south <- configuration %>%
@@ -23,16 +21,16 @@ greenstriped_rockfish$common_name <- "greenstriped rockfish"
 config_greenstriped_rockfish <- configuration %>%
   dplyr::filter(species == "greenstriped rockfish")
 
-rex_sole <- read.csv(here::here("data-processed", "2026", "additional_indices", "rex_sole", "wcgbts", "delta_gamma", "fit_1", "indices", "est_by_area.csv"))
+rex_sole <- read.csv(here::here("data-processed", "2026", "additional_indices", "rex_sole", "wcgbts", "delta_gamma", "fit_3", "indices", "est_by_area.csv"))
 rex_sole$common_name <- "rex sole"
 config_rex_sole <- configuration %>%
   dplyr::filter(species == "rex sole")
 
-shortspine_thornyhead
-
 splitnose_rockfish
 
+longspine_thornyhead
 
+shortspine_thornyhead
 
 all_additonal_indices <- rbind(lingcod_south, greenspotted_rockfish, greenstriped_rockfish, rex_sole) %>%
   dplyr::filter(area == "Coastwide" & year != 2025) #will have to update this for year filter if we include 2025

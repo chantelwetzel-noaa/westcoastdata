@@ -8,17 +8,29 @@
 raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
 configuration <- read.csv(raw_url)
 
-survey <- dplyr::filter(configuration, source == "NWFSC.Combo")
+indices <- dplyr::filter(configuration, source == "NWFSC.Combo")
 sp_2025 <- c("canary rockfish", "chilipepper", "rougheye rockfish", "sablefish", "widow rockfish", "yelloweye rockfish", "yellowtail rockfish")
-survey_2025 <- dplyr::filter(survey, species %in% sp_2025 & used == TRUE)
-survey_other <- dplyr::filter(survey, !species %in% sp_2025)
-survey <- rbind(survey_2025, survey_other) |>
+indices_2025 <- dplyr::filter(indices, species %in% sp_2025 & used == TRUE)
+indices_other <- dplyr::filter(indices, !species %in% sp_2025)
+indices <- rbind(indices_2025, indices_other) |>
   dplyr::arrange(tolower(species))
 
+indices <- indices %>%
+  dplyr::mutate(
+      species = dplyr::case_when(
+        species == "lingcod" ~ "lingcod north",
+        species == "rougheye rockfish" ~ "rougheye and blackspotted rockfish",
+        species == "yellowtail rockfish" ~ "yellowtail rockfish north",
+        .default = species
+      )
+    )
 
-# Need to update the used column so there is one record from each species/wcgbts retained!
+additional_indices <- read.csv()
+
+survey <- rbind(indies, additional_indices) |>
+  dplyr::arrange(tolower(species))
+
 survey_mat <- survey |>
-#  dplyr::filter(source == "NWFSC.Combo", used == TRUE) |>
   dplyr::select(-fxn, -source, -min_depth, -max_depth, -min_year, -max_year, -anisotropy, -knots, -share_range, -used) |>
   dplyr::mutate(
     min_latitude = round(min_latitude, 1),
