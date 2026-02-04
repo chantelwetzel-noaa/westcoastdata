@@ -1,6 +1,6 @@
 # Introduction 
 
-This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS). A detailed summary of data available by year and across sources can allow the Pacific Fishery Management Council (Council) and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
+This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS). A detailed summary of data available by year and across sources can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
 
 This version of the data summary document does not include a summary of commercial, recreational, or state-specific fishery-independent data.  Future versions may include information from these data sources, time permitting.
 
@@ -10,17 +10,19 @@ Data collected by the WCGBTS between 2003-`r endyr` and the HKLS from 2004-`r en
 
 ## Survey Length Compositions
 
-The length data collected by the WCGBTS were expanded using a generalized area-based stratification. The expanded length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data. All length observations were treated as unsexed fish for simplicity and for ease of observing potential trends in length compositions across time. The generalized approach for expanding the length composition data and bin structure provides a simple summary of the data that can be useful for decision making, but will likely differ from a species-specific approach that would be applied in a future assessment. 
+The length data collected by the WCGBTS were expanded using a generalized area-based stratification. The expanded length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data. All length observations were treated as unsexed fish for simplicity and for ease of observing potential trends in length compositions across time. 
 
-The length data collected by the WCGBTS were summarized to reflect the proportion of observations by species, length bin, and year. The length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data, in the same manner as for the WCGBTS data. 
+The length data collected by the HKLS were summarized to reflect the proportion of observations by species, length bin, and year. The length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data, in the same manner as for the WCGBTS data. 
 
-It is important to note that each survey's selectivity for each species will impact the lengths observed and has not been explicitly accounted for in this analysis.
+The generalized approach for expanding the length composition data and bin structure provides a simple summary of the data that can be useful for decision making, but will likely differ from a species-specific approach that would be applied in a future assessment. Additionally, it is important to note that each survey's selectivity for each species will impact the lengths observed and has not been explicitly accounted for in this analysis.
 
 ## Survey Relative Indices of Abundance
 
-Indices of abundance were estimated from the WCGBTS using a spatiotemporal model (smdTMB) for species well-observed by the survey. The indices were estimated using a generalized configuration across species using either a gamma or log-normal distribution, with the dispersion parameter held constant across years with 200-500 knots used to create the mesh. The model structure for each species is provided in Section \ref{wcgbt-index-settings}. Species-specific indices of abundance produced for past assessments or produced for future assessments may use a modified model structure resulting in slight changes in year-by-year values for the indices of abundance presented in this document. The indices of abundance presented here should only be considered illustrative of potential trends in abundance across time. 
+Indices of abundance were estimated from the WCGBTS using a spatiotemporal model (`sdmTMB`) for species well-observed by the survey. The indices were estimated using a generalized configuration across species using either a gamma or log-normal distribution, with the dispersion parameter held constant across years with 200-500 knots used to create the mesh. The model structure for each species is provided in Section \ref{wcgbt-index-settings}. Species-specific indices of abundance produced for past assessments or produced for future assessments may use a modified model structure resulting in slight changes in year-by-year values for the indices of abundance presented in this document. 
 
-Indices of abundance were estimated from the HKLS for well-observed species using a negative-binomial model that accounted for year, site, and drop number.  The model structure is provided in Section \ref{hkl-index-settings}. Additional covariates that may be included when developing species-specific indices for use in stock assessments were not explored in this analysis for simplicity.
+Indices of abundance were estimated from the HKLS for well-observed species using `sdmTMB` with a negative-binomial error structure with covariates for year, site, and drop number. The model structure is provided in Section \ref{hkl-index-settings}. Additional covariates or error-structures to develop species-specific indices were not explored in this analysis for simplicity.
+
+The indices of abundance presented here should only be considered illustrative of potential trends in abundance across time.
 
 ## Maturity Data Collections
 
