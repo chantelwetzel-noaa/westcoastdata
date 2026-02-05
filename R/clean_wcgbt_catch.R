@@ -54,7 +54,8 @@ clean_wcgbt_catch <- function(dir = dir, species, data) {
         wcgbt_catch$State == "CA"
     ),
     which(
-      wcgbt_catch$Common_name == "kelp greenling" & wcgbt_catch$State == "CA"
+      wcgbt_catch$Common_name == "kelp greenling" &
+        wcgbt_catch$State %in% c("CA", "OR")
     )
   )
   wcgbt_catch <- wcgbt_catch[-remove, ]

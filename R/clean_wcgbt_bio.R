@@ -51,7 +51,10 @@ clean_wcgbt_bio <- function(dir = dir, species, data) {
     which(
       wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "CA"
     ),
-    which(wcgbt_bio$Common_name == "kelp greenling" & wcgbt_bio$State == "CA")
+    which(
+      wcgbt_bio$Common_name == "kelp greenling" &
+        wcgbt_bio$State %in% c("CA", "OR")
+    )
   )
   wcgbt_bio <- wcgbt_bio[-remove, ]
 
