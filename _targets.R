@@ -41,7 +41,7 @@ list(
   ),
   tar_target(
     stock_year_file,
-    command = "data-raw/2026/assess_year_ssc_rec.csv",
+    command = "data-processed/2026/assess_year_ssc_rec.csv",
     format = "file"
   ),
   tar_target(
@@ -135,10 +135,10 @@ list(
     copy_auto_indexwc(
       files = auto_indexwc_output,
       copy_dir = here::here("data-processed", "2026", "indices")
-      ),
+    ),
     format = "file"
   ),
-    tar_target(
+  tar_target(
     coastwide_indices,
     pull_indices(
       dir = here::here("data-processed", "2026", "indices")
@@ -174,7 +174,7 @@ list(
       data = additional_coastwide_indices_output
     )
   ),
-    # NWFSC HKL NWFSC indices
+  # NWFSC HKL NWFSC indices
   #see sandbox/run_hkl_indices.R
   tar_target(
     wcgbt_comps_plots,
@@ -191,7 +191,7 @@ list(
       dir = here::here("plots", "hkl_comps"),
       data = nwfsc_hkl_filtered
     )
-  )  
+  )
 )
 
 # targets::tar_make()
