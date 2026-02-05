@@ -1,7 +1,8 @@
 library(dplyr)
 
 raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
-configuration <- read.csv(raw_url)
+configuration <- read.csv(raw_url) %>%
+  dplyr::filter(source == "NWFSC.Combo")
 
 lingcod_south <- read.csv(here::here("data-processed", "2026", "additional_indices", "lingcod", "wcgbts", "delta_gamma", "fit_1", "indices", "est_by_area.csv"))
 lingcod_south$common_name <- "lingcod south"
@@ -25,6 +26,7 @@ rex_sole <- read.csv(here::here("data-processed", "2026", "additional_indices", 
 rex_sole$common_name <- "rex sole"
 config_rex_sole <- configuration %>%
   dplyr::filter(species == "rex sole")
+config_rex_sole$share_range <- TRUE
 
 splitnose_rockfish <- read.csv(here::here("data-processed", "2026", "additional_indices", "splitnose_rockfish", "wcgbts", "delta_lognormal", "fit_3", "indices", "est_by_area.csv"))
 splitnose_rockfish$common_name <- "splitnose rockfish"
@@ -38,7 +40,9 @@ longspine_thornyhead$common_name <- "longspine thornyhead"
 config_longspine_thornyhead <- configuration %>%
   dplyr::filter(species == "longspine thornyhead")
 config_longspine_thornyhead$family <- "sdmTMB::delta_lognormal()"
-config_splitnose_rockfish$formula <- "catch_weight ~ 0 + fyear + pass_scaled + depth_scaled + depth_scaled_squared"
+config_longspine_thornyhead$formula <- "catch_weight ~ 0 + fyear + pass_scaled + depth_scaled + depth_scaled_squared"
+config_longspine_thornyhead$share_range <- FALSE
+config_longspine_thornyhead$anisotropy <- TRUE
 
 shortspine_thornyhead <- read.csv(here::here("data-processed", "2026", "additional_indices", "shortspine_thornyhead", "wcgbts", "delta_lognormal", "fit_1", "indices", "est_by_area.csv"))
 shortspine_thornyhead$common_name <- "shortspine thornyhead"
@@ -49,6 +53,6 @@ all_additonal_indices <- rbind(lingcod_south, greenspotted_rockfish, greenstripe
   dplyr::filter(area == "Coastwide" & year != 2025) #will have to update this for year filter if we include 2025
 write.csv(all_additonal_indices, "data-processed/2026/additional_coastwide_indices.csv")
 
-all_config_additional_indices <- rbind(config_lingcod_south, config_splitnose_rockfish, config_longspine_thornyhead) #only ones that have changed or need to be added
-write.csv(all_config_additonal_indices, "data-processed/2026/configuration_additional_coastwide_indices.csv")
+all_config_additional_indices <- rbind(config_lingcod_south, config_rex_sole, config_splitnose_rockfish, config_longspine_thornyhead) #only ones that have changed or need to be added
+write.csv(all_config_additional_indices, "data-processed/2026/configuration_additional_coastwide_indices.csv")
 

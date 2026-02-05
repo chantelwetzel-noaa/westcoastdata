@@ -1,0 +1,5 @@
+"","species","fxn","source","family","formula","min_depth","max_depth","min_latitude","max_latitude","min_year","max_year","anisotropy","knots","spatiotemporal1","spatiotemporal2","share_range","used"
+"1","lingcod south","nwfscSurvey::pull_catch(common_name = species,survey=source)","NWFSC.Combo","sdmTMB::delta_gamma()","catch_weight ~ 0 + fyear + pass_scaled",-55,-450,31.9,40.1667,2003,2050,TRUE,500,"iid","iid",FALSE,FALSE
+"2","rex sole","nwfscSurvey::pull_catch(common_name = species,survey=source)","NWFSC.Combo","sdmTMB::delta_gamma()","catch_weight ~ 0 + fyear + pass_scaled",-55,-700,31.9,49,2003,2050,TRUE,500,"iid","iid",TRUE,FALSE
+"3","splitnose rockfish","nwfscSurvey::pull_catch(common_name = species,survey=source)","NWFSC.Combo","sdmTMB::delta_lognormal()","catch_weight ~ 0 + fyear + pass_scaled",-55,-700,31.9,49,2003,2050,TRUE,500,"iid","iid",FALSE,FALSE
+"4","longspine thornyhead","nwfscSurvey::pull_catch(common_name = species,survey=source)","NWFSC.Combo","sdmTMB::delta_lognormal()","catch_weight ~ 0 + fyear + pass_scaled + depth_scaled + depth_scaled_squared",-300,-1280,31.9,49,2003,2050,TRUE,500,"off","off",FALSE,FALSE

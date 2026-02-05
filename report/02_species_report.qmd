@@ -9,8 +9,8 @@ params:
   
   species_name <- params$Common_name
   section_name <- firstup(species_name)
-  wcgbt_years = c(2003:2019, 2021:2025)
-  hkl_years = c(2004:2019, 2021:2025)
+  wcgbt_years = c(2003:2019, 2021:2024)
+  hkl_years = c(2004:2019, 2021:2024)
   
   sub_data <- data |>
     dplyr::filter(Common_name == species_name)
@@ -209,6 +209,11 @@ if(file.exists(plot_name)) {
 }
 
 ```
+
+
+
+
+
 
 
 ```{r}
