@@ -1,4 +1,5 @@
 library(dplyr)
+library(readr)
 
 raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
 configuration <- read.csv(raw_url) %>%
@@ -51,8 +52,8 @@ config_shortspine_thornyhead <- configuration %>%
 
 all_additonal_indices <- rbind(lingcod_south, greenspotted_rockfish, greenstriped_rockfish, rex_sole, splitnose_rockfish, longspine_thornyhead, shortspine_thornyhead) %>%
   dplyr::filter(area == "Coastwide" & year != 2025) #will have to update this for year filter if we include 2025
-write.csv(all_additonal_indices, "data-processed/2026/additional_coastwide_indices.csv")
+readr::write_csv(all_additonal_indices, "data-processed/2026/additional_coastwide_indices.csv")
 
 all_config_additional_indices <- rbind(config_lingcod_south, config_rex_sole, config_splitnose_rockfish, config_longspine_thornyhead) #only ones that have changed or need to be added
-write.csv(all_config_additional_indices, "data-processed/2026/configuration_additional_coastwide_indices.csv")
+readr::write_csv(all_config_additional_indices, "data-processed/2026/configuration_additional_coastwide_indices.csv")
 

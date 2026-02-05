@@ -25,9 +25,12 @@ indices <- indices %>%
       )
     )
 
-additional_indices <- read.csv(here::here("data-processed", "2026", "additional_coastwide_indices.csv"))
+indices <- indices %>%
+  dplyr::filter(!species %in% c("rex sole", "splitnose rockfish", "longspine thornyhead"))
 
-survey <- rbind(indies, additional_indices) |>
+additional_indices <- read.csv(here::here("data-processed", "2026", "configuration_additional_coastwide_indices.csv"))
+
+survey <- rbind(indices, additional_indices) |>
   dplyr::arrange(tolower(species))
 
 survey_mat <- survey |>

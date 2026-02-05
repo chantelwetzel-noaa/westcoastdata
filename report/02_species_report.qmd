@@ -202,18 +202,29 @@ fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {s
 #| fig-cap: !expr fig_cap_wcgbts_index
 #| out-width: "95%"
 
+if (species_name != "longspine thornyhead"){
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+  }
+}
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_index
+#| out-width: "95%"
+
+species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "additional_wcgbts_indices", paste0(species_name_fig, "_index.png"))
 if(file.exists(plot_name)) {
   knitr::include_graphics(plot_name)
 }
 
 ```
-
-
-
-
-
 
 
 ```{r}

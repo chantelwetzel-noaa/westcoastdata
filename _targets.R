@@ -159,7 +159,22 @@ list(
       data = coastwide_indices_output
     )
   ),
-  # NWFSC HKL NWFSC indices
+  tar_target(
+    additional_coastwide_indices_output_file,
+    command = "data-processed/2026/additional_coastwide_indices.csv",
+    format = "file"
+  ),
+  tar_target(
+    additional_coastwide_indices_output,
+    readr::read_csv(additional_coastwide_indices_output_file)
+  ),
+  tar_target(
+    plot_additional_coastwide_indices,
+    plot_additional_wcgbts_indices(
+      data = additional_coastwide_indices_output
+    )
+  ),
+    # NWFSC HKL NWFSC indices
   #see sandbox/run_hkl_indices.R
   tar_target(
     wcgbt_comps_plots,
