@@ -33,13 +33,22 @@ config_splitnose_rockfish <- configuration %>%
 config_splitnose_rockfish$family <- "sdmTMB::delta_lognormal()"
 config_splitnose_rockfish$spatiotemporal2 <- "iid"
 
-longspine_thornyhead
+longspine_thornyhead <- read.csv(here::here("data-processed", "2026", "additional_indices", "longspine_thornyhead", "wcgbts", "delta_lognormal", "fit_4", "indices", "est_by_area.csv"))
+longspine_thornyhead$common_name <- "longspine thornyhead"
+config_longspine_thornyhead <- configuration %>%
+  dplyr::filter(species == "longspine thornyhead")
+config_longspine_thornyhead$family <- "sdmTMB::delta_lognormal()"
+config_splitnose_rockfish$formula <- "catch_weight ~ 0 + fyear + pass_scaled + depth_scaled + depth_scaled_squared"
 
-shortspine_thornyhead
+shortspine_thornyhead <- read.csv(here::here("data-processed", "2026", "additional_indices", "shortspine_thornyhead", "wcgbts", "delta_lognormal", "fit_1", "indices", "est_by_area.csv"))
+shortspine_thornyhead$common_name <- "shortspine thornyhead"
+config_shortspine_thornyhead <- configuration %>%
+  dplyr::filter(species == "shortspine thornyhead")
 
-all_additonal_indices <- rbind(lingcod_south, greenspotted_rockfish, greenstriped_rockfish, rex_sole) %>%
+all_additonal_indices <- rbind(lingcod_south, greenspotted_rockfish, greenstriped_rockfish, rex_sole, splitnose_rockfish, longspine_thornyhead, shortspine_thornyhead) %>%
   dplyr::filter(area == "Coastwide" & year != 2025) #will have to update this for year filter if we include 2025
-#write csv
+write.csv(all_additonal_indices, "data-processed/2026/additional_coastwide_indices.csv")
 
-all_config_additional_indices <- rbind(config_lingcod_south, config_splitnose_rockfish) #only ones that have changed or need to be added
-#write csv
+all_config_additional_indices <- rbind(config_lingcod_south, config_splitnose_rockfish, config_longspine_thornyhead) #only ones that have changed or need to be added
+write.csv(all_config_additonal_indices, "data-processed/2026/configuration_additional_coastwide_indices.csv")
+
