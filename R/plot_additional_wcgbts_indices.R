@@ -1,4 +1,4 @@
-plot_wcgbts_indices <- function(data, 
+plot_additional_wcgbts_indices <- function(data, 
                                 save_dir = here::here("plots", "additional_wcgbts_indices"), 
                                 width = 10,
                                 height = 7,
