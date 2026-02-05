@@ -73,7 +73,7 @@ source(file.path(outer_dir, "R", "get_species_data_survey.R"))
 source(file.path(outer_dir, "R", "get_source.R"))
 source(file.path(outer_dir, "report", "ongoing_research.R"))
 
-assess_data <- read.csv(file.path(here::here(), "data-raw", "2026", "assess_year_ssc_rec.csv"))
+assess_data <- read.csv(file.path(here::here(), "data-processed", "2026", "assess_year_ssc_rec.csv"))
 assess_data_df <- assess_data |>
     dplyr::mutate(
       species = dplyr::case_when(
