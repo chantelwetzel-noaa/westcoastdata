@@ -26,4 +26,4 @@ The indices of abundance presented here should only be considered illustrative o
 
 ## Maturity Data Collections
 
-Maturity samples for a wide range of West Coast groundfish species have been collected across a range of sources: WCGBTS, HKLS, Pacific hake acoustic survey, at-sea sampling from the Pacific hake fishery, and port sampling by state agencies. Samples have been collected between 2009 - 2025. Summaries of the maturity collections and read samples is provided for each species. These data summaries only includes collections led by the NWFSC but other collections could be available from other research groups.     
+Maturity samples for a wide range of West Coast groundfish species have been collected across a range of sources: WCGBTS, HKLS, Pacific hake acoustic survey, at-sea sampling from the Pacific hake fishery, and port sampling by state agencies. Samples have been collected between 2009 - 2024. Summaries of the maturity collections and read samples is provided for each species. These data summaries only includes collections led by the NWFSC but other collections could be available from other research groups.     

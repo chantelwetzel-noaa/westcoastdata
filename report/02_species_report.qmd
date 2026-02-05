@@ -92,7 +92,7 @@ if (species_name %in% c("longspine thornyhead", "shortspine thornyhead")) {
     read <- 0
   }
     
-  mat_text <- glue::glue("Across the coast a total of {count} maturity samples have been collected with {read} read maturities.")
+  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide (regardless of stock area), with {read} read maturities.")
   
   research_text <- research_list(species_name = species_name)
   

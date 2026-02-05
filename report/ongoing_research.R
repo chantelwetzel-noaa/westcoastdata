@@ -36,7 +36,7 @@ research_list <- function(species_name) {
       )
   ) {
     text <- glue::glue(
-      "ODFW scientists are planning a research cruise to Cobb Sea Mount in the summer of 2026 to sample age and sex distributions of rockfish species."
+      "ODFW scientists are planning a research cruise to Cobb Sea Mount in the summer of 2026 to sample age and sex distributions of this rockfish species and others."
     )
     research_text <- glue::glue("{research_text} {text}")
   }
