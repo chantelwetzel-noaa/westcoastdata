@@ -64,46 +64,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -1807,13 +1767,13 @@ by length bin.}
 
 \subsection{Kelp greenling}\label{kelp-greenling}
 
-The most recent assessment of kelp greenling was a benchmark assessment
-conducted in 2015. Across available data, kelp greenling have been
-observed and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey
-has an average of 9 positive tows per year. Across the coast a total of
-8 maturity samples have been collected with 8 read maturities. ODFW
-scientists have conducted research looking at the influences of hypoxia
-on the catch per unit effort for kelp greenling.
+To date, no assessment or analysis has been conducted on kelp greenling.
+Across available data, kelp greenling have been observed and sampled by
+the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an average of 3
+positive tows per year. Across the coast a total of 8 maturity samples
+have been collected with 8 read maturities. ODFW scientists have
+conducted research looking at the influences of hypoxia on the catch per
+unit effort for kelp greenling.
 
 \begingroup\fontsize{10}{12}\selectfont
 \begingroup\fontsize{10}{12}\selectfont
@@ -1835,7 +1795,6 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-OR & NWFSC WCGBTS & 673 & 0 & 504\\
 WA & NWFSC WCGBTS & 214 & 0 & 194\\*
 \end{longtable}
 \endgroup{}
@@ -4041,34 +4000,13 @@ yellowtail rockfish north & delta\_lognormal() & catch\_weight \textasciitilde{}
 Survey}\label{hkl-index-settings}
 
 Relative indices of abundance by species were estimated using
-\texttt{sdmTMB} with a negative-binomial error structure with covariates
-for year, site, and drop.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ nwfsc\_hkl\_data }\SpecialCharTok{|\textgreater{}}
-\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{group\_by}\NormalTok{(year, site\_number, drop) }\SpecialCharTok{|\textgreater{}}
-\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{summarize}\NormalTok{(}
-      \AttributeTok{n =} \FunctionTok{sum}\NormalTok{(number\_caught),}
-      \AttributeTok{effort =} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(angler)) }\SpecialCharTok{*} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(hook))}
-\NormalTok{    ) }\SpecialCharTok{|\textgreater{}}
-\NormalTok{    dplyr}\SpecialCharTok{::}\FunctionTok{mutate}\NormalTok{(}
-      \AttributeTok{year =} \FunctionTok{as.factor}\NormalTok{(year),}
-      \AttributeTok{site =} \FunctionTok{as.factor}\NormalTok{(site\_number),}
-      \AttributeTok{drop =} \FunctionTok{as.factor}\NormalTok{(drop)}
-\NormalTok{    )}
-
-\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{sdmTMB}\NormalTok{(}
-\NormalTok{    n }\SpecialCharTok{\textasciitilde{}} \DecValTok{0} \SpecialCharTok{+}\NormalTok{ year }\SpecialCharTok{+}\NormalTok{ site\_number }\SpecialCharTok{+}\NormalTok{ drop,}
-    \AttributeTok{data =}\NormalTok{ data,}
-    \AttributeTok{offset =} \FunctionTok{log}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{effort),}
-    \AttributeTok{time =} \StringTok{"year"}\NormalTok{,}
-    \AttributeTok{spatial =} \StringTok{"off"}\NormalTok{,}
-    \AttributeTok{spatiotemporal =} \StringTok{"off"}\NormalTok{,}
-    \AttributeTok{family =} \FunctionTok{nbinom2}\NormalTok{(}\AttributeTok{link =} \StringTok{"log"}\NormalTok{)}
-\NormalTok{  )}
-\end{Highlighting}
-\end{Shaded}
+\texttt{sdmTMB} with a negative-binomial error structure no spatial or
+spatiotemporal effects. The covariates used to model the accounted for
+year, site, and drop
+(\texttt{n\ \textasciitilde{}\ 0\ +\ year\ +\ site\_number\ +\ drop})
+and effort was defined as the product the number of lines in the water
+(e.g., fishing off the bow, stern, or mid-ship) and the number of hooks
+by year, site, and drop number.
 
 \newpage
 
