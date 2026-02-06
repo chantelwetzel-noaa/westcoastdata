@@ -55,7 +55,8 @@ list(
     pull_wcgbts(
       dir = here::here("data-raw", "2026"),
       load = FALSE,
-      species = species
+      species = species,
+      verbose = TRUE
     )
   ),
   # Clean NWFSC WCGBT data
