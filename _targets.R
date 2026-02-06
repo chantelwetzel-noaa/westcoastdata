@@ -54,7 +54,7 @@ list(
     wcgbt_raw_data,
     pull_wcgbts(
       dir = here::here("data-raw", "2026"),
-      load = TRUE,
+      load = FALSE,
       species = species
     )
   ),
@@ -78,7 +78,7 @@ list(
   # NWFSC HKL Survey Data
   tar_target(
     nwfsc_hkl_file,
-    command = "data-raw/2026/nwfsc_hkl_DWarehouse_version_09032025.csv",
+    command = "data-raw/2026/nwfsc_hkl_DWarehouse_version_abbreviated_02032026.csv",
     format = "file"
   ),
   tar_target(
