@@ -56,7 +56,7 @@ list(
       dir = here::here("data-raw", "2026"),
       load = FALSE,
       species = species,
-      verbose = TRUE
+      verbose = FALSE
     )
   ),
   # Clean NWFSC WCGBT data
