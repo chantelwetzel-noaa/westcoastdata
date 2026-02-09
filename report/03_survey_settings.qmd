@@ -26,7 +26,7 @@ indices <- indices %>%
     )
 
 indices <- indices %>%
-  dplyr::filter(!species %in% c("rex sole", "splitnose rockfish", "longspine thornyhead"))
+  dplyr::filter(!species %in% c("rosethorn rockfish"))
 
 additional_indices <- read.csv(here::here("data-processed", "2026", "configuration_additional_coastwide_indices.csv"))
 
