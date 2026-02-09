@@ -24,7 +24,7 @@ pull_wcgbts <- function(
   dir = dir,
   species,
   survey = 'NWFSC.Combo',
-  load = FALSE,
+  load = TRUE,
   convert = TRUE,
   verbose = FALSE
 ) {

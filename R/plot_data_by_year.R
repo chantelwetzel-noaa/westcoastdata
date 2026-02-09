@@ -51,8 +51,8 @@ plot_data_by_year <- function(
         ),
       ggplot2::aes(fill = Source, x = Year, y = total_lengths)
     ) +
-      geom_bar(
-        aes(y = total_lengths),
+      ggplot2::geom_bar(
+        ggplot2::aes(y = total_lengths),
         position = "stack",
         stat = "identity",
         color = "#000000",
@@ -64,13 +64,13 @@ plot_data_by_year <- function(
       ggplot2::facet_wrap("State", ncol = 3) +
       ggplot2::theme_bw() +
       ggplot2::ggtitle(unique(sp)) +
-      theme(
-        plot.title = element_text(size = 20, hjust = 0.5),
-        axis.text = element_text(size = 14),
-        axis.title = element_text(size = 14),
-        strip.text.x = element_text(size = 14),
-        legend.text = element_text(size = 14),
-        strip.background = element_rect(colour = "black", fill = "#FFFFFF")
+      ggplot2::theme(
+        plot.title = ggplot2::element_text(size = 20, hjust = 0.5),
+        axis.text = ggplot2::element_text(size = 14),
+        axis.title = ggplot2::element_text(size = 14),
+        strip.text.x = ggplot2::element_text(size = 14),
+        legend.text = ggplot2::element_text(size = 14),
+        strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
 
@@ -94,27 +94,27 @@ plot_data_by_year <- function(
         dplyr::filter(
           Common_name == sp
         ),
-      aes(fill = Source, y = total_ages, x = Year)
+      ggplot2::aes(fill = Source, y = total_ages, x = Year)
     ) +
-      geom_bar(
-        aes(y = total_ages),
+      ggplot2::geom_bar(
+        ggplot2::aes(y = total_ages),
         position = "stack",
         stat = "identity",
         color = "#000000",
         show.legend = TRUE
       ) +
-      xlab("Year") +
-      ylab("# of Ages") +
+      ggplot2::xlab("Year") +
+      ggplot2::ylab("# of Ages") +
       ggplot2::theme_bw() +
       ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::theme(
-        axis.text = element_text(size = 14),
-        axis.title = element_text(size = 14),
-        strip.text.x = element_text(size = 14),
-        legend.text = element_text(size = 14),
-        strip.background = element_rect(colour = "black", fill = "#FFFFFF")
+        axis.text = ggplot2::element_text(size = 14),
+        axis.title = ggplot2::element_text(size = 14),
+        strip.text.x = ggplot2::element_text(size = 14),
+        legend.text = ggplot2::element_text(size = 14),
+        strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
-      facet_wrap("State", ncol = 3) +
+      ggplot2::facet_wrap("State", ncol = 3) +
       ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
 
     otoliths <- ggplot2::ggplot(
@@ -122,31 +122,31 @@ plot_data_by_year <- function(
         dplyr::filter(
           Common_name == sp
         ),
-      aes(fill = Source, y = total_otoliths, x = Year)
+      ggplot2::aes(fill = Source, y = total_otoliths, x = Year)
     ) +
-      geom_bar(
-        aes(y = total_otoliths),
+      ggplot2::geom_bar(
+        ggplot2::aes(y = total_otoliths),
         position = "stack",
         stat = "identity",
         color = "#000000",
         show.legend = TRUE
       ) +
-      xlab("Year") +
-      ylab("# of Age Structures") +
+      ggplot2::xlab("Year") +
+      ggplot2::ylab("# of Age Structures") +
       ggplot2::theme_bw() +
       ggplot2::ylim(as.numeric(lims[1]), as.numeric(lims[2])) +
       ggplot2::theme(
-        axis.text = element_text(size = 14),
-        axis.title = element_text(size = 14),
-        strip.text.x = element_text(size = 14),
-        legend.text = element_text(size = 14),
-        strip.background = element_rect(colour = "black", fill = "#FFFFFF")
+        axis.text = ggplot2::element_text(size = 14),
+        axis.title = ggplot2::element_text(size = 14),
+        strip.text.x = ggplot2::element_text(size = 14),
+        legend.text = ggplot2::element_text(size = 14),
+        strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
       ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
 
     cowplot::plot_grid(lengths, ages, otoliths, ncol = 1, nrow = 3)
-    ggsave(
+    ggplot2::ggsave(
       file.path(
         dir,
         paste0(
