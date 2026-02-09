@@ -176,6 +176,7 @@ list(
   ),
   # NWFSC HKL NWFSC indices
   #see sandbox/run_hkl_indices.R
+  #Chantel ran 02/05/2026
   tar_target(
     wcgbt_comps_plots,
     plot_wcgbt_comps(

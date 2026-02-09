@@ -19,7 +19,7 @@ species <- get_hkl_species() #should I change this function to include the corre
 hkl_data <- read.csv(here::here(
   "data-raw",
   "2026",
-  "nwfsc_hkl_DWarehouse_version_09032025.csv"
+  "nwfsc_hkl_DWarehouse_version_abbreviated_02032026.csv"
 ))
 
 # why can't I used the cleaned version of this

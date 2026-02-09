@@ -57,7 +57,7 @@ config_shortspine_thornyhead <- configuration %>%
   dplyr::filter(species == "shortspine thornyhead")
 
 all_additonal_indices <- rbind(lingcod_south, rosethorn_rockfish, shortspine_thornyhead) %>%
-  dplyr::filter(area == "Coastwide" & year != 2025) #will have to update this for year filter if we include 2025
+  dplyr::filter(area == "Coastwide")
 readr::write_csv(all_additonal_indices, "data-processed/2026/additional_coastwide_indices.csv")
 
 all_config_additional_indices <- rbind(config_lingcod_south, config_rosethorn_rockfish) #only ones that have changed or need to be added
