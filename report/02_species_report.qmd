@@ -42,7 +42,7 @@ params:
     "have been observed and sampled by"
   )
   if (data_to_show == "all") {
-    survey_text <- glue::glue("{obs_text} both the NWFSC WCGBTS and HKLS. ") 
+    survey_text <- glue::glue("{obs_text} both the NWFSC HKLS and WCGBTS. ") 
   }
   if (data_to_show == "wcgbt") {
      survey_text <- glue::glue("{obs_text} the NWFSC WCGBTS. ") 

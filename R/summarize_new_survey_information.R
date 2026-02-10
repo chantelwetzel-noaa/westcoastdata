@@ -151,7 +151,7 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
       ave_ages = floor(sum(!is.na(Aged)) / dplyr::n_distinct(Year)),
       ave_otoliths = floor(sum(Otolith) / dplyr::n_distinct(Year)),
       wcgbt = sum(Source == "NWFSC WCGBTS"),
-      nwfsc_hkl = sum(Source == "NWFSC HKL"),
+      nwfsc_hkl = sum(Source == "NWFSC HKLS"),
       wcgbt_percent = round(wcgbt / (wcgbt + nwfsc_hkl), 2)
     )
 
