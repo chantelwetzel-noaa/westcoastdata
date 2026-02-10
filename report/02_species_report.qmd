@@ -42,20 +42,20 @@ params:
     "have been observed and sampled by"
   )
   if (data_to_show == "all") {
-    survey_text <- glue::glue("{obs_text} both the NWFSC WCGBT and HKL surveys. ") 
+    survey_text <- glue::glue("{obs_text} both the NWFSC WCGBTS and HKLS. ") 
   }
   if (data_to_show == "wcgbt") {
-     survey_text <- glue::glue("{obs_text} the NWFSC WCGBT survey. ") 
+     survey_text <- glue::glue("{obs_text} the NWFSC WCGBTS. ") 
   }
   if (data_to_show == "hkl") {
-     survey_text <- glue::glue("{obs_text} the NWFSC HKL survey. ")
+     survey_text <- glue::glue("{obs_text} the NWFSC HKLS. ")
   }
   
   average_sets <- sub_data |>
     dplyr::mutate(
       n = dplyr::case_when(
         Source == "NWFSC WCGBTS" ~ length(wcgbt_years),
-        Source == "NWFSC HKL" ~ length(hkl_years)
+        Source == "NWFSC HKLS" ~ length(hkl_years)
       )
     ) |>
     dplyr::group_by(Source) |>
@@ -70,7 +70,7 @@ params:
     number <- average_sets[average_sets$Source == ss, "sets"]
 #    if (number > 3) {
       samples <- glue::glue(
-        "The {ss} survey has an average of {number} positive tows per year."
+        "The {ss} has an average of {number} positive tows per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
 #    }
@@ -191,7 +191,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 
-fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC West Coast Groundfish Bottom Trawl survey.")
+fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC WCGBTS.")
 
 ```
 
@@ -229,7 +229,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 
-fig_cap_hkl_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC Hook and Line survey.")
+fig_cap_hkl_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC HKLS.")
 
 ```
 
@@ -253,7 +253,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 
-fig_cap_wcgbts_comp <- glue::glue("Length (cm) compostion data from the NWFSC West Coast Groundfish Bottom Trawl survey for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
+fig_cap_wcgbts_comp <- glue::glue("Length (cm) compostion data from the NWFSC WCGBTS for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
 
 ```
 
@@ -277,7 +277,7 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 
-fig_cap_hkl_comp <- glue::glue("Length (cm) compostion data from the NWFSC Hook and Line survey for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
+fig_cap_hkl_comp <- glue::glue("Length (cm) compostion data from the NWFSC HKLS for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
 
 ```
 

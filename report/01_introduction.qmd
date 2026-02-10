@@ -1,6 +1,6 @@
 # Introduction 
 
-This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS). A detailed summary of data available by year and across sources can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
+This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS). A detailed summary of data available by year and across sources can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
 
 This version of the data summary document does not include a summary of commercial, recreational, or state-specific fishery-independent data.  Future versions may include information from these data sources, time permitting.
 

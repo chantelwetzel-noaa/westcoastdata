@@ -29,7 +29,7 @@ clean_nwfsc_hkl <- function(
         .default = lower_name
       ),
       State = "CA",
-      Source = "NWFSC HKL",
+      Source = "NWFSC HKLS",
       Fleet = NA,
       Lengthed = dplyr::case_when(!is.na(length_cm) ~ 1, .default = 0),
       Aged = dplyr::case_when(!is.na(age_years) ~ 1, .default = 0),

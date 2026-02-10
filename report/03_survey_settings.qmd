@@ -45,7 +45,7 @@ ind <- order(survey_mat$species)
 
 sa4ss::table_format(
   x = survey_mat[ind, ], 
-  caption = "Setting used for estimating indices of abundance for the NWFSC WCGBT survey by species.",
+  caption = "Setting used for estimating indices of abundance for the NWFSC WCGBTS by species.",
   label = 'survey-settings',
   col_names = col_names,
   landscape = TRUE,
