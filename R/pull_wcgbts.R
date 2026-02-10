@@ -29,11 +29,11 @@ pull_wcgbts <- function(
   verbose = FALSE
 ) {
   if (load) {
-    file <- list.files(dir)[grep("bio_pull all", list.files(dir))]
+    file <- list.files(dir)[grep("bio_pull_all", list.files(dir))]
     load(file.path(dir, file))
     bio <- x
 
-    file <- list.files(dir)[grep("catch_pull all", list.files(dir))]
+    file <- list.files(dir)[grep("catch_pull_all", list.files(dir))]
     load(file.path(dir, file))
     catch <- x
   } else {
