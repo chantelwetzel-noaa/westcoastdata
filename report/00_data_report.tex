@@ -433,14 +433,14 @@ Abundance}\label{survey-relative-indices-of-abundance}
 Indices of abundance were estimated from the WCGBTS using a
 spatiotemporal model (\texttt{sdmTMB}) for species well-observed by the
 survey. The indices were estimated using a generalized configuration
-across species using either a gamma or log-normal distribution, with the
-dispersion parameter held constant across years with 200-500 knots used
-to create the mesh. The model structure for each species is provided in
-Section \ref{wcgbt-index-settings}. Species-specific indices of
-abundance produced for past assessments or produced for future
-assessments may use a modified model structure resulting in slight
-changes in year-by-year values for the indices of abundance presented in
-this document.
+across species using either a gamma, log-normal, or Tweedie
+distribution, with the dispersion parameter held constant across years
+with 200-500 knots used to create the mesh. The model structure for each
+species is provided in Section \ref{wcgbt-index-settings}.
+Species-specific indices of abundance produced for past assessments or
+produced for future assessments may use a modified model structure
+resulting in slight changes in year-by-year values for the indices of
+abundance presented in this document.
 
 Indices of abundance were estimated from the HKLS for well-observed
 species using \texttt{sdmTMB} with a negative-binomial error structure
@@ -455,12 +455,13 @@ illustrative of potential trends in abundance across time.
 \subsection{Maturity Data Collections}\label{maturity-data-collections}
 
 Maturity samples for a wide range of West Coast groundfish species have
-been collected across a range of sources: WCGBTS, HKLS, Pacific hake
-acoustic survey, at-sea sampling from the Pacific hake fishery, and port
-sampling by state agencies. A summary of the maturity samples collected
-between 2009 - 2024 and the number of read samples are provided for each
-species. These data summaries only include collections led by the NWFSC
-but other collections could be available from other research groups.
+been collected across multiple sources: the WCGBTS, the HKLS, the
+Pacific hake acoustic survey, at-sea sampling from the Pacific hake
+fishery, and port sampling by state agencies. A summary of the number of
+maturity samples collected and read between 2009 - 2024 is provided for
+each species. These data summaries only include collections led by the
+NWFSC but other collections could be available from other research
+groups.
 
 \newpage{}
 
@@ -472,7 +473,7 @@ NWFSC}\label{groundfish-species-observed-by-surveys-conducted-by-the-nwfsc}
 The most recent assessment of arrowtooth flounder was an update
 assessment conducted in 2017. Across available data, arrowtooth flounder
 have been observed and sampled by the NWFSC WCGBT survey. The NWFSC
-WCGBTS survey has an average of 215 positive tows per year. For this
+WCGBTS survey has an average of 226 positive tows per year. For this
 species, a total of 254 maturity samples have been collected coastwide
 (regardless of stock area), with 96 read maturities.
 
@@ -496,9 +497,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 9,814 & 802 & 2,772\\
-OR & NWFSC WCGBTS & 29,433 & 2,245 & 7,046\\
-WA & NWFSC WCGBTS & 19,722 & 1,281 & 3,896\\*
+CA & NWFSC WCGBTS & 10,122 & 802 & 2,907\\
+OR & NWFSC WCGBTS & 30,417 & 2,245 & 7,466\\
+WA & NWFSC WCGBTS & 20,170 & 1,281 & 4,082\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -549,7 +550,7 @@ circles within a year indicate higher (larger circles) and lower
 The most recent assessment of aurora rockfish was a benchmark assessment
 conducted in 2013. Across available data, aurora rockfish have been
 observed and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey
-has an average of 80 positive tows per year. For this species, a total
+has an average of 84 positive tows per year. For this species, a total
 of 617 maturity samples have been collected coastwide (regardless of
 stock area), with 567 read maturities.
 
@@ -573,8 +574,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 26,219 & 2,269 & 7,988\\
-OR & NWFSC WCGBTS & 5,453 & 784 & 2,843\\
+CA & NWFSC WCGBTS & 26,965 & 2,269 & 8,409\\
+OR & NWFSC WCGBTS & 5,688 & 784 & 3,009\\
 WA & NWFSC WCGBTS & 384 & 37 & 258\\*
 \end{longtable}
 \endgroup{}
@@ -625,7 +626,7 @@ To date, no assessment or analysis has been conducted on bank rockfish.
 Across available data, bank rockfish have been observed and sampled by
 both the NWFSC WCGBT and HKL surveys. The NWFSC HKL survey has an
 average of 30 positive tows per year. The NWFSC WCGBTS survey has an
-average of 12 positive tows per year. For this species, a total of 733
+average of 13 positive tows per year. For this species, a total of 733
 maturity samples have been collected coastwide (regardless of stock
 area), with 85 read maturities.
 
@@ -650,8 +651,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 3,952 & 0 & 3,936\\
-CA & NWFSC WCGBTS & 2,097 & 0 & 1,455\\
-OR & NWFSC WCGBTS & 142 & 0 & 55\\
+CA & NWFSC WCGBTS & 2,236 & 0 & 1,571\\
+OR & NWFSC WCGBTS & 143 & 0 & 56\\
 WA & NWFSC WCGBTS & 4 & 0 & 4\\*
 \end{longtable}
 \endgroup{}
@@ -681,19 +682,6 @@ the NWFSC Hook and Line survey.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/bank rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for bank rockfish. Size of the circles within a year indicate higher
-(larger circles) and lower (smaller circles) proportion observed by
-length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Big skate}\label{big-skate}
@@ -701,7 +689,7 @@ length bin.}
 The most recent assessment of big skate was a benchmark assessment
 conducted in 2019. Across available data, big skate have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an
-average of 92 positive tows per year. For this species, a total of 180
+average of 96 positive tows per year. For this species, a total of 180
 maturity samples have been collected coastwide (regardless of stock
 area), with 180 read maturities.
 
@@ -725,9 +713,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 2,263 & 351 & 132\\
-OR & NWFSC WCGBTS & 2,651 & 422 & 331\\
-WA & NWFSC WCGBTS & 1,987 & 261 & 235\\*
+CA & NWFSC WCGBTS & 2,339 & 351 & 182\\
+OR & NWFSC WCGBTS & 2,719 & 422 & 369\\
+WA & NWFSC WCGBTS & 2,023 & 261 & 261\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -764,7 +752,7 @@ The most recent assessment of blackgill rockfish was an update
 assessment conducted in 2017. Across available data, blackgill rockfish
 have been observed and sampled by the NWFSC WCGBT survey. The NWFSC HKL
 survey has an average of 0 positive tows per year. The NWFSC WCGBTS
-survey has an average of 34 positive tows per year. For this species, a
+survey has an average of 35 positive tows per year. For this species, a
 total of 126 maturity samples have been collected coastwide (regardless
 of stock area), with 126 read maturities.
 
@@ -789,8 +777,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 7 & 0 & 7\\
-CA & NWFSC WCGBTS & 10,484 & 1,937 & 5,586\\
-OR & NWFSC WCGBTS & 286 & 11 & 254\\
+CA & NWFSC WCGBTS & 11,017 & 1,937 & 5,988\\
+OR & NWFSC WCGBTS & 295 & 11 & 263\\
 WA & NWFSC WCGBTS & 7 & 0 & 7\\*
 \end{longtable}
 \endgroup{}
@@ -841,7 +829,7 @@ The most recent assessment of bocaccio was an update assessment
 conducted in 2017. Across available data, bocaccio have been observed
 and sampled by both the NWFSC WCGBT and HKL surveys. The NWFSC HKL
 survey has an average of 120 positive tows per year. The NWFSC WCGBTS
-survey has an average of 49 positive tows per year. For this species, a
+survey has an average of 53 positive tows per year. For this species, a
 total of 837 maturity samples have been collected coastwide (regardless
 of stock area), with 737 read maturities.
 
@@ -866,9 +854,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 22,667 & 0 & 14,376\\
-CA & NWFSC WCGBTS & 10,436 & 2,759 & 3,969\\
-OR & NWFSC WCGBTS & 294 & 20 & 180\\
-WA & NWFSC WCGBTS & 477 & 74 & 333\\*
+CA & NWFSC WCGBTS & 11,222 & 2,760 & 4,559\\
+OR & NWFSC WCGBTS & 297 & 20 & 183\\
+WA & NWFSC WCGBTS & 522 & 74 & 366\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -921,18 +909,6 @@ proportion observed by length bin.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/bocaccio_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for bocaccio. Size of the circles within a year indicate higher (larger
-circles) and lower (smaller circles) proportion observed by length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{California scorpionfish}\label{california-scorpionfish}
@@ -941,7 +917,7 @@ The most recent assessment of California scorpionfish was a benchmark
 assessment conducted in 2017. Across available data, California
 scorpionfish have been observed and sampled by both the NWFSC WCGBT and
 HKL surveys. The NWFSC HKL survey has an average of 2 positive tows per
-year. The NWFSC WCGBTS survey has an average of 12 positive tows per
+year. The NWFSC WCGBTS survey has an average of 13 positive tows per
 year. For this species, a total of 0 maturity samples have been
 collected coastwide (regardless of stock area), with 0 read maturities.
 
@@ -966,7 +942,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 45 & 0 & 25\\
-CA & NWFSC WCGBTS & 4,203 & 911 & 1,044\\*
+CA & NWFSC WCGBTS & 4,360 & 911 & 1,174\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -992,7 +968,7 @@ The most recent assessment of canary rockfish was a benchmark assessment
 conducted in 2023. Across available data, canary rockfish have been
 observed and sampled by both the NWFSC WCGBT and HKL surveys. The NWFSC
 HKL survey has an average of 7 positive tows per year. The NWFSC WCGBTS
-survey has an average of 51 positive tows per year. For this species, a
+survey has an average of 53 positive tows per year. For this species, a
 total of 1480 maturity samples have been collected coastwide (regardless
 of stock area), with 1184 read maturities. ODFW scientists are planning
 a research cruise to Cobb Sea Mount in the summer of 2026 to sample age
@@ -1019,9 +995,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 433 & 368 & 60\\
-CA & NWFSC WCGBTS & 3,397 & 1,854 & 190\\
-OR & NWFSC WCGBTS & 4,893 & 3,178 & 138\\
-WA & NWFSC WCGBTS & 6,382 & 3,430 & 377\\*
+CA & NWFSC WCGBTS & 3,693 & 1,854 & 300\\
+OR & NWFSC WCGBTS & 5,103 & 3,189 & 246\\
+WA & NWFSC WCGBTS & 6,613 & 3,430 & 521\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1063,19 +1039,6 @@ circles) proportion observed by length bin.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/canary rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for canary rockfish. Size of the circles within a year indicate higher
-(larger circles) and lower (smaller circles) proportion observed by
-length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Chilipepper}\label{chilipepper}
@@ -1084,7 +1047,7 @@ The most recent assessment of chilipepper was a benchmark assessment
 conducted in 2025. Across available data, chilipepper have been observed
 and sampled by both the NWFSC WCGBT and HKL surveys. The NWFSC HKL
 survey has an average of 27 positive tows per year. The NWFSC WCGBTS
-survey has an average of 88 positive tows per year. For this species, a
+survey has an average of 93 positive tows per year. For this species, a
 total of 157 maturity samples have been collected coastwide (regardless
 of stock area), with 157 read maturities.
 
@@ -1109,9 +1072,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 3,335 & 249 & 2,903\\
-CA & NWFSC WCGBTS & 33,744 & 12,386 & 728\\
-OR & NWFSC WCGBTS & 2,182 & 904 & 57\\
-WA & NWFSC WCGBTS & 27 & 27 & 0\\*
+CA & NWFSC WCGBTS & 35,095 & 12,386 & 1,480\\
+OR & NWFSC WCGBTS & 2,231 & 904 & 89\\
+WA & NWFSC WCGBTS & 34 & 27 & 7\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1164,19 +1127,6 @@ circles) proportion observed by length bin.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/chilipepper_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for chilipepper. Size of the circles within a year indicate higher
-(larger circles) and lower (smaller circles) proportion observed by
-length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Cowcod}\label{cowcod}
@@ -1185,7 +1135,7 @@ The most recent assessment of cowcod was a benchmark assessment
 conducted in 2019. Across available data, cowcod have been observed and
 sampled by both the NWFSC WCGBT and HKL surveys. The NWFSC HKL survey
 has an average of 24 positive tows per year. The NWFSC WCGBTS survey has
-an average of 18 positive tows per year. For this species, a total of
+an average of 20 positive tows per year. For this species, a total of
 431 maturity samples have been collected coastwide (regardless of stock
 area), with 170 read maturities.
 
@@ -1210,7 +1160,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 1,099 & 440 & 629\\
-CA & NWFSC WCGBTS & 935 & 462 & 460\\
+CA & NWFSC WCGBTS & 1,038 & 465 & 560\\
 OR & NWFSC WCGBTS & 10 & 3 & 7\\
 WA & NWFSC WCGBTS & 2 & 0 & 2\\*
 \end{longtable}
@@ -1254,18 +1204,6 @@ proportion observed by length bin.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/cowcod_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for cowcod. Size of the circles within a year indicate higher (larger
-circles) and lower (smaller circles) proportion observed by length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Darkblotched rockfish}\label{darkblotched-rockfish}
@@ -1273,7 +1211,7 @@ circles) and lower (smaller circles) proportion observed by length bin.}
 The most recent assessment of darkblotched rockfish was an update
 assessment conducted in 2017. Across available data, darkblotched
 rockfish have been observed and sampled by the NWFSC WCGBT survey. The
-NWFSC WCGBTS survey has an average of 107 positive tows per year. For
+NWFSC WCGBTS survey has an average of 113 positive tows per year. For
 this species, a total of 958 maturity samples have been collected
 coastwide (regardless of stock area), with 927 read maturities.
 
@@ -1297,9 +1235,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 7,634 & 2,561 & 925\\
-OR & NWFSC WCGBTS & 22,610 & 6,636 & 2,941\\
-WA & NWFSC WCGBTS & 8,474 & 2,523 & 789\\*
+CA & NWFSC WCGBTS & 7,784 & 2,568 & 1,038\\
+OR & NWFSC WCGBTS & 23,679 & 6,636 & 3,365\\
+WA & NWFSC WCGBTS & 8,667 & 2,523 & 882\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1348,7 +1286,7 @@ circles within a year indicate higher (larger circles) and lower
 The most recent assessment of Dover sole was a benchmark assessment
 conducted in 2021. Across available data, Dover sole have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an
-average of 508 positive tows per year. For this species, a total of 820
+average of 536 positive tows per year. For this species, a total of 820
 maturity samples have been collected coastwide (regardless of stock
 area), with 635 read maturities.
 
@@ -1372,9 +1310,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 86,127 & 8,700 & 5,775\\
-OR & NWFSC WCGBTS & 69,163 & 5,836 & 4,155\\
-WA & NWFSC WCGBTS & 32,188 & 2,581 & 1,982\\*
+CA & NWFSC WCGBTS & 89,094 & 8,707 & 6,406\\
+OR & NWFSC WCGBTS & 71,164 & 5,836 & 4,531\\
+WA & NWFSC WCGBTS & 33,050 & 2,581 & 2,145\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1423,7 +1361,7 @@ circles) proportion observed by length bin.}
 The most recent assessment of English sole was a data-moderate
 assessment conducted in 2013. Across available data, English sole have
 been observed and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS
-survey has an average of 253 positive tows per year. For this species, a
+survey has an average of 266 positive tows per year. For this species, a
 total of 174 maturity samples have been collected coastwide (regardless
 of stock area), with 0 read maturities.
 
@@ -1447,9 +1385,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 44,691 & 478 & 8,824\\
-OR & NWFSC WCGBTS & 31,096 & 279 & 5,347\\
-WA & NWFSC WCGBTS & 13,520 & 141 & 2,882\\*
+CA & NWFSC WCGBTS & 46,065 & 478 & 9,110\\
+OR & NWFSC WCGBTS & 31,844 & 279 & 5,503\\
+WA & NWFSC WCGBTS & 14,163 & 141 & 3,021\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1497,7 +1435,7 @@ circles) proportion observed by length bin.}
 
 To date, no assessment or analysis has been conducted on flathead sole.
 Across available data, flathead sole have been observed and sampled by
-the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an average of 49
+the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an average of 52
 positive tows per year. For this species, a total of 0 maturity samples
 have been collected coastwide (regardless of stock area), with 0 read
 maturities.
@@ -1522,9 +1460,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 76 & 0 & 38\\
-OR & NWFSC WCGBTS & 4,776 & 0 & 2,009\\
-WA & NWFSC WCGBTS & 7,168 & 0 & 1,639\\*
+CA & NWFSC WCGBTS & 77 & 0 & 39\\
+OR & NWFSC WCGBTS & 4,985 & 0 & 2,154\\
+WA & NWFSC WCGBTS & 7,345 & 0 & 1,732\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1574,7 +1512,7 @@ The most recent assessment of greenspotted rockfish was a benchmark
 assessment conducted in 2011. Across available data, greenspotted
 rockfish have been observed and sampled by both the NWFSC WCGBT and HKL
 surveys. The NWFSC HKL survey has an average of 65 positive tows per
-year. The NWFSC WCGBTS survey has an average of 33 positive tows per
+year. The NWFSC WCGBTS survey has an average of 35 positive tows per
 year. For this species, a total of 338 maturity samples have been
 collected coastwide (regardless of stock area), with 175 read
 maturities.
@@ -1600,9 +1538,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 6,446 & 843 & 5,408\\
-CA & NWFSC WCGBTS & 7,797 & 701 & 3,823\\
-OR & NWFSC WCGBTS & 1,323 & 0 & 1,031\\
-WA & NWFSC WCGBTS & 40 & 0 & 37\\*
+CA & NWFSC WCGBTS & 8,034 & 701 & 4,008\\
+OR & NWFSC WCGBTS & 1,366 & 0 & 1,074\\
+WA & NWFSC WCGBTS & 45 & 0 & 42\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1623,17 +1561,6 @@ number of age and age structure plot rows.}
 \begin{figure}[H]
 
 {\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_indices/greenspotted_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance for greenspotted rockfish
-from the NWFSC West Coast Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/additional_wcgbts_indices/greenspotted_rockfish_index.png}
 
 }
 
@@ -1666,19 +1593,6 @@ circles within a year indicate higher (larger circles) and lower
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/greenspotted rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for greenspotted rockfish. Size of the circles within a year indicate
-higher (larger circles) and lower (smaller circles) proportion observed
-by length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Greenstriped rockfish}\label{greenstriped-rockfish}
@@ -1687,7 +1601,7 @@ The most recent assessment of greenstriped rockfish was a benchmark
 assessment conducted in 2009. Across available data, greenstriped
 rockfish have been observed and sampled by both the NWFSC WCGBT and HKL
 surveys. The NWFSC HKL survey has an average of 28 positive tows per
-year. The NWFSC WCGBTS survey has an average of 154 positive tows per
+year. The NWFSC WCGBTS survey has an average of 161 positive tows per
 year. For this species, a total of 73 maturity samples have been
 collected coastwide (regardless of stock area), with 73 read maturities.
 
@@ -1712,9 +1626,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 1,315 & 0 & 1,302\\
-CA & NWFSC WCGBTS & 16,867 & 1,359 & 4,220\\
-OR & NWFSC WCGBTS & 19,607 & 1,346 & 3,924\\
-WA & NWFSC WCGBTS & 10,355 & 709 & 1,918\\*
+CA & NWFSC WCGBTS & 17,531 & 1,359 & 4,458\\
+OR & NWFSC WCGBTS & 20,348 & 1,346 & 4,169\\
+WA & NWFSC WCGBTS & 10,619 & 709 & 2,012\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1745,17 +1659,6 @@ from the NWFSC West Coast Groundfish Bottom Trawl survey.}
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/additional_wcgbts_indices/greenstriped_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance for greenstriped rockfish
-from the NWFSC West Coast Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
 {\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_indices/greenstriped rockfish_negbinom index.png}
 
 }
@@ -1775,19 +1678,6 @@ from the NWFSC Hook and Line survey.}
 Groundfish Bottom Trawl survey for greenstriped rockfish. Size of the
 circles within a year indicate higher (larger circles) and lower
 (smaller circles) proportion observed by length bin.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/greenstriped rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for greenstriped rockfish. Size of the circles within a year indicate
-higher (larger circles) and lower (smaller circles) proportion observed
-by length bin.}
 
 \end{figure}%
 
@@ -1823,7 +1713,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-WA & NWFSC WCGBTS & 214 & 0 & 194\\*
+WA & NWFSC WCGBTS & 217 & 0 & 197\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1848,7 +1738,7 @@ and age structure plot rows.}
 The most recent assessment of lingcod north was a benchmark assessment
 conducted in 2021. Across available data, lingcod north have been
 observed and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey
-has an average of 124 positive tows per year. For this species, a total
+has an average of 130 positive tows per year. For this species, a total
 of 1161 maturity samples have been collected coastwide (regardless of
 stock area), with 1031 read maturities. ODFW scientists have conducted
 research looking at the influences of hypoxia on the catch per unit
@@ -1874,9 +1764,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 2,523 & 780 & 597\\
-OR & NWFSC WCGBTS & 9,519 & 2,782 & 2,524\\
-WA & NWFSC WCGBTS & 6,684 & 1,582 & 1,345\\*
+CA & NWFSC WCGBTS & 2,582 & 780 & 632\\
+OR & NWFSC WCGBTS & 9,992 & 2,782 & 2,721\\
+WA & NWFSC WCGBTS & 7,151 & 1,582 & 1,513\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -1926,7 +1816,7 @@ The most recent assessment of lingcod south was a benchmark assessment
 conducted in 2021. Across available data, lingcod south have been
 observed and sampled by the NWFSC WCGBT survey. The NWFSC HKL survey has
 an average of 26 positive tows per year. The NWFSC WCGBTS survey has an
-average of 75 positive tows per year. For this species, a total of 1161
+average of 79 positive tows per year. For this species, a total of 1161
 maturity samples have been collected coastwide (regardless of stock
 area), with 1031 read maturities.
 
@@ -1951,7 +1841,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 955 & 185 & 25\\
-CA & NWFSC WCGBTS & 11,921 & 3,870 & 2,491\\*
+CA & NWFSC WCGBTS & 12,375 & 3,887 & 2,797\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2004,19 +1894,6 @@ circles) proportion observed by length bin.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/lingcod south_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for lingcod south. Size of the circles within a year indicate higher
-(larger circles) and lower (smaller circles) proportion observed by
-length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Longnose skate}\label{longnose-skate}
@@ -2024,7 +1901,7 @@ length bin.}
 The most recent assessment of longnose skate was a benchmark assessment
 conducted in 2019. Across available data, longnose skate have been
 observed and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey
-has an average of 364 positive tows per year. For this species, a total
+has an average of 384 positive tows per year. For this species, a total
 of 508 maturity samples have been collected coastwide (regardless of
 stock area), with 508 read maturities.
 
@@ -2048,9 +1925,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 34,520 & 336 & 1,229\\
-OR & NWFSC WCGBTS & 18,099 & 227 & 850\\
-WA & NWFSC WCGBTS & 8,858 & 84 & 347\\*
+CA & NWFSC WCGBTS & 36,040 & 337 & 1,443\\
+OR & NWFSC WCGBTS & 19,097 & 227 & 993\\
+WA & NWFSC WCGBTS & 9,346 & 84 & 414\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2099,7 +1976,7 @@ circles) proportion observed by length bin.}
 The most recent assessment of longspine thornyhead was a benchmark
 assessment conducted in 2013. Across available data, longspine
 thornyhead have been observed and sampled by the NWFSC WCGBT survey. The
-NWFSC WCGBTS survey has an average of 211 positive tows per year. No
+NWFSC WCGBTS survey has an average of 222 positive tows per year. No
 validated (accurate and precise) aging methology currently exists for
 longspine thornyhead. For this species, a total of 341 maturity samples
 have been collected coastwide (regardless of stock area), with 63 read
@@ -2125,9 +2002,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 73,218 & 0 & 9,607\\
-OR & NWFSC WCGBTS & 33,808 & 0 & 4,111\\
-WA & NWFSC WCGBTS & 14,270 & 0 & 1,777\\*
+CA & NWFSC WCGBTS & 76,437 & 0 & 9,925\\
+OR & NWFSC WCGBTS & 34,876 & 0 & 4,219\\
+WA & NWFSC WCGBTS & 14,741 & 0 & 1,819\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2158,17 +2035,6 @@ from the NWFSC West Coast Groundfish Bottom Trawl survey.}
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/additional_wcgbts_indices/longspine_thornyhead_index.png}
-
-}
-
-\caption{Estimated relative index of abundance for longspine thornyhead
-from the NWFSC West Coast Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
 {\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/longspine thornyhead_length_frequency_sex_0.png}
 
 }
@@ -2186,7 +2052,7 @@ circles within a year indicate higher (larger circles) and lower
 
 To date, no assessment or analysis has been conducted on Pacific cod.
 Across available data, Pacific cod have been observed and sampled by the
-NWFSC WCGBT survey. The NWFSC WCGBTS survey has an average of 27
+NWFSC WCGBT survey. The NWFSC WCGBTS survey has an average of 28
 positive tows per year. For this species, a total of 125 maturity
 samples have been collected coastwide (regardless of stock area), with 0
 read maturities.
@@ -2212,8 +2078,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC WCGBTS & 14 & 0 & 0\\
-OR & NWFSC WCGBTS & 511 & 0 & 215\\
-WA & NWFSC WCGBTS & 3,747 & 0 & 1,342\\*
+OR & NWFSC WCGBTS & 515 & 0 & 219\\
+WA & NWFSC WCGBTS & 3,852 & 0 & 1,413\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2262,7 +2128,7 @@ circles) proportion observed by length bin.}
 The most recent assessment of Pacific ocean perch was a benchmark
 assessment conducted in 2017. Across available data, Pacific ocean perch
 have been observed and sampled by the NWFSC WCGBT survey. The NWFSC
-WCGBTS survey has an average of 46 positive tows per year. For this
+WCGBTS survey has an average of 48 positive tows per year. For this
 species, a total of 583 maturity samples have been collected coastwide
 (regardless of stock area), with 583 read maturities.
 
@@ -2286,9 +2152,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 232 & 78 & 153\\
-OR & NWFSC WCGBTS & 9,520 & 3,061 & 3,776\\
-WA & NWFSC WCGBTS & 8,009 & 2,743 & 1,955\\*
+CA & NWFSC WCGBTS & 254 & 78 & 175\\
+OR & NWFSC WCGBTS & 10,249 & 3,061 & 4,198\\
+WA & NWFSC WCGBTS & 8,268 & 2,743 & 2,089\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2337,7 +2203,7 @@ circles within a year indicate higher (larger circles) and lower
 To date, no assessment or analysis has been conducted on Pacific
 sanddab. Across available data, Pacific sanddab have been observed and
 sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an
-average of 198 positive tows per year. For this species, a total of 0
+average of 209 positive tows per year. For this species, a total of 0
 maturity samples have been collected coastwide (regardless of stock
 area), with 0 read maturities.
 
@@ -2361,9 +2227,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 53,720 & 4,714 & 3,943\\
-OR & NWFSC WCGBTS & 27,649 & 2,374 & 2,175\\
-WA & NWFSC WCGBTS & 10,581 & 874 & 903\\*
+CA & NWFSC WCGBTS & 55,101 & 4,722 & 4,199\\
+OR & NWFSC WCGBTS & 28,359 & 2,374 & 2,311\\
+WA & NWFSC WCGBTS & 10,908 & 874 & 973\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2413,7 +2279,7 @@ The most recent assessment of Pacific spiny dogfish was a benchmark
 assessment conducted in 2021. Across available data, Pacific spiny
 dogfish have been observed and sampled by the NWFSC WCGBT survey. The
 NWFSC HKL survey has an average of 0 positive tows per year. The NWFSC
-WCGBTS survey has an average of 155 positive tows per year. For this
+WCGBTS survey has an average of 161 positive tows per year. For this
 species, a total of 0 maturity samples have been collected coastwide
 (regardless of stock area), with 0 read maturities. Researchers have
 conducted an analysis of the trends of Pacific spiny dogfish across the
@@ -2440,9 +2306,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 9 & 0 & 0\\
-CA & NWFSC WCGBTS & 17,911 & 285 & 4,744\\
-OR & NWFSC WCGBTS & 4,384 & 128 & 1,879\\
-WA & NWFSC WCGBTS & 11,562 & 178 & 2,877\\*
+CA & NWFSC WCGBTS & 18,373 & 285 & 4,941\\
+OR & NWFSC WCGBTS & 4,454 & 128 & 1,925\\
+WA & NWFSC WCGBTS & 11,802 & 178 & 2,972\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2492,7 +2358,7 @@ The most recent assessment of petrale sole was a benchmark assessment
 conducted in 2023. Across available data, petrale sole have been
 observed and sampled by the NWFSC WCGBT survey. The NWFSC HKL survey has
 an average of 0 positive tows per year. The NWFSC WCGBTS survey has an
-average of 260 positive tows per year. For this species, a total of 728
+average of 275 positive tows per year. For this species, a total of 728
 maturity samples have been collected coastwide (regardless of stock
 area), with 598 read maturities.
 
@@ -2517,9 +2383,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 8 & 0 & 0\\
-CA & NWFSC WCGBTS & 35,677 & 7,165 & 3,016\\
-OR & NWFSC WCGBTS & 31,575 & 4,857 & 3,589\\
-WA & NWFSC WCGBTS & 15,349 & 2,676 & 2,089\\*
+CA & NWFSC WCGBTS & 37,567 & 7,176 & 3,384\\
+OR & NWFSC WCGBTS & 33,022 & 4,860 & 3,910\\
+WA & NWFSC WCGBTS & 16,233 & 2,676 & 2,272\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2568,7 +2434,7 @@ circles) proportion observed by length bin.}
 The most recent assessment of quillback rockfish was a data-moderate
 assessment conducted in 2021. Across available data, quillback rockfish
 have been observed and sampled by the NWFSC WCGBT survey. The NWFSC
-WCGBTS survey has an average of 3 positive tows per year. For this
+WCGBTS survey has an average of 4 positive tows per year. For this
 species, a total of 167 maturity samples have been collected coastwide
 (regardless of stock area), with 162 read maturities. ODFW scientists
 have conducted research looking at the influences of hypoxia on the
@@ -2594,8 +2460,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-OR & NWFSC WCGBTS & 124 & 87 & 20\\
-WA & NWFSC WCGBTS & 105 & 75 & 9\\*
+OR & NWFSC WCGBTS & 133 & 89 & 27\\
+WA & NWFSC WCGBTS & 107 & 75 & 11\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2620,7 +2486,7 @@ number of age and age structure plot rows.}
 To date, no assessment or analysis has been conducted on redbanded
 rockfish. Across available data, redbanded rockfish have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an
-average of 51 positive tows per year. For this species, a total of 330
+average of 53 positive tows per year. For this species, a total of 330
 maturity samples have been collected coastwide (regardless of stock
 area), with 125 read maturities.
 
@@ -2644,9 +2510,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 1,014 & 0 & 982\\
-OR & NWFSC WCGBTS & 1,937 & 0 & 1,846\\
-WA & NWFSC WCGBTS & 1,091 & 0 & 1,018\\*
+CA & NWFSC WCGBTS & 1,042 & 0 & 1,010\\
+OR & NWFSC WCGBTS & 2,044 & 0 & 1,953\\
+WA & NWFSC WCGBTS & 1,148 & 0 & 1,075\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2720,8 +2586,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC WCGBTS & 348 & 0 & 199\\
-OR & NWFSC WCGBTS & 4,195 & 0 & 1,892\\
-WA & NWFSC WCGBTS & 3,276 & 0 & 1,646\\*
+OR & NWFSC WCGBTS & 4,204 & 0 & 1,901\\
+WA & NWFSC WCGBTS & 3,331 & 0 & 1,701\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2746,7 +2612,7 @@ number of age and age structure plot rows.}
 The most recent assessment of rex sole was a data-moderate assessment
 conducted in 2023. Across available data, rex sole have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an
-average of 367 positive tows per year. For this species, a total of 0
+average of 387 positive tows per year. For this species, a total of 0
 maturity samples have been collected coastwide (regardless of stock
 area), with 0 read maturities.
 
@@ -2770,9 +2636,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 57,526 & 273 & 4,920\\
-OR & NWFSC WCGBTS & 67,944 & 208 & 4,700\\
-WA & NWFSC WCGBTS & 25,156 & 140 & 1,917\\*
+CA & NWFSC WCGBTS & 59,213 & 273 & 5,082\\
+OR & NWFSC WCGBTS & 69,896 & 208 & 4,874\\
+WA & NWFSC WCGBTS & 25,890 & 140 & 1,992\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2803,17 +2669,6 @@ NWFSC West Coast Groundfish Bottom Trawl survey.}
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/additional_wcgbts_indices/rex_sole_index.png}
-
-}
-
-\caption{Estimated relative index of abundance for rex sole from the
-NWFSC West Coast Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
 {\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/rex sole_length_frequency_sex_0.png}
 
 }
@@ -2833,7 +2688,7 @@ To date, no assessment or analysis has been conducted on rosethorn
 rockfish. Across available data, rosethorn rockfish have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC HKL survey has an
 average of 0 positive tows per year. The NWFSC WCGBTS survey has an
-average of 46 positive tows per year. For this species, a total of 0
+average of 48 positive tows per year. For this species, a total of 0
 maturity samples have been collected coastwide (regardless of stock
 area), with 0 read maturities.
 
@@ -2858,9 +2713,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 36 & 0 & 27\\
-CA & NWFSC WCGBTS & 3,060 & 0 & 1,528\\
-OR & NWFSC WCGBTS & 10,290 & 0 & 4,214\\
-WA & NWFSC WCGBTS & 6,822 & 0 & 2,827\\*
+CA & NWFSC WCGBTS & 3,103 & 0 & 1,561\\
+OR & NWFSC WCGBTS & 10,552 & 0 & 4,359\\
+WA & NWFSC WCGBTS & 6,906 & 0 & 2,893\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -2948,9 +2803,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 1 & 0 & 1\\
-CA & NWFSC WCGBTS & 15 & 14 & 0\\
-OR & NWFSC WCGBTS & 1,104 & 919 & 13\\
-WA & NWFSC WCGBTS & 1,182 & 1,029 & 3\\*
+CA & NWFSC WCGBTS & 17 & 13 & 3\\
+OR & NWFSC WCGBTS & 1,075 & 855 & 55\\
+WA & NWFSC WCGBTS & 1,197 & 1,003 & 47\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3000,7 +2855,7 @@ lower (smaller circles) proportion observed by length bin.}
 The most recent assessment of sablefish was a benchmark assessment
 conducted in 2025. Across available data, sablefish have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC WCGBTS survey has an
-average of 404 positive tows per year. For this species, a total of 1312
+average of 427 positive tows per year. For this species, a total of 1312
 maturity samples have been collected coastwide (regardless of stock
 area), with 1157 read maturities.
 
@@ -3024,9 +2879,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 50,794 & 13,641 & 6,031\\
-OR & NWFSC WCGBTS & 36,899 & 9,952 & 4,228\\
-WA & NWFSC WCGBTS & 13,340 & 3,931 & 1,537\\*
+CA & NWFSC WCGBTS & 53,722 & 13,650 & 6,899\\
+OR & NWFSC WCGBTS & 39,178 & 9,952 & 4,880\\
+WA & NWFSC WCGBTS & 14,048 & 3,931 & 1,774\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3076,7 +2931,7 @@ The most recent assessment of sharpchin rockfish was a data-moderate
 assessment conducted in 2013. Across available data, sharpchin rockfish
 have been observed and sampled by the NWFSC WCGBT survey. The NWFSC HKL
 survey has an average of 0 positive tows per year. The NWFSC WCGBTS
-survey has an average of 41 positive tows per year. For this species, a
+survey has an average of 43 positive tows per year. For this species, a
 total of 0 maturity samples have been collected coastwide (regardless of
 stock area), with 0 read maturities.
 
@@ -3101,9 +2956,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 13 & 0 & 13\\
-CA & NWFSC WCGBTS & 3,704 & 0 & 1,874\\
-OR & NWFSC WCGBTS & 10,182 & 0 & 4,153\\
-WA & NWFSC WCGBTS & 6,869 & 0 & 3,072\\*
+CA & NWFSC WCGBTS & 3,842 & 0 & 1,958\\
+OR & NWFSC WCGBTS & 10,417 & 0 & 4,350\\
+WA & NWFSC WCGBTS & 7,048 & 0 & 3,200\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3152,7 +3007,7 @@ circles within a year indicate higher (larger circles) and lower
 The most recent assessment of shortspine thornyhead was a data-moderate
 assessment conducted in 2023. Across available data, shortspine
 thornyhead have been observed and sampled by the NWFSC WCGBT survey. The
-NWFSC WCGBTS survey has an average of 308 positive tows per year. No
+NWFSC WCGBTS survey has an average of 324 positive tows per year. No
 validated (accurate and precise) aging methology currently exists for
 shortspine thornyhead. For this species, a total of 1136 maturity
 samples have been collected coastwide (regardless of stock area), with
@@ -3178,9 +3033,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 48,129 & 0 & 12,092\\
-OR & NWFSC WCGBTS & 42,573 & 0 & 7,321\\
-WA & NWFSC WCGBTS & 12,585 & 0 & 2,724\\*
+CA & NWFSC WCGBTS & 50,554 & 0 & 12,492\\
+OR & NWFSC WCGBTS & 44,504 & 0 & 7,554\\
+WA & NWFSC WCGBTS & 12,983 & 0 & 2,789\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3255,9 +3110,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 4 & 0 & 3\\
-CA & NWFSC WCGBTS & 15 & 0 & 15\\
-OR & NWFSC WCGBTS & 481 & 0 & 393\\
-WA & NWFSC WCGBTS & 425 & 0 & 398\\*
+CA & NWFSC WCGBTS & 16 & 0 & 16\\
+OR & NWFSC WCGBTS & 492 & 0 & 404\\
+WA & NWFSC WCGBTS & 455 & 0 & 428\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3282,7 +3137,7 @@ number of age and age structure plot rows.}
 The most recent assessment of splitnose rockfish was a benchmark
 assessment conducted in 2009. Across available data, splitnose rockfish
 have been observed and sampled by the NWFSC WCGBT survey. The NWFSC
-WCGBTS survey has an average of 122 positive tows per year. For this
+WCGBTS survey has an average of 128 positive tows per year. For this
 species, a total of 0 maturity samples have been collected coastwide
 (regardless of stock area), with 0 read maturities.
 
@@ -3306,9 +3161,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 33,681 & 1,573 & 6,123\\
-OR & NWFSC WCGBTS & 17,858 & 1,044 & 3,584\\
-WA & NWFSC WCGBTS & 3,145 & 294 & 654\\*
+CA & NWFSC WCGBTS & 34,562 & 1,573 & 6,339\\
+OR & NWFSC WCGBTS & 18,617 & 1,044 & 3,776\\
+WA & NWFSC WCGBTS & 3,185 & 294 & 668\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3339,17 +3194,6 @@ from the NWFSC West Coast Groundfish Bottom Trawl survey.}
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/additional_wcgbts_indices/splitnose_rockfish_index.png}
-
-}
-
-\caption{Estimated relative index of abundance for splitnose rockfish
-from the NWFSC West Coast Groundfish Bottom Trawl survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
 {\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/wcgbts_comps/plots/splitnose rockfish_length_frequency_sex_0.png}
 
 }
@@ -3369,9 +3213,9 @@ The most recent assessment of squarespot rockfish was a data-moderate
 assessment conducted in 2021. Across available data, squarespot rockfish
 have been observed and sampled by both the NWFSC WCGBT and HKL surveys.
 The NWFSC HKL survey has an average of 32 positive tows per year. The
-NWFSC WCGBTS survey has an average of 9 positive tows per year. For this
-species, a total of 118 maturity samples have been collected coastwide
-(regardless of stock area), with 118 read maturities.
+NWFSC WCGBTS survey has an average of 10 positive tows per year. For
+this species, a total of 118 maturity samples have been collected
+coastwide (regardless of stock area), with 118 read maturities.
 
 \begingroup\fontsize{10}{12}\selectfont
 \begingroup\fontsize{10}{12}\selectfont
@@ -3394,7 +3238,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 2,618 & 344 & 2,170\\
-CA & NWFSC WCGBTS & 4,929 & 402 & 1,210\\
+CA & NWFSC WCGBTS & 5,031 & 402 & 1,302\\
 OR & NWFSC WCGBTS & 4 & 1 & 1\\*
 \end{longtable}
 \endgroup{}
@@ -3457,7 +3301,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 4,306 & 0 & 4,176\\
-CA & NWFSC WCGBTS & 98 & 0 & 91\\*
+CA & NWFSC WCGBTS & 100 & 0 & 93\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3486,19 +3330,6 @@ the NWFSC Hook and Line survey.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/starry rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for starry rockfish. Size of the circles within a year indicate higher
-(larger circles) and lower (smaller circles) proportion observed by
-length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Stripetail rockfish}\label{stripetail-rockfish}
@@ -3507,7 +3338,7 @@ To date, no assessment or analysis has been conducted on stripetail
 rockfish. Across available data, stripetail rockfish have been observed
 and sampled by the NWFSC WCGBT survey. The NWFSC HKL survey has an
 average of 0 positive tows per year. The NWFSC WCGBTS survey has an
-average of 133 positive tows per year. For this species, a total of 67
+average of 140 positive tows per year. For this species, a total of 67
 maturity samples have been collected coastwide (regardless of stock
 area), with 67 read maturities.
 
@@ -3532,9 +3363,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 3 & 0 & 3\\
-CA & NWFSC WCGBTS & 42,456 & 0 & 8,619\\
-OR & NWFSC WCGBTS & 8,886 & 0 & 2,262\\
-WA & NWFSC WCGBTS & 1,492 & 0 & 508\\*
+CA & NWFSC WCGBTS & 44,050 & 0 & 8,911\\
+OR & NWFSC WCGBTS & 9,488 & 0 & 2,374\\
+WA & NWFSC WCGBTS & 1,589 & 0 & 523\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3585,7 +3416,7 @@ The most recent assessment of vermilion and sunset rockfish was a
 benchmark assessment conducted in 2021. Across available data, vermilion
 and sunset rockfish have been observed and sampled by both the NWFSC
 WCGBT and HKL surveys. The NWFSC HKL survey has an average of 114
-positive tows per year. The NWFSC WCGBTS survey has an average of 12
+positive tows per year. The NWFSC WCGBTS survey has an average of 2
 positive tows per year. For this species, a total of 1728 maturity
 samples have been collected coastwide (regardless of stock area), with
 1405 read maturities.
@@ -3611,8 +3442,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 34,481 & 9,334 & 13,420\\
-CA & NWFSC WCGBTS & 3,432 & 1,753 & 717\\
-OR & NWFSC WCGBTS & 2 & 2 & 0\\*
+CA & NWFSC WCGBTS & 595 & 303 & 41\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3641,19 +3471,6 @@ rockfish from the NWFSC Hook and Line survey.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/vermilion and sunset rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for vermilion and sunset rockfish. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Widow rockfish}\label{widow-rockfish}
@@ -3662,7 +3479,7 @@ The most recent assessment of widow rockfish was an update assessment
 conducted in 2025. Across available data, widow rockfish have been
 observed and sampled by both the NWFSC WCGBT and HKL surveys. The NWFSC
 HKL survey has an average of 15 positive tows per year. The NWFSC WCGBTS
-survey has an average of 24 positive tows per year. For this species, a
+survey has an average of 25 positive tows per year. For this species, a
 total of 322 maturity samples have been collected coastwide (regardless
 of stock area), with 92 read maturities.
 
@@ -3687,9 +3504,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 940 & 0 & 917\\
-CA & NWFSC WCGBTS & 1,985 & 1,363 & 9\\
-OR & NWFSC WCGBTS & 2,161 & 1,417 & 10\\
-WA & NWFSC WCGBTS & 921 & 520 & 4\\*
+CA & NWFSC WCGBTS & 2,149 & 1,363 & 108\\
+OR & NWFSC WCGBTS & 2,195 & 1,417 & 44\\
+WA & NWFSC WCGBTS & 923 & 520 & 6\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3731,19 +3548,6 @@ circles) proportion observed by length bin.}
 
 \end{figure}%
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/widow rockfish_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for widow rockfish. Size of the circles within a year indicate higher
-(larger circles) and lower (smaller circles) proportion observed by
-length bin.}
-
-\end{figure}%
-
 \newpage{}
 
 \subsection{Yelloweye rockfish}\label{yelloweye-rockfish}
@@ -3752,7 +3556,7 @@ The most recent assessment of yelloweye rockfish was an update
 assessment conducted in 2025. Across available data, yelloweye rockfish
 have been observed and sampled by both the NWFSC WCGBT and HKL surveys.
 The NWFSC HKL survey has an average of 5 positive tows per year. The
-NWFSC WCGBTS survey has an average of 15 positive tows per year. For
+NWFSC WCGBTS survey has an average of 16 positive tows per year. For
 this species, a total of 708 maturity samples have been collected
 coastwide (regardless of stock area), with 119 read maturities.
 
@@ -3777,9 +3581,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 179 & 0 & 170\\
-CA & NWFSC WCGBTS & 168 & 167 & 1\\
-OR & NWFSC WCGBTS & 465 & 457 & 7\\
-WA & NWFSC WCGBTS & 416 & 410 & 6\\*
+CA & NWFSC WCGBTS & 187 & 167 & 20\\
+OR & NWFSC WCGBTS & 474 & 457 & 16\\
+WA & NWFSC WCGBTS & 428 & 410 & 18\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3853,8 +3657,8 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC WCGBTS & 1 & 0 & 1\\
-OR & NWFSC WCGBTS & 572 & 0 & 303\\
-WA & NWFSC WCGBTS & 52 & 0 & 52\\*
+OR & NWFSC WCGBTS & 578 & 0 & 309\\
+WA & NWFSC WCGBTS & 95 & 0 & 77\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3879,7 +3683,7 @@ number of age and age structure plot rows.}
 The most recent assessment of yellowtail rockfish north was a benchmark
 assessment conducted in 2025. Across available data, yellowtail rockfish
 north have been observed and sampled by the NWFSC WCGBT survey. The
-NWFSC WCGBTS survey has an average of 41 positive tows per year. For
+NWFSC WCGBTS survey has an average of 43 positive tows per year. For
 this species, a total of 739 maturity samples have been collected
 coastwide (regardless of stock area), with 672 read maturities. ODFW
 scientists are planning a research cruise to Cobb Sea Mount in the
@@ -3906,9 +3710,9 @@ State & Source & Lengths & Ages & Age Structures\\
 \endfoot
 \bottomrule
 \endlastfoot
-CA & NWFSC WCGBTS & 792 & 292 & 27\\
-OR & NWFSC WCGBTS & 3,912 & 1,947 & 404\\
-WA & NWFSC WCGBTS & 12,624 & 5,633 & 877\\*
+CA & NWFSC WCGBTS & 867 & 292 & 76\\
+OR & NWFSC WCGBTS & 3,979 & 1,947 & 446\\
+WA & NWFSC WCGBTS & 12,964 & 5,633 & 1,089\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -3983,7 +3787,7 @@ State & Source & Lengths & Ages & Age Structures\\
 \bottomrule
 \endlastfoot
 CA & NWFSC HKL & 2,011 & 124 & 1,666\\
-CA & NWFSC WCGBTS & 1,072 & 534 & 21\\*
+CA & NWFSC WCGBTS & 1,158 & 534 & 77\\*
 \end{longtable}
 \endgroup{}
 \endgroup{}
@@ -4009,19 +3813,6 @@ number of age and age structure plot rows.}
 
 \caption{Estimated relative index of abundance for yellowtail rockfish
 south from the NWFSC Hook and Line survey.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=0.95\linewidth,height=\textheight,keepaspectratio]{../plots/hkl_comps/plots/yellowtail rockfish south_nwfsc_hkl_length_frequency_sex_0.png}
-
-}
-
-\caption{Length (cm) compostion data from the NWFSC Hook and Line survey
-for yellowtail rockfish south. Size of the circles within a year
-indicate higher (larger circles) and lower (smaller circles) proportion
-observed by length bin.}
 
 \end{figure}%
 
@@ -4093,11 +3884,11 @@ yellowtail rockfish north & delta\_lognormal() & catch\_weight \textasciitilde{}
 Survey}\label{hkl-index-settings}
 
 Relative indices of abundance by species were estimated using
-\texttt{sdmTMB} with a negative-binomial error structure no spatial or
-spatiotemporal effects. The covariates used to model the accounted for
-year, site, and drop
-(\texttt{n\ \textasciitilde{}\ 0\ +\ year\ +\ site\_number\ +\ drop})
-and effort was defined as the product the number of lines in the water
+\texttt{sdmTMB} with a negative-binomial error structure and no spatial
+or spatiotemporal effects. The included covariates accounted for year,
+site, and drop
+(\texttt{n\ \textasciitilde{}\ 0\ +\ year\ +\ site\_number\ +\ drop}).
+Effort was defined as the product of the number of lines in the water
 (e.g., fishing off the bow, stern, or mid-ship) and the number of hooks
 by year, site, and drop number.
 
