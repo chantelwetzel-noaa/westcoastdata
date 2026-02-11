@@ -70,13 +70,13 @@ params:
     number <- average_sets[average_sets$Source == ss, "sets"]
     if (ss == "NWFSC HKLS") {
       samples <- glue::glue(
-        "The {ss} observes {species_name} at an average of {number} sites per year."
+        "The {ss} observed {species_name} at an average of {number} sites per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
     }    
     if (ss == "NWFSC WCGBTS") {
       samples <- glue::glue(
-        "The {ss} observes {species_name} on an average of {number} tows per year."
+        "The {ss} observed {species_name} on an average of {number} tows per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
     }
@@ -98,10 +98,10 @@ if (species_name %in% c("longspine thornyhead", "shortspine thornyhead")) {
     read <- 0
   }
   if (count > 0) { 
-  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide regardless of stock area, with {read} read maturities.")
+  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide (regardless of stock area), with {read} read maturities.")
   }
   if (count == 0) { 
-  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide regardless of stock area.")
+  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide (regardless of stock area).")
   }
   
   research_text <- research_list(species_name = species_name)

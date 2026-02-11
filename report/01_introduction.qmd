@@ -23,7 +23,7 @@ The generalized approach for expanding the length composition data and bin struc
 
 Indices of abundance were estimated from the WCGBTS using a spatiotemporal model (`sdmTMB`) for species well-observed by the survey. The indices were estimated using a generalized configuration across species using either a gamma, log-normal, or Tweedie distribution, with the dispersion parameter held constant across years with 200-500 knots used to create the mesh. The model structure for each species is provided in Section \ref{wcgbt-index-settings}. Species-specific indices of abundance produced for past assessments or produced for future assessments may use a modified model structure resulting in slight changes in year-by-year values for the indices of abundance presented in this document. 
 
-Indices of abundance were estimated from the HKLS for well-observed species using `sdmTMB` with a negative-binomial error structure with covariates for year, site, and drop number. The model structure is provided in Section \ref{hkl-index-settings}. Additional covariates or error-structures to develop species-specific indices were not explored in this analysis for simplicity.
+Indices of abundance were estimated from the HKLS for well-observed species using `sdmTMB` with a negative-binomial error structure with covariates for year, site, and drop number. The model structure is provided in Section \ref{hkl-index-settings}. Additional covariates or error-structures to develop species-specific indices were not explored in this analysis.
 
 The indices of abundance presented here should only be considered illustrative of potential trends in abundance across time.
 
