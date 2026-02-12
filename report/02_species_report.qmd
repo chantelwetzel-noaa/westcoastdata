@@ -287,6 +287,21 @@ if(file.exists(plot_name)) {
 ```{r}
 #| echo: false
 #| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_comp
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "additional_wcgbts_comps", "plots", paste0(species_name, "_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
 
 fig_cap_hkl_comp <- glue::glue("Length (cm) compostion data from the NWFSC HKLS for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
 
@@ -307,5 +322,19 @@ if(file.exists(plot_name)) {
 
 ```
 
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_hkl_comp
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "additional_hkl_comps", "plots", paste0(species_name, "_nwfsc_hkl_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
 
 {{< pagebreak >}} 
