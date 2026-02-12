@@ -70,7 +70,7 @@ params:
     number <- average_sets[average_sets$Source == ss, "sets"]
     if (ss == "NWFSC HKLS") {
       samples <- glue::glue(
-        "The {ss} observed {species_name} at an average of {number} sites per year."
+        "The {ss} observed {species_name} at an average of {number} sets per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
     }    
@@ -187,6 +187,7 @@ fig_state_comparison <- glue::glue("Total number of available lengths, read ages
 #| echo: false
 #| warning: false
 #| fig-cap: !expr fig_state_comparison
+#| out-width: "95%"
 
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "state_comparisons", paste0(species_name_fig, "_state_compositions.png"))

@@ -2,14 +2,13 @@
 
 This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS). A detailed summary of data available by year for the species and associated stock areas included in the Fishery Management Plan (FMP) can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
 
-This summary includes species-specific totals of available length and age data for FMP species regularly sampled by federal surveys and only in the associated stock areas listed in the FMP. For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
-
+This summary includes species-specific totals of available length and age data for FMP species regularly sampled by federal surveys and only in the associated stock areas listed in the FMP (or still under consideration). For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
 
 This version of the data summary document does not include a summary of commercial, recreational, or state-specific fishery-independent data.  Future versions may include information from these data sources, time permitting.
 
 ## Biological Samples
 
-Data collected by the WCGBTS between 2003-`r endyr` and the HKLS from 2004-`r endyr` are summarized by species. Summaries of the total lengths, aged fish, and unread age structures collected by each survey and the quantity available by year are provided. Additionally, the average number of tows (WCGBTS) or sites (HKLS) that observe each species by year and survey is provided.
+Data collected by the WCGBTS between 2003-`r endyr` and the HKLS from 2004-`r endyr` are summarized by species. Summaries of the total lengths, aged fish, and unread age structures collected by each survey and the quantity available by year are provided. Additionally, the average number of tows (WCGBTS) or set (HKLS) that observe each species by year and survey is provided.
 
 ## Survey Length Compositions
 
