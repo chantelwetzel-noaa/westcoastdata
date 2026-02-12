@@ -70,7 +70,7 @@ params:
     number <- average_sets[average_sets$Source == ss, "sets"]
     if (ss == "NWFSC HKLS") {
       samples <- glue::glue(
-        "The {ss} observed {species_name} at an average of {number} sets per year."
+        "The {ss} observed {species_name} on an average of {number} sets per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
     }    
