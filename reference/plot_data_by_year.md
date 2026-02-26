@@ -5,14 +5,14 @@ Plot all the data
 ## Usage
 
 ``` r
-plot_data_by_year(dir = here::here("plots"), data)
+plot_data_by_year(dir = here::here("plots", "state_comparisons"), data)
 ```
 
 ## Arguments
 
 - dir:
 
-  Directory location to save the compbined data frame
+  Directory location to save the combined data frame
 
 - data:
 

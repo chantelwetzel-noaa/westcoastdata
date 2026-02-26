@@ -5,7 +5,7 @@ Clean NWFSC WCGBTS biological data
 ## Usage
 
 ``` r
-clean_wcgbt_bio(dir = here::here("data-processed"), species, data)
+clean_wcgbt_bio(dir = dir, species, data)
 ```
 
 ## Arguments

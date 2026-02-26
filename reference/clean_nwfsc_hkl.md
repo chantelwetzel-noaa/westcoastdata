@@ -6,7 +6,7 @@ as needed for the NWFS HKL data.
 ## Usage
 
 ``` r
-clean_nwfsc_hkl(dir = here::here("data-processed"), data, species)
+clean_nwfsc_hkl(dir = dir, data, species)
 ```
 
 ## Arguments

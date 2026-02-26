@@ -31,6 +31,8 @@
   : Clean up source names
 - [`get_species_data()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_data.md)
   : Define which data to plot/show based upon species
+- [`get_species_data_survey()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_data_survey.md)
+  : Define which data to plot/show based upon species
 - [`get_species_list()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_list.md)
   : List of species names to pull from NWFSC survey data
 - [`load_pacfin_data()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/load_pacfin_data.md)
@@ -46,5 +48,7 @@
 - [`pull_wcgbts()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/pull_wcgbts.md)
   : Wrapper function to pull all species catch and biological data from
   the NWFSC data wharehouse.
+- [`rename_wcgbt_species()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/rename_wcgbt_species.md)
+  : Clean NWFSC WCGBTS catch and biological data
 - [`summarize_survey_new_information()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/summarize_survey_new_information.md)
   : Summarize new survey data available for a new assessment

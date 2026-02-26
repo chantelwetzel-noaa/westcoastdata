@@ -7,7 +7,7 @@ NWFSC data wharehouse.
 
 ``` r
 pull_wcgbts(
-  dir = here::here("data-raw"),
+  dir = dir,
   species,
   survey = "NWFSC.Combo",
   load = FALSE,

@@ -5,7 +5,7 @@ Clean NWFSC WCGBTS survey catch file
 ## Usage
 
 ``` r
-clean_wcgbt_catch(dir = here::here("data-raw"), species, data)
+clean_wcgbt_catch(dir = dir, species, data)
 ```
 
 ## Arguments

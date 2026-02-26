@@ -16,6 +16,7 @@
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_hkl_species.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_source.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_data.html</loc></url>
+<url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_data_survey.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_list.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/index.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/load_pacfin_data.html</loc></url>
@@ -24,6 +25,7 @@
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/plot_wcgbt_comps.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/process_comps_unexpanded.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/pull_wcgbts.html</loc></url>
+<url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/rename_wcgbt_species.html</loc></url>
 <url><loc>https://chantelwetzel-noaa.github.io/westcoastdata/reference/summarize_survey_new_information.html</loc></url>
 </urlset>
 
