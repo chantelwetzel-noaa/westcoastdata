@@ -10,55 +10,38 @@
 #'
 #'
 summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
-  species <- get_species_list()
-  stock_year <- stock_year |>
-    dplyr::rename(species = Species)
-  for (a in 1:dim(stock_year)[1]) {
-    stock_year[a, "species"] <- species[
-      grep(stock_year[a, "species"], species[, "name"])[1],
-      "use_name"
-    ]
-  }
-
-  wcgbt_bio <- wcgbt |>
-    dplyr::filter(Common_name %in% unique(species[, "use_name"]))
-  remove <- c(
-    which(wcgbt_bio$Common_name == "black rockfish" & wcgbt_bio$State == "CA"),
-    which(
-      wcgbt_bio$Common_name == "blue and deacon rockfish" &
-        wcgbt_bio$State == "CA"
-    ),
-    which(
-      wcgbt_bio$Common_name == "cabezon" & wcgbt_bio$State %in% c("CA", "OR")
-    ),
-    which(wcgbt_bio$Common_name == "China rockfish" & wcgbt_bio$State == "CA"),
-    which(wcgbt_bio$Common_name == "copper rockfish" & wcgbt_bio$State == "CA"),
-    which(
-      wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "CA"
-    ),
-    which(wcgbt_bio$Common_name == "kelp greenling" & wcgbt_bio$State == "CA")
-  )
-  wcgbt_bio <- wcgbt_bio[-remove, ]
-
-  # Subset the data prior to the most recent assessment
-  wcgbt_year <- stock_year[, c("species", "year")]
-  wcgbt_year[is.na(wcgbt_year$year), "year"] <- 2003
-
-  # Modify common name for area-based species
-  wcgbt_year <- wcgbt_year |>
+  stock_year_df <- stock_year |>
     dplyr::mutate(
       species = dplyr::case_when(
-        species == "yellowtail rockfish" ~ "yellowtail rockfish north",
-        .default = species
+        Species == "lingcod" ~ "lingcod north",
+        Species == "yellowtail rockfish" ~ "yellowtail rockfish north",
+        .default = Species
       )
     )
-  wcgbt_year <- rbind(wcgbt_year, c("yellowtail rockfish south", "2003"))
-  wcgbt_bio <- wcgbt_bio |>
+  stock_year_df <- dplyr::bind_rows(
+    stock_year_df,
+    stock_year_df[which(stock_year_df == "lingcod"), ] |>
+      dplyr::mutate(species = "lingcod south"),
+    stock_year_df[which(stock_year_df == "yellowtail rockfish"), ] |>
+      dplyr::mutate(
+        species = "yellowtail rockfish south",
+        Last_Assess = NA,
+        year = NA,
+        type = NA,
+        SSC_Rec = NA
+      )
+  )
+
+  # Subset the data prior to the most recent assessment
+  wcgbt_year <- stock_year_df[, c("species", "year")]
+  wcgbt_year[is.na(wcgbt_year$year), "year"] <- 2003
+
+  wcgbt_bio <- wcgbt |>
     dplyr::mutate(
       years_since_assessment = NA
     )
   sub_data <- NULL
-  for (a in unique(wcgbt_bio$Common_name)) {
+  for (a in sort(unique(wcgbt_bio$Common_name))) {
     if (wcgbt_year[which(wcgbt_year$species == a), "year"] != 2025) {
       years_to_keep <- wcgbt_year[which(wcgbt_year$species == a), "year"]
       check <- wcgbt_bio |>
@@ -82,42 +65,12 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
     }
   }
 
-  hkl_stock_year <- stock_year
-  # Fix yellowtail year since the southern assessment was withdrawn
-  hkl_stock_year[
-    which(hkl_stock_year$species == "yellowtail rockfish"),
-    "year"
-  ] <- 2004
-  hkl_stock_year[
-    which(hkl_stock_year$species == "yellowtail rockfish"),
-    "species"
-  ] <- "yellowtail rockfish south"
+  hkl_stock_year <- stock_year_df
   hkl_stock_year[is.na(hkl_stock_year$year), "year"] <- 2004
-  hkl[
-    which(hkl$Common_name == "vermilion rockfish"),
-    "Common_name"
-  ] <- "vermilion and sunset rockfish"
-  hkl[
-    which(hkl$Common_name == "blue rockfish"),
-    "Common_name"
-  ] <- "blue and deacon rockfish"
   hkl_bio <- hkl |>
-    dplyr::filter(
-      !Common_name %in%
-        c(
-          "black rockfish",
-          "copper rockfish",
-          "cabezon",
-          "china rockfish",
-          "kelp greenling",
-          "blue and deacon rockfish",
-          "quillback rockfish"
-        )
-    ) |>
     dplyr::mutate(
       years_since_assessment = NA
-    ) |>
-    dplyr::filter(Common_name %in% unique(species[, "use_name"]))
+    )
   sub_hkl <- NULL
   for (a in unique(hkl_bio$Common_name)) {
     years_to_keep <- hkl_stock_year[which(hkl_stock_year$species == a), "year"]
@@ -132,10 +85,6 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
       )
     }
   }
-  sub_data <- sub_data |>
-    dplyr::rename(
-      set_tow_id = Tow
-    )
 
   cols_to_keep <- c(
     "Year",
@@ -202,7 +151,7 @@ summarize_survey_new_information <- function(dir, stock_year, wcgbt, hkl) {
       ave_ages = floor(sum(!is.na(Aged)) / dplyr::n_distinct(Year)),
       ave_otoliths = floor(sum(Otolith) / dplyr::n_distinct(Year)),
       wcgbt = sum(Source == "NWFSC WCGBTS"),
-      nwfsc_hkl = sum(Source == "NWFSC HKL"),
+      nwfsc_hkl = sum(Source == "NWFSC HKLS"),
       wcgbt_percent = round(wcgbt / (wcgbt + nwfsc_hkl), 2)
     )
 

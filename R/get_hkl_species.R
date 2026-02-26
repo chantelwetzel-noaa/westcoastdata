@@ -7,17 +7,19 @@
 #'
 get_hkl_species <- function() {
   species_list = c(
-    "Bank Rockfish", # 3143
-    "Bocaccio", #18899
-    "Chilipepper", # 2389
-    "Cowcod", #  856
-    "Greenspotted Rockfish", # 5347
-    "Greenstriped Rockfish", #  942
-    "Lingcod", #  938
-    "Squarespot Rockfish", # 1934
-    "Starry Rockfish", # 2721
-    "Vermilion Rockfish", #27812
-    "Yellowtail Rockfish", # 1794
+    "Bank Rockfish",
+    "Bocaccio",
+    "Chilipepper",
+    "Cowcod",
+    "Greenspotted Rockfish",
+    "Greenstriped Rockfish",
+    "Lingcod",
+    "Lingcod South",
+    "Squarespot Rockfish",
+    "Starry Rockfish",
+    "Vermilion Rockfish",
+    "Vermilion and Sunset Rockfish",
+    "Yellowtail Rockfish",
     "Yellowtail Rockfish South"
   )
 

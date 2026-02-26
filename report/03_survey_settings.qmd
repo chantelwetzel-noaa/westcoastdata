@@ -1,0 +1,64 @@
+# Index Estimation for the NWFSC WCGBT Survey {#wcgbt-index-settings}
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+raw_url <- "https://raw.githubusercontent.com/pfmc-assessments/indexwc/refs/heads/main/data-raw/configuration.csv"
+configuration <- read.csv(raw_url)
+
+indices <- dplyr::filter(configuration, source == "NWFSC.Combo")
+sp_2025 <- c("canary rockfish", "chilipepper", "rougheye rockfish", "sablefish", "widow rockfish", "yelloweye rockfish", "yellowtail rockfish")
+indices_2025 <- dplyr::filter(indices, species %in% sp_2025 & used == TRUE)
+indices_other <- dplyr::filter(indices, !species %in% sp_2025)
+indices <- rbind(indices_2025, indices_other) |>
+  dplyr::arrange(tolower(species))
+
+indices <- indices %>%
+  dplyr::mutate(
+      species = dplyr::case_when(
+        species == "lingcod" ~ "lingcod north",
+        species == "rougheye rockfish" ~ "rougheye and blackspotted rockfish",
+        species == "yellowtail rockfish" ~ "yellowtail rockfish north",
+        .default = species
+      )
+    )
+
+indices <- indices %>%
+  dplyr::filter(!species %in% c("rosethorn rockfish"))
+
+additional_indices <- read.csv(here::here("data-processed", "2026", "configuration_additional_coastwide_indices.csv"))
+
+survey <- rbind(indices, additional_indices) |>
+  dplyr::arrange(tolower(species))
+
+survey_mat <- survey |>
+  dplyr::select(-fxn, -source, -min_depth, -max_depth, -min_year, -max_year, -anisotropy, -knots, -share_range, -used) |>
+  dplyr::mutate(
+    min_latitude = round(min_latitude, 1),
+    max_latitude = round(max_latitude, 1)
+  )
+survey_mat[, "family"] <- gsub("sdmTMB::", "", survey_mat[, "family"])
+col_names <- gsub("_", " ", colnames(survey_mat))
+ind <- order(survey_mat$species)
+
+sa4ss::table_format(
+  x = survey_mat[ind, ], 
+  caption = "Setting used for estimating indices of abundance for the NWFSC WCGBTS by species.",
+  label = 'survey-settings',
+  col_names = col_names,
+  landscape = TRUE,
+  font_size = 7,
+  custom_width = TRUE,
+	col_to_adjust = 1:ncol(survey),
+  #width = c('0.1 cm', rep('2.5 cm', 2), rep('4 cm', 1), rep('1 cm', nrow(survey_mat) - 4)),
+  width = c('3 cm', '2 cm', '4 cm', '2 cm', '2 cm', '2 cm', '2 cm'),
+  align = 'l')
+
+```
+
+
+# Index Estimation for the NWFSC Hook and Line Survey {#hkl-index-settings}
+
+Relative indices of abundance by species were estimated using `sdmTMB` with a negative-binomial error structure and no spatial or spatiotemporal effects. The included covariates accounted for year, site, and drop (` n ~ 0 + year + site_number + drop`). Effort was defined as the product of the number of lines in the water (e.g., fishing off the bow, stern, or mid-ship) and the number of hooks by year, site, and drop number.

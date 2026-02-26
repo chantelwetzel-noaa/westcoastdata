@@ -4,7 +4,7 @@
 \alias{clean_wcgbt_bio}
 \title{Clean NWFSC WCGBTS biological data}
 \usage{
-clean_wcgbt_bio(dir = here::here("data-processed"), species, data)
+clean_wcgbt_bio(dir = dir, species, data)
 }
 \arguments{
 \item{dir}{Directory location to save the cleaned data frame}

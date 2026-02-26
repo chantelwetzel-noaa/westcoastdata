@@ -1,0 +1,340 @@
+---
+params:
+  Common_name: "petrale sole"
+---
+
+```{r}
+#| echo: false
+#| warning: false
+  
+  species_name <- params$Common_name
+  section_name <- firstup(species_name)
+  wcgbt_years = c(2003:2019, 2021:2025)
+  hkl_years = c(2004:2019, 2021:2025)
+  
+  sub_data <- data |>
+    dplyr::filter(Common_name == species_name)
+  sources <- get_source(data = sub_data)
+  data_to_show <- unique(sub_data$sources_to_use)
+  assess <- assess_data_df |>
+    dplyr::filter(species == species_name)
+  ass_yr <- ifelse(
+    is.na(assess$year) & assess$type == "data-limited",
+    2010,
+    assess$year
+  )
+  if (
+    assess$type %in% c("benchmark", "update", "data-moderate", "data-limited")
+  ) {
+    a_an <- ifelse(assess$type == "update", "an", "a")
+    assess_text <- glue::glue(
+      'The most recent assessment of {species_name} ',
+      'was {a_an} {assess$type} assessment conducted in {ass_yr}. '
+    ) 
+  } else {
+    assess_text <- glue::glue(
+      'To date, no assessment or analysis has been conducted on {species_name}. '
+    )
+  }
+  
+  obs_text <- glue::glue(
+    "Across available data, {species_name} ",
+    "have been observed and sampled by"
+  )
+  if (data_to_show == "all") {
+    survey_text <- glue::glue("{obs_text} both the NWFSC HKLS and WCGBTS. ") 
+  }
+  if (data_to_show == "wcgbt") {
+     survey_text <- glue::glue("{obs_text} the NWFSC WCGBTS. ") 
+  }
+  if (data_to_show == "hkl") {
+     survey_text <- glue::glue("{obs_text} the NWFSC HKLS. ")
+  }
+  
+  average_sets <- sub_data |>
+    dplyr::mutate(
+      n = dplyr::case_when(
+        Source == "NWFSC WCGBTS" ~ length(wcgbt_years),
+        Source == "NWFSC HKLS" ~ length(hkl_years)
+      )
+    ) |>
+    dplyr::group_by(Source) |>
+    dplyr::summarise(
+      y = unique(n),
+      total = sum(set_tows),
+      sets = round(sum(set_tows) / y, 0)
+    ) |>
+    dplyr::ungroup()
+  sample_text <- ""
+  for (ss in average_sets$Source) {
+    number <- average_sets[average_sets$Source == ss, "sets"]
+    if (ss == "NWFSC HKLS") {
+      samples <- glue::glue(
+        "The {ss} observed {species_name} on an average of {number} sets per year."
+      )
+      sample_text <- glue::glue("{sample_text} {samples}")
+    }    
+    if (ss == "NWFSC WCGBTS") {
+      samples <- glue::glue(
+        "The {ss} observed {species_name} on an average of {number} tows per year."
+      )
+      sample_text <- glue::glue("{sample_text} {samples}")
+    }
+  }
+
+age_validation_text <- ""  
+if (species_name %in% c("longspine thornyhead", "shortspine thornyhead")) { 
+  age_validation_text <- glue::glue("{age_validation_text} No validated (accurate and precise) aging methology currently exists for {species_name}. ")
+}
+
+  # Get maturity
+  mat <- maturity |>
+    dplyr::filter(Species == species_name)
+  if (dim(mat)[1] != 0) {
+    count <- mat$Count
+    read <- mat$Read
+  } else {
+    count <- 0
+    read <- 0
+  }
+  if (count > 0) { 
+  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide (regardless of stock area), with {read} read maturities.")
+  }
+  if (count == 0) { 
+  mat_text <- glue::glue("For this species, a total of {count} maturity samples have been collected coastwide (regardless of stock area).")
+  }
+  
+  research_text <- research_list(species_name = species_name)
+  
+  total_text <- glue::glue("{assess_text} {survey_text} {sample_text} {age_validation_text} {mat_text} {research_text}")
+
+```
+
+## `r section_name`
+
+`r total_text`
+
+```{r}
+#| echo: false
+#| warning: false
+#| 
+total <- sub_data |>
+    dplyr::group_by(State, Source) |>
+    dplyr::summarise(
+      Lengths = sum(total_lengths),
+      Ages = sum(total_ages),
+      `Age Structures` = sum(total_otoliths)
+    ) |>
+    as.data.frame()
+
+  caption <- glue::glue(
+    'Total number of available lengths, read ages, and unread age structures by data source and
+ 	state for {species_name}.'
+  )
+  sa4ss::table_format(
+    x = total,
+    caption = caption,
+    digits = 0,
+    format.args = list(big.mark = ",", scientific = FALSE),
+    custom_width = TRUE,
+    col_to_adjust = 1:5,
+    width = c('2cm', '3.5cm', '2cm', '2cm', '2cm'),
+    align = 'r'
+  )
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#tbl-cap: "Total number of available lengths, read ages, and unread age structures by data source and state"
+
+# This code does not do anything right now
+t <- sub_data |>
+    dplyr::group_by(State, Source) |>
+    dplyr::summarise(
+      Lengths = sum(total_lengths),
+      Ages = sum(total_ages),
+      `Age Structures` = sum(total_otoliths)
+    ) |>
+    dplyr::ungroup() |>
+    gt::gt() |>
+    gt::fmt_number(
+      columns = 3:5,
+      decimals = 0
+    ) |>
+    gt::tab_options(
+      table.font.size = 12
+    ) |>
+    gt::cols_align(
+      align = "center"
+    ) |>
+    gt::as_latex()
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+fig_state_comparison <- glue::glue("Total number of available lengths, read ages, and unread age structures by data source by year for {species_name}. Note the y-axis maximum may differ by data type.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_state_comparison
+#| out-width: "95%"
+
+species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "state_comparisons", paste0(species_name_fig, "_state_compositions.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC WCGBTS.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_index
+#| out-width: "95%"
+
+species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+  }
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_index
+#| out-width: "95%"
+
+species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "additional_wcgbts_indices", paste0(species_name_fig, "_index.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+fig_cap_hkl_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC HKLS.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_hkl_index
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "hkl_indices", paste0(species_name, "_negbinom", " index.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+fig_cap_wcgbts_comp <- glue::glue("Length (cm) compostion data from the NWFSC WCGBTS for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_comp
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "wcgbts_comps", "plots", paste0(species_name, "_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_wcgbts_comp
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "additional_wcgbts_comps", "plots", paste0(species_name, "_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+
+fig_cap_hkl_comp <- glue::glue("Length (cm) compostion data from the NWFSC HKLS for {species_name}. Size of the circles within a year indicate higher (larger circles) and lower (smaller circles) proportion observed by length bin.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_hkl_comp
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "hkl_comps", "plots", paste0(species_name, "_nwfsc_hkl_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_cap_hkl_comp
+#| out-width: "95%"
+
+#species_name_fig <- gsub(" ", "_", species_name)
+plot_name <- here::here("plots", "additional_hkl_comps", "plots", paste0(species_name, "_nwfsc_hkl_length_frequency_sex_0.png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+{{< pagebreak >}} 

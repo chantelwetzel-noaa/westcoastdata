@@ -5,7 +5,7 @@
 \title{Wrapper function to pull all species catch and biological data from the NWFSC data wharehouse.}
 \usage{
 pull_wcgbts(
-  dir = here::here("data-raw"),
+  dir = dir,
   species,
   survey = "NWFSC.Combo",
   load = FALSE,

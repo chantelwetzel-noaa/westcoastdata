@@ -1,0 +1,631 @@
+---
+title: 'Summary of available Northwest Fisheries Science Center survey data to support assessments of U.S. West Coast groundfish stocks'
+author:
+  - name: 'Chantel R. Wetzel'
+    affiliations:
+      - name: 'NOAA Fisheries Northwest Fisheries Science Center'
+        address: '2725 Montlake Boulevard East'
+        city: 'Seattle, WA'
+        state: 'WA'
+        postal-code: '98112'
+  - name: 'R. Claire Rosemond'
+    affiliations:
+      - name: 'NOAA Fisheries Northwest Fisheries Science Center'
+        address: '2032 SE OSU Drive Building 955'
+        city: 'Newport, OR'
+        state: 'OR'
+        postal-code: '97365'
+date: today
+lang: en 
+keep-tex: true 
+cover: 
+pdf-engine: lualatex
+format: 
+  pdf: 
+    documentclass: article
+    number-sections: true
+    template-partials:
+      - 'support_files/before-body.tex'
+      - 'support_files/_titlepage.tex'
+    include-in-header:
+      - 'support_files/in-header.tex'
+      - 'support_files/figures.tex'
+      - 'support_files/pfmc.tex'
+    toc: false
+    lof: false
+    lot: false
+    titlepage-geometry: 
+      - top=2in
+      - bottom=1in
+      - right=1in
+      - left=1in
+    link-citations: true
+    fig-pos: 'H'
+    tab-pos: 'H'
+output-file: 'data_report' 
+
+---
+
+
+```{r, results='asis'}
+#| label: 'load_functions'
+#| eval: true
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(table.glue)
+library(glue)
+library(nwfscSurvey)
+library(gt)
+library(gtsummary)
+library(sa4ss)
+
+firstup <- function(x) {
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
+
+outer_dir <- here::here()
+
+source(file.path(outer_dir, "R", "get_species_data_survey.R"))
+source(file.path(outer_dir, "R", "get_source.R"))
+source(file.path(outer_dir, "report", "ongoing_research.R"))
+
+assess_data <- read.csv(file.path(here::here(), "data-processed", "2026", "assess_year_ssc_rec.csv"))
+assess_data_df <- assess_data |>
+    dplyr::mutate(
+      species = dplyr::case_when(
+        Species == "lingcod" ~ "lingcod north",
+        Species == "yellowtail rockfish" ~ "yellowtail rockfish north",
+        .default = Species
+      )
+    )
+assess_data_df <- dplyr::bind_rows(
+    assess_data_df,
+    assess_data_df[which(assess_data_df == "lingcod"), ] |>
+      dplyr::mutate(species = "lingcod south"),
+    assess_data_df[which(assess_data_df == "yellowtail rockfish"), ] |>
+      dplyr::mutate(
+        species = "yellowtail rockfish south",
+        Last_Assess = NA,
+        year = NA,
+        type = NA,
+        SSC_Rec = NA
+      )
+  )
+
+load(file.path(here::here(), "data-processed", "2026", "data_total_by_year.Rdata"))
+data <- data_total_by_year
+# Need to make dynamic based on data file
+startyr <- min(data$Year)
+endyr <- max(data$Year)
+assess_year <- 2027
+
+species_data <- get_species_data_survey()
+data <- dplyr::left_join(data, species_data, by = "Common_name")
+n_species <- length(unique(data$Common_name))
+
+maturity <- read.csv(here::here("data-processed", "2026", "maturity_reads_updated_2025.csv"))
+
+``` 
+
+
+{{< pagebreak >}} 
+
+Please cite this publication as: 
+
+Wetzel, C.R., and R.C. Rosemond. 2026. Summary of available Northwest Fisheries Science Center survey data to support assessments of U.S. West Coast groundfish stocks. Pacific Fisheries Management Council, Portland, Oregon.
+
+
+{{< pagebreak >}} 
+
+# Disclaimer {.unnumbered .unlisted}
+
+These materials do not constitute a formal publication and are for information only. They are in a pre-review, pre-decisional state and should not be formally cited or reproduced. They are to be considered provisional and do not represent any determination or policy of NOAA or the Department of Commerce.
+
+{{< pagebreak >}}
+
+\hypersetup{linkcolor=.}
+\setcounter{tocdepth}{3}
+\tableofcontents
+
+{{< pagebreak >}} 
+
+\setlength{\parskip}{5mm plus1mm minus1mm}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+```{r, results='asis'}
+#| label: 'introduction'
+#| eval: true
+#| echo: false
+#| warning: false
+a <- knitr::knit_child('01_introduction.qmd', quiet = TRUE)
+cat(a, sep = '\n')
+```
+
+{{< pagebreak >}} 
+
+# Groundfish species observed by surveys conducted by the NWFSC
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "arrowtooth flounder"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+{{< pagebreak >}} 
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "aurora rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "bank rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "big skate"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+#params <- list(
+#  Common_name = "black rockfish"
+#)
+```
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "blackgill rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "bocaccio"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+#params <- list(
+#  Common_name = "cabezon"
+#)
+```
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "California scorpionfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "canary rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "chilipepper"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+#params <- list(
+#  Common_name = "copper rockfish"
+#)
+```
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "cowcod"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "darkblotched rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "Dover sole"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "English sole"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "flathead sole"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "greenspotted rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "greenstriped rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "kelp greenling"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "lingcod north"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "lingcod south"
+)
+```
+
+{{< include 02_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "longnose skate"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "longspine thornyhead"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "Pacific cod"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "Pacific ocean perch"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "Pacific sanddab"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "Pacific spiny dogfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "petrale sole"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "quillback rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "redbanded rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "redstripe rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "rex sole"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "rosethorn rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "rougheye and blackspotted rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "sablefish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "sharpchin rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+#params <- list(
+#  Common_name = "shortraker rockfish"
+#)
+```
+
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "shortspine thornyhead"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "silvergray rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "splitnose rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "squarespot rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "starry rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "stripetail rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "vermilion and sunset rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "widow rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "yelloweye rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "yellowmouth rockfish"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "yellowtail rockfish north"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "yellowtail rockfish south"
+)
+```
+
+{{< include 02_species_report.qmd >}}
+
+
+
+```{r, results='asis'}
+#| label: '03_survey_settings'
+#| eval: true
+#| echo: false
+#| warning: false
+a <- knitr::knit_child('03_survey_settings.qmd', quiet = TRUE)
+cat(a, sep = '\n')
+```
+
+
+```{r, results='asis'}
+#| label: '04_acknowledgments'
+#| eval: true
+#| echo: false
+#| warning: false
+a <- knitr::knit_child('04_acknowledgments.qmd', quiet = TRUE)
+cat(a, sep = '\n')
+```
+

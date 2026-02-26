@@ -7,7 +7,6 @@
 === 
 archive/
 data-raw/
-plots/
 _targets/
 
 _main.utf8.md
@@ -18,3 +17,6 @@ _main.md
 *.upa
 *.log
 docs
+
+data-processed/2026/additional_indices/**/*.png
+data-processed/2026/additional_indices/**/*.rdata

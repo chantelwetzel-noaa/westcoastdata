@@ -4,7 +4,7 @@
 \alias{clean_nwfsc_hkl}
 \title{Function to remove all unneeded species data and to format column names as needed for the NWFS HKL data.}
 \usage{
-clean_nwfsc_hkl(dir = here::here("data-processed"), data, species)
+clean_nwfsc_hkl(dir = dir, data, species)
 }
 \arguments{
 \item{dir}{Directory location to save the cleaned data frame}

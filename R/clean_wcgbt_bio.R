@@ -7,8 +7,9 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data) {
-  bio <- data |>
+clean_wcgbt_bio <- function(dir = dir, species, data) {
+  bio <- data$bio |>
+    dplyr::filter(Common_name %in% species[, "name"]) |>
     dplyr::mutate(
       Source = "NWFSC WCGBTS",
       State_area = dplyr::case_when(
@@ -24,33 +25,39 @@ clean_wcgbt_bio <- function(dir = here::here("data-processed"), species, data) {
         .default = "OR"
       ),
       Fleet = NA,
-      Common_name = dplyr::case_when(
-        Common_name == "tree rockish" ~ "treefish",
-        Common_name %in% c("rougheye rockfish", "blackspotted rockfish") ~
-          "rougheye and blackspotted rockfish",
-        Common_name %in%
-          c("blue / deacon rockfish", "blue rockfish", "deacon rockfish") ~
-          "blue and deacon rockfish",
-        Common_name %in% c("vermilion rockfish", "Sunset rockfish") ~
-          "vermilion and sunset rockfish",
-        Common_name == "gopher rockfish" ~
-          "gopher and black and yellow rockfish",
-        Common_name == "yellowtail rockfish" & Latitude_dd >= 40.167 ~
-          "yellowtail rockfish north",
-        Common_name == "yellowtail rockfish" & Latitude_dd < 40.167 ~
-          "yellowtail rockfish south",
-        .default = Common_name
-      ),
       Sex = nwfscSurvey::codify_sex(Sex),
       Lengthed = dplyr::case_when(!is.na(Length_cm) ~ 1, .default = 0),
       Aged = dplyr::case_when(!is.na(Age_years) ~ 1, .default = 0),
       Otolith = dplyr::case_when(
         !is.na(Otosag_id) & is.na(Age_years) ~ 1,
         .default = 0
-      )
-    ) |>
-    dplyr::filter(Common_name %in% species[, "use_name"])
+      ),
+      set_tow_id = Trawl_id
+    )
 
-  save(bio, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))
-  return(bio)
+  wcgbt_bio <- rename_wcgbt_species(data = bio)
+
+  remove <- c(
+    which(wcgbt_bio$Common_name == "black rockfish" & wcgbt_bio$State == "CA"),
+    which(
+      wcgbt_bio$Common_name == "blue and deacon rockfish" &
+        wcgbt_bio$State == "CA"
+    ),
+    which(
+      wcgbt_bio$Common_name == "cabezon" & wcgbt_bio$State %in% c("CA", "OR")
+    ),
+    which(wcgbt_bio$Common_name == "China rockfish" & wcgbt_bio$State == "CA"),
+    which(wcgbt_bio$Common_name == "copper rockfish" & wcgbt_bio$State == "CA"),
+    which(
+      wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "CA"
+    ),
+    which(
+      wcgbt_bio$Common_name == "kelp greenling" &
+        wcgbt_bio$State %in% c("CA", "OR")
+    )
+  )
+  wcgbt_bio <- wcgbt_bio[-remove, ]
+
+  save(wcgbt_bio, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))
+  return(wcgbt_bio)
 }

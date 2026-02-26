@@ -1,0 +1,23 @@
+pull_indices <- function(dir){
+
+  updated_indices <- list.files(
+    dir,
+    pattern = "\\.csv$",
+    full.names = TRUE
+  )
+  
+  updated_indices_use <- updated_indices[!grepl("^biomass", basename(updated_indices), ignore.case = TRUE)]
+ 
+  filter_coastwide <- function(file) {
+    file <- readr::read_csv(file, show_col_types = FALSE)
+    file <- file %>%
+      dplyr::filter(index == "Coastwide")
+  }
+  
+  combined_coastwide <- purrr::map_df(updated_indices_use, filter_coastwide)
+  
+  out_path <- file.path(here::here("data-processed", "2026"), "coastwide_indices.csv")
+  readr::write_csv(combined_coastwide, out_path, append = FALSE)
+  
+  invisible(NULL)
+}

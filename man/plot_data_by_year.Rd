@@ -4,10 +4,10 @@
 \alias{plot_data_by_year}
 \title{Plot all the data}
 \usage{
-plot_data_by_year(dir = here::here("plots"), data)
+plot_data_by_year(dir = here::here("plots", "state_comparisons"), data)
 }
 \arguments{
-\item{dir}{Directory location to save the compbined data frame}
+\item{dir}{Directory location to save the combined data frame}
 
 \item{data}{add definition}
 
