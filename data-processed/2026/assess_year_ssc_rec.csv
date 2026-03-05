@@ -1,18 +1,18 @@
 Species,Last_Assess,year,type,SSC_Rec
-arrowtooth flounder,2017,2017,update,
-aurora rockfish,2013,2013,benchmark,
+arrowtooth flounder,2017,2017,update,benchmark
+aurora rockfish,2013,2013,benchmark,benchmark
 bank rockfish,NA,NA,,
 big skate,2019,2019,benchmark,Update
 black rockfish,2023,2023,benchmark,benchmark/update
 blackgill rockfish,2017,2017,update,Update
 blue and deacon rockfish,2017,2017,benchmark,Update
 bocaccio,2017,2017,update,Update
-cabezon,2019,2019,benchmark,
+cabezon,2019,2019,benchmark,update(CA)/benchmark(OR)
 California scorpionfish,2017,2017,benchmark,Update
 canary rockfish,2023,2023,benchmark,Update
 chilipepper,2025,2025,benchmark,Update
-China rockfish,2015,2015,benchmark,
-copper rockfish,2023,2023,benchmark,
+China rockfish,2015,2015,benchmark,benchmark
+copper rockfish,2021,2021,data-moderate,benchmark
 cowcod,2019,2019,benchmark,Update
 darkblotched rockfish,2017,2017,update,Update
 Dover sole,2021,2021,benchmark,Update
@@ -21,18 +21,18 @@ flathead sole,NA,NA,,
 greenspotted rockfish,2011,2011,benchmark,
 greenstriped rockfish,2009,2009,benchmark,
 kelp greenling,NA,NA,,
-lingcod,2021,2021,benchmark,
+lingcod,2021,2021,benchmark,benchmark
 longnose skate,2019,2019,benchmark,Update
 longspine thornyhead,2013,2013,benchmark,
 Pacific cod,NA,NA,,
-Pacific ocean perch,2017,2017,benchmark,
+Pacific ocean perch,2017,2017,benchmark,benchmark
 Pacific sanddab,NA,NA,,
-Pacific spiny dogfish,2021,2021,benchmark,
+Pacific spiny dogfish,2021,2021,benchmark,benchmark
 petrale sole,2023,2023,benchmark,Update
 quillback rockfish,2021,2021,data-moderate,
 redbanded rockfish,NA,NA,,
 redstripe rockfish,NA,NA,,
-rex sole,2023,2023,data-moderate,
+rex sole,2023,2023,data-moderate,benchmark
 rosethorn rockfish,NA,NA,,
 rougheye and blackspotted rockfish,2025,2025,benchmark,
 sablefish,2025,2025,benchmark,Update
@@ -41,10 +41,10 @@ shortraker rockfish,NA,NA,,
 shortspine thornyhead,2023,2023,data-moderate,Update
 silvergray rockfish,NA,NA,,
 splitnose rockfish,2009,2009,benchmark,
-squarespot rockfish,2021,2021,data-moderate,
+squarespot rockfish,2021,2021,data-moderate,data-moderate
 starry rockfish,NA,NA,,
 stripetail rockfish,NA,NA,,
-vermilion and sunset rockfish,2021,2021,benchmark,
+vermilion and sunset rockfish,2021,2021,benchmark,benchmark
 widow rockfish,2025,2025,update,benchmark
 yelloweye rockfish,2025,2025,update,benchmark
 yellowmouth rockfish,NA,NA,,
