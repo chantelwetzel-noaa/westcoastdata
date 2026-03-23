@@ -77,6 +77,5 @@ clean_recfin_ages <- function(dir, species, data, year) {
 
   data$Fleet <- data$RECFIN_MODE_NAME
 
-  save(data, file = file.path(dir, "recfin_ages_filtered.Rdata"))
   return(data)
 }

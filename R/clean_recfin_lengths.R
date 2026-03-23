@@ -132,6 +132,5 @@ clean_recfin_lengths <- function(
 
   data$Fleet <- data$RECFIN_MODE_NAME
 
-  save(data, file = file.path(dir, "recfin_lengths_filtered.Rdata"))
   return(data)
 }

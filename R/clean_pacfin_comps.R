@@ -31,10 +31,6 @@ clean_pacfin_comps <- function(
     verbose = TRUE
   )
   cleaned_pacfin_bds <- data
-  save(
-    cleaned_pacfin_bds,
-    file = here::here("data-raw", "cleaned_pacfin_bds.Rdata")
-  )
 
   data$spid_name <- NA
   for (a in 1:dim(spid_key)[1]) {
@@ -139,6 +135,5 @@ clean_pacfin_comps <- function(
 
   data$set_tow_id <- 0
 
-  save(data, file = file.path(dir, "pacfin_filtered.Rdata"))
   return(data)
 }
