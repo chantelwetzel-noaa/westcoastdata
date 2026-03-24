@@ -1,9 +1,8 @@
 #' Clean pulled PacFIN data
 #'
-#' @param dir Directory location to save the cleaned data frame
 #' @param bds_pacfin Dataframe of PacFIN data
-#' @param species add definition
-#' @param spid_key add definition
+#' @param species list of species name to retain
+#' @param spid_key csv file with PacFIN species codes and full species name
 #' @param year Integer to filter PacFIN data to retain all data from this year
 #'   and beyond
 #'
@@ -12,128 +11,120 @@
 #'
 #'
 clean_pacfin_comps <- function(
-  dir,
   bds_pacfin,
   species,
   spid_key,
   year = 1980
 ) {
-  Pdata <- bds_pacfin[
-    which(
-      bds_pacfin$FISH_LENGTH_UNITS != "UNK" & bds_pacfin$SAMPLE_YEAR >= year
-    ),
-  ]
-
-  data <- pacfintools::cleanPacFIN(
-    Pdata = Pdata,
+  Pdata <- pacfintools::cleanPacFIN(
+    Pdata = bds_pacfin |>
+      dplyr::filter(SAMPLE_YEAR >= year),
     CLEAN = TRUE,
-    keep_age_method = c("B", "S", "T"),
+    keep_age_method = c("B", "BB", "S", "T", ""),
     verbose = TRUE
   )
-  cleaned_pacfin_bds <- data
 
-  data$spid_name <- NA
-  for (a in 1:dim(spid_key)[1]) {
-    find <- grep(spid_key[a, "pacfin.code"], data[, "SPID"])
-    data[find, "spid_name"] <- spid_key[a, "species"]
-  }
-  data <- data[!is.na(data$spid_name), ]
-
-  data$Common_name <- NA
-  for (a in 1:dim(species)[1]) {
-    find <- grep(species[a, "name"], data[, "spid_name"], ignore.case = TRUE)
-    data[find, "Common_name"] <- species[a, "use_name"]
-  }
-  data <- data[!is.na(data$Common_name), ]
-
-  # Overwrite age structures for all records where there wasn't an age method recorded and hence
-  # the Age column was set to NA even if there was a value in FISH_AGE_CODE_FINAL
-  fix <- which(!is.na(data$FISH_AGE_YEARS_FINAL) & is.na(data$age_method))
-  data[
-    fix,
-    c("AGE_STRUCTURE_CODE1", "AGE_STRUCTURE_CODE2", "AGE_STRUCTURE_CODE3")
-  ] <- "L"
-
-  data$State <- NA
-  data$State[which(data$state == "CA")] <- "California"
-  data$State[which(data$state == "OR")] <- "Oregon"
-  data$State[which(data$state == "WA")] <- "Washington"
-  data$Source <- "Commercial"
-  data$State_Source <- paste0(data$Source, "-", data$State)
-
-  # Split yellowtail north and south
-  yt_north_ca <- data[
-    which(
-      data$Common_name == "yellowtail rockfish" &
-        data$PACFIN_PORT_NAME %in% c("CRESCENT", "FIELDS LDG", "EUREKA")
-    ),
-  ]
-  yt_north <- rbind(
-    data[
-      which(
-        data$Common_name == "yellowtail rockfish" &
-          data$State %in% c("Oregon", "Washington")
+  data <- dplyr::left_join(
+    Pdata,
+    spid_key |> dplyr::rename(SPID = pacfin.code, Common_name = species)
+  ) |>
+    dplyr::filter(
+      Common_name %in% species[, "use_name"]
+    ) |>
+    dplyr::mutate(
+      State = dplyr::case_when(
+        SOURCE_AGID == "O" ~ "Oregon",
+        SOURCE_AGID == "W" ~ "Washington",
+        .default = "California"
       ),
-    ],
-    yt_north_ca
-  )
-  yt_north$Common_name <- "yellowtail rockfish north"
-  yt_south <- data[
-    which(
-      data$Common_name == "yellowtail rockfish" &
-        data$State == "California" &
-        !data$PACFIN_PORT_NAME %in% c("CRESCENT", "FIELDS LDG", "EUREKA")
-    ),
-  ]
-  yt_south$Common_name <- "yellowtail rockfish south"
+      Source = "Commercial",
+      Fleet = dplyr::case_when(
+        fleet %in% c("TWL", "TWS") ~ "Trawl",
+        .default = "Non-trawl"
+      ),
+      State_Source = paste0(Source, "-", State),
+      set_tow_id = 0,
+      Weight_kg = dplyr::case_when(!is.na(weightkg) ~ 1, .default = 0),
+      Lengthed = dplyr::case_when(!is.na(lengthcm) ~ 1, .default = 0),
+      Aged = dplyr::case_when(
+        !is.na(Age) ~ 1,
+        .default = 0
+      ),
+      Otolith = 0
+    ) |>
+    dplyr::rename(
+      Year = SAMPLE_YEAR,
+      Sex = SEX,
+      Length_cm = lengthcm
+    )
+  # AGE_STRUCTURE_CODE values:
+  # L = length only
+  # O = otolith
+  # F = fin ray
+  # SP = spine
 
-  data <- rbind(data, yt_south, yt_north)
-
-  data$Fleet = "Non-trawl"
-  data$Fleet[which(data$geargroup %in% c("TWL", "TWS"))] <- "Trawl"
-
-  data$Year <- data$year
-
-  data$Sex <- data$SEX
-
-  data$Length_cm <- data$lengthcm
-
-  data$Lengthed <- 1
-
-  data$Aged <- 0
-  data$Aged[!is.na(data$Age)] <- 1
-
-  data$Otolith <- 0
   # AGE_STRUCTURE_DESC1
-  find <- which(
-    !is.na(data$AGE_STRUCTURE_CODE1) &
-      data$AGE_STRUCTURE_CODE1 != "L" &
-      is.na(data$Age)
+  find <- c(
+    which(
+      data$AGE_STRUCTURE_CODE1 %in%
+        c("F", "O", "SP") &
+        is.na(data$Age)
+    ),
+    which(
+      !data$AGE_STRUCTURE_CODE1 %in% c("F", "O", "SP") &
+        data$AGE_STRUCTURE_CODE2 %in% c("F", "O", "SP") &
+        is.na(data$Age)
+    ),
+    which(
+      !data$AGE_STRUCTURE_CODE1 %in% c("F", "O", "SP") &
+        !data$AGE_STRUCTURE_CODE2 %in% c("F", "O", "SP") &
+        data$AGE_STRUCTURE_CODE3 %in% c("F", "O", "SP") &
+        is.na(data$Age)
+    )
   )
-  if (length(find) > 0) {
-    data[find, "Otolith"] <- 1
-  }
+  data$Otolith[find] <- 1
 
-  find <- which(
-    !is.na(data$AGE_STRUCTURE_CODE2) &
-      data$AGE_STRUCTURE_CODE2 != "L" &
-      is.na(data$Age)
+  # Since both California and Washington do not push otolith information to
+  # PacFIN for unaged fish - set these values to 0
+  data[which(data$State != "Oregon" & data$Otolith != 0), "Otolith"] <- 0
+
+  # Remove select data areas and identify yellowtail north and south
+  remove <- which(
+    data$State == "California" & data$Common_name == "black rockfish"
   )
-  if (length(find) > 0) {
-    data[find, "Otolith"] <- 1
-  }
-  find <- which(
-    !is.na(data$AGE_STRUCTURE_CODE3) &
-      data$AGE_STRUCTURE_CODE3 != "L" &
-      is.na(data$Age)
+  filtered_data <- data[-remove, ]
+  yellowtail_north <- c(
+    which(
+      filtered_data$Common_name == "yellowtail rockfish" &
+        filtered_data$PACFIN_PORT_NAME %in%
+          c("CRESCENT", "FIELDS LDG", "EUREKA")
+    ),
+    which(
+      filtered_data$Common_name == "yellowtail rockfish" &
+        filtered_data$State %in% c("Oregon", "Washington")
+    )
   )
-  if (length(find) > 0) {
-    data[find, "Otolith"] <- 1
-  }
+  filtered_data$Common_name[yellowtail_north] <- "yellowtail rockfish north"
+  yellowtail_south <- which(filtered_data$Common_name == "yellowtail rockfish")
+  filtered_data$Common_name[yellowtail_south] <- "yellowtail rockfish south"
 
-  data$Weight_kg <- data$weightkg
+  data_out <- filtered_data |>
+    dplyr::select(
+      Year,
+      Common_name,
+      State,
+      Source,
+      State_Source,
+      Fleet,
+      set_tow_id,
+      Weight_kg,
+      Lengthed,
+      Aged,
+      Otolith,
+      Length_cm,
+      Age,
+      age_method
+    )
 
-  data$set_tow_id <- 0
-
-  return(data)
+  return(data_out)
 }
