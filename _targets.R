@@ -186,6 +186,22 @@ list(
     )
   ),
   # Clean RecFIN
+  tar_target(
+    recfin_length_clean,
+    clean_recfin_lengths(
+      data = recfin_lengths,
+      species = species,
+      year = year
+    )
+  ),
+  tar_target(
+    recfin_ages_clean,
+    clean_recfin_ages(
+      data = recfin_age,
+      species = species,
+      year = year
+    )
+  ),
   # Clean and format otolith files
   # Clean CCFRP
   # Clean groundfish cooperative samples
