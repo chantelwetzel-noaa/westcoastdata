@@ -33,11 +33,19 @@ targets::tar_source(here::here("R")) #functions are sourced from the "R" folder
 
 # End this file with a list of target objects.
 list(
-  # Load in raw data and species lists
   tar_target(year, 2000),
   tar_target(
     species,
     get_species_list()
+  ),
+  tar_target(
+    spid_key_file,
+    command = "data-raw/2026/pacfin_species_codes.csv",
+    format = "file"
+  ),
+  tar_target(
+    spid_key,
+    readr::read_csv(spid_key_file)
   ),
   tar_target(
     stock_year_file,
@@ -48,7 +56,9 @@ list(
     stock_year,
     readr::read_csv(stock_year_file)
   ),
-  # Read in the data sources ===============================
+  #
+  # Read in the raw data files
+  #
   # Pull the WCGBT survey data
   tar_target(
     wcgbt_raw_data,
@@ -73,8 +83,7 @@ list(
     pacfin_raw,
     command = load_rdata_object(
       dir = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/",
-      rdata_name = "PacFIN.bds.19.Mar.2026.RData",
-      object_name = "bds.pacfin"
+      rdata_name = "PacFIN.bds.19.Mar.2026.RData"
     )
   ),
   # RecFIN length data
@@ -137,7 +146,9 @@ list(
     gcdc_data,
     readxl::read_excel(gcdc_data_file)
   ),
-  # Filter and format all the data sources =====================================
+  #
+  # Filter and format all the data sources
+  #
   # Clean NWFSC WCGBT data
   tar_target(
     wcgbt_catch_filtered,
@@ -164,7 +175,23 @@ list(
       data = nwfsc_hkl
     )
   ),
-  # Summarize and bring all the data sources together =========================
+  # Clean PacFIN
+  tar_target(
+    pacfin_clean,
+    clean_pacfin_comps(
+      bds_pacfin = pacfin_raw,
+      species = species,
+      spid_key = spid_key,
+      year = year
+    )
+  ),
+  # Clean RecFIN
+  # Clean and format otolith files
+  # Clean CCFRP
+  # Clean groundfish cooperative samples
+  #
+  # Summarize and bring all the data sources together
+  #
   # Summarize the amount of new data
   #tar_target(
   #  new_info,
