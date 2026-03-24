@@ -9,10 +9,8 @@
 #'
 #'
 load_rdata_object <- function(dir, rdata_name, object_name) {
-  load(file.path(dir, rdata_name))
-  return(object_name)
+  tmp_env <- new.env()
+  load(file.path(dir, rdata_name), envir = tmp_env)
+  object_name <- ls(tmp_env)
+  return(get(object_name[1], envir = tmp_env))
 }
-
-dir <- "G:/My Drive/prioritization/westcoastdata/data-raw/2026/"
-rdata_name <- "PacFIN.bds.19.Mar.2026.RData"
-object_name <- "bds.pacfin"
