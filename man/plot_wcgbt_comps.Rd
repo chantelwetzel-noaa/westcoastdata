@@ -4,14 +4,19 @@
 \alias{plot_wcgbt_comps}
 \title{Plot NWFSC WCGBTS composition data}
 \usage{
-plot_wcgbt_comps(dir = here::here(), wcgbt_catch, wcgbt_bio)
+plot_wcgbt_comps(
+  dir = here::here("plots", "wcgbts_comps"),
+  wcgbt_catch,
+  wcgbt_bio,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{dir}{add definition}
 
-\item{wcgbt_catch}{add definition}
+\item{wcgbt_catch}{The filtered and cleaned data returned from \code{\link[=clean_wcgbt_catch]{clean_wcgbt_catch()}}}
 
-\item{wcgbt_bio}{add definition}
+\item{wcgbt_bio}{The filtered and cleaned data returned from \code{\link[=clean_wcgbt_bio]{clean_wcgbt_bio()}}#'}
 }
 \description{
 Plot NWFSC WCGBTS composition data

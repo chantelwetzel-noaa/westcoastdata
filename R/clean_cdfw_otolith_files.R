@@ -8,4 +8,6 @@
 #' @export
 #'
 #'
-clean_cdfw_otolith_files <- function(data, species, year) {}
+clean_cdfw_otolith_files <- function(data, species, year) {
+  return(data)
+}

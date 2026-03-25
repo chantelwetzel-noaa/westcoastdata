@@ -4,11 +4,9 @@
 \alias{clean_recfin_ages}
 \title{Clean RecFIN data}
 \usage{
-clean_recfin_ages(dir, species, data, year)
+clean_recfin_ages(species, data, year)
 }
 \arguments{
-\item{dir}{Directory location to save the cleaned data frame}
-
 \item{species}{add definition}
 
 \item{data}{add definition}

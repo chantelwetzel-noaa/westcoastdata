@@ -4,16 +4,14 @@
 \alias{clean_pacfin_comps}
 \title{Clean pulled PacFIN data}
 \usage{
-clean_pacfin_comps(dir, bds_pacfin, species, spid_key, year = 1980)
+clean_pacfin_comps(bds_pacfin, species, spid_key, year = 1980)
 }
 \arguments{
-\item{dir}{Directory location to save the cleaned data frame}
-
 \item{bds_pacfin}{Dataframe of PacFIN data}
 
-\item{species}{add definition}
+\item{species}{list of species name to retain}
 
-\item{spid_key}{add definition}
+\item{spid_key}{csv file with PacFIN species codes and full species name}
 
 \item{year}{Integer to filter PacFIN data to retain all data from this year
 and beyond}

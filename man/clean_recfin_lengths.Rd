@@ -4,27 +4,18 @@
 \alias{clean_recfin_lengths}
 \title{Clean RecFIN length data}
 \usage{
-clean_recfin_lengths(
-  dir,
-  or_data = NULL,
-  wa_data = NULL,
-  ca_data = NULL,
-  species,
-  year
-)
+clean_recfin_lengths(data, species, year)
 }
 \arguments{
-\item{dir}{Directory location to save the cleaned data frame}
+\item{species}{add definition}
+
+\item{year}{add definition}
 
 \item{or_data}{add definition}
 
 \item{wa_data}{add definition}
 
 \item{ca_data}{add definition}
-
-\item{species}{add definition}
-
-\item{year}{add definition}
 }
 \description{
 Clean RecFIN length data

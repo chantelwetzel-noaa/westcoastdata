@@ -1,8 +1,8 @@
 #' Clean and standardize CCFRP data
 #'
-#' @param data
+#' @param data data frame
 #' @param species add definition
-#' @param year
+#' @param year year to filter the data
 #'
 #' @author Chantel Wetzel
 #' @export
