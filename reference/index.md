@@ -4,8 +4,12 @@
 
 - [`clean_ccfrp()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_ccfrp.md)
   : Clean and standardize CCFRP data
-- [`clean_coop_samples()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_coop_samples.md)
-  : Clean COOP data from Melissa Monk and Rachel Brooks
+- [`clean_ccfrp_otolith()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_ccfrp_otolith.md)
+  : Format otolith data
+- [`clean_cdfw_otolith_files()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_cdfw_otolith_files.md)
+  : Format otolith data
+- [`clean_gcdc_data()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_gcdc_data.md)
+  : Clean and standardize CCFRP data
 - [`clean_nwfsc_hkl()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_nwfsc_hkl.md)
   : Function to remove all unneeded species data and to format column
   names as needed for the NWFS HKL data.
@@ -19,14 +23,17 @@
   : Clean NWFSC WCGBTS biological data
 - [`clean_wcgbt_catch()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_wcgbt_catch.md)
   : Clean NWFSC WCGBTS survey catch file
+- [`clean_wdfw_otolith_files()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_wdfw_otolith_files.md)
+  : Format otolith data
 - [`combine_all_data()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/combine_all_data.md)
   : Combine all data into a data frame
 - [`combine_species()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/combine_species.md)
   : Helper function to standardize species names
-- [`format_cdfw_otolith_files()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/format_cdfw_otolith_files.md)
-  : Format otolith data
 - [`get_hkl_species()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_hkl_species.md)
   : List of species name to estimate indices for NWFSC HKL survey data
+- [`get_short_species_list()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_short_species_list.md)
+  : List of select species to summarize commercial and recreational data
+  for
 - [`get_source()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_source.md)
   : Clean up source names
 - [`get_species_data()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/get_species_data.md)
@@ -37,6 +44,8 @@
   : List of species names to pull from NWFSC survey data
 - [`load_pacfin_data()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/load_pacfin_data.md)
   : Function to load in a PacFIN Rdata file.
+- [`load_rdata_object()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/load_rdata_object.md)
+  : Load rdata file
 - [`plot_data_by_year()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/plot_data_by_year.md)
   : Plot all the data
 - [`plot_hkl_comps()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/plot_hkl_comps.md)

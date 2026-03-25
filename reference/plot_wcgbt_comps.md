@@ -5,7 +5,12 @@ Plot NWFSC WCGBTS composition data
 ## Usage
 
 ``` r
-plot_wcgbt_comps(dir = here::here(), wcgbt_catch, wcgbt_bio)
+plot_wcgbt_comps(
+  dir = here::here("plots", "wcgbts_comps"),
+  wcgbt_catch,
+  wcgbt_bio,
+  verbose = TRUE
+)
 ```
 
 ## Arguments
@@ -16,11 +21,13 @@ plot_wcgbt_comps(dir = here::here(), wcgbt_catch, wcgbt_bio)
 
 - wcgbt_catch:
 
-  add definition
+  The filtered and cleaned data returned from
+  [`clean_wcgbt_catch()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_wcgbt_catch.md)
 
 - wcgbt_bio:
 
-  add definition
+  The filtered and cleaned data returned from
+  [`clean_wcgbt_bio()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_wcgbt_bio.md)\#'
 
 ## Author
 

@@ -5,14 +5,10 @@ Clean pulled PacFIN data
 ## Usage
 
 ``` r
-clean_pacfin_comps(dir, bds_pacfin, species, spid_key, year = 1980)
+clean_pacfin_comps(bds_pacfin, species, spid_key, year = 1980)
 ```
 
 ## Arguments
-
-- dir:
-
-  Directory location to save the cleaned data frame
 
 - bds_pacfin:
 
@@ -20,11 +16,11 @@ clean_pacfin_comps(dir, bds_pacfin, species, spid_key, year = 1980)
 
 - species:
 
-  add definition
+  list of species name to retain
 
 - spid_key:
 
-  add definition
+  csv file with PacFIN species codes and full species name
 
 - year:
 

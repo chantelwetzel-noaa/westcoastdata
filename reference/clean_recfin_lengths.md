@@ -5,21 +5,18 @@ Clean RecFIN length data
 ## Usage
 
 ``` r
-clean_recfin_lengths(
-  dir,
-  or_data = NULL,
-  wa_data = NULL,
-  ca_data = NULL,
-  species,
-  year
-)
+clean_recfin_lengths(data, species, year)
 ```
 
 ## Arguments
 
-- dir:
+- species:
 
-  Directory location to save the cleaned data frame
+  add definition
+
+- year:
+
+  add definition
 
 - or_data:
 
@@ -30,14 +27,6 @@ clean_recfin_lengths(
   add definition
 
 - ca_data:
-
-  add definition
-
-- species:
-
-  add definition
-
-- year:
 
   add definition
 

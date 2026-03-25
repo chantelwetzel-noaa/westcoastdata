@@ -5,7 +5,7 @@ Plot NWFSC HKL data
 ## Usage
 
 ``` r
-plot_hkl_comps(dir = here::here(), data)
+plot_hkl_comps(dir = here::here("plots", "hkl_comps"), data)
 ```
 
 ## Arguments

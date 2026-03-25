@@ -5,18 +5,18 @@ Clean and standardize CCFRP data
 ## Usage
 
 ``` r
-clean_ccfrp(species, data, year = 2000)
+clean_gcdc_data(data, species, year = 2000)
 ```
 
 ## Arguments
 
-- species:
-
-  add definition
-
 - data:
 
   data frame
+
+- species:
+
+  add definition
 
 - year:
 

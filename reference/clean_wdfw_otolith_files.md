@@ -1,24 +1,24 @@
-# Clean RecFIN data
+# Format otolith data
 
-Clean RecFIN data
+Format otolith data
 
 ## Usage
 
 ``` r
-clean_recfin_ages(species, data, year)
+clean_wdfw_otolith_files(data, species, year)
 ```
 
 ## Arguments
-
-- species:
-
-  add definition
 
 - data:
 
   add definition
 
-- year:
+- source:
+
+  add definition
+
+- state:
 
   add definition
 

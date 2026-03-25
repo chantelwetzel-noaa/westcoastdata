@@ -5,7 +5,7 @@ Format otolith data
 ## Usage
 
 ``` r
-format_cdfw_otolith_files(data, source = NA, state = NA)
+clean_cdfw_otolith_files(data, species, year)
 ```
 
 ## Arguments
@@ -14,11 +14,11 @@ format_cdfw_otolith_files(data, source = NA, state = NA)
 
   add definition
 
-- source:
+- species:
 
   add definition
 
-- state:
+- year:
 
   add definition
 
