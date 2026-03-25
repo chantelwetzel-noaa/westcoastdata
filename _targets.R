@@ -39,6 +39,10 @@ list(
     get_species_list()
   ),
   tar_target(
+    short_species_list,
+    get_short_species_list()
+  ),
+  tar_target(
     spid_key_file,
     command = "data-raw/2026/pacfin_species_codes.csv",
     format = "file"
@@ -180,7 +184,7 @@ list(
     pacfin_clean,
     clean_pacfin_comps(
       bds_pacfin = pacfin_raw,
-      species = species,
+      species = short_species_list,
       spid_key = spid_key,
       year = year
     )
@@ -190,21 +194,53 @@ list(
     recfin_length_clean,
     clean_recfin_lengths(
       data = recfin_lengths,
-      species = species,
+      species = short_species_list,
       year = year
     )
   ),
   tar_target(
     recfin_ages_clean,
     clean_recfin_ages(
-      data = recfin_age,
-      species = species,
+      data = recfin_ages,
+      species = short_species_list,
       year = year
     )
   ),
   # Clean and format otolith files
+  tar_target(
+    wdfw_otolith_clean,
+    clean_wdfw_otolith_files(
+      data = wa_otoliths,
+      species = short_species_list,
+      year = year
+    )
+  ),
   # Clean CCFRP
+  tar_target(
+    ccfrp_lengths_clean,
+    clean_ccfrp(
+      species = short_species_list,
+      data = ccfrp_lengths,
+      year = year
+    )
+  ),
+  tar_target(
+    ccfrp_otoliths_clean,
+    clean_ccfrp_otolith(
+      data = ccfrp_otoliths,
+      species = short_species_list,
+      year = year
+    )
+  ),
   # Clean groundfish cooperative samples
+  tar_target(
+    gcdc_data_clean,
+    clean_gcdc_data(
+      data = gcdc_data,
+      species = short_species_list,
+      year = year
+    )
+  ),
   #
   # Summarize and bring all the data sources together
   #
