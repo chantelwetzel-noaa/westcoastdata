@@ -75,8 +75,5 @@ combine_all_data <- function(
     file.path(dir, "data_summaries_by_year.csv"),
     row.names = FALSE
   )
-
-  save(data_total_by_year, file = file.path(dir, "data_total_by_year.Rdata"))
-
   return(data_total_by_year)
 }
