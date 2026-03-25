@@ -82,6 +82,26 @@ clean_recfin_lengths <- function(
   )
   format_data$Common_name[yellowtail_south] <- "yellowtail rockfish south"
 
+  lingcod_north <- c(
+    which(
+      format_data$Common_name == "lingcod" &
+        format_data$RECFIN_PORT_NAME ==
+          "WINE (MENDOCINO COUNTY AND SHELTER COVE AREA IN HUMBOLDT COUNTY)"
+    ),
+    which(
+      format_data$Common_name == "lingcod" &
+        format_data$State %in% c("Oregon", "Washington")
+    )
+  )
+  format_data$Common_name[lingcod_north] <- "lingcod north"
+  lingcod_south <- which(
+    format_data$Common_name == "lingcod" &
+      format_data$RECFIN_PORT_NAME !=
+        "WINE (MENDOCINO COUNTY AND SHELTER COVE AREA IN HUMBOLDT COUNTY)",
+    format_data$State == "California"
+  )
+  format_data$Common_name[lingcod_south] <- "lingcod south"
+
   data_out <- format_data |>
     dplyr::select(
       Year,
@@ -96,7 +116,8 @@ clean_recfin_lengths <- function(
       Aged,
       Otolith,
       Length_cm,
-      Age
+      Age,
+      age_method
     )
 
   return(data_out)

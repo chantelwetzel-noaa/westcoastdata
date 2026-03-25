@@ -21,7 +21,7 @@ clean_pacfin_comps <- function(
       dplyr::filter(SAMPLE_YEAR >= year),
     CLEAN = TRUE,
     keep_age_method = c("B", "BB", "S", "T", ""),
-    verbose = TRUE
+    verbose = FALSE
   )
 
   data <- dplyr::left_join(
@@ -107,6 +107,21 @@ clean_pacfin_comps <- function(
   filtered_data$Common_name[yellowtail_north] <- "yellowtail rockfish north"
   yellowtail_south <- which(filtered_data$Common_name == "yellowtail rockfish")
   filtered_data$Common_name[yellowtail_south] <- "yellowtail rockfish south"
+
+  lingcod_north <- c(
+    which(
+      filtered_data$Common_name == "lingcod" &
+        filtered_data$PACFIN_PORT_NAME %in%
+          c("CRESCENT", "FIELDS LDG", "EUREKA")
+    ),
+    which(
+      filtered_data$Common_name == "lingcod" &
+        filtered_data$State %in% c("Oregon", "Washington")
+    )
+  )
+  filtered_data$Common_name[lingcod_north] <- "lingcod north"
+  lingcod_south <- which(filtered_data$Common_name == "lingcod")
+  filtered_data$Common_name[lingcod_south] <- "lingcod south"
 
   data_out <- filtered_data |>
     dplyr::select(

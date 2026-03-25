@@ -46,9 +46,11 @@ clean_recfin_ages <- function(species, data, year) {
       Year = SAMPLE_YEAR
     )
 
-  # Add yellowtail north
+  # Add yellowtail north & lingcod north
   yt <- which(format_data$Common_name == "yellowtail rockfish")
   format_data$Common_name[yt] <- "yellowtail rockfish north"
+  ln <- which(format_data$Common_name == "lingcod")
+  format_data$Common_name[ln] <- "lingcod north"
 
   find <- which(
     format_data$AGE_READABILITY_DESCRIPTION %in%
@@ -74,7 +76,8 @@ clean_recfin_ages <- function(species, data, year) {
       Otolith,
       Weight_kg,
       Length_cm,
-      Age
+      Age,
+      age_method
     )
 
   return(data_out)
