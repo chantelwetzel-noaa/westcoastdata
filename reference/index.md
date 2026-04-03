@@ -2,6 +2,8 @@
 
 ## All functions
 
+- [`clean_ca_rec_otolith()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_ca_rec_otolith.md)
+  : Format otolith data
 - [`clean_ccfrp()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_ccfrp.md)
   : Clean and standardize CCFRP data
 - [`clean_ccfrp_otolith()`](https://chantelwetzel-noaa.github.io/westcoastdata/reference/clean_ccfrp_otolith.md)
