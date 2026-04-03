@@ -86,14 +86,14 @@ list(
   tar_target(
     pacfin_raw,
     command = load_rdata_object(
-      dir = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/",
+      dir = "data-raw/2026/",
       rdata_name = "PacFIN.bds.19.Mar.2026.RData"
     )
   ),
   # RecFIN length data
   tar_target(
     recfin_length_data_file,
-    command = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/SD501--2000---2025.csv",
+    command = "data-raw/2026/SD501--2000---2025.csv",
     format = "file"
   ),
   tar_target(
@@ -103,7 +103,7 @@ list(
   # RecFIN age data
   tar_target(
     recfin_age_data_file,
-    command = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/SD506--2000---2025.csv",
+    command = "data-raw/2026/SD506--2000---2025.csv",
     format = "file"
   ),
   tar_target(
@@ -113,7 +113,7 @@ list(
   # Washington otoliths
   tar_target(
     wa_otolith_file,
-    command = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/WA_Otoliths_Age_count_03202026.xlsx",
+    command = "data-raw/2026/WA_Otoliths_Age_count_03202026.xlsx",
     format = "file"
   ),
   tar_target(
@@ -121,10 +121,19 @@ list(
     readxl::read_excel(wa_otolith_file, sheet = "Otolith_Age_count")
   ),
   # California otoliths
+  tar_target(
+    ca_rec_otolith_file,
+    command = "data-raw/2026/ca-rec-otolith-numbers.xlsx",
+    format = "file"
+  ),
+  tar_target(
+    ca_rec_otoliths,
+    readxl::read_excel(ca_rec_otolith_file)
+  ),
   # CCFRP data
   tar_target(
     ccfrp_length_data_file,
-    command = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/CCFRP_derived_length_table.csv",
+    command = "data-raw/2026/CCFRP_derived_length_table.csv",
     format = "file"
   ),
   tar_target(
@@ -133,7 +142,7 @@ list(
   ),
   tar_target(
     ccfrp_otolith_data_file,
-    command = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/ccfrp_otoliths_2026.xlsx",
+    command = "data-raw/2026/ccfrp_otoliths_2026.xlsx",
     format = "file"
   ),
   tar_target(
@@ -143,7 +152,7 @@ list(
   # Groundfish Cooperative Data Collection data
   tar_target(
     gcdc_data_file,
-    command = "G:/My Drive/prioritization/westcoastdata/data-raw/2026/Groundfish Cooperative Data Collection 2026.xlsx",
+    command = "data-raw/2026/Groundfish Cooperative Data Collection 2026.xlsx",
     format = "file"
   ),
   tar_target(
