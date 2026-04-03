@@ -224,6 +224,14 @@ list(
       year = year
     )
   ),
+  tar_target(
+    cdfw_rec_otolith_clean,
+    clean_ca_rec_otolith(
+      data = ca_rec_otoliths,
+      species = short_species_list,
+      year = year
+    )
+  ),
   # Clean CCFRP
   tar_target(
     ccfrp_lengths_clean,
