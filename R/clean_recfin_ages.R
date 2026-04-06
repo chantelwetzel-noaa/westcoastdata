@@ -74,6 +74,7 @@ clean_recfin_ages <- function(species, data, year) {
       Lengthed,
       Aged,
       Otolith,
+      Sex,
       Weight_kg,
       Length_cm,
       Age,

@@ -44,10 +44,10 @@ clean_gcdc_data <- function(data, species, year = 2000) {
       Lengthed,
       Aged,
       Otolith,
+      Sex,
       Weight_kg,
       Length_cm,
       Age,
-      Sex,
       age_method
     )
 

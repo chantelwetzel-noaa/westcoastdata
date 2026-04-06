@@ -115,6 +115,7 @@ clean_recfin_lengths <- function(
       Lengthed,
       Aged,
       Otolith,
+      Sex,
       Length_cm,
       Age,
       age_method

@@ -19,22 +19,23 @@ clean_pacfin_comps <- function(
   Pdata <- pacfintools::cleanPacFIN(
     Pdata = bds_pacfin |>
       dplyr::filter(SAMPLE_YEAR >= year),
-    CLEAN = TRUE,
+    clean = TRUE,
     keep_age_method = c("B", "BB", "S", "T", ""),
     verbose = FALSE
   )
 
   data <- dplyr::left_join(
     Pdata,
-    spid_key |> dplyr::rename(SPID = pacfin.code, Common_name = species)
+    spid_key |>
+      dplyr::rename(PACFIN_SPECIES_CODE = pacfin.code, Common_name = species)
   ) |>
     dplyr::filter(
       Common_name %in% species[, "use_name"]
     ) |>
     dplyr::mutate(
       State = dplyr::case_when(
-        SOURCE_AGID == "O" ~ "Oregon",
-        SOURCE_AGID == "W" ~ "Washington",
+        state == "OR" ~ "Oregon",
+        state == "WA" ~ "Washington",
         .default = "California"
       ),
       Source = "Commercial",
@@ -54,7 +55,7 @@ clean_pacfin_comps <- function(
     ) |>
     dplyr::rename(
       Year = SAMPLE_YEAR,
-      Sex = SEX,
+      Sex = SEX_CODE,
       Length_cm = lengthcm
     )
   # AGE_STRUCTURE_CODE values:
@@ -132,10 +133,11 @@ clean_pacfin_comps <- function(
       State_Source,
       Fleet,
       set_tow_id,
-      Weight_kg,
       Lengthed,
       Aged,
       Otolith,
+      Sex,
+      Weight_kg,
       Length_cm,
       Age,
       age_method
