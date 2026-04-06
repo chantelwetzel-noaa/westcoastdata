@@ -2,43 +2,44 @@
 #'
 #'
 #' @param dir Directory location to save the combined data frame
-#' @param wcgbt add definition
-#' @param nwfsc_hkl add definition
+#' @param data_list List of data frames that will be combined
 #'
 #' @author Chantel Wetzel
 #' @export
 #'
 combine_all_data <- function(
-  dir = dir,
-  wcgbt,
-  nwfsc_hkl
+  dir,
+  data_list
 ) {
   #Combine data sets into a single data frame
   cols_to_keep <- c(
-    "Year", #yes, yes
-    "State", #yes, yes
-    "Source", #yes, yes
-    "Common_name", #yes, yes
-    "Fleet", #yes, yes
-    "set_tow_id", #no, yes
-    "Lengthed", #yes, yes
-    "Otolith", #yes, yes
-    "Age", #no, yes
-    "Aged", #yes, yes
-    "Length_cm", #yes, yes
-    "Weight_kg", #yes, yes
-    "Sex" #yes, yes
+    "Year",
+    "State",
+    "Source",
+    "Common_name",
+    "Fleet",
+    "set_tow_id",
+    "Lengthed",
+    "Otolith",
+    "Age",
+    "Aged",
+    "Length_cm",
+    "Weight_kg",
+    "Sex"
   )
 
-  data <- rbind(
-    wcgbt[, cols_to_keep],
-    nwfsc_hkl[, cols_to_keep]
-  )
-
+  data <- NULL
+  for (a in 1:length(data_list)) {
+    data_list[[a]][, "set_tow_id"] <- as.character(data_list[[a]][,
+      "set_tow_id"
+    ])
+    data_list[[a]][, "Year"] <- as.numeric(data_list[[a]]$Year)
+    data <- dplyr::bind_rows(
+      data,
+      data_list[[a]][, cols_to_keep]
+    )
+  }
   save(data, file = file.path(dir, "combined_data.Rdata"))
-  #data$read_age <- 0
-  #data$read_age[!is.na(data$Age)] <- 1
-  #data[is.na(data)] <- 0
 
   group_vars = c("Common_name", "State", "Source")
   data_total <- data |>
