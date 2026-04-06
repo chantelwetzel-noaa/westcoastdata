@@ -14,10 +14,12 @@ clean_ca_rec_otolith <- function(data, species, year) {
     tidyr::pivot_longer(
       cols = 2:ncol(data),
       names_to = "year",
-      values_to = "Otolith"
+      values_to = "otolith_total"
     ) |>
+    dplyr::filter(!is.na(otolith_total)) |>
+    tidyr::uncount(otolith_total, .id = "Otolith") |>
     dplyr::mutate(
-      Otolith = tidyr::replace_na(Otolith, 0)
+      Otolith = 1
     ) |>
     dplyr::rename(common_name = species) |>
     dplyr::filter(common_name %in% species)
