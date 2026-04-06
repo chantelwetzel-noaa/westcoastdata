@@ -276,8 +276,18 @@ list(
     combined_data,
     combine_all_data(
       dir = here::here("data-processed", "2026"),
-      wcgbt = wcgbt_bio_filtered,
-      nwfsc_hkl = nwfsc_hkl_filtered
+      data_list = list(
+        wcgbt_bio_filtered,
+        nwfsc_hkl_filtered,
+        pacfin_clean,
+        recfin_length_clean,
+        recfin_ages_clean,
+        ccfrp_lengths_clean,
+        ccfrp_otoliths_clean,
+        wdfw_otolith_clean,
+        gcdc_data_clean,
+        cdfw_rec_otolith_clean
+      )
     )
   ) #,
   #Plot the data
