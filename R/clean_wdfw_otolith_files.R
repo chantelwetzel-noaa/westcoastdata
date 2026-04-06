@@ -24,6 +24,11 @@ clean_wdfw_otolith_files <- function(data, species, year) {
       Otolith = Unaged_structure
     ) |>
     dplyr::mutate(
+      Common_name = dplyr::case_when(
+        Common_name == "yellowtail rockfish" ~ "yellowtail rockfish north",
+        Common_name == "lingcod" ~ "lingcod north",
+        .default = Common_name
+      ),
       State = "Washington",
       Source = dplyr::case_when(
         data_type_name == "Sport" ~ "Recreational",
