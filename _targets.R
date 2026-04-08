@@ -120,6 +120,16 @@ list(
     wa_otoliths,
     readxl::read_excel(wa_otolith_file, sheet = "Otolith_Age_count")
   ),
+  # Oregon otoliths
+  tar_target(
+    or_otolith_file,
+    command = "data-raw/2026/Aged and Unaged Samples_Oregon_2025.csv",
+    format = "file"
+  ),
+  tar_target(
+    or_otoliths,
+    readr::read_csv(or_otolith_file)
+  ),
   # California otoliths
   tar_target(
     ca_rec_otolith_file,
@@ -225,6 +235,14 @@ list(
     )
   ),
   tar_target(
+    odfw_otolith_clean,
+    clean_or_otolith(
+      data = or_otoliths,
+      species = short_species_list,
+      year = year
+    )
+  ),
+  tar_target(
     cdfw_rec_otolith_clean,
     clean_ca_rec_otolith(
       data = ca_rec_otoliths,
@@ -285,6 +303,7 @@ list(
         ccfrp_lengths_clean,
         ccfrp_otoliths_clean,
         wdfw_otolith_clean,
+        odfw_otolith_clean,
         gcdc_data_clean,
         cdfw_rec_otolith_clean
       )
