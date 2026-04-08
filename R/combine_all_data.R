@@ -39,25 +39,6 @@ combine_all_data <- function(
       data_list[[a]][, cols_to_keep]
     )
   }
-  save(data, file = file.path(dir, "combined_data.Rdata"))
-
-  group_vars = c("Common_name", "State", "Source")
-  data_total <- data |>
-    dplyr::group_by_at(group_vars) |>
-    dplyr::summarise(
-      set_tows = dplyr::n_distinct(set_tow_id),
-      total_lengths = sum(Lengthed),
-      total_ages = sum(Aged),
-      total_otoliths = sum(Otolith),
-      n_years = dplyr::n_distinct(Year),
-      ave_set_tows = floor(
-        dplyr::n_distinct(set_tow_id) / dplyr::n_distinct(Year)
-      ),
-      ave_lengths = floor(sum(Lengthed) / dplyr::n_distinct(Year)),
-      ave_ages = floor(sum(Aged) / dplyr::n_distinct(Year)),
-      ave_otoliths = floor(sum(Otolith) / dplyr::n_distinct(Year))
-    ) |>
-    as.data.frame()
 
   group_vars <- c("Common_name", "State", "Source", "Year")
   data_total_by_year <- data |>
@@ -69,12 +50,6 @@ combine_all_data <- function(
       total_otoliths = sum(Otolith)
     ) |>
     as.data.frame()
-
-  write.csv(data_total, file.path(dir, "data_summaries.csv"), row.names = FALSE)
-  write.csv(
-    data_total_by_year,
-    file.path(dir, "data_summaries_by_year.csv"),
-    row.names = FALSE
-  )
+  save(data_total_by_year, file = file.path(dir, "data_total_by_year.Rdata"))
   return(data_total_by_year)
 }

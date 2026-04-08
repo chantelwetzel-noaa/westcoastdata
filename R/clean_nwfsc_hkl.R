@@ -63,10 +63,5 @@ clean_nwfsc_hkl <- function(
           "quillback rockfish"
         )
     )
-
-  save(
-    cleaned,
-    file = file.path("data-processed", "2026", "nwfsc_hkl_filtered.Rdata")
-  )
   return(cleaned)
 }
