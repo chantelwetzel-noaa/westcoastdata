@@ -34,7 +34,7 @@ clean_ca_rec_otolith <- function(data, species, year) {
       State = "California",
       Source = "Recreational",
       State_Source = paste0(Source, "-", State),
-      Fleet = "NA",
+      Fleet = NA,
       set_tow_id = 0,
       Lengthed = 0,
       Aged = 0,

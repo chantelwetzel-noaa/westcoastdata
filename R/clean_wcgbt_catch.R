@@ -24,7 +24,7 @@ clean_wcgbt_catch <- function(dir = dir, species, data) {
         Latitude_dd <= 42.0 ~ "CA",
         .default = "OR"
       ),
-      Fleet = "NA",
+      Fleet = NA,
       positive_tow = dplyr::case_when(total_catch_wt_kg > 0 ~ 1, .default = 0),
       set_tow_id = Trawl_id
     )

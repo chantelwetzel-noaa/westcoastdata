@@ -30,7 +30,7 @@ clean_nwfsc_hkl <- function(
       ),
       State = "CA",
       Source = "NWFSC HKLS",
-      Fleet = "NA",
+      Fleet = NA,
       Lengthed = dplyr::case_when(!is.na(length_cm) ~ 1, .default = 0),
       Aged = dplyr::case_when(!is.na(age_years) ~ 1, .default = 0),
       Otolith = dplyr::case_when(

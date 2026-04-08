@@ -35,7 +35,7 @@ clean_wdfw_otolith_files <- function(data, species, year) {
         .default = data_type_name
       ),
       State_Source = paste0(Source, "-", State),
-      Fleet = "NA",
+      Fleet = NA,
       set_tow_id = 0,
       Lengthed = 0,
       Aged = 0,

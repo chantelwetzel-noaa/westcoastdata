@@ -33,6 +33,9 @@ combine_all_data <- function(
     data_list[[a]][, "set_tow_id"] <- as.character(data_list[[a]][,
       "set_tow_id"
     ])
+    data_list[[a]][, "Fleet"] <- as.character(data_list[[a]][,
+      "Fleet"
+    ])
     data_list[[a]][, "Year"] <- as.numeric(data_list[[a]]$Year)
     data <- dplyr::bind_rows(
       data,
