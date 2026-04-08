@@ -24,7 +24,7 @@ clean_wcgbt_bio <- function(dir = dir, species, data) {
         Latitude_dd <= 42.0 ~ "CA",
         .default = "OR"
       ),
-      Fleet = NA,
+      Fleet = "NA",
       Sex = nwfscSurvey::codify_sex(Sex),
       Lengthed = dplyr::case_when(!is.na(Length_cm) ~ 1, .default = 0),
       Aged = dplyr::case_when(!is.na(Age_years) ~ 1, .default = 0),
