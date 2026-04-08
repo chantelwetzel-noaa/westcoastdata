@@ -8,7 +8,7 @@
 #' @export
 #'
 #'
-clean_or_com_otolith <- function(data, species, year) {
+clean_or_otolith <- function(data, species, year) {
   # Need to pivot longer the data frame first
   data_long <- data |>
     dplyr::select("COMMON", "YEAR", "UNAGED") |>
@@ -43,7 +43,7 @@ clean_or_com_otolith <- function(data, species, year) {
       Common_name = dplyr::case_when(
         Common_name == "pacific spiny dogfish" ~ "Pacific spiny dogfish",
         Common_name == "lingcod" ~ "lingcod north",
-        .default = Common_Name
+        .default = Common_name
       )
     )
 
