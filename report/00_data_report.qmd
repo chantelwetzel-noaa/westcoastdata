@@ -153,7 +153,7 @@ cat(a, sep = '\n')
 
 {{< pagebreak >}} 
 
-# Groundfish species observed by surveys conducted by the NWFSC
+# Preliminary species identified for assessment in 2027
 
 
 ```{r, echo = FALSE}
@@ -163,55 +163,18 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 02_priority_species_report.qmd >}} 
 
 {{< pagebreak >}} 
 
-
 ```{r, echo = FALSE}
 # Define parameters for the first section
 params <- list(
-  Common_name = "aurora rockfish"
+  Common_name = "black rockfish"
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
-
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "bank rockfish"
-)
-```
-
-{{< include 02_species_report.qmd >}} 
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "big skate"
-)
-```
-
-{{< include 02_species_report.qmd >}} 
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-#params <- list(
-#  Common_name = "black rockfish"
-#)
-```
-
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "blackgill rockfish"
-)
-```
-
-{{< include 02_species_report.qmd >}} 
+{{< include 02_priority_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -220,8 +183,132 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 02_priority_species_report.qmd >}} 
 
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "lingcod north"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "lingcod south"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "longspine thornyhead"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "Pacific spiny dogfish"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "petrale sole"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "redbanded rockfish"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "shortspine thornyhead"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "widow rockfish"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "yellowtail rockfish south"
+)
+```
+
+{{< include 02_priority_species_report.qmd >}}
+
+{{< pagebreak >}} 
+
+# Other groundfish species
+
+{{< include 03_other_species_report.qmd >}} 
+
+{{< pagebreak >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "aurora rockfish"
+)
+```
+
+{{< include 03_other_species_report.qmd >}}  
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "bank rockfish"
+)
+```
+
+{{< include 03_other_species_report.qmd >}} 
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "big skate"
+)
+```
+
+{{< include 03_other_species_report.qmd >}}  
+
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "blackgill rockfish"
+)
+```
+
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -230,7 +317,6 @@ params <- list(
 #)
 ```
 
-
 ```{r, echo = FALSE}
 # Define parameters for the first section
 params <- list(
@@ -238,8 +324,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
-
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -248,8 +333,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
-
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -258,7 +342,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}}  
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -274,7 +358,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}}  
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -283,7 +367,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -292,7 +376,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}}  
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -301,7 +385,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -310,7 +394,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}}  
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -319,7 +403,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -328,7 +412,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -337,25 +421,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}} 
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "lingcod north"
-)
-```
-
-{{< include 02_species_report.qmd >}} 
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "lingcod south"
-)
-```
-
-{{< include 02_species_report.qmd >}} 
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -364,16 +430,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "longspine thornyhead"
-)
-```
-
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -382,7 +439,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -391,7 +448,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -400,25 +457,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "Pacific spiny dogfish"
-)
-```
-
-{{< include 02_species_report.qmd >}}
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "petrale sole"
-)
-```
-
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -427,16 +466,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "redbanded rockfish"
-)
-```
-
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -445,7 +475,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -454,7 +484,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -463,7 +493,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -472,7 +502,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -481,7 +511,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -490,7 +520,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -499,16 +529,6 @@ params <- list(
 #)
 ```
 
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "shortspine thornyhead"
-)
-```
-
-{{< include 02_species_report.qmd >}}
-
 ```{r, echo = FALSE}
 # Define parameters for the first section
 params <- list(
@@ -516,7 +536,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -525,7 +545,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -534,7 +554,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -552,7 +572,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -561,16 +581,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "widow rockfish"
-)
-```
-
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -579,7 +590,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -588,7 +599,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -597,35 +608,24 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "yellowtail rockfish south"
-)
-```
-
-{{< include 02_species_report.qmd >}}
-
-
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, results='asis'}
-#| label: '03_survey_settings'
+#| label: '04_survey_settings'
 #| eval: true
 #| echo: false
 #| warning: false
-a <- knitr::knit_child('03_survey_settings.qmd', quiet = TRUE)
+a <- knitr::knit_child('04_survey_settings.qmd', quiet = TRUE)
 cat(a, sep = '\n')
 ```
 
 
 ```{r, results='asis'}
-#| label: '04_acknowledgments'
+#| label: '05_acknowledgments'
 #| eval: true
 #| echo: false
 #| warning: false
-a <- knitr::knit_child('04_acknowledgments.qmd', quiet = TRUE)
+a <- knitr::knit_child('05_acknowledgments.qmd', quiet = TRUE)
 cat(a, sep = '\n')
 ```
 
