@@ -3,7 +3,15 @@ research_list <- function(species_name) {
   research_text <- ""
   if (species_name %in% c("blue and deacon rockfish", "black rockfish")) {
     text <- glue::glue(
-      "ODFW conducted their acoustic visual survey in 2025 that will provide an additional measure of  absolute abundance of {species_name} in Oregon waters."
+      "In 2025, ODFW conducted another year of  the nearshore visual-acoustic survey for semipelagic rockfish.  
+      Data analysis is on going and not expected to be finish by winter of 2026 due to extremely 
+      large schools of young-of-the-year rockfish observed on the camera and acoustics. 
+      During the 2025 survey no hook and line sampling occurred due to cost constraints. 
+      ODFW is finishing a manuscript with NOAA-retired Dr. Dezhang Chu developing 
+      target strength models for these species which can be considered when using 
+      these data. Comparison studies of the previously used Biosonic echosounder 
+      and the Scientific and Statistical Committee recommended Simrad echosounder are on going. 
+      Currently, ODFW anticipate completing data analysis mid-2027."
     )
     research_text <- glue::glue("{research_text} {text}")
   }
@@ -16,15 +24,21 @@ research_list <- function(species_name) {
   }
 
   if (species_name == "Pacific spiny dogfish") {
-    #glue::glue(
-    #  "Tagging studies of are currently being conducted to better understand the
-    #         movement of {species_name} off the U.S. West Coast. This research is being conducted by scientists
-    #         at the NWFSC and ODFW and is anticipated to conclude in 2025."
-    #)
+    url <- "https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70028"
     text <- glue::glue(
-      "Researchers have conducted an analysis of the trends of {species_name} across the North Pacific indicating declining population trends across regions."
+      "Research has identified similar declining population trends across regions in the
+      North Pacific (i.e., Alaska, Canada, and the U.S. West Coast) for 
+      Pacific spiny dogfish [Davidson et al. 2026]({url}).
+      There has been additional research focusing on understanding movement
+      of Pacific spiny dogfish. Since 2024, ODFW in collaboration with 
+      Oregon State University, has tagged 76 Pacific spiny dogfish with satellite tags in Washington and Oregon. 
+      To date 46 of those tags have retreived and are providing information. Likelihood profiles 
+      for each tags track are being developed to determine movements of the individuals. 
+      The goal is to understand the Pacific spiny dogfish movement across seasons and depth which 
+      will provide improved understanding about availability to summer surveys and 
+      bottom trawl gear off the U.S. West Coast."
     )
-    research_text <- glue::glue("{research_text} {text}")
+    research_text <- glue::glue("{research_text}{text}")
   }
 
   if (
@@ -36,7 +50,8 @@ research_list <- function(species_name) {
       )
   ) {
     text <- glue::glue(
-      "ODFW scientists are planning a research cruise to Cobb Sea Mount in the summer of 2026 to sample age and sex distributions of this rockfish species and others."
+      "ODFW scientists are planning a research cruise to Cobb Sea Mount in the summer of 2026 to 
+      sample age and sex distributions of this rockfish species and others."
     )
     research_text <- glue::glue("{research_text} {text}")
   }
