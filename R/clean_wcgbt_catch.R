@@ -59,26 +59,5 @@ clean_wcgbt_catch <- function(dir = dir, species, data) {
     )
   )
   wcgbt_catch <- wcgbt_catch[-remove, ]
-
-  catch_areas <- wcgbt_catch |>
-    dplyr::filter(positive_tow == 1) |>
-    dplyr::group_by(Common_name) |>
-    dplyr::summarise(
-      min_depth = min(Depth_m),
-      min_depth_01 = quantile(Depth_m, 0.01),
-      max_depth = max(Depth_m),
-      max_depth_99 = quantile(Depth_m, 0.99),
-      min_lat = min(Latitude_dd),
-      min_lat_01 = quantile(Latitude_dd, 0.01),
-      max_lat = max(Latitude_dd),
-      max_lat_99 = quantile(Latitude_dd, 0.99)
-    )
-
-  utils::write.csv(
-    catch_areas,
-    here::here(dir, "wcgbt_catch_areas.csv"),
-    row.names = FALSE
-  )
-  save(wcgbt_catch, file = file.path(dir, "wcgbt_catch_filtered.Rdata"))
   return(wcgbt_catch)
 }

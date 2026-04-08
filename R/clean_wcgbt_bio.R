@@ -57,7 +57,5 @@ clean_wcgbt_bio <- function(dir = dir, species, data) {
     )
   )
   wcgbt_bio <- wcgbt_bio[-remove, ]
-
-  save(wcgbt_bio, file = file.path(dir, "wcgbt_bio_filtered.Rdata"))
   return(wcgbt_bio)
 }
