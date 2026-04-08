@@ -155,18 +155,6 @@ cat(a, sep = '\n')
 
 # Preliminary species identified for assessment in 2027
 
-
-```{r, echo = FALSE}
-# Define parameters for the first section
-params <- list(
-  Common_name = "arrowtooth flounder"
-)
-```
-
-{{< include 02_priority_species_report.qmd >}} 
-
-{{< pagebreak >}} 
-
 ```{r, echo = FALSE}
 # Define parameters for the first section
 params <- list(
@@ -175,6 +163,8 @@ params <- list(
 ```
 
 {{< include 02_priority_species_report.qmd >}} 
+
+{{< pagebreak >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -270,9 +260,14 @@ params <- list(
 
 # Other groundfish species
 
-{{< include 03_other_species_report.qmd >}} 
+```{r, echo = FALSE}
+# Define parameters for the first section
+params <- list(
+  Common_name = "arrowtooth flounder"
+)
+```
 
-{{< pagebreak >}} 
+{{< include 03_other_species_report.qmd >}}  
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
@@ -563,7 +558,7 @@ params <- list(
 )
 ```
 
-{{< include 02_species_report.qmd >}}
+{{< include 03_other_species_report.qmd >}} 
 
 ```{r, echo = FALSE}
 # Define parameters for the first section
