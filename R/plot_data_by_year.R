@@ -14,7 +14,20 @@ plot_data_by_year <- function(
 ) {
   year_range <- min(data$Year):max(data$Year)
   data$Source <- as.factor(data$Source)
+  
+  priority_species <- c("Black rockfish", "Bocaccio", "Lingcod north", "Lingcod south", "Longspine thornyhead",
+                        "Pacific spiny dogfish", "Petrale sole", "Redbanded rockfish", "Shortspine thoryhead",
+                        "Widow rockfish", "Yellowtail rockfish south")
+  #remove_sources <- c("CCFRP", "Commercial", "GCDC", "Recreational")
+  
+  #data <- dplyr::filter(data,
+  #                           (!Common_name %in% priority_species & !Source %in% remove_sources))
 
+  data_priority <- dplyr::filter(data, Common_name %in% priority_species)
+  
+  data_other <- dplyr::filter(data, !Common_name %in% priority_species)
+  
+  
   cbp1 <- c(
     '#56B4E9',
     '#0072B2',

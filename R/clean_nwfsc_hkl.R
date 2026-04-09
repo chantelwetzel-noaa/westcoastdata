@@ -28,7 +28,7 @@ clean_nwfsc_hkl <- function(
         lower_name == "lingcod" ~ "lingcod south",
         .default = lower_name
       ),
-      State = "CA",
+      State = "California",
       Source = "NWFSC HKLS",
       Fleet = NA,
       Lengthed = dplyr::case_when(!is.na(length_cm) ~ 1, .default = 0),

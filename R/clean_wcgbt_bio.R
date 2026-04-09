@@ -20,9 +20,9 @@ clean_wcgbt_bio <- function(dir = dir, species, data) {
         .default = "SCA"
       ),
       State = dplyr::case_when(
-        Latitude_dd > 46.25 ~ "WA",
-        Latitude_dd <= 42.0 ~ "CA",
-        .default = "OR"
+        Latitude_dd > 46.25 ~ "Washington",
+        Latitude_dd <= 42.0 ~ "California",
+        .default = "Oregon"
       ),
       Fleet = NA,
       Sex = nwfscSurvey::codify_sex(Sex),
@@ -38,22 +38,22 @@ clean_wcgbt_bio <- function(dir = dir, species, data) {
   wcgbt_bio <- rename_wcgbt_species(data = bio)
 
   remove <- c(
-    which(wcgbt_bio$Common_name == "black rockfish" & wcgbt_bio$State == "CA"),
+    which(wcgbt_bio$Common_name == "black rockfish" & wcgbt_bio$State == "California"),
     which(
       wcgbt_bio$Common_name == "blue and deacon rockfish" &
-        wcgbt_bio$State == "CA"
+        wcgbt_bio$State == "California"
     ),
     which(
-      wcgbt_bio$Common_name == "cabezon" & wcgbt_bio$State %in% c("CA", "OR")
+      wcgbt_bio$Common_name == "cabezon" & wcgbt_bio$State %in% c("California", "Oregon")
     ),
-    which(wcgbt_bio$Common_name == "China rockfish" & wcgbt_bio$State == "CA"),
-    which(wcgbt_bio$Common_name == "copper rockfish" & wcgbt_bio$State == "CA"),
+    which(wcgbt_bio$Common_name == "China rockfish" & wcgbt_bio$State == "California"),
+    which(wcgbt_bio$Common_name == "copper rockfish" & wcgbt_bio$State == "California"),
     which(
-      wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "CA"
+      wcgbt_bio$Common_name == "quillback rockfish" & wcgbt_bio$State == "California"
     ),
     which(
       wcgbt_bio$Common_name == "kelp greenling" &
-        wcgbt_bio$State %in% c("CA", "OR")
+        wcgbt_bio$State %in% c("California", "Oregon")
     )
   )
   wcgbt_bio <- wcgbt_bio[-remove, ]
