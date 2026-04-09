@@ -72,7 +72,7 @@ plot_data_by_year <- function(
         legend.text = ggplot2::element_text(size = 14),
         strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
-      ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
+      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
 
     lims <- data |>
       dplyr::filter(
@@ -115,7 +115,7 @@ plot_data_by_year <- function(
         strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
-      ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
+      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
 
     otoliths <- ggplot2::ggplot(
       data |>
@@ -143,7 +143,7 @@ plot_data_by_year <- function(
         strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
-      ggplot2::scale_fill_manual(values = cbp4, drop = FALSE)
+      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
 
     cowplot::plot_grid(lengths, ages, otoliths, ncol = 1, nrow = 3)
     ggplot2::ggsave(

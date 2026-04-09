@@ -308,14 +308,14 @@ list(
         cdfw_rec_otolith_clean
       )
     )
-  ) #,
+  ),
   #Plot the data
-  #tar_target(
-  #  state_comparison_plots,
-  #  plot_data_by_year(
-  #    data = combined_data
-  #  )
-  #),
+  tar_target(
+    state_comparison_plots,
+    plot_data_by_year(
+      data = combined_data
+    )
+  )#,
   # WCGBTS indices
   #tarchetypes::tar_files(
   #  auto_indexwc_output,
