@@ -44,7 +44,8 @@ clean_wdfw_otolith_files <- function(data, species, year) {
       Age = NA,
       Sex = "U",
       age_method = NA
-    )
+    ) |>
+    dplyr::filter(!is.na(Common_name))
 
   out <- format_data |>
     dplyr::select(
