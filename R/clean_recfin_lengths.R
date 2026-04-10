@@ -101,6 +101,11 @@ clean_recfin_lengths <- function(
     format_data$State == "California"
   )
   format_data$Common_name[lingcod_south] <- "lingcod south"
+  remove <- which(
+    format_data$Common_name == "black rockfish" &
+      format_data$State == "California"
+  )
+  format_data <- format_data[-remove, ]
 
   data_out <- format_data |>
     dplyr::select(
