@@ -16,7 +16,7 @@ plot_data_by_year <- function(
   data$Source <- as.factor(data$Source)
   
   priority_species <- c("black rockfish", "bocaccio", "lingcod north", "lingcod south", "longspine thornyhead",
-                        "Pacific spiny dogfish", "petrale sole", "redbanded rockfish", "shortspine thoryhead",
+                        "Pacific spiny dogfish", "petrale sole", "redbanded rockfish", "shortspine thornyhead",
                         "widow rockfish", "yellowtail rockfish south")
   remove_sources <- c("CCFRP", "Commercial", "GCDC", "Recreational")
   
