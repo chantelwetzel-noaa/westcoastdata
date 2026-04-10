@@ -23,9 +23,9 @@ plot_data_by_year <- function(
   data <- dplyr::filter(data,
                              !(!Common_name %in% priority_species & Source %in% remove_sources))
 
-  data_priority <- dplyr::filter(data, Common_name %in% priority_species)
+ # data_priority <- dplyr::filter(data, Common_name %in% priority_species)
   
-  data_other <- dplyr::filter(data, !Common_name %in% priority_species)
+ # data_other <- dplyr::filter(data, !Common_name %in% priority_species)
   
   
   cbp1 <- c(
@@ -43,6 +43,16 @@ plot_data_by_year <- function(
   cbp4 <- c('#AA3377', '#66CCEE')
 
   for (sp in unique(data$Common_name)) {
+    
+    if (sp %in% priority_species){
+      
+      fill_vals <- c("CCFRP" = "#F0E442", "Commercial" = "#E69F00", "GCDC" = "#D55E00", "NWFSC HKLS" = "#0072B2", "NWFSC WCGBTS" = "#56B4E9", "Recreational" = "#009E73")
+      
+    } else {
+      
+      fill_vals <- c("NWFSC HKLS" = "#0072B2", "NWFSC WCGBTS" = "#56B4E9")
+    }
+    
     lims <- data |>
       dplyr::filter(
         Common_name == sp
@@ -85,7 +95,7 @@ plot_data_by_year <- function(
         legend.text = ggplot2::element_text(size = 14),
         strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
-      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
+      ggplot2::scale_fill_manual(values = fill_vals, breaks = names(fill_vals), drop = FALSE)
 
     lims <- data |>
       dplyr::filter(
@@ -128,7 +138,7 @@ plot_data_by_year <- function(
         strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
-      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
+      ggplot2::scale_fill_manual(values = fill_vals, breaks = names(fill_vals), drop = FALSE)
 
     otoliths <- ggplot2::ggplot(
       data |>
@@ -156,7 +166,7 @@ plot_data_by_year <- function(
         strip.background = ggplot2::element_rect(colour = "black", fill = "#FFFFFF")
       ) +
       ggplot2::facet_wrap("State", ncol = 3) +
-      ggplot2::scale_fill_manual(values = cbp1, drop = FALSE)
+      ggplot2::scale_fill_manual(values = fill_vals, breaks = names(fill_vals), drop = FALSE)
 
     cowplot::plot_grid(lengths, ages, otoliths, ncol = 1, nrow = 3)
     ggplot2::ggsave(
