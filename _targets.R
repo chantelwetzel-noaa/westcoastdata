@@ -98,7 +98,7 @@ list(
   ),
   tar_target(
     recfin_lengths,
-    readr::read_csv(recfin_length_data_file)
+    read.csv(recfin_length_data_file)
   ),
   # RecFIN age data
   tar_target(
@@ -315,7 +315,7 @@ list(
     plot_data_by_year(
       data = combined_data
     )
-  )#,
+  ) #,
   # WCGBTS indices
   #tarchetypes::tar_files(
   #  auto_indexwc_output,
