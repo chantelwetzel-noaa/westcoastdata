@@ -34,7 +34,9 @@ clean_ccfrp <- function(species, data, year = 2000) {
       Age = NA,
       Sex = "U",
       age_method = NA
-    )
+    ) |>
+    dplyr::filter(!is.na(Common_name)) |>
+    dplyr::filter(Common_nam != "black rockfish")
 
   yellowtail_south <- which(
     format_data$Common_name == "yellowtail rockfish" &
