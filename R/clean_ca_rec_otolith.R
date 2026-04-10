@@ -43,7 +43,8 @@ clean_ca_rec_otolith <- function(data, species, year) {
       Age = NA,
       Sex = "U",
       age_method = NA
-    )
+    ) |>
+    dplyr::filter(Common_name != "black rockfish")
 
   out <- format_data |>
     dplyr::select(
