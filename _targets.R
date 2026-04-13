@@ -140,6 +140,15 @@ list(
     ca_rec_otoliths,
     readxl::read_excel(ca_rec_otolith_file)
   ),
+  tar_target(
+    ca_com_otolith_file,
+    command = "data-raw/2026/cdfw_com_otolith_count.xlsx",
+    format = "file"
+  ),
+  tar_target(
+    ca_com_otoliths,
+    readxl::read_excel(ca_com_otolith_file, sheet = "all")
+  ),
   # CCFRP data
   tar_target(
     ccfrp_length_data_file,
@@ -243,6 +252,14 @@ list(
     )
   ),
   tar_target(
+    cdfw_com_otolith_clean,
+    clean_cdfw_otolith_files(
+      data = ca_com_otoliths,
+      species = short_species_list,
+      year = year
+    )
+  ),
+  tar_target(
     cdfw_rec_otolith_clean,
     clean_ca_rec_otolith(
       data = ca_rec_otoliths,
@@ -305,7 +322,8 @@ list(
         wdfw_otolith_clean,
         odfw_otolith_clean,
         gcdc_data_clean,
-        cdfw_rec_otolith_clean
+        cdfw_rec_otolith_clean,
+        cdfw_com_otolith_clean
       )
     )
   ),
