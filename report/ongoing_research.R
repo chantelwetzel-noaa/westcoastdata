@@ -42,6 +42,17 @@ research_list <- function(species_name) {
     research_text <- glue::glue("{research_text} {text}")
   }
 
+  if (species_name == "yellowtail rockfish south") {
+    text <- paste0(
+      "\n\n",
+      glue::glue(
+        "The Cooperative Ageing Program lab have aged 1,271 otoliths collected by the NWFSC HKLS that
+      are not represented in the count of aged fish shown."
+      )
+    )
+    research_text <- glue::glue("{research_text} {text}")
+  }
+
   if (species_name == "Pacific spiny dogfish") {
     url <- "https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70028"
     text <- paste0(

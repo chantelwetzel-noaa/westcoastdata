@@ -84,7 +84,7 @@ params:
 
 age_validation_text <- ""  
 if (species_name %in% c("longspine thornyhead", "shortspine thornyhead")) { 
-  age_validation_text <- glue::glue("{age_validation_text} No validated (accurate and precise) aging methology currently exists for {species_name}. ")
+  age_validation_text <- glue::glue("{age_validation_text} No validated (accurate and precise) ageing methology currently exists for {species_name}. ")
 }
 
   # Get maturity
