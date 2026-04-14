@@ -87,7 +87,7 @@ list(
     pacfin_raw,
     command = load_rdata_object(
       dir = "data-raw/2026/",
-      rdata_name = "PacFIN.bds.19.Mar.2026.RData"
+      rdata_name = "PacFIN.PTRL--LCOD--YTRK--RDBD--DSRK--WDOW--BCAC--BLCK--SSPN--LSPN.bds.14.Apr.2026.RData"
     )
   ),
   # RecFIN length data
@@ -147,7 +147,7 @@ list(
   ),
   tar_target(
     ca_com_otoliths,
-    readxl::read_excel(ca_com_otolith_file, sheet = "all")
+    readxl::read_excel(ca_com_otolith_file, sheet = "ALL")
   ),
   # CCFRP data
   tar_target(
