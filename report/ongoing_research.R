@@ -9,12 +9,12 @@ research_list <- function(species_name) {
       assessment of {species_name}. The first research project is another year of  the nearshore 
       visual-acoustic survey for semipelagic rockfish completed in 2025. During the 2025 survey, 
       no hook and line sampling occurred due to cost constraints. Data analysis is on going 
-      and not expected to be finish by winter of 2026 due to extremelylarge schools of young-of-the-year 
+      and not expected to be finish by winter of 2026 due to extremely large schools of young-of-the-year 
       rockfish observed on the camera and acoustics. ODFW is finishing a manuscript with NOAA-retired 
       Dr. Dezhang Chu developing target strength models for these species which can be considered 
       when using these data. Comparison studies of the previously used Biosonic echosounder 
       and the Scientific and Statistical Committee recommended Simrad echosounder are on going. 
-      Currently, ODFW anticipate completing data analysis mid-2027."
+      Currently, ODFW staff anticipate completing data analysis mid-2027."
       ),
       "\n\n"
     )
@@ -24,7 +24,7 @@ research_list <- function(species_name) {
       sample age and sex distributions of this rockfish species and others. This will provide 
       additional information about age and sex distribution for {species_name} in areas that 
       are likely not sampled by commercial and recreational fisheries.  The final research project 
-      being led by ODFW scientists is examines the impacts of hypoxia on the catch per unit effort 
+      being led by ODFW scientists examines the impacts of hypoxia on the catch per unit effort 
       for {species_name}."
       ),
       "\n\n"
