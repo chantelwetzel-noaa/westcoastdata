@@ -16,6 +16,7 @@ _main.md
 *.aux
 *.upa
 *.log
+*.pdf
 docs
 
 data-processed/2026/additional_indices/**/*.png
