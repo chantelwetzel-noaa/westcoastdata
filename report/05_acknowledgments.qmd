@@ -3,3 +3,7 @@
 # Acknowledgements
 
 We would like to thank the NWFSC Fisheries Resource Analysis and Monitoring WCGBTS and HKLS teams, including volunteer biologists and vessel captains and crew, and acknowledge their dedication to collecting high quality data that are essential to the assessment of West Coast groundfish stocks. Thank you to Eric Ward who was instrumental in estimating indices for the large number of species in this report and his dedication for improving workflows and automation.
+
+Thank you to State agencies and Pacific States Marine Fisheries Commission (PSMFC) for their efforts in collecting and managing high quality data to support stock assessment and fisheries management.  Thank you to Leif Rasmuson (ODFW) and Fabio Prior Caltabellotta (WDFW) for providing information about ongoing research being led by their respective State agencies.  Thank you to Theresa Tsou (WDFW), Ali Whitman (WDFW), Andre Klein (CDFW), and Brenda Erwin (PSMFC) who graciously answered our numerous question about available data and for providing data. 
+
+Thank you to ageing staff at the Cooperative Ageing Program, ODFW, and WDFW whose diligent ageing work all year long make all of this possible.  
