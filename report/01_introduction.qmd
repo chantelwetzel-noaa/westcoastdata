@@ -1,14 +1,27 @@
 # Introduction 
 
-This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS). A detailed summary of data available by year for the species and associated stock areas included in the Fishery Management Plan (FMP) can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
+This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS) for all species. Additional information from commercial, recreational, California Collaborative Fisheries Research Program (CCFRP), and the Groundfish Cooperative Data Collection (GCDC) for select species identified at the March 2026 Pacific Fisheries Management Council (PFMC) meeting. A detailed summary of data available by year for the species and associated stock areas included in the Fishery Management Plan (FMP) can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
 
-This summary includes species-specific totals of available length and age data for FMP species regularly sampled by federal surveys and only in the associated stock areas listed in the FMP (or still under consideration). For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
+This summary includes species-specific totals of available length and age data for FMP species and only in the associated stock areas listed in the FMP (pending revisions based upon recent PFMC decisions). For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
 
-This version of the data summary document does not include a summary of commercial, recreational, or state-specific fishery-independent data.  Future versions may include information from these data sources, time permitting.
+## Data Sources (EDIT THIS SECTION)
 
-## Biological Samples
+Add a bulleted list for each of the data sources here with the available data and period.
 
-Data collected by the WCGBTS between 2003-`r endyr` and the HKLS from 2004-`r endyr` are summarized by species. Summaries of the total lengths, aged fish, and unread age structures collected by each survey and the quantity available by year are provided. Additionally, the average number of tows (WCGBTS) or set (HKLS) that observe each species by year and survey is provided.
+All species:
+
+* Data collected by the Northwest Fisheries Science Center West Coast Groundfish Bottom Trawl Survey (WCGBTS) between 2003-`r endyr`,  average number of tows (WCGBTS)  that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data;
+
+* Data collected by the NWFSC Hook and Line Survey (HKLS) from 2004-`r endyr`, the average number of sets that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data; and 
+
+* Maturity collection by staff at the NWFSC.
+
+
+Species identified at the March 2026 PFMC meeting:
+
+*
+
+
 
 ## Survey Length Compositions
 
@@ -29,3 +42,75 @@ The indices of abundance presented here should only be considered illustrative o
 ## Maturity Data Collections
 
 Maturity samples for a wide range of West Coast groundfish species have been collected across multiple sources: the WCGBTS, the HKLS, the Pacific hake acoustic survey, at-sea sampling from the Pacific hake fishery, and port sampling by state agencies. A summary of the number of maturity samples collected and read between 2009 - 2024 is provided for each species. These data summaries only include collections led by the NWFSC but other collections could be available from other research groups.     
+
+## California Recreational Age-Structure Collections (EDIT THIS SECTION)
+
+California Department of Fish and Wildlife (CDFW) provided age structure sample numbers
+collected via various methods from commercial and recreational fisheries. These samples were
+collected outside the standard sampling protocol for either California Recreational Fisheries
+Survey (CRFS) or the Pacific States Marine Fisheries Commission (PSMFC) commercial
+sampling program. These collections were labeled as “CDFW Ad-hoc” collections for each
+species. Details on the collection methodology for the recreational and commercial samples
+are below.
+
+There are no age or age structure sample data in RecFIN that have been collected from
+California recreational fisheries. Recent age structure collections from 2017-2023 were
+provided directly by CDFW. The recreational age structure collections provided by CDFW
+were collected by various methods: 1) from angler surrendered fish for copper rockfish,
+quillback rockfish, and yelloweye rockfish that were kept in excess of recreational bag limits
+or were prohibited to be retained, 2) cowcod under CDFW’s Exempted Fishing Permit
+encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled
+species from private/rental and party/charter recreational vessels. Any future assessment, 
+will need to investigate the California recreational age structures for representativeness to
+determine whether they could be linked to a recreational fleet within a model.
+
+Age structures collected from 12 groundfish species in 2019 by CDFW from purposive
+sampling (i.e., non-random) from commercially landed fish. This commercial pilot project
+involved obtaining randomly selected fish from participating fish businesses, either at the
+time of landing, or in the case of multiple landings utilizing the same gear type, after the
+landing had occurred. These ages would not be associated with a commercial fleet in an
+assessment due to their non-random collections.
+
+Age structures collected from carcasses of groundfish species between 2017-2019 by CDFW
+recreational fisheries. These collections may be considered by future assessments but would
+likely only be used as marginal ages (i.e., would not inform growth) given the uncertainty
+around the true fish length (e.g., length prior to filleting).
+
+## Additional Data (EDIT THIS SECTION)
+
+Data may be available for consideration in future assessments that are currently not included
+in this report. A summary of potential additional data that could be available are described
+below:
+
+* Totals for data collected in 2023 in PacFIN and RecFIN are incomplete for all states.
+
+* Data collected in 2023 by the CCFRP are not yet available. Additionally, in recent
+years CCFRP has been collecting age structures from a small number of fish from the
+reference area (i.e., areas open to fishing). The numbers of age structures and aged fish
+from this survey were not available for this report. There is a separate document is
+provided that summarizes data collected by the CCFRP for select species that details
+the number of samples by location, area type (marine protected area or reference area),
+and plots of available length compositions.
+
+* Historical data collections from various research projects exist at the SWFSC that
+have not been cataloged and entered into any database. Species-specific searches may
+yield additional samples within these collections.
+While this document only summarizes data from 2000-2023, there are additional data available
+from earlier years that could be incorporated into future assessments.
+
+* ODFW and WDFW have substantial collections from periods prior to the years
+summarized in this report from their commercial and recreational sampling programs.
+
+* CDFW is undergoing a review of historical age structures collections (i.e., referred to
+as refugia samples) for samples from the 1980s and earlier. If sufficient documentation
+exists for these historical samples they could be potentially included in future assessments. Since this work is ongoing it is unclear how many samples may be available
+across species.
+
+Finally, summarizing commercial and recreational data from each state accurately continues
+to be challenging due to differences by state in what information is transmitted to PacFIN and
+RecFIN (e.g., California commercial age structure collections). Receiving and understanding
+the available commercial and recreational data requires emailing various representative in
+each state who thankfully have been accommodating in answering questions and providing
+additional data summaries. However, given the challenges around acquiring and collating,
+data summaries may not be comprehensive or have unintentional errors. Any issues identified
+will be addressed in future versions.
