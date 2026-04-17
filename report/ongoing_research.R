@@ -103,11 +103,13 @@ research_list <- function(species_name) {
         "canary rockfish"
       )
   ) {
-    text <-
+    text <- paste0(
+      "\n\n",
       glue::glue(
         "ODFW scientists are planning a research cruise to Cobb Sea Mount in the summer of 2026 to 
       sample age and sex distributions of this rockfish species and others."
       )
+    )
     research_text <- glue::glue("{research_text} {text}")
   }
 
@@ -121,9 +123,12 @@ research_list <- function(species_name) {
         "quillback rockfish"
       )
   ) {
-    text <- glue::glue(
+    text <- paste0(
+      "\n\n",
+      glue::glue(
       "ODFW scientists have conducted research looking at the influences of hypoxia on the catch per unit effort for {species_name}."
     )
+  )
     research_text <- glue::glue("{research_text} {text}")
   }
   return(research_text)
