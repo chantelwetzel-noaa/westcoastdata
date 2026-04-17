@@ -4,23 +4,24 @@ This document provides a detailed summary of data sources that may be used to su
 
 This summary includes species-specific totals of available length and age data for FMP species and only in the associated stock areas listed in the FMP (pending revisions based upon recent PFMC decisions). For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
 
-## Data Sources (EDIT THIS SECTION)
+## Data Sources
 
-Add a bulleted list for each of the data sources here with the available data and period.
+For all species:
 
-All species:
+* Data collected by the NWFSC WCGBTS between 2003-`r endyr`,  average number of tows (WCGBTS) that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data;
 
-* Data collected by the Northwest Fisheries Science Center West Coast Groundfish Bottom Trawl Survey (WCGBTS) between 2003-`r endyr`,  average number of tows (WCGBTS)  that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data;
+* Data collected by the NWFSC HKLS from 2004-`r endyr`, the average number of sets that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data; and 
 
-* Data collected by the NWFSC Hook and Line Survey (HKLS) from 2004-`r endyr`, the average number of sets that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data; and 
-
-* Maturity collection by staff at the NWFSC.
+* Maturity data collections led by the NWFSC.
 
 
-Species identified at the March 2026 PFMC meeting:
+Additionally, for species identified at the March 2026 PFMC meeting, when applicable:
 
-*
+* Data from commercial fisheries (2000-`r endyr`) and recreational fisheries (2000-`r endyr`);
 
+* Data collected by the CCFRP from 2007-`r endyr`; and
+
+* Data collected by the GCDC from 2023-`r endyr`.
 
 
 ## Survey Length Compositions
