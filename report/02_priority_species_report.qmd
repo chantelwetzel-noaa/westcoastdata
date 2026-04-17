@@ -77,15 +77,18 @@ params:
   sample_text <- ""
   for (ss in average_sets$Source) {
     number <- average_sets[average_sets$Source == ss, "sets"]
+    number_text <- ifelse(number < 1, "less than one", number)
+    set_text <- ifelse(number < 2, "set", "sets")
+    tow_text <- ifelse(number < 2, "tow", "tows")
     if (ss == "NWFSC HKLS") {
       samples <- glue::glue(
-        "The {ss} observed {species_name} on an average of {number} sets per year."
+        "The {ss} observed {species_name} on an average of {number_text} {set_text} per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
     }    
     if (ss == "NWFSC WCGBTS") {
       samples <- glue::glue(
-        "The {ss} observed {species_name} on an average of {number} tows per year."
+        "The {ss} observed {species_name} on an average of {number_text} {tow_text} per year."
       )
       sample_text <- glue::glue("{sample_text} {samples}")
     }
