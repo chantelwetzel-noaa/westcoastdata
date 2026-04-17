@@ -72,6 +72,7 @@ outer_dir <- here::here()
 source(file.path(outer_dir, "R", "get_species_data_survey.R"))
 source(file.path(outer_dir, "R", "get_source.R"))
 source(file.path(outer_dir, "report", "ongoing_research.R"))
+source(file.path(outer_dir, "report", "maturity_parameters_text.R"))
 
 assess_data <- read.csv(file.path(here::here(), "data-processed", "2026", "assess_year_ssc_rec.csv"))
 assess_data_df <- assess_data |>
