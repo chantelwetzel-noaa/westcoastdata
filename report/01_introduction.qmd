@@ -1,6 +1,6 @@
 # Introduction 
 
-This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS) for all species. Additional information from commercial, recreational, California Collaborative Fisheries Research Program (CCFRP), and the Groundfish Cooperative Data Collection (GCDC) for select species identified at the March 2026 Pacific Fisheries Management Council (PFMC) meeting. A detailed summary of data available by year for the species and associated stock areas included in the Fishery Management Plan (FMP) can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
+This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS) for all species. Additional information from commercial, recreational, California Collaborative Fisheries Research Program (CCFRP) Survey, and the Groundfish Cooperative Data Collection (GCDC) for select species identified at the March 2026 Pacific Fisheries Management Council (PFMC) meeting. A detailed summary of data available by year for the species and associated stock areas included in the Fishery Management Plan (FMP) can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
 
 This summary includes species-specific totals of available length and age data for FMP species and only in the associated stock areas listed in the FMP (pending revisions based upon recent PFMC decisions). For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
 
@@ -17,9 +17,11 @@ For all species:
 
 Additionally, for species identified at the March 2026 PFMC meeting, when applicable:
 
-* Data from commercial fisheries (2000-`r endyr`) and recreational fisheries (2000-`r endyr`);
+* Data from commercial fisheries (2000-`r endyr`);
 
-* Data collected by the CCFRP from 2007-`r endyr` (lengths available from 2007-2022 and unread age structures for 2017-`r endyr`); and
+* Data from recreational fisheries for lengths(California 2004-`r endyr`, Oregon and Washington 2000-`r endyr`), ages, and unread age structures (California 2022-`r endyr` ad-hoc collections, Oregon 2000-2024, and Washington 2000-`r endyr`);
+
+* Data collected by the CCFRP Survey from 2007-`r endyr` (lengths available from 2007-2022 and unread age structures for 2017-`r endyr`); and
 
 * Data collected by the GCDC from 2023-`r endyr`.
 
@@ -83,35 +85,27 @@ Data may be available for consideration in future assessments that are currently
 in this report. A summary of potential additional data that could be available are described
 below:
 
-* Totals for data collected in 2023 in PacFIN and RecFIN are incomplete for all states.
+* Totals for data collected in 2026 in PacFIN and RecFIN are incomplete for all states.
 
-* Data collected in 2023 by the CCFRP are not yet available. Additionally, in recent
-years CCFRP has been collecting age structures from a small number of fish from the
-reference area (i.e., areas open to fishing). The numbers of age structures and aged fish
-from this survey were not available for this report. There is a separate document is
-provided that summarizes data collected by the CCFRP for select species that details
-the number of samples by location, area type (marine protected area or reference area),
-and plots of available length compositions.
+* Length data collected by the CCFPR survey in 2023-2025 were not available. 
 
 * Historical data collections from various research projects exist at the SWFSC that
-have not been cataloged and entered into any database. Species-specific searches may
-yield additional samples within these collections.
-While this document only summarizes data from 2000-2023, there are additional data available
-from earlier years that could be incorporated into future assessments.
+have not been cataloged and entered into any database. There are available unread
+otoliths for yellowtail rockfish south in this collection from various sources and 
+historical years, however, specific information was not available for this report. 
 
-* ODFW and WDFW have substantial collections from periods prior to the years
+* State mayhave substantial collections from periods prior to the years
 summarized in this report from their commercial and recreational sampling programs.
 
 * CDFW is undergoing a review of historical age structures collections (i.e., referred to
 as refugia samples) for samples from the 1980s and earlier. If sufficient documentation
-exists for these historical samples they could be potentially included in future assessments. Since this work is ongoing it is unclear how many samples may be available
-across species.
+exists for these historical samples they could be potentially included in future assessments. 
+Since this work is ongoing it is unclear how many samples may be available across species.
 
 Finally, summarizing commercial and recreational data from each state accurately continues
 to be challenging due to differences by state in what information is transmitted to PacFIN and
-RecFIN (e.g., California commercial age structure collections). Receiving and understanding
-the available commercial and recreational data requires emailing various representative in
-each state who thankfully have been accommodating in answering questions and providing
+RecFIN. Receiving and understanding the available commercial and recreational data requires 
+emailing various representative in each state who thankfully have been accommodating in answering questions and providing
 additional data summaries. However, given the challenges around acquiring and collating,
 data summaries may not be comprehensive or have unintentional errors. Any issues identified
 will be addressed in future versions.
