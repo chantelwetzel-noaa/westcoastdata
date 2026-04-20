@@ -19,7 +19,7 @@ Additionally, for species identified at the March 2026 PFMC meeting, when applic
 
 * Data from commercial fisheries (2000-`r endyr`) and recreational fisheries (2000-`r endyr`);
 
-* Data collected by the CCFRP from 2007-`r endyr`; and
+* Data collected by the CCFRP from 2007-`r endyr` (lengths available from 2007-2022 and unread age structures for 2017-`r endyr`); and
 
 * Data collected by the GCDC from 2023-`r endyr`.
 
