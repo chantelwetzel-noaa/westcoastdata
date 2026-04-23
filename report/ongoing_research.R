@@ -64,12 +64,25 @@ research_list <- function(species_name) {
   }
 
   if (species_name == "yellowtail rockfish south") {
+    ej_url <- "https://repository.library.noaa.gov/view/noaa/62673"
+    sb_url1 <- "https://link.springer.com/article/10.1007/s10641-014-0238-7"
+    sb_url2 <- "https://cdnsciencepub.com/doi/full/10.1139/cjfas-2023-0253"
     text <- paste0(
       "\n\n",
       glue::glue(
-        "The Cooperative Ageing Program lab has aged 1,271 otoliths collected by the NWFSC HKLS that
-      are not represented in the count of aged fish shown."
-      )
+        "There are a number of research pojects that could be considered in a 
+        future stock asessment of yellowtail rockfish south. Fecundity at size research
+        found strong maternal effects on egg production [(Dick et. al, 2017)]({ej_url})
+        as well as spatial variation [(Beyers et al, 2014)]({sb_url2}) and temporal
+        variation [(Beyers et al, 2024)]({sb_url2}) in fecundity. Available maturity
+        samples could also provide additional understanding of maturity-at-length and 
+        -age and how that maturity compares to the northern stocks.  Finally, research
+        using life history information to estimate stock productivity (e.g., steepness)
+        directly from life history parameters and an estimate of early life survey is
+        in final review (Beyer et al., in review) which would be available for consideration for a 2027 stock
+        assessment."
+      ),
+      "\n\n"
     )
     research_text <- glue::glue("{research_text} {text}")
   }
@@ -126,9 +139,9 @@ research_list <- function(species_name) {
     text <- paste0(
       "\n\n",
       glue::glue(
-      "ODFW scientists have conducted research looking at the influences of hypoxia on the catch per unit effort for {species_name}."
+        "ODFW scientists have conducted research looking at the influences of hypoxia on the catch per unit effort for {species_name}."
+      )
     )
-  )
     research_text <- glue::glue("{research_text} {text}")
   }
   return(research_text)
