@@ -107,6 +107,10 @@ params:
       Program lab do not have an ageing protocol for this species. Due to these challenges, no ageing effort is anticipated. "
     )
   }
+  if(species_name ==  "yellowtail rockfish south") {
+    age_validation_text <- glue::glue("The Cooperative Ageing Program lab has aged 1,271 otoliths collected by the NWFSC HKLS that
+      are not represented in the count of aged fish shown.")
+  }
 
   # Get maturity
   mat <- maturity |>
