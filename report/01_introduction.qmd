@@ -1,32 +1,33 @@
 # Introduction 
 
-This document provides a detailed summary of data sources that may be used to support assessments in `r assess_year`. The data sources include the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and NWFSC Hook-and-Line Survey (HKLS) for all species. Additional information from commercial, recreational, California Collaborative Fisheries Research Program (CCFRP) Survey, and the Groundfish Cooperative Data Collection (GCDC) for select species identified at the March 2026 Pacific Fisheries Management Council (PFMC) meeting. A detailed summary of data available by year for the species and associated stock areas included in the Fishery Management Plan (FMP) can allow the Pacific Fishery Management Council and advisory bodies to understand the coverage of survey data across time and the potential viability of a new assessment or assessment type. 
+This document provides a detailed summary of select data sources that may be used to support stock assessments of West Coast groundfish in `r assess_year` and beyond. At the March 2026 Pacific Fisheries Management Council (the Council) meeting, an earlier version of this document was presented that included only data from federal surveys.  This version includes all information in the March version, but has included additional information based upon the Council motion requested additional information for select species to support final decision making.
 
-This summary includes species-specific totals of available length and age data for FMP species and only in the associated stock areas listed in the FMP (pending revisions based upon recent PFMC decisions). For species with robust sampling, figures representing relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data for each species is also listed.
+This summary includes sampling data (i.e., length, age, and unread age structures) from the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and Southern California Hook and Line Survey (HKLS) for FMP species. For species with robust sampling, relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data collected by scientists at the NWFSC for each species is also provided.
 
-## Data Sources
+For select species identified at the March 2026 Council meeting, additional information from commercial, recreational, California Collaborative Fisheries Research Program (CCFRP) Survey, and the Groundfish Cooperative Data Collection (GCDC) is also provided. Select additional species that were mentioned in advisory panel and management reports to support additional discussion at the June Council meeting. The species where additional information is provided include: black rockfish off Oregon and Washington, bocaccio, lingcod north and south of 40$^\circ$ 10' N. latitude, longspine thornyhead, Pacific spiny dogfish, petrale sole, redbanded rockfish, shortspine thornyhead, widow rockfish, and yellowtail rockfish south of 40$^\circ$ 10' N. latitude.
 
-For all species:
+# Detailed information on included data sources
 
-* Data collected by the NWFSC WCGBTS between 2003-`r endyr`,  average number of tows (WCGBTS) that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data;
+For all species that are commonly observed by federal surveys:
 
-* Data collected by the NWFSC HKLS from 2004-`r endyr`, the average number of sets that observe each species by year, indices of abundance for species with sufficient observations, and visualizations of length composition data; and 
+* Biological data samples collected by the NWFSC WCGBTS between 2003-`r endyr`,  average number of tows that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data;
+
+* Biological data samples collected by the NWFSC HKLS from 2004-`r endyr`, the average number of sets that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data; and 
 
 * Maturity data collections led by the NWFSC.
 
+Additional information was included for select species based on Council requests and discussions at the March Council meeting, when applicable:
 
-Additionally, for species identified at the March 2026 PFMC meeting, when applicable:
+* Biological data samples collected from commercial fisheries between 2000-`r endyr` in terms of length, age, and unread age structure samples by year and species from California, Oregon, and Washington;
 
-* Data from commercial fisheries (2000-`r endyr`);
+* Biological data samples collected from recreational fisheries in terms of length (California 2004-`r endyr`, Oregon and Washington 2000-`r endyr`), ages, and unread age structures samples (California 2022-`r endyr` ad-hoc collections, Oregon 2000-2024, and Washington 2000-`r endyr`) by year and species from California, Oregon, and Washington;
 
-* Data from recreational fisheries for lengths(California 2004-`r endyr`, Oregon and Washington 2000-`r endyr`), ages, and unread age structures (California 2022-`r endyr` ad-hoc collections, Oregon 2000-2024, and Washington 2000-`r endyr`);
+* Biological data samples collected  by the CCFRP Survey in terms of length samples (2007-2022) and unread age structure samples (2017-`r endyr`) for select species sampled in California; and
 
-* Data collected by the CCFRP Survey from 2007-`r endyr` (lengths available from 2007-2022 and unread age structures for 2017-`r endyr`); and
-
-* Data collected by the GCDC from 2023-`r endyr`.
+* Biological data samples collected by the GCDC from 2023-`r endyr` for yellowtail rockfish south of 40$^\circ$ 10' N. latitude.
 
 
-## Survey Length Compositions
+## Survey length compositions
 
 The length data collected by the WCGBTS were expanded using a generalized area-based stratification. The expanded length composition data were summarized using either a 2 or 4 cm bin structure depending upon the range between maximum and minimum lengths observed within the survey data. All length observations were grouped as unsexed fish for plotting to reveal potential trends in length compositions across time. 
 
@@ -34,7 +35,7 @@ The length data collected by the HKLS were summarized to reflect the proportion 
 
 The generalized approach for expanding the length composition data and bin structure provides a simple summary of the data that can be useful for decision making, but will likely differ from a species-specific approach that would be applied in a future assessment. Additionally, it is important to note that each survey's selectivity for each species will impact the lengths observed and has not been explicitly accounted for in this analysis.
 
-## Survey Relative Indices of Abundance
+## Survey relative indices of abundance
 
 Indices of abundance were estimated from the WCGBTS using a spatiotemporal model (`sdmTMB`) for species well-observed by the survey. The indices were estimated using a generalized configuration across species using either a gamma, log-normal, or Tweedie distribution, with the dispersion parameter held constant across years with 200-500 knots used to create the mesh. The model structure for each species is provided in Section \ref{wcgbt-index-settings}. Species-specific indices of abundance produced for past assessments or produced for future assessments may use a modified model structure resulting in slight changes in year-by-year values for the indices of abundance presented in this document. 
 
@@ -42,44 +43,26 @@ Indices of abundance were estimated from the HKLS for well-observed species usin
 
 The indices of abundance presented here should only be considered illustrative of potential trends in abundance across time.
 
-## Maturity Data Collections
+## Maturity data collections
 
 Maturity samples for a wide range of West Coast groundfish species have been collected across multiple sources: the WCGBTS, the HKLS, the Pacific hake acoustic survey, at-sea sampling from the Pacific hake fishery, and port sampling by state agencies. A summary of the number of maturity samples collected and read between 2009 - 2024 is provided for each species. These data summaries only include collections led by the NWFSC but other collections could be available from other research groups.     
 
-## California Recreational Age-Structure Collections (EDIT THIS SECTION)
+## California recreational age-structure collections
 
 California Department of Fish and Wildlife (CDFW) provided age structure sample numbers
-collected via various methods from commercial and recreational fisheries. These samples were
-collected outside the standard sampling protocol for either California Recreational Fisheries
-Survey (CRFS) or the Pacific States Marine Fisheries Commission (PSMFC) commercial
-sampling program. These collections were labeled as “CDFW Ad-hoc” collections for each
-species. Details on the collection methodology for the recreational and commercial samples
-are below.
-
-There are no age or age structure sample data in RecFIN that have been collected from
-California recreational fisheries. Recent age structure collections from 2017-2023 were
+collected via various methods from recreational fisheries. These samples were
+collected outside the standard sampling protocol for California Recreational Fisheries
+Survey (CRFS) sampling program. To date, there are no age or age structure sample data in RecFIN that have been collected from
+California recreational fisheries. Recent age structure collections from 2017-2025 were
 provided directly by CDFW. The recreational age structure collections provided by CDFW
-were collected by various methods: 1) from angler surrendered fish for copper rockfish,
-quillback rockfish, and yelloweye rockfish that were kept in excess of recreational bag limits
-or were prohibited to be retained, 2) cowcod under CDFW’s Exempted Fishing Permit
+were collected by various methods: 1) from angler surrendered fish that were kept in excess 
+of recreational bag limits or were prohibited to be retained, 2) cowcod collections under CDFW’s Exempted Fishing Permit
 encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled
 species from private/rental and party/charter recreational vessels. Any future assessment, 
 will need to investigate the California recreational age structures for representativeness to
 determine whether they could be linked to a recreational fleet within a model.
 
-Age structures collected from 12 groundfish species in 2019 by CDFW from purposive
-sampling (i.e., non-random) from commercially landed fish. This commercial pilot project
-involved obtaining randomly selected fish from participating fish businesses, either at the
-time of landing, or in the case of multiple landings utilizing the same gear type, after the
-landing had occurred. These ages would not be associated with a commercial fleet in an
-assessment due to their non-random collections.
-
-Age structures collected from carcasses of groundfish species between 2017-2019 by CDFW
-recreational fisheries. These collections may be considered by future assessments but would
-likely only be used as marginal ages (i.e., would not inform growth) given the uncertainty
-around the true fish length (e.g., length prior to filleting).
-
-## Additional Data (EDIT THIS SECTION)
+## Additional data that may be available for consideration in future assessments 
 
 Data may be available for consideration in future assessments that are currently not included
 in this report. A summary of potential additional data that could be available are described
@@ -94,7 +77,7 @@ have not been cataloged and entered into any database. There are available unrea
 otoliths for yellowtail rockfish south in this collection from various sources and 
 historical years, however, specific information was not available for this report. 
 
-* State mayhave substantial collections from periods prior to the years
+* State may have substantial collections from periods prior to the years
 summarized in this report from their commercial and recreational sampling programs.
 
 * CDFW is undergoing a review of historical age structures collections (i.e., referred to
