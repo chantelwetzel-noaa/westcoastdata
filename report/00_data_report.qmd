@@ -98,11 +98,13 @@ assess_data_df <- dplyr::bind_rows(
   )
 
 load(file.path(here::here(), "data-processed", "2026", "data_total_by_year.Rdata"))
-data <- data_total_by_year
+data <- data_total_by_year |>
+  dplyr::filter(Year < 2026)
 # Need to make dynamic based on data file
 startyr <- min(data$Year)
 endyr <- max(data$Year)
 assess_year <- 2027
+
 
 species_data <- get_species_data_survey()
 data <- dplyr::left_join(data, species_data, by = "Common_name")
