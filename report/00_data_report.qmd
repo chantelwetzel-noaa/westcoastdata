@@ -1,5 +1,5 @@
 ---
-title: 'Summary of available Northwest Fisheries Science Center survey data to support assessments of U.S. West Coast groundfish stocks'
+title: 'Summary of available data to support assessments of U.S. West Coast groundfish stocks'
 author:
   - name: 'Chantel R. Wetzel'
     affiliations:
@@ -119,7 +119,7 @@ maturity <- read.csv(here::here("data-processed", "2026", "maturity_reads_update
 
 Please cite this publication as: 
 
-Wetzel, C.R., and R.C. Rosemond. 2026. Summary of available Northwest Fisheries Science Center survey data to support assessments of U.S. West Coast groundfish stocks. Pacific Fisheries Management Council, Portland, Oregon.
+Wetzel, C.R., and R.C. Rosemond. 2026. Summary of available data to support assessments of U.S. West Coast groundfish stocks. Pacific Fisheries Management Council, Portland, Oregon.
 
 
 {{< pagebreak >}} 
