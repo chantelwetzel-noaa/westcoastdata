@@ -62,15 +62,17 @@ species from private/rental and party/charter recreational vessels. Any future a
 will need to investigate the California recreational age structures for representativeness to
 determine whether they could be linked to a recreational fleet within a model.
 
-## Additional data that may be available for consideration in future assessments 
+## Additional data not included in this report
 
 Data may be available for consideration in future assessments that are currently not included
 in this report. A summary of potential additional data that could be available are described
 below:
 
-* Totals for data collected in 2026 in PacFIN and RecFIN are incomplete for all states.
+* Totals for data collected in 2026 in PacFIN and RecFIN are incomplete for all 
+states and these data would be included in any future assessment.
 
-* Length data collected by the CCFPR survey in 2023-2025 were not available. 
+* Length data collected by the CCFPR survey in 2023-2025 were not available but would
+be available for 2027 assessments. 
 
 * Historical data collections from various research projects exist at the SWFSC that
 have not been cataloged and entered into any database. There are available unread
