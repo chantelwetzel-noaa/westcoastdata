@@ -103,7 +103,7 @@ params:
   if (species_name == "bocaccio") { 
     age_validation_text <- glue::glue(
       "{age_validation_text} {firstup(species_name)} otoliths are very difficult to read for age estimation,
-      particularly for {species_name} in the California Bight area. Ageing staff at the Cooperative Ageing
+      particularly for {species_name} in the California Bight area. Currently, ageing staff at the Cooperative Ageing
       Program lab do not have an ageing protocol for this species. Due to these challenges, no ageing effort is anticipated. "
     )
   }

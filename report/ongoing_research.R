@@ -10,10 +10,10 @@ research_list <- function(species_name) {
       visual-acoustic survey for semipelagic rockfish completed in 2025. During the 2025 survey, 
       no hook and line sampling occurred due to cost constraints. Data analysis is on going 
       and not expected to be finish by winter of 2026 due to extremely large schools of young-of-the-year 
-      rockfish observed on the camera and acoustics. ODFW is finishing a manuscript with NOAA-retired 
-      Dr. Dezhang Chu developing target strength models for these species which can be considered 
+      rockfish observed on the camera and acoustics. ODFW is finishing a manuscript with  
+      Dr. Dezhang Chu (NOAA-retired) developing target strength models for these species which can be considered 
       when using these data. Comparison studies of the previously used Biosonic echosounder 
-      and the Scientific and Statistical Committee recommended Simrad echosounder are on going. 
+      and the Scientific and Statistical Committee recommended Simrad echosounder are ongoing. 
       Currently, ODFW staff anticipate completing data analysis mid-2027."
       ),
       "\n\n"
@@ -23,7 +23,7 @@ research_list <- function(species_name) {
         "ODFW scientists are planning a research cruise to Cobb Sea Mount in the summer of 2026 to 
       sample age and sex distributions of this rockfish species and others. This will provide 
       additional information about age and sex distribution for {species_name} in areas that 
-      are likely not sampled by commercial and recreational fisheries.  The final research project 
+      are likely not sampled by commercial and recreational fisheries. The final research project 
       being led by ODFW scientists examines the impacts of hypoxia on the catch per unit effort 
       for {species_name}."
       ),
@@ -98,9 +98,9 @@ research_list <- function(species_name) {
       There has been additional research focusing on understanding movement
       of Pacific spiny dogfish. Since 2024, ODFW in collaboration with 
       Oregon State University, has tagged 76 Pacific spiny dogfish with satellite tags in Washington and Oregon. 
-      To date 46 of those tags have retreived and are providing information. Likelihood profiles 
-      for each tags track are being developed to determine movements of the individuals. 
-      The goal is to understand the Pacific spiny dogfish movement across seasons and depth which 
+      To date 46 of those tags have been retreived and are providing information. Likelihood profiles 
+      for each tags' track are being developed to determine movements of the individuals. 
+      The goal is to understand the movement of Pacific spiny dogfish across seasons and depth which 
       will provide improved understanding about availability to summer surveys and 
       bottom trawl gear off the U.S. West Coast."
       ),
