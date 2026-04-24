@@ -1,8 +1,8 @@
 # Introduction 
 
-This document provides a detailed summary of select data sources that may be used to support stock assessments of West Coast groundfish in `r assess_year` and beyond. At the March 2026 Pacific Fisheries Management Council (the Council) meeting, an earlier version of this document was presented that included only data from federal surveys.  This version includes all information in the March version, but has included additional information based upon the Council motion requested additional information for select species to support final decision making.
+This document provides a detailed summary of select data sources that may be used to support stock assessments of West Coast groundfish in `r assess_year` and beyond. At the March 2026 Pacific Fisheries Management Council (the Council) meeting, an earlier version of this document was presented that included only data from federal surveys. This version includes all information in the March version, but has included additional information based upon the Council motion requested additional information for select species to support final decision making.
 
-This summary includes sampling data (i.e., length, age, and unread age structures) from the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and Southern California Hook and Line Survey (HKLS) for FMP species. For species with robust sampling, relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data collected by scientists at the NWFSC for each species is also provided.
+This summary includes sampling data (i.e., length, age, and unread age structures) from the Northwest Fisheries Science Center (NWFSC) West Coast Groundfish Bottom Trawl Survey (WCGBTS) and Southern California Hook and Line Survey (HKLS) for the species and stock areas included in the Pacific Coast Groundfish Fishery Management Plan. For species with robust sampling, relative indices of abundance and sampled length compositions by year and source are also provided. A summary of the available maturity data collected by scientists at the NWFSC for each species is also provided.
 
 For select species identified at the March 2026 Council meeting, additional information from commercial, recreational, California Collaborative Fisheries Research Program (CCFRP) Survey, and the Groundfish Cooperative Data Collection (GCDC) is also provided. Select additional species that were mentioned in advisory panel and management reports to support additional discussion at the June Council meeting. The species where additional information is provided include: black rockfish off Oregon and Washington, bocaccio, lingcod north and south of 40$^\circ$ 10' N. latitude, longspine thornyhead, Pacific spiny dogfish, petrale sole, redbanded rockfish, shortspine thornyhead, widow rockfish, and yellowtail rockfish south of 40$^\circ$ 10' N. latitude.
 
@@ -16,7 +16,7 @@ For all species that are commonly observed by federal surveys:
 
 * Maturity data collections led by the NWFSC.
 
-Additional information was included for select species based on Council requests and discussions at the March Council meeting, when applicable:
+Additional information was included for select species based on Council requests and discussions at the March Council meeting, where applicable:
 
 * Biological data samples collected from commercial fisheries between 2000-`r endyr` in terms of length, age, and unread age structure samples by year and species from California, Oregon, and Washington;
 
