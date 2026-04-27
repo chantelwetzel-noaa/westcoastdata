@@ -63,6 +63,14 @@ research_list <- function(species_name) {
     research_text <- glue::glue("{research_text} {text}")
   }
 
+  if (species_name == "redbanded rockfish") {
+    text <- glue::glue(
+      "The Cooperative Ageing Program lab has aged an additional 703 otoliths collected by the NWFSC WCGBTS that
+      are not represented in the count of aged fish shown."
+    )
+    research_text <- glue::glue("{research_text} {text}")
+  }
+  
   if (species_name == "yellowtail rockfish south") {
     ej_url <- "https://repository.library.noaa.gov/view/noaa/62673"
     sb_url1 <- "https://link.springer.com/article/10.1007/s10641-014-0238-7"

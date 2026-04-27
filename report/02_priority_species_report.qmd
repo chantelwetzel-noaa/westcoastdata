@@ -42,22 +42,22 @@ params:
     "have been observed and sampled by"
   )
   if (data_to_show == "all_plus") {
-    survey_text <- glue::glue("{obs_text} commercial and recreational fisheries, NWFWC HKLS, NWFSC WCGBTS, and CCFRP Survey. ") 
+    survey_text <- glue::glue("{obs_text} commercial and recreational fisheries, the NWFWC HKLS, the NWFSC WCGBTS, and the CCFRP Survey. ") 
   }
   if (data_to_show == "all_plus_plus") {
-     survey_text <- glue::glue("{obs_text} commercial and recreational fisheries, GCDC, NWFWC HKLS, NWFSC WCGBTS, and CCFRP Survery. ") 
+     survey_text <- glue::glue("{obs_text} commercial and recreational fisheries, the GCDC, the NWFWC HKLS, the NWFSC WCGBTS, and the CCFRP Survery. ") 
   }
   if (data_to_show == "comm_wcgbt_rec") {
-     survey_text <- glue::glue("{obs_text} commercial and recreational fisheries and NWFSC WCGBTS.")
+     survey_text <- glue::glue("{obs_text} commercial and recreational fisheries and the NWFSC WCGBTS.")
   }
   if (data_to_show == "ccfrp_comm_wcgbt_rec") {
-     survey_text <- glue::glue("{obs_text} commercial and recreational fisheries, NWFSC WCGBTS, and CCFRP Survey. ") 
+     survey_text <- glue::glue("{obs_text} commercial and recreational fisheries, the NWFSC WCGBTS, and the CCFRP Survey. ") 
   }  
     if (data_to_show == "comm_wcgbt") {
-     survey_text <- glue::glue("{obs_text} commercial fisheries and NWFSC WCGBTS. ")
+     survey_text <- glue::glue("{obs_text} commercial fisheries and the NWFSC WCGBTS. ")
   } 
     if (data_to_show == "ccfrp_comm_hkl_wcgbt") {
-     survey_text <- glue::glue("{obs_text} commercial fisheries, NWFWC HKLS, NWFSC WCGBTS, and CCFRP Survey. ") 
+     survey_text <- glue::glue("{obs_text} commercial fisheries, the NWFWC HKLS, the NWFSC WCGBTS, and the CCFRP Survey. ") 
   }
   
   average_sets <- sub_data |>
