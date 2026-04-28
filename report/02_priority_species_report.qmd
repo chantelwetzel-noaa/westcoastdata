@@ -111,7 +111,10 @@ params:
     age_validation_text <- glue::glue("The Cooperative Ageing Program lab has aged 1,271 otoliths collected by the NWFSC HKLS that
       are not represented in the count of aged fish shown.")
   }
-
+  if(species_name ==  "redbanded rockfish") {
+    age_validation_text <- glue::glue("The Cooperative Ageing Program lab has aged an additional 703 otoliths collected by the NWFSC WCGBTS that
+      are not represented in the count of aged fish shown.")
+  }
   # Get maturity
   mat <- maturity |>
     dplyr::filter(Species == species_name)
