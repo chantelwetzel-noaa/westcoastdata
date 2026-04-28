@@ -2,6 +2,11 @@ devtools::load_all()
 short_species_list <- get_short_species_list()
 all_catch <- nwfscSurvey::pull_gemm()
 
+rec <- c(
+  "Washington Recreational",
+  "Oregon Recreational",
+  "California Recreational"
+)
 pot <- c(
   "CS - Pot",
   "CS EM - Pot",
@@ -10,10 +15,6 @@ pot <- c(
   "OA Fixed Gear - Pot"
 )
 hkl <- c(
-  "Washington Recreational",
-  "Oregon Recreational",
-  "California Recreational",
-  "Combined LE & OA CA Halibut",
   "CS - Hook & Line",
   "Directed P Halibut",
   "Incidental",
@@ -31,6 +32,7 @@ trawl <- c(
   "Midwater Hake EM",
   "Shoreside Hake",
   "Tribal At-Sea Hake",
+  "Combined LE & OA CA Halibut",
   "CS - Bottom and Midwater Trawl",
   "CS - Bottom Trawl",
   "CS EM - Bottom Trawl",
@@ -44,7 +46,9 @@ trawl <- c(
 
 catch <- all_catch |>
   dplyr::mutate(common_name = tolower(species)) |>
-  dplyr::filter(common_name %in% short_species_list[, "name"]) |>
+  dplyr::filter(
+    common_name %in% c(short_species_list[, "name"], "bocaccio rockfish")
+  ) |>
   dplyr::mutate(
     common_name = dplyr::case_when(
       common_name == "yellowtail rockfish" &
@@ -83,14 +87,20 @@ catch <- all_catch |>
     sector != "Research"
   ) |>
   dplyr::mutate(
-    gear = dplyr::case_when(
-      sector %in% c(hkl, pot) ~ "fixed-gear",
-      sector %in% trawl ~ "trawl-gear",
+    Gear = dplyr::case_when(
+      sector %in% c(hkl, pot) ~ "Commercial fixed-gear",
+      sector %in% trawl ~ "Commercial trawl-gear",
+      sector %in% rec ~ "Recreational",
       .default = "unknown"
     )
   ) |>
   dplyr::group_by(common_name)
 
+fill_vals <- c(
+  "Commercial trawl-gear" = "#56B4E9",
+  "Commercial fixed-gear" = "#E69F00",
+  "Recreational" = "#009E73"
+)
 species_to_plot <- unique(catch$common_name)
 for (a in species_to_plot) {
   p <- ggplot2::ggplot(
@@ -98,18 +108,67 @@ for (a in species_to_plot) {
     ggplot2::aes(
       x = year,
       y = total_discard_with_mort_rates_applied_and_landings_mt,
-      fill = gear
+      fill = Gear
     )
   ) +
     ggplot2::geom_bar(stat = "identity") +
-    ggplot2::scale_fill_viridis_d(begin = 0, end = 0.5) +
+    #nmfspalette::scale_fill_nmfs(palette = "waves", reverse = TRUE) +
+    ggplot2::scale_fill_manual(
+      values = fill_vals,
+      breaks = names(fill_vals),
+      drop = FALSE
+    ) +
+    #ggplot2::scale_fill_viridis_d(begin = 0, end = 0.5) +
     ggplot2::theme_bw() +
     ggplot2::xlab("Year") +
     ggplot2::ylab("Catch (mt)")
+  if (a == "bocaccio rockfish") {
+    a = "bocaccio"
+  }
   ggplot2::ggsave(
     plot = p,
     filename = here::here("plots", "catches", paste0(a, ".png")),
-    height = 7,
+    height = 5,
     width = 7
   )
 }
+
+
+mod_catch <- catch |>
+  dplyr::filter(
+    common_name %in% c("black rockfish - washington", "black rockfish - oregon")
+  ) |>
+  dplyr::mutate(
+    Area = dplyr::case_when(
+      common_name == "black rockfish - washington" ~ "Washington",
+      .default = "Oregon"
+    ),
+    common_name = "black rockfish"
+  )
+p <- ggplot2::ggplot(
+  mod_catch,
+  ggplot2::aes(
+    x = year,
+    y = total_discard_with_mort_rates_applied_and_landings_mt,
+    fill = Gear
+  )
+) +
+  ggplot2::geom_bar(stat = "identity") +
+  #nmfspalette::scale_fill_nmfs(palette = "waves", reverse = TRUE) +
+  ggplot2::scale_fill_manual(
+    values = fill_vals,
+    breaks = names(fill_vals),
+    drop = FALSE
+  ) +
+  #ggplot2::scale_fill_viridis_d(begin = 0, end = 0.5) +
+  ggplot2::theme_bw() +
+  ggplot2::xlab("Year") +
+  ggplot2::ylab("Catch (mt)") +
+  ggplot2::facet_grid("Area")
+
+ggplot2::ggsave(
+  plot = p,
+  filename = here::here("plots", "catches", "black rockfish.png"),
+  height = 7,
+  width = 7
+)

@@ -18,6 +18,5 @@ _main.md
 *.log
 *.pdf
 docs
-plots/catches
 data-processed/2026/additional_indices/**/*.png
 data-processed/2026/additional_indices/**/*.rdata

@@ -229,6 +229,30 @@ if(file.exists(plot_name)) {
 #| echo: false
 #| warning: false
 
+fig_catch <- glue::glue("Estimated total catch between 2002-2024 {species_name}. Source: GEMM.")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: !expr fig_catch
+#| out-width: "95%"
+
+species_name_fig <- tolower(species_name)
+plot_name <- here::here("plots", "catches", paste0(species_name_fig, ".png"))
+if(file.exists(plot_name)) {
+  knitr::include_graphics(plot_name)
+}
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+
 fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {species_name} from the NWFSC WCGBTS.")
 
 ```
