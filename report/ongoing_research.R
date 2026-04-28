@@ -70,7 +70,7 @@ research_list <- function(species_name) {
     )
     research_text <- glue::glue("{research_text} {text}")
   }
-  
+
   if (species_name == "yellowtail rockfish south") {
     ej_url <- "https://repository.library.noaa.gov/view/noaa/62673"
     sb_url1 <- "https://link.springer.com/article/10.1007/s10641-014-0238-7"
@@ -97,6 +97,8 @@ research_list <- function(species_name) {
 
   if (species_name == "Pacific spiny dogfish") {
     url <- "https://onlinelibrary.wiley.com/doi/full/10.1111/faf.70028"
+    url_ketchen <- "https://cdnsciencepub.com/doi/10.1139/f72-272"
+    url_cheng <- "http://www.ceser.in/ceserp/index.php/ijamas/article/view/651"
     text <- paste0(
       "\n\n",
       glue::glue(
@@ -111,6 +113,36 @@ research_list <- function(species_name) {
       The goal is to understand the movement of Pacific spiny dogfish across seasons and depth which 
       will provide improved understanding about availability to summer surveys and 
       bottom trawl gear off the U.S. West Coast."
+      ),
+      "\n\n",
+      glue::glue(
+        "The Washington Department of Fish and Wildlife (WDFW) is conducting a study to improve age estimation 
+       methods for Pacific Spiny Dogfish using vertebral centra and dorsal spine–based techniques. A key 
+       challenge in accurately determining age for this species is accounting for missing growth bands 
+       caused by natural wear and spine breakage. Wear is most frequently observed in older individuals and 
+       as individuals age, where natural processes and cumulative physical damage to the spines can obscure 
+       or completely remove early growth bands, potentially leading to systematic underestimation of age."
+      ),
+      "\n\n",
+      glue::glue(
+        "Two methods (i.e., [Ketchen, 1975]({url_ketchen}), and [Cheng, 2012]({url_cheng})) have been developed to account for the worn 
+        portion of the spine and to extrapolate missing growth bands. The Ketchen method incorporates 
+        an assumed diameter of the spine at birth, whereas the latter does not, allowing for extrapolation 
+        without accounting for the birth point. However, the Ketchen method does not account for natural 
+        variability in spine growth among individuals, whereas the Cheng method uses a statistical approach 
+        that accounts for individual variability. Despite these differences, both approaches introduce biases 
+        that can lead to overestimation of age when reconstructing missing growth bands."
+      ),
+      "\n\n",
+      glue::glue(
+        "WDFW is currently evaluating age estimates derived from vertebrae and spines through several approaches:
+         1) assessing ageing criteria for vertebral centra and spines (e.g., interpretation of banding patterns, 
+         including lumping versus splitting of bands); 2) determining whether vertebral centra provide more reliable 
+         age estimates and, if so, how they can be used to correct bias on damaged spines; 3) evaluating whether 
+         spine measurements (e.g., diameter at the first band, diameter at the second band, diameter at the third 
+         band, diameter at the base) can be used to improve reconstruction of missing growth bands when vertebral 
+         centra are not suitable; and 4) exploring multiple approaches for indirect age validation, such as eye 
+         lens diameter or chemical analysis."
       ),
       "\n\n"
     )
