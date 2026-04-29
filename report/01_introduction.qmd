@@ -10,18 +10,17 @@ For select species identified at the March 2026 Council meeting, additional info
 
 ## Data avialable for all species
 
-### West Coat Groundfish Bottom Trawl Survey
+### NWFSC West Coat Groundfish Bottom Trawl Survey (WCGBTS)
 
-Add info
+The NWFSC WCGBTS is a fishery-dependent survey based on a random-grid design, covering coastal waters (55-1,280 m) from the US - Canada border south to the US - Mexico border twice each year from May to October. The survey uses chartered commercial fishing vessels and an Aberdeen-style trawl net. 
 
-Biological data samples collected by the NWFSC WCGBTS between 2003-`r endyr`,  average number of tows that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data.
+Biological data samples collected by the NWFSC WCGBTS between 2003-`r endyr`, average number of tows that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data.
 
-### Northwest Fisheries Science Center Hook and Line Survey
+### NWFSC Hook and Line Survey (HKLS)
 
 Add info
 
 Biological data samples collected by the NWFSC HKLS from 2004-`r endyr`, the average number of sets that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data.
-
 
 ### Survey length compositions
 
@@ -62,15 +61,8 @@ Biological data samples collected from recreational fisheries in terms of length
 California Department of Fish and Wildlife (CDFW) provided age structure sample numbers
 collected via various methods from recreational fisheries. These samples were
 collected outside the standard sampling protocol for California Recreational Fisheries
-Survey (CRFS) sampling program. To date, there are no age or age structure sample data in RecFIN that have been collected from
-California recreational fisheries. Recent age structure collections from 2017-2025 were
-provided directly by CDFW. The recreational age structure collections provided by CDFW
-were collected by various methods: 1) from angler surrendered fish that were kept in excess 
-of recreational bag limits or were prohibited to be retained, 2) cowcod collections under CDFW’s Exempted Fishing Permit
-encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled
-species from private/rental and party/charter recreational vessels. Any future assessment, 
-will need to investigate the California recreational age structures for representativeness to
-determine whether they could be linked to a recreational fleet within a model.
+Survey (CRFS) sampling program. To date, there are no age or age structure sample data in RecFIN that have been collected from California recreational fisheries. Recent age structure collections from 2017-2025 were provided directly by CDFW. The recreational age structure collections provided by CDFW were collected by various methods: 1) from angler surrendered fish that were kept in excess of recreational bag limits or were prohibited to be retained, 2) cowcod collections under CDFW’s Exempted Fishing Permit encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled
+species from private/rental and party/charter recreational vessels. Any future assessment, will need to investigate the California recreational age structures for representativeness to determine whether they could be linked to a recreational fleet within a model.
 
 ### California Collaborative Fisheries Research Program Survey
 
@@ -84,17 +76,13 @@ Add info
 
 Biological data samples collected by the GCDC from 2023-`r endyr` for yellowtail rockfish south of 40$^\circ$ 10' N. latitude
 
-
 ### Catches
 
 Add info
 
-
 ## Additional data not included in this report
 
-Data may be available for consideration in future assessments that are currently not included
-in this report. A summary of potential additional data that could be available are described
-below:
+Data may be available for consideration in future assessments that are currently not included in this report. A summary of potential additional data that could be available are described below:
 
 * Totals for data collected in 2026 in PacFIN and RecFIN are incomplete for all 
 states and these data would be included in any future assessment.
@@ -112,13 +100,8 @@ summarized in this report from their commercial and recreational sampling progra
 
 * CDFW is undergoing a review of historical age structures collections (i.e., referred to
 as refugia samples) for samples from the 1980s and earlier. If sufficient documentation
-exists for these historical samples they could be potentially included in future assessments. 
-Since this work is ongoing it is unclear how many samples may be available across species.
+exists for these historical samples they could be potentially included in future assessments. Since this work is ongoing it is unclear how many samples may be available across species.
 
-Finally, summarizing commercial and recreational data from each state accurately continues
-to be challenging due to differences by state in what information is transmitted to PacFIN and
-RecFIN. Receiving and understanding the available commercial and recreational data requires 
-emailing various representative in each state who thankfully have been accommodating in answering questions and providing
+Finally, summarizing commercial and recreational data from each state accurately continues to be challenging due to differences by state in what information is transmitted to PacFIN and RecFIN. Receiving and understanding the available commercial and recreational data requires emailing various representative in each state who thankfully have been accommodating in answering questions and providing
 additional data summaries. However, given the challenges around acquiring and collating,
-data summaries may not be comprehensive or have unintentional errors. Any issues identified
-will be addressed in future versions.
+data summaries may not be comprehensive or have unintentional errors. Any issues identified will be addressed in future versions.
