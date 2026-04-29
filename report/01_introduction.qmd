@@ -18,7 +18,7 @@ Biological data samples collected by the NWFSC WCGBTS between 2003-`r endyr`, av
 
 ### NWFSC Hook and Line Survey (HKLS)
 
-Add info
+The NWFSC HKLS is a fishery-dependent survey conducted annually in the Southern California Bight using rod and reel gear at fixed stations to target shelf rockfish in the genus *Sebastes*.
 
 Biological data samples collected by the NWFSC HKLS from 2004-`r endyr`, the average number of sets that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data.
 
@@ -64,13 +64,13 @@ collected outside the standard sampling protocol for California Recreational Fis
 Survey (CRFS) sampling program. To date, there are no age or age structure sample data in RecFIN that have been collected from California recreational fisheries. Recent age structure collections from 2017-2025 were provided directly by CDFW. The recreational age structure collections provided by CDFW were collected by various methods: 1) from angler surrendered fish that were kept in excess of recreational bag limits or were prohibited to be retained, 2) cowcod collections under CDFW’s Exempted Fishing Permit encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled
 species from private/rental and party/charter recreational vessels. Any future assessment, will need to investigate the California recreational age structures for representativeness to determine whether they could be linked to a recreational fleet within a model.
 
-### California Collaborative Fisheries Research Program Survey
+### California Collaborative Fisheries Research Program Survey (CCFRP)
 
 Add info
 
 Biological data samples collected  by the CCFRP Survey in terms of length samples (2007-2022) and unread age structure samples (2017-`r endyr`) for select species sampled in California.
 
-### Groundfish Cooperative Data Collection
+### Groundfish Cooperative Data Collection (GCDC)
 
 Add info
 
