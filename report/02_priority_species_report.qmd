@@ -144,48 +144,25 @@ params:
 
 `r total_text`
 
+
 ```{r}
 #| echo: false
 #| warning: false
-#| 
-total <- sub_data |>
-    dplyr::group_by(State, Source) |>
-    dplyr::summarise(
-      Lengths = sum(total_lengths),
-      Ages = sum(total_ages),
-      `Age Structures` = sum(total_otoliths)
-    ) |>
-    as.data.frame()
 
-  if (species_name == "widow rockfish") {
-  caption <- glue::glue(
-    'Total number of available lengths, read ages, and unread age structures by data source and state for {species_name}. *The California Commercial Ages and Age Structures totals include the 1,468 otoliths from the Cooperating Ageing Program lab that have been aged since the 2025 update assessment.'
-  )
-  } else {
-  caption <- glue::glue(
-    'Total number of available lengths, read ages, and unread age structures by data source and state for {species_name}.'
-  )
-  }
-  sa4ss::table_format(
-    x = total,
-    caption = caption,
-    digits = 0,
-    format.args = list(big.mark = ",", scientific = FALSE),
-    custom_width = TRUE,
-    col_to_adjust = 1:5,
-    width = c('2cm', '3.5cm', '2cm', '2cm', '2cm'),
-    align = 'r'
-  )
+table_caption <- glue::glue("Total number of available lengths, read ages, and unread age structures by data source and
+ 	state for {species_name}.")
+
 ```
 
 
 ```{r}
 #| echo: false
 #| warning: false
-#tbl-cap: "Total number of available lengths, read ages, and unread age structures by data source and state"
+#| tbl-cap: !expr table_caption
+#| tbl-pos: H
 
-# This code does not do anything right now
-t <- sub_data |>
+if (species_name != "widow rockfish") {
+  sub_data |>
     dplyr::group_by(State, Source) |>
     dplyr::summarise(
       Lengths = sum(total_lengths),
@@ -199,12 +176,52 @@ t <- sub_data |>
       decimals = 0
     ) |>
     gt::tab_options(
-      table.font.size = 12
+      table.font.size = 12,
+      footnotes.font.size = 12,
+      # if want to not have tables the width of the page include the below option:
+      latex.use_longtable = TRUE 
     ) |>
     gt::cols_align(
-      align = "center"
+        align = "right"
+    ) |>
+    gt::cols_width(
+       `Source` ~ px(140)
     ) |>
     gt::as_latex()
+} else {
+  sub_data |>
+    dplyr::group_by(State, Source) |>
+    dplyr::summarise(
+      Lengths = sum(total_lengths),
+      Ages = sum(total_ages),
+      `Age Structures` = sum(total_otoliths)
+    ) |>
+    dplyr::ungroup() |>
+    gt::gt() |>
+    gt::fmt_number(
+      columns = 3:5,
+      decimals = 0
+    ) |>
+    gt::tab_options(
+      table.font.size = 12,
+      footnotes.font.size = 12,
+      # if want to not have tables the width of the page include the below option:
+      latex.use_longtable = TRUE 
+    ) |>
+    gt::cols_align(
+      align = "right"
+    ) |>
+    gt::cols_width(
+       `Source` ~ px(140)
+    ) |>
+    gt::tab_footnote(
+      footnote = "Out of the 3,352 total ages from California Commercial collections, 1,884 ages were available and used in the 2025 stock assessment.",
+      locations = gt::cells_column_labels(columns = Ages)
+    )|>
+    gt::as_latex()
+}
+
+
 
 ```
 
@@ -223,6 +240,7 @@ fig_state_comparison <- glue::glue("Total number of available lengths, read ages
 #| warning: false
 #| fig-cap: !expr fig_state_comparison
 #| out-width: "95%"
+#| fig-pos: H
 
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "state_comparisons", paste0(species_name_fig, "_state_compositions.png"))
@@ -247,6 +265,7 @@ fig_catch <- glue::glue("Estimated total catch between 2002-2024 {species_name}.
 #| warning: false
 #| fig-cap: !expr fig_catch
 #| out-width: "95%"
+#| fig-pos: H
 
 species_name_fig <- tolower(species_name)
 plot_name <- here::here("plots", "catches", paste0(species_name_fig, ".png"))
@@ -271,6 +290,7 @@ fig_cap_wcgbts_index <- glue::glue("Estimated relative index of abundance for {s
 #| warning: false
 #| fig-cap: !expr fig_cap_wcgbts_index
 #| out-width: "95%"
+#| fig-pos: H
 
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "wcgbts_indices", paste0(species_name_fig, "_index.png"))
@@ -285,6 +305,7 @@ if(file.exists(plot_name)) {
 #| warning: false
 #| fig-cap: !expr fig_cap_wcgbts_index
 #| out-width: "95%"
+#| fig-pos: H
 
 species_name_fig <- gsub(" ", "_", species_name)
 plot_name <- here::here("plots", "additional_wcgbts_indices", paste0(species_name_fig, "_index.png"))
