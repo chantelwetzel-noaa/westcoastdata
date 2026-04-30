@@ -157,10 +157,15 @@ total <- sub_data |>
     ) |>
     as.data.frame()
 
+  if (species_name == "widow rockfish") {
   caption <- glue::glue(
-    'Total number of available lengths, read ages, and unread age structures by data source and
- 	state for {species_name}.'
+    'Total number of available lengths, read ages, and unread age structures by data source and state for {species_name}. *The California Commercial Ages and Age Structures totals include the 1,468 otoliths from the Cooperating Ageing Program lab that have been aged since the 2025 update assessment.'
   )
+  } else {
+  caption <- glue::glue(
+    'Total number of available lengths, read ages, and unread age structures by data source and state for {species_name}.'
+  )
+  }
   sa4ss::table_format(
     x = total,
     caption = caption,
