@@ -43,7 +43,7 @@ research_list <- function(species_name) {
         5-28 years with a median (i.e., the middle value in an ordered dataset, separating the higher half from the lower half) 
         age of 11. These new ages from California are included in the summaries below.
         
-        These ages would be included in a future assessment in combination with the age data included in previous assessments that were collected from trawl fisheries in Oregon 
+        These additional ages would be included in a future assessment in combination with the age data included in previous assessments that were collected from trawl fisheries in Oregon 
         (2,106 from midwater and 274 from bottom trawl) and Washington (4,117 from midwater and 57 from bottom trawl) over the same time period (2019-2024). Ages collected from Oregon and Washington during this time period from midwater trawl gear range from 3-39 years 
         with a median age of 8 in Oregon and from 1-37 years with a median age of 7 in Washington."
       ),

@@ -179,6 +179,8 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
+\usepackage{caption}
+\usepackage{anyfontsize}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -683,33 +685,24 @@ sampled by commercial and recreational fisheries. The final research
 project being led by ODFW scientists examines the impacts of hypoxia on
 the catch per unit effort for black rockfish.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for black rockfish.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-3}Total number of available lengths, read ages, and unread age structures by data source and state for black rockfish.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for black rockfish. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+Oregon & Commercial & 98,414 & 15,990 & 84,660 \\ 
+Oregon & NWFSC WCGBTS & 12 & 0 & 12 \\ 
+Oregon & Recreational & 259,829 & 34,289 & 9,341 \\ 
+Washington & Commercial & 95 & 20 & 0 \\ 
+Washington & NWFSC WCGBTS & 1 & 0 & 1 \\ 
+Washington & Recreational & 61,846 & 39,816 & 8,632 \\ 
 \bottomrule
-\endlastfoot
-Oregon & Commercial & 98,414 & 15,990 & 84,660\\
-Oregon & NWFSC WCGBTS & 12 & 0 & 12\\
-Oregon & Recreational & 259,829 & 34,289 & 9,341\\
-Washington & Commercial & 95 & 20 & 0\\
-Washington & NWFSC WCGBTS & 1 & 0 & 1\\
-Washington & Recreational & 61,846 & 39,816 & 8,632\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -755,38 +748,29 @@ stock area), with 737 read maturities. Maturity parameter estimates may
 be updated from those used in the previous assessment with additional
 maturity data and updated modeling methods.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for bocaccio.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-22}Total number of available lengths, read ages, and unread age structures by data source and state for bocaccio.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for bocaccio. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 53 & 0 & 0 \\ 
+California & Commercial & 14,780 & 121 & 4,526 \\ 
+California & NWFSC HKLS & 22,667 & 0 & 14,376 \\ 
+California & NWFSC WCGBTS & 11,222 & 2,760 & 4,559 \\ 
+California & Recreational & 43,902 & 0 & 0 \\ 
+Oregon & Commercial & 5,193 & 0 & 5,262 \\ 
+Oregon & NWFSC WCGBTS & 297 & 20 & 183 \\ 
+Oregon & Recreational & 1,263 & 0 & 0 \\ 
+Washington & Commercial & 2,837 & 0 & 1,729 \\ 
+Washington & NWFSC WCGBTS & 522 & 74 & 366 \\ 
+Washington & Recreational & 1,817 & 0 & 2,654 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 53 & 0 & 0\\
-California & Commercial & 14,780 & 121 & 4,526\\
-California & NWFSC HKLS & 22,667 & 0 & 14,376\\
-California & NWFSC WCGBTS & 11,222 & 2,760 & 4,559\\
-California & Recreational & 43,902 & 0 & 0\\
-Oregon & Commercial & 5,193 & 0 & 5,262\\
-Oregon & NWFSC WCGBTS & 297 & 20 & 183\\
-Oregon & Recreational & 1,263 & 0 & 0\\
-Washington & Commercial & 2,837 & 0 & 1,729\\
-Washington & NWFSC WCGBTS & 522 & 74 & 366\\
-Washington & Recreational & 1,817 & 0 & 2,654\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -874,37 +858,28 @@ updated modeling methods.
 ODFW scientists have conducted research looking at the influences of
 hypoxia on the catch per unit effort for lingcod north.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for lingcod north.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-41}Total number of available lengths, read ages, and unread age structures by data source and state for lingcod north.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for lingcod north. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 238 & 0 & 0 \\ 
+California & Commercial & 6,147 & 304 & 0 \\ 
+California & NWFSC WCGBTS & 2,582 & 780 & 632 \\ 
+California & Recreational & 13,078 & 0 & 0 \\ 
+Oregon & Commercial & 42,873 & 6,488 & 36,586 \\ 
+Oregon & NWFSC WCGBTS & 9,992 & 2,782 & 2,721 \\ 
+Oregon & Recreational & 155,850 & 9,062 & 17,407 \\ 
+Washington & Commercial & 12,759 & 6,319 & 2,114 \\ 
+Washington & NWFSC WCGBTS & 7,151 & 1,582 & 1,513 \\ 
+Washington & Recreational & 34,006 & 16,968 & 14,945 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 238 & 0 & 0\\
-California & Commercial & 6,147 & 304 & 0\\
-California & NWFSC WCGBTS & 2,582 & 780 & 632\\
-California & Recreational & 13,078 & 0 & 0\\
-Oregon & Commercial & 42,873 & 6,488 & 36,586\\
-Oregon & NWFSC WCGBTS & 9,992 & 2,782 & 2,721\\
-Oregon & Recreational & 155,850 & 9,062 & 17,407\\
-Washington & Commercial & 12,759 & 6,319 & 2,114\\
-Washington & NWFSC WCGBTS & 7,151 & 1,582 & 1,513\\
-Washington & Recreational & 34,006 & 16,968 & 14,945\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -967,32 +942,23 @@ of stock area), with 1031 read maturities. Maturity parameter estimates
 may be updated from those used in the previous coastwide assessment with
 additional maturity data and updated modeling methods.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for lingcod south.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-60}Total number of available lengths, read ages, and unread age structures by data source and state for lingcod south.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for lingcod south. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 5,343 & 0 & 0 \\ 
+California & Commercial & 6,036 & 377 & 0 \\ 
+California & NWFSC HKLS & 955 & 185 & 25 \\ 
+California & NWFSC WCGBTS & 12,375 & 3,887 & 2,797 \\ 
+California & Recreational & 85,228 & 0 & 0 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 5,343 & 0 & 0\\
-California & Commercial & 6,036 & 377 & 0\\
-California & NWFSC HKLS & 955 & 185 & 25\\
-California & NWFSC WCGBTS & 12,375 & 3,887 & 2,797\\
-California & Recreational & 85,228 & 0 & 0\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1079,33 +1045,24 @@ may be updated from those used in the previous assessment with
 additional maturity data and updated modeling methods, but assigning
 maturity status per sample is time consuming for this species.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for longspine thornyhead.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-79}Total number of available lengths, read ages, and unread age structures by data source and state for longspine thornyhead.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for longspine thornyhead. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & Commercial & 77,995 & 0 & 53 \\ 
+California & NWFSC WCGBTS & 76,437 & 0 & 9,925 \\ 
+Oregon & Commercial & 30,164 & 30 & 34,049 \\ 
+Oregon & NWFSC WCGBTS & 34,876 & 0 & 4,219 \\ 
+Washington & Commercial & 6,167 & 0 & 302 \\ 
+Washington & NWFSC WCGBTS & 14,741 & 0 & 1,819 \\ 
 \bottomrule
-\endlastfoot
-California & Commercial & 77,995 & 0 & 53\\
-California & NWFSC WCGBTS & 76,437 & 0 & 9,925\\
-Oregon & Commercial & 30,164 & 30 & 34,049\\
-Oregon & NWFSC WCGBTS & 34,876 & 0 & 4,219\\
-Washington & Commercial & 6,167 & 0 & 302\\
-Washington & NWFSC WCGBTS & 14,741 & 0 & 1,819\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1220,35 +1177,26 @@ vertebral centra are not suitable; and 4) exploring multiple approaches
 for indirect age validation, such as eye lens diameter or chemical
 analysis.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for Pacific spiny dogfish.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-98}Total number of available lengths, read ages, and unread age structures by data source and state for Pacific spiny dogfish.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for Pacific spiny dogfish. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 2 & 0 & 0 \\ 
+California & Commercial & 333 & 0 & 0 \\ 
+California & NWFSC HKLS & 9 & 0 & 0 \\ 
+California & NWFSC WCGBTS & 18,373 & 285 & 4,941 \\ 
+Oregon & Commercial & 4,647 & 0 & 30 \\ 
+Oregon & NWFSC WCGBTS & 4,454 & 128 & 1,925 \\ 
+Washington & Commercial & 9,635 & 0 & 6,928 \\ 
+Washington & NWFSC WCGBTS & 11,802 & 178 & 2,972 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 2 & 0 & 0\\
-California & Commercial & 333 & 0 & 0\\
-California & NWFSC HKLS & 9 & 0 & 0\\
-California & NWFSC WCGBTS & 18,373 & 285 & 4,941\\
-Oregon & Commercial & 4,647 & 0 & 30\\
-Oregon & NWFSC WCGBTS & 4,454 & 128 & 1,925\\
-Washington & Commercial & 9,635 & 0 & 6,928\\
-Washington & NWFSC WCGBTS & 11,802 & 178 & 2,972\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1311,38 +1259,29 @@ coastwide (regardless of stock area), with 598 read maturities. Maturity
 parameter estimates may be updated from those used in the previous
 coastwide assessment with updated modeling methods.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for petrale sole.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-117}Total number of available lengths, read ages, and unread age structures by data source and state for petrale sole.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for petrale sole. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 10 & 0 & 0 \\ 
+California & Commercial & 61,842 & 4,036 & 3,109 \\ 
+California & NWFSC HKLS & 8 & 0 & 0 \\ 
+California & NWFSC WCGBTS & 37,567 & 7,176 & 3,384 \\ 
+California & Recreational & 2,974 & 0 & 0 \\ 
+Oregon & Commercial & 48,307 & 12,525 & 38,836 \\ 
+Oregon & NWFSC WCGBTS & 33,022 & 4,860 & 3,910 \\ 
+Oregon & Recreational & 3,873 & 0 & 0 \\ 
+Washington & Commercial & 33,251 & 19,037 & 2,389 \\ 
+Washington & NWFSC WCGBTS & 16,233 & 2,676 & 2,272 \\ 
+Washington & Recreational & 126 & 76 & 22 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 10 & 0 & 0\\
-California & Commercial & 61,842 & 4,036 & 3,109\\
-California & NWFSC HKLS & 8 & 0 & 0\\
-California & NWFSC WCGBTS & 37,567 & 7,176 & 3,384\\
-California & Recreational & 2,974 & 0 & 0\\
-Oregon & Commercial & 48,307 & 12,525 & 38,836\\
-Oregon & NWFSC WCGBTS & 33,022 & 4,860 & 3,910\\
-Oregon & Recreational & 3,873 & 0 & 0\\
-Washington & Commercial & 33,251 & 19,037 & 2,389\\
-Washington & NWFSC WCGBTS & 16,233 & 2,676 & 2,272\\
-Washington & Recreational & 126 & 76 & 22\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1405,36 +1344,27 @@ samples have been collected coastwide (regardless of stock area), with
 125 read maturities. Maturity parameter estimates would be provided
 using available maturity data and accepted modeling methods.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for redbanded rockfish.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-136}Total number of available lengths, read ages, and unread age structures by data source and state for redbanded rockfish.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for redbanded rockfish. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & Commercial & 6,525 & 1 & 3,271 \\ 
+California & NWFSC WCGBTS & 1,042 & 0 & 1,010 \\ 
+California & Recreational & 1 & 0 & 0 \\ 
+Oregon & Commercial & 15,112 & 278 & 16,693 \\ 
+Oregon & NWFSC WCGBTS & 2,044 & 0 & 1,953 \\ 
+Oregon & Recreational & 64 & 0 & 0 \\ 
+Washington & Commercial & 19,556 & 0 & 10,170 \\ 
+Washington & NWFSC WCGBTS & 1,148 & 0 & 1,075 \\ 
+Washington & Recreational & 164 & 0 & 104 \\ 
 \bottomrule
-\endlastfoot
-California & Commercial & 6,525 & 1 & 3,271\\
-California & NWFSC WCGBTS & 1,042 & 0 & 1,010\\
-California & Recreational & 1 & 0 & 0\\
-Oregon & Commercial & 15,112 & 278 & 16,693\\
-Oregon & NWFSC WCGBTS & 2,044 & 0 & 1,953\\
-Oregon & Recreational & 64 & 0 & 0\\
-Washington & Commercial & 19,556 & 0 & 10,170\\
-Washington & NWFSC WCGBTS & 1,148 & 0 & 1,075\\
-Washington & Recreational & 164 & 0 & 104\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1498,35 +1428,26 @@ maturities. Maturity parameter estimates may be updated from those used
 in the previous assessment with additional maturity data and updated
 modeling methods.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for shortspine thornyhead.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-155}Total number of available lengths, read ages, and unread age structures by data source and state for shortspine thornyhead.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for shortspine thornyhead. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & Commercial & 63,059 & 0 & 131 \\ 
+California & NWFSC WCGBTS & 50,554 & 0 & 12,492 \\ 
+California & Recreational & 4 & 0 & 0 \\ 
+Oregon & Commercial & 38,536 & 0 & 42,380 \\ 
+Oregon & NWFSC WCGBTS & 44,504 & 0 & 7,554 \\ 
+Washington & Commercial & 23,244 & 0 & 2,765 \\ 
+Washington & NWFSC WCGBTS & 12,983 & 0 & 2,789 \\ 
+Washington & Recreational & 8 & 0 & 0 \\ 
 \bottomrule
-\endlastfoot
-California & Commercial & 63,059 & 0 & 131\\
-California & NWFSC WCGBTS & 50,554 & 0 & 12,492\\
-California & Recreational & 4 & 0 & 0\\
-Oregon & Commercial & 38,536 & 0 & 42,380\\
-Oregon & NWFSC WCGBTS & 44,504 & 0 & 7,554\\
-Washington & Commercial & 23,244 & 0 & 2,765\\
-Washington & NWFSC WCGBTS & 12,983 & 0 & 2,789\\
-Washington & Recreational & 8 & 0 & 0\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1594,53 +1515,51 @@ The Cooperative Ageing Program lab has aged 1,468 otoliths collected
 from commercial fisheries in California between 2019-2024 that were not
 available for the 2025 update assessment. The large majority of these
 new ages are from trawl gear, with 613 from the midwater trawl fishery
-and 825 from bottom trawl gear. These ages would be included in a future
-assessment in combination with the other ages collected from trawl
-fisheries in Oregon (2,106 from midwater and 274 from bottom trawl) and
-Washington (4,117 from midwater and 57 from bottom trawl) during these
-years. The California midwater trawl ages were collected from Eureka (n
-= 613) and the bottom trawl ages were collected from Eureka (n = 199),
-Fort Bragg (n = 475), and Moss Landing (n = 151). The California ages
-from midwater trawl gear range 5-28 years with a median (i.e., the
-middle value in an ordered dataset, separating the higher half from the
-lower half) age of 11. Ages collected from Oregon and Washington during
-the same years from midwater trawl gear range from 3-39 years with a
-median age of 8 in Oregon and from 1-37 years with a median age of 7 in
-Washington. These new ages from California are included in the summaries
-below.
+and 825 from bottom trawl gear. The California midwater trawl ages were
+collected from Eureka (n = 613) and the bottom trawl ages were collected
+from Eureka (n = 199), Fort Bragg (n = 475), and Moss Landing (n = 151).
+The California ages from midwater trawl gear range 5-28 years with a
+median (i.e., the middle value in an ordered dataset, separating the
+higher half from the lower half) age of 11. These new ages from
+California are included in the summaries below.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+These additional ages would be included in a future assessment in
+combination with the age data included in previous assessments that were
+collected from trawl fisheries in Oregon (2,106 from midwater and 274
+from bottom trawl) and Washington (4,117 from midwater and 57 from
+bottom trawl) over the same time period (2019-2024). Ages collected from
+Oregon and Washington during this time period from midwater trawl gear
+range from 3-39 years with a median age of 8 in Oregon and from 1-37
+years with a median age of 7 in Washington.
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-174}Total number of available lengths, read ages, and unread age structures by data source and state for widow rockfish. *The California Commercial Ages and Age Structures totals include the 1,468 otoliths from the Cooperating Ageing Program lab that have been aged since the 2025 update assessment.}\\
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\setlength{\LTpost}{0mm}
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for widow rockfish.}\tabularnewline
+
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for widow rockfish. *The California Commercial Ages and Age Structures totals include the 1,468 otoliths from the Cooperating Ageing Program lab that have been aged since the 2025 update assessment. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages\textsuperscript{\textit{1}} & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 17 & 0 & 0 \\ 
+California & Commercial & 12,039 & 3,352 & 3,535 \\ 
+California & NWFSC HKLS & 940 & 0 & 917 \\ 
+California & NWFSC WCGBTS & 2,149 & 1,363 & 108 \\ 
+California & Recreational & 6,142 & 0 & 0 \\ 
+Oregon & Commercial & 38,816 & 15,003 & 25,916 \\ 
+Oregon & NWFSC WCGBTS & 2,195 & 1,417 & 44 \\ 
+Oregon & Recreational & 7,308 & 0 & 0 \\ 
+Washington & Commercial & 21,715 & 14,288 & 1,930 \\ 
+Washington & NWFSC WCGBTS & 923 & 520 & 6 \\ 
+Washington & Recreational & 5,721 & 4,490 & 842 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 17 & 0 & 0\\
-California & Commercial & 12,039 & 3,352 & 3,535\\
-California & NWFSC HKLS & 940 & 0 & 917\\
-California & NWFSC WCGBTS & 2,149 & 1,363 & 108\\
-California & Recreational & 6,142 & 0 & 0\\
-Oregon & Commercial & 38,816 & 15,003 & 25,916\\
-Oregon & NWFSC WCGBTS & 2,195 & 1,417 & 44\\
-Oregon & Recreational & 7,308 & 0 & 0\\
-Washington & Commercial & 21,715 & 14,288 & 1,930\\
-Washington & NWFSC WCGBTS & 923 & 520 & 6\\
-Washington & Recreational & 5,721 & 4,490 & 842\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\begin{minipage}{\linewidth}
+\vspace{.05em}
+\textsuperscript{\textit{1}} Out of the 3,352 total ages from California Commercial collections, 1,884 ages were available and used in the 2025 stock assessment.\\
+\end{minipage}
+\endgroup
 
 \begin{figure}[H]
 
@@ -1734,33 +1653,24 @@ steepness) directly from life history parameters and an estimate of
 early life survey is in final review (Beyer et al., in review) which
 would be available for consideration for a 2027 stock assessment.
 
-\begingroup\fontsize{10}{12}\selectfont
-\begingroup\fontsize{10}{12}\selectfont
+\begingroup
+\fontsize{9.0pt}{11.0pt}\selectfont
+\begin{longtable}{r>{\raggedleft\arraybackslash}p{\dimexpr 105.00pt -2\tabcolsep-1.5\arrayrulewidth}rrr}
+\caption{Total number of available lengths, read ages, and unread age structures
+by data source and state for yellowtail rockfish south.}\tabularnewline
 
-\begin{longtable}[t]{>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{3.5cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
-\caption{\label{tab:unnamed-chunk-193}Total number of available lengths, read ages, and unread age structures by data source and state for yellowtail rockfish south.}\\
 \toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endfirsthead
-\caption[]{Total number of available lengths, read ages, and unread age structures by data source and state for yellowtail rockfish south. (\textit{continued)}}\\
-\toprule
-State & Source & Lengths & Ages & Age Structures\\
-\midrule
-\endhead
-
-\endfoot
+State & Source & Lengths & Ages & Age Structures \\ 
+\midrule\addlinespace[2.5pt]
+California & CCFRP & 4,485 & 0 & 445 \\ 
+California & Commercial & 1,624 & 62 & 1,688 \\ 
+California & GCDC & 1,003 & 0 & 1,003 \\ 
+California & NWFSC HKLS & 2,011 & 124 & 1,666 \\ 
+California & NWFSC WCGBTS & 1,158 & 534 & 77 \\ 
+California & Recreational & 56,118 & 0 & 0 \\ 
 \bottomrule
-\endlastfoot
-California & CCFRP & 4,485 & 0 & 445\\
-California & Commercial & 1,624 & 62 & 1,688\\
-California & GCDC & 1,003 & 0 & 1,003\\
-California & NWFSC HKLS & 2,011 & 124 & 1,666\\
-California & NWFSC WCGBTS & 1,158 & 534 & 77\\
-California & Recreational & 56,118 & 0 & 0\\*
 \end{longtable}
-\endgroup{}
-\endgroup{}
+\endgroup
 
 \begin{figure}[H]
 
