@@ -12,13 +12,20 @@ For select species identified at the March 2026 Council meeting, additional info
 
 ### NWFSC West Coat Groundfish Bottom Trawl Survey (WCGBTS)
 
-The NWFSC WCGBTS is a fishery-dependent survey based on a random-grid design, covering coastal waters (55-1,280 m) from the US - Canada border south to the US - Mexico border twice each year from May to October. The survey uses chartered commercial fishing vessels and an Aberdeen-style trawl net. 
+The WCGBTS is based on a random-grid design that spans coastal waters from 55 to 1,280 m
+deep. This survey generally uses four industry-chartered vessels per year,
+each assigned to an approximately equal number of randomly selected grid cells that are divided
+into two ‘passes’ of the coast. Two vessels fish from north to south during each pass between
+late May to early October (i.e., except for 2019, which had one vessel per pass). 
 
 Biological data samples collected by the NWFSC WCGBTS between 2003-`r endyr`, average number of tows that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data.
 
 ### NWFSC Hook and Line Survey (HKLS)
 
-The NWFSC HKLS is a fishery-dependent survey conducted annually in the Southern California Bight using rod and reel gear at fixed stations to target shelf rockfish in the genus *Sebastes*.
+The NWFSC HKLS is a fishery-dependent survey conducted annually in the Southern California Bight using rod and reel gear at fixed stations to target shelf rockfish in the genus *Sebastes*. Key species of rockfish targeted by the
+NWFSC Hook and Line survey are bocaccio (*S. paucispinis*), cowcod (*S. levis*), greenspotted
+(*S. chlorostictus*), and vermilion and sunset (*S. miniatus and S. crocotulus*) rockfishes, although
+a wide range of rockfish species have been observed by this survey. 
 
 Biological data samples collected by the NWFSC HKLS from 2004-`r endyr`, the average number of sets that observe each species by year, relative indices of abundance for species with sufficient observations, and visualizations of length composition data.
 
@@ -46,13 +53,13 @@ Maturity samples for a wide range of West Coast groundfish species have been col
 
 ### Commcerical 
 
-Add info
+Biological samples are collected by state agencies at ports along the U.S. West Coast that are then transmitted to Pacific Fisheries Information Network (PacFIN). The number of lengths and read ages by year and species were pulled from PacFIN.  The number of unread otoliths collected by species and year were provided directly by state agencies.
 
 Biological data samples collected from commercial fisheries between 2000-`r endyr` in terms of length, age, and unread age structure samples by year and species from California, Oregon, and Washington.
 
 ### Recreational
 
-Add info
+Biological samples are collected by state agencies at ports along the U.S. West Coast that are then transmitted to Recreational Fisheries Information Network (RecFIN). The number of lengths and read ages by year and species were pulled from RecFIN.  The number of unread otoliths by year and species was available in RecFIN for Oregon. The number of unread otoliths collected by species and year were provided directly by California Department of Fish and Wildlife (CDFW) and Washington Department of Fish and Wildlife (WDFW).
 
 Biological data samples collected from recreational fisheries in terms of length (California 2004-`r endyr`, Oregon and Washington 2000-`r endyr`), ages, and unread age structures samples (California 2022-`r endyr` ad-hoc collections, Oregon 2000-2024, and Washington 2000-`r endyr`) by year and species from California, Oregon, and Washington.
 
@@ -61,24 +68,25 @@ Biological data samples collected from recreational fisheries in terms of length
 California Department of Fish and Wildlife (CDFW) provided age structure sample numbers
 collected via various methods from recreational fisheries. These samples were
 collected outside the standard sampling protocol for California Recreational Fisheries
-Survey (CRFS) sampling program. To date, there are no age or age structure sample data in RecFIN that have been collected from California recreational fisheries. Recent age structure collections from 2017-2025 were provided directly by CDFW. The recreational age structure collections provided by CDFW were collected by various methods: 1) from angler surrendered fish that were kept in excess of recreational bag limits or were prohibited to be retained, 2) cowcod collections under CDFW’s Exempted Fishing Permit encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled
-species from private/rental and party/charter recreational vessels. Any future assessment, will need to investigate the California recreational age structures for representativeness to determine whether they could be linked to a recreational fleet within a model.
+Survey (CRFS) sampling program. To date, there are no age or age structure sample data in RecFIN that have been collected from California recreational fisheries. Recent age structure collections from 2017-2025 were provided directly by CDFW. The recreational age structure collections provided by CDFW were collected by various methods: 1) from angler surrendered fish that were kept in excess of recreational bag limits or were prohibited to be retained, 2) cowcod collections under CDFW’s Exempted Fishing Permit encountered incidentally by Commercial Passenger Fishing Vessels, and 3) randomly sampled species from private/rental and party/charter recreational vessels. Any future assessment, will need to investigate the California recreational age structures for representativeness to determine whether they could be linked to a recreational fleet within a model.
 
 ### California Collaborative Fisheries Research Program Survey (CCFRP)
 
-Add info
+The CCFRP, is a fishery-independent hook-and-line survey designed to monitor nearshore fish
+populations at a series of sampling locations both inside and adjacent to MPAs. The CCFRP survey began in 2007 along the central coast of California and was designed in collaboration with academics, National Marine Fisheries Service, and CDFW scientists, and fishermen. In
+2017, the survey expanded beyond the four MPAs in central California (Año Nuevo, Point Lobos, Point Buchon, and Piedras Blancas) to include the entire California coast.  Prior to 2017, all fish were measured for length and released or descended to depth; since then, some were sampled for otoliths and fin clips.
 
 Biological data samples collected  by the CCFRP Survey in terms of length samples (2007-2022) and unread age structure samples (2017-`r endyr`) for select species sampled in California.
 
 ### Groundfish Cooperative Data Collection (GCDC)
 
-Add info
+The GCDC program is data collection program run by the Southwest Fisheries Science Center where biological samples are collected by participating Commercial Passenger Fishing Vessels (CPFV) in California as part of the their standard operation following random sampling protocols.  Data collected by the GCDC program has been incorporated in recent assessments of California nearshore stocks (e.g., copper rockfish, quillback rockfish). 
 
 Biological data samples collected by the GCDC from 2023-`r endyr` for yellowtail rockfish south of 40$^\circ$ 10' N. latitude
 
 ### Catches
 
-Add info
+Annual catch data was included for select species using data from the Groundfish Expanded Multiyear Mortality (GEMM) report.  Total catches were grouped by by commercial and recreational fisheries and gear type (commercial trawl-gear, commercial fixed-gear, and recreational). Catch data from the GEMM is available for 2002-2024.
 
 ## Additional data not included in this report
 
