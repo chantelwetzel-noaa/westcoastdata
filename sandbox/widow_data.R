@@ -1,7 +1,10 @@
 library(pacfintools)
 library(ggplot2)
 load(
-  "C:/Users/chantel.wetzel/Documents/github\prioritization/westcoastdata/data-raw/2026/PacFIN.PTRL--LCOD--YTRK--RDBD--DSRK--WDOW--BCAC--BLCK--SSPN--LSPN.bds.14.Apr.2026.RData"
+  "C:/Users/chantel.wetzel/Documents/github/prioritization/westcoastdata/data-raw/2026/PacFIN.PTRL--LCOD--YTRK--RDBD--DSRK--WDOW--BCAC--BLCK--SSPN--LSPN.bds.14.Apr.2026.RData"
+)
+load(
+  "C:/Assessments/pacfin/westcoastdata/2026-04-30/PacFIN.PTRL--LCOD--YTRK--RDBD--DSRK--WDOW--BCAC--BLCK--SSPN--LSPN.bds.30.Apr.2026.RData"
 )
 
 Pdata <- cleanPacFIN(
@@ -25,6 +28,21 @@ widow = Pdata |>
       .default = "trawl"
     )
   )
+
+widow_all_ca = Pdata |>
+  dplyr::filter(
+    PACFIN_SPECIES_COMMON_NAME == "WIDOW ROCKFISH",
+    AGENCY_CODE == "C",
+    year >= 2019,
+    !is.na(Age)
+  )
+widow_all_ca |>
+  dplyr::group_by(geargroup) |>
+  dplyr::summarise(
+    n = sum(!is.na(Age))
+  )
+
+
 # From 2019+ there are 29 ages from HKL gear, 1 age from TLS gear, and 1438 ages from TWL gear.
 # CA: Fort Bragg (478), Eureka (812), and Moss Landing (151)
 # OR: Astoria (1481), Coos Bay (43), Brookings (7), and Newport (849)
