@@ -216,6 +216,13 @@ if (species_name != "widow rockfish") {
     gt::cols_width(
        `Source` ~ px(140)
     ) |>
+    gt::tab_style(
+      style = list(gt::cell_text(style = "italic")),
+      locations = gt::cells_body(
+        columns = Ages,
+        rows = Ages == 3352
+      )
+    ) |>
     gt::tab_footnote(
       footnote = "Out of the 3,352 total ages from California Commercial collections, 1,884 ages were available and used in the 2025 stock assessment.",
       locations = gt::cells_column_labels(columns = Ages)
