@@ -331,7 +331,7 @@ list(
   tar_target(
     state_comparison_plots,
     plot_data_by_year(
-      data = combined_data
+      data = combined_data |> dplyr::filter(Year < 2026)
     )
   ) #,
   # WCGBTS indices
