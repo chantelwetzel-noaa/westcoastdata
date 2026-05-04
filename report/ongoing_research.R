@@ -10,8 +10,8 @@ research_list <- function(species_name) {
       visual-acoustic survey for semipelagic rockfish completed in 2025. During the 2025 survey, 
       no hook and line sampling occurred due to cost constraints. Data analysis is on going 
       and not expected to be finish by winter of 2026 due to extremely large schools of young-of-the-year 
-      rockfish observed on the camera and acoustics. ODFW is finishing a manuscript with  
-      Dr. Dezhang Chu (NOAA-retired) developing target strength models for these species which can be considered 
+      rockfish observed on the camera and acoustics. ODFW is finishing a manuscript with Dr. Dezhang Chu (NOAA-retired)
+      developing target strength models for these species which can be considered 
       when using these data. Comparison studies of the previously used Biosonic echosounder 
       and the Scientific and Statistical Committee recommended Simrad echosounder are ongoing. 
       Currently, ODFW staff anticipate completing data analysis mid-2027."
