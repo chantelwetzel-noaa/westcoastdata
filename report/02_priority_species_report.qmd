@@ -109,7 +109,9 @@ params:
   }
   if(species_name ==  "yellowtail rockfish south") {
     age_validation_text <- glue::glue("The Cooperative Ageing Program lab has aged 1,271 otoliths collected by the NWFSC HKLS that
-      are not represented in the count of aged fish shown.")
+      are not represented in the count of aged fish shown. Additionally, there are
+      historical otolith collections at the SWFSC that may be aged depending upon
+      required time to catelog these collections, their quantity, the sources, and ageing capacity.")
   }
   if(species_name ==  "redbanded rockfish") {
     age_validation_text <- glue::glue("The Cooperative Ageing Program lab has aged an additional 703 otoliths collected by the NWFSC WCGBTS that
