@@ -34,6 +34,8 @@ clean_recfin_ages <- function(species, data, year) {
       Lengthed = 0,
       Aged = dplyr::case_when(!is.na(USE_THIS_AGE) ~ 1, .default = 0),
       Otolith = dplyr::case_when(Aged == 0 ~ 1, .default = 0),
+      # Set all WDFW otoliths to 0 since these were provided separately
+      Otolith = dplyr::case_when(State == "Washington" ~ 0, .default = Otolith),
       Age = dplyr::case_when(
         !is.na(USE_THIS_AGE) ~ USE_THIS_AGE,
         .default = NA
