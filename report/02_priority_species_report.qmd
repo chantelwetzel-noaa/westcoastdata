@@ -118,7 +118,7 @@ params:
       are not represented in the count of aged fish shown.")
   }
   if(species_name ==  "lingcod north") {
-    age_validation_text <- glue::glue("The Oregon Department of Fish and Wildlife has aged an additional 338 samples from commercial fisheries in 2024 that
+    age_validation_text <- glue::glue("The ODFW aging lab has aged an additional 338 samples from commercial fisheries in 2024 that
       are not represented in the count of aged fish shown.")
   }
   # Get maturity
