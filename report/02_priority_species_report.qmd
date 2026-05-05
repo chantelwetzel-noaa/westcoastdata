@@ -217,7 +217,7 @@ if (species_name != "widow rockfish") {
        `Source` ~ px(140)
     ) |>
     gt::tab_style(
-      style = list(gt::cell_text(style = "italic")),
+      style = list(gt::cell_text(style = "italic", font = "slab-serif")),
       locations = gt::cells_body(
         columns = Ages,
         rows = Ages == 3352
