@@ -64,30 +64,31 @@ clean_pacfin_comps <- function(
   # F = fin ray
   # SP = spine
 
+  # Comment out since this information no longer gets us correct counts
   # AGE_STRUCTURE_DESC1
-  find <- c(
-    which(
-      data$AGE_STRUCTURE_CODE1 %in%
-        c("F", "O", "SP") &
-        is.na(data$Age)
-    ),
-    which(
-      !data$AGE_STRUCTURE_CODE1 %in% c("F", "O", "SP") &
-        data$AGE_STRUCTURE_CODE2 %in% c("F", "O", "SP") &
-        is.na(data$Age)
-    ),
-    which(
-      !data$AGE_STRUCTURE_CODE1 %in% c("F", "O", "SP") &
-        !data$AGE_STRUCTURE_CODE2 %in% c("F", "O", "SP") &
-        data$AGE_STRUCTURE_CODE3 %in% c("F", "O", "SP") &
-        is.na(data$Age)
-    )
-  )
-  data$Otolith[find] <- 1
+  # find <- c(
+  #   which(
+  #     data$AGE_STRUCTURE_CODE1 %in%
+  #       c("F", "O", "SP") &
+  #       is.na(data$Age)
+  #   ),
+  #   which(
+  #     !data$AGE_STRUCTURE_CODE1 %in% c("F", "O", "SP") &
+  #       data$AGE_STRUCTURE_CODE2 %in% c("F", "O", "SP") &
+  #       is.na(data$Age)
+  #   ),
+  #   which(
+  #     !data$AGE_STRUCTURE_CODE1 %in% c("F", "O", "SP") &
+  #       !data$AGE_STRUCTURE_CODE2 %in% c("F", "O", "SP") &
+  #       data$AGE_STRUCTURE_CODE3 %in% c("F", "O", "SP") &
+  #       is.na(data$Age)
+  #   )
+  # )
+  # data$Otolith[find] <- 1
 
   # Since both California and Washington do not push otolith information to
   # PacFIN for unaged fish - set these values to 0
-  data[which(data$State != "Oregon" & data$Otolith != 0), "Otolith"] <- 0
+  # data[which(data$State != "Oregon" & data$Otolith != 0), "Otolith"] <- 0
 
   # Remove select data areas and identify yellowtail north and south
   remove <- which(
