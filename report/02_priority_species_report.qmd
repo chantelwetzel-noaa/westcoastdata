@@ -268,7 +268,7 @@ if (species_name == "Pacific spiny dogfish") {
       )
     ) |>
     gt::tab_footnote(
-      footnote = "WDFW is working on a new methodology to estimate age from spines and has temporarily removed all historical ages from PacFIN.",
+      footnote = "WDFW is working on a new methodology to estimate age from spines and has temporarily removed all historical ages from PacFIN. There are a total of 6,993 age reads that may be available.",
       locations = gt::cells_column_labels(columns = Ages)
     )|>
     gt::as_latex()
