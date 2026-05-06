@@ -167,7 +167,7 @@ table_caption <- glue::glue("Total number of available lengths, read ages, and u
 #| tbl-cap: !expr table_caption
 #| tbl-pos: H
 
-if (species_name != "widow rockfish") {
+if (!species_name %in% c("widow rockfish", "Pacific spiny dogfish")) {
   sub_data |>
     dplyr::group_by(State, Source) |>
     dplyr::summarise(
@@ -194,7 +194,8 @@ if (species_name != "widow rockfish") {
        `Source` ~ px(140)
     ) |>
     gt::as_latex()
-} else {
+} 
+if (species_name == "widow rockfish") {
   sub_data |>
     dplyr::group_by(State, Source) |>
     dplyr::summarise(
@@ -233,7 +234,45 @@ if (species_name != "widow rockfish") {
     )|>
     gt::as_latex()
 }
-
+if (species_name == "Pacific spiny dogfish") {
+  sub_data |>
+    dplyr::group_by(State, Source) |>
+    dplyr::summarise(
+      Lengths = sum(total_lengths),
+      Ages = sum(total_ages),
+      `Age Structures` = sum(total_otoliths)
+    ) |>
+    dplyr::ungroup() |>
+    gt::gt() |>
+    gt::fmt_number(
+      columns = 3:5,
+      decimals = 0
+    ) |>
+    gt::tab_options(
+      table.font.size = 12,
+      footnotes.font.size = 12,
+      # if want to not have tables the width of the page include the below option:
+      latex.use_longtable = TRUE 
+    ) |>
+    gt::cols_align(
+      align = "right"
+    ) |>
+    gt::cols_width(
+       `Source` ~ px(140)
+    ) |>
+    gt::tab_style(
+      style = list(gt::cell_text(style = "italic", font = "slab-serif")),
+      locations = gt::cells_body(
+        columns = Ages,
+        rows = State == "Washington" & Source == "Commercial"
+      )
+    ) |>
+    gt::tab_footnote(
+      footnote = "WDFW is working on a new methodology to estimate age from spines and has temporarily removed all historical ages from PacFIN.",
+      locations = gt::cells_column_labels(columns = Ages)
+    )|>
+    gt::as_latex()
+}
 
 
 ```
